@@ -38,7 +38,7 @@ If applicable, add screenshots to help explain your problem. Animated GIFs can b
 #### Implementation Details
 
 * Code snippets of how you have initialised the SDK
-* SDK type and version, e.g. Support SDK 2.3.1
+* SDK type and version, e.g. ZendeskSDKMessaging 1.0.1
 * The iOS version, and whether it happens on a device, a simulator, or both.
 * The Xcode version
 * Is the SDK view controller added as a child view controller in your application?
