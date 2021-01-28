@@ -25,6 +25,6 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/zendesk/sdk_messaging_ios.git", :tag => s.version }
   s.vendored_frameworks = 'ZendeskSDKMessaging.xcframework'
   s.preserve_paths = 'ZendeskSDKMessaging.xcframework', 'ZendeskSDKMessaging.dSYMs/*.dSYM'
-  s.dependency 'ZendeskSDKConversationKit', '~> .0.4.0'
-  s.dependency 'ZendeskSDKUIComponents', '~> .0.4.1'
+  s.dependency 'ZendeskSDKConversationKit', '~> 0.4.0'
+  s.dependency 'ZendeskSDKUIComponents', '~> 0.4.1'
 end
