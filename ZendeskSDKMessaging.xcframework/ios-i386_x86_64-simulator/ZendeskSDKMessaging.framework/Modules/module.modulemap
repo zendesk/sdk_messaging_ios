@@ -1,0 +1,11 @@
+framework module ZendeskSDKMessaging {
+  umbrella header "ZendeskSDKMessaging.h"
+
+  export *
+  module * { export * }
+}
+
+module ZendeskSDKMessaging.Swift {
+    header "ZendeskSDKMessaging-Swift.h"
+    requires objc
+}

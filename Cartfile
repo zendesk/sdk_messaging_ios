@@ -1,0 +1,2 @@
+github "zendesk/sdk_conversation_kit_ios" ~> 0.4.0
+github "zendesk/sdk_ui_components_ios" ~> 0.4.1
