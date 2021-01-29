@@ -2,11 +2,11 @@
 
 # ZendeskSDKMessaging for iOS
 
-The ZendeskSDKMessaging is an SDK that provides customer support through a Chat interface powered by Zendessk Sunshine Conversations.
+The ZendeskSDKMessaging is an SDK that provides customer support through a Messaging interface powered by Zendesk Sunshine Conversations.
 
 ## Documentation
 
-You can find our documentation on https://developer.zendesk.com/embeddables.
+You can find our documentation on https://developer.zendesk.com/embeddables/docs/zendesk-sdk-for-ios/getting_started.
 
 ## Feature requests and issues
 
