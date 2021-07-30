@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Laden";
+"zma_action_label_cancel" = "Annuleren";
+"zma_actions_attachments_label" = "Een bijlage sturen";
+"zma_alert_message_label_camera" = "Camera";
+"zma_alert_message_label_document" = "Document";
+"zma_alert_message_label_photoLibrary" = "Fotobibliotheek";
 "zma_conversation_header_logo" = "Merklogo";
 "zma_conversation_message_label_cant_be_displayed" = "Bericht kan niet worden weergegeven";
 "zma_conversation_message_label_image_loading_failed" = "Kan afbeelding niet laden";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Voer %@ tekens of minder in";
 "zma_form_field_min_character_error" = "Voer %@ tekens of meer in";
 "zma_form_field_required_label" = "Dit veld is vereist";
-"zma_form_message_input_placeholder" = "Kies een reactie";
 "zma_form_send_button" = "Verzenden";
 "zma_form_submission_error" = "Kan details niet verzenden. Probeer het opnieuw.";
 "zma_label_add_attachments" = "Bijlagen toevoegen";

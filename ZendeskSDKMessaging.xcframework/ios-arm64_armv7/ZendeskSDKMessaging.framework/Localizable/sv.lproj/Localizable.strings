@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Läser in";
+"zma_action_label_cancel" = "Avbryt";
+"zma_actions_attachments_label" = "Skicka en bilaga";
+"zma_alert_message_label_camera" = "Kamera";
+"zma_alert_message_label_document" = "Dokument";
+"zma_alert_message_label_photoLibrary" = "Bildbibliotek";
 "zma_conversation_header_logo" = "Märkets logotyp";
 "zma_conversation_message_label_cant_be_displayed" = "Det går inte att visa meddelandet";
 "zma_conversation_message_label_image_loading_failed" = "Det går inte att läsa in bilden";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Ange högst %@ tecken";
 "zma_form_field_min_character_error" = "Ange minst %@ tecken";
 "zma_form_field_required_label" = "Detta fält är obligatoriskt";
-"zma_form_message_input_placeholder" = "Välj ett svar";
 "zma_form_send_button" = "Skicka";
 "zma_form_submission_error" = "Det gick inte att skicka uppgifterna. Försök igen.";
 "zma_label_add_attachments" = "Lägg till bilagor";

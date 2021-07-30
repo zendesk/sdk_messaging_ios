@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Ładowanie";
+"zma_action_label_cancel" = "Anuluj";
+"zma_actions_attachments_label" = "Wyślij załącznik";
+"zma_alert_message_label_camera" = "Aparat";
+"zma_alert_message_label_document" = "Dokument";
+"zma_alert_message_label_photoLibrary" = "Biblioteka zdjęć";
 "zma_conversation_header_logo" = "Logo marki";
 "zma_conversation_message_label_cant_be_displayed" = "Nie można wyświetlić wiadomości";
 "zma_conversation_message_label_image_loading_failed" = "Nie można załadować obrazu";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Maksymalna liczba znaków: %@";
 "zma_form_field_min_character_error" = "Minimalna liczba znaków: %@";
 "zma_form_field_required_label" = "To pole jest wymagane";
-"zma_form_message_input_placeholder" = "Wybierz odpowiedź";
 "zma_form_send_button" = "Wyślij";
 "zma_form_submission_error" = "Nie udało się wysłać danych. Spróbuj ponownie.";
 "zma_label_add_attachments" = "Dodaj załączniki";

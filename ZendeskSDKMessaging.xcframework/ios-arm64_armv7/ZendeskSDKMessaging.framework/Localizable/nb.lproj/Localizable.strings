@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Laster inn";
+"zma_action_label_cancel" = "Avbryt";
+"zma_actions_attachments_label" = "Send et vedlegg";
+"zma_alert_message_label_camera" = "Kamera";
+"zma_alert_message_label_document" = "Dokument";
+"zma_alert_message_label_photoLibrary" = "Bildebibliotek";
 "zma_conversation_header_logo" = "Merkelogo";
 "zma_conversation_message_label_cant_be_displayed" = "Meldingen kan ikke vises";
 "zma_conversation_message_label_image_loading_failed" = "Kan ikke laste inn bilde";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Legg inn %@ eller færre tegn";
 "zma_form_field_min_character_error" = "Legg inn %@ eller flere tegn";
 "zma_form_field_required_label" = "Dette feltet er obligatorisk";
-"zma_form_message_input_placeholder" = "Velg svar";
 "zma_form_send_button" = "Send";
 "zma_form_submission_error" = "Informasjon kunne ikke sendes. Prøv på nytt.";
 "zma_label_add_attachments" = "Legg til vedlegg";

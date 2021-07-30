@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "正在加载";
+"zma_action_label_cancel" = "取消";
+"zma_actions_attachments_label" = "发送附件";
+"zma_alert_message_label_camera" = "相机";
+"zma_alert_message_label_document" = "文档";
+"zma_alert_message_label_photoLibrary" = "照片库";
 "zma_conversation_header_logo" = "品牌徽标";
 "zma_conversation_message_label_cant_be_displayed" = "无法显示消息";
 "zma_conversation_message_label_image_loading_failed" = "无法加载图像";
@@ -12,9 +17,8 @@
 "zma_form_field_max_character_error" = "输入 %@ 个或更少的字符";
 "zma_form_field_min_character_error" = "输入 %@ 个或更多的字符";
 "zma_form_field_required_label" = "此字段为必填";
-"zma_form_message_input_placeholder" = "选择回复";
 "zma_form_send_button" = "发送";
 "zma_form_submission_error" = "无法发送详情。再试一次。";
 "zma_label_add_attachments" = "添加附件";
 "zma_label_send_message" = "发送消息";
-"zma_message_input_placeholder" = "键入消息";
+"zma_message_input_placeholder" = "输入消息";

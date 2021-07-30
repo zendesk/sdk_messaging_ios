@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKMessaging
 import CommonCrypto
 import CoreImage
@@ -29,11 +29,11 @@ public enum MessagingError : Foundation.LocalizedError, Foundation.CustomNSError
   public var errorUserInfo: [Swift.String : Any] {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: ZendeskSDKMessaging.MessagingError, b: ZendeskSDKMessaging.MessagingError) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: ZendeskSDKMessaging.MessagingError, b: ZendeskSDKMessaging.MessagingError) -> Swift.Bool
 }
 extension UIImageView {
   @objc dynamic open func nuke_display(image: UIKit.UIImage?)
@@ -42,8 +42,8 @@ extension UIImageView {
   case messagingShouldDisplay
   case messagingShouldNotDisplay
   case notFromMessaging
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
@@ -52,21 +52,21 @@ extension UIImageView {
   @objc public static func updatePushNotificationToken(_ token: Foundation.Data)
   @objc public static func shouldBeDisplayed(_ userInfo: [Swift.AnyHashable : Any]) -> ZendeskSDKMessaging.PushResponsibility
   @objc public static func handleTap(_ userInfo: [Swift.AnyHashable : Any], completion: ((UIKit.UIViewController?) -> Swift.Void)?)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
 }
 @objc(ZDKURLSource) public enum URLSource : Swift.Int, Swift.RawRepresentable {
   case text
   case carousel
   case file
   case image
-  public typealias RawValue = Swift.Int
   public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
-@objc(ZDKMessagingDelegate) public protocol MessagingDelegate : AnyObject {
+@objc(ZDKMessagingDelegate) public protocol MessagingDelegate {
   @objc func messaging(_ messaging: ZendeskSDKMessaging.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDKMessaging.URLSource) -> Swift.Bool
 }
 extension MessagingDelegate {

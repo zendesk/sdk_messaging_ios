@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "로드 중";
+"zma_action_label_cancel" = "취소";
+"zma_actions_attachments_label" = "첨부 파일 보내기";
+"zma_alert_message_label_camera" = "카메라";
+"zma_alert_message_label_document" = "문서";
+"zma_alert_message_label_photoLibrary" = "사진 라이브러리";
 "zma_conversation_header_logo" = "브랜드 로고";
 "zma_conversation_message_label_cant_be_displayed" = "메시지를 표시할 수 없습니다.";
 "zma_conversation_message_label_image_loading_failed" = "이미지를 로드할 수 없습니다.";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "%@자 이하로 입력하세요.";
 "zma_form_field_min_character_error" = "%@자 이상으로 입력하세요.";
 "zma_form_field_required_label" = "이 필드는 반드시 입력해야 합니다.";
-"zma_form_message_input_placeholder" = "답장 선택";
 "zma_form_send_button" = "보내기";
 "zma_form_submission_error" = "세부 정보를 보낼 수 없습니다. 다시 시도하세요.";
 "zma_label_add_attachments" = "첨부 파일 추가";

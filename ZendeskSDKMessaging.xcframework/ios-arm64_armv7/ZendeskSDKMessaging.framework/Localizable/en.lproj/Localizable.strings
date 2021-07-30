@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Loading";
+"zma_action_label_cancel" = "Cancel";
+"zma_actions_attachments_label" = "Send an attachment";
+"zma_alert_message_label_camera" = "Camera";
+"zma_alert_message_label_document" = "Document";
+"zma_alert_message_label_photoLibrary" = "Photo library";
 "zma_conversation_header_logo" = "Brand logo";
 "zma_conversation_message_label_cant_be_displayed" = "Message can't be displayed";
 "zma_conversation_message_label_image_loading_failed" = "Unable to load image";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Enter %@ characters or less";
 "zma_form_field_min_character_error" = "Enter %@ characters or more";
 "zma_form_field_required_label" = "This field is required";
-"zma_form_message_input_placeholder" = "Choose a reply";
 "zma_form_send_button" = "Send";
 "zma_form_submission_error" = "Details couldn’t be sent. Try again.";
 "zma_label_add_attachments" = "Add attachments";

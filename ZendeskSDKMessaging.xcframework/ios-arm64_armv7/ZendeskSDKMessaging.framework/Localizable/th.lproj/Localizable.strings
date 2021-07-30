@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "กำลังโหลด";
+"zma_action_label_cancel" = "ยกเลิก";
+"zma_actions_attachments_label" = "ส่งไฟล์แนบ";
+"zma_alert_message_label_camera" = "กล้อง";
+"zma_alert_message_label_document" = "เอกสาร";
+"zma_alert_message_label_photoLibrary" = "คลังภาพ";
 "zma_conversation_header_logo" = "โลโก้แบรนด์";
 "zma_conversation_message_label_cant_be_displayed" = "ไม่สามารถแสดงข้อความได้";
 "zma_conversation_message_label_image_loading_failed" = "ไม่สามารถโหลดภาพได้";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "ป้อนตัวอักษรไม่เกิน %@ ตัว";
 "zma_form_field_min_character_error" = "ป้อนตัวอักษรอย่างน้อย %@ ตัว";
 "zma_form_field_required_label" = "จำเป็นต้องระบุฟิลด์นี้";
-"zma_form_message_input_placeholder" = "เลือกข้อความตอบกลับ";
 "zma_form_send_button" = "ส่ง";
 "zma_form_submission_error" = "ไม่สามารถส่งรายละเอียดได้ ลองอีกครั้ง";
 "zma_label_add_attachments" = "เพิ่มไฟล์แนบ";

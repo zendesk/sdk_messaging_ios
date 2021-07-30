@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "लोड हो रहा है";
+"zma_action_label_cancel" = "रद्द करें";
+"zma_actions_attachments_label" = "एक अटैचमेंट भेजें";
+"zma_alert_message_label_camera" = "कैमरा";
+"zma_alert_message_label_document" = "दस्तावेज़";
+"zma_alert_message_label_photoLibrary" = "फ़ोटो लाइब्रेरी";
 "zma_conversation_header_logo" = "ब्रांड लोगो";
 "zma_conversation_message_label_cant_be_displayed" = "संदेश दिखाया नहीं जा सकता";
 "zma_conversation_message_label_image_loading_failed" = "इमेज लोड नहीं की जा सकती";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "%@ या उससे कम वर्ण दर्ज करें";
 "zma_form_field_min_character_error" = "%@ या उससे ज़्यादा वर्ण दर्ज करें";
 "zma_form_field_required_label" = "यह क्षेत्र आवश्यक है";
-"zma_form_message_input_placeholder" = "कोई जवाब चुनें";
 "zma_form_send_button" = "भेजें";
 "zma_form_submission_error" = "विवरण नहीं भेजा जा सका. फिर से कोशिश करें.";
 "zma_label_add_attachments" = "अनुलग्नक जोड़ें";

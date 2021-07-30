@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Se încarcă";
+"zma_action_label_cancel" = "Anulare";
+"zma_actions_attachments_label" = "Trimiteți un fișier atașat";
+"zma_alert_message_label_camera" = "Cameră";
+"zma_alert_message_label_document" = "Document";
+"zma_alert_message_label_photoLibrary" = "Bibliotecă fotografii";
 "zma_conversation_header_logo" = "Sigla mărcii";
 "zma_conversation_message_label_cant_be_displayed" = "Mesajul nu poate fi afișat";
 "zma_conversation_message_label_image_loading_failed" = "Imposibil de încărcat imaginea";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Introduceți %@ caractere sau mai puțin";
 "zma_form_field_min_character_error" = "Introduceți %@ caractere sau mai mult";
 "zma_form_field_required_label" = "Acest câmp este obligatoriu";
-"zma_form_message_input_placeholder" = "Alegeți un răspuns";
 "zma_form_send_button" = "Trimitere";
 "zma_form_submission_error" = "Detaliile nu au putut fi trimise. Încercați din nou.";
 "zma_label_add_attachments" = "Adăugare fișiere atașate";

@@ -1,0 +1,87 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKHTTPClient
+import Foundation
+import Swift
+@_exported import ZendeskSDKHTTPClient
+import ZendeskSDKLogger
+public enum HTTPHeader : Swift.Hashable {
+  case userAgent(Swift.String)
+  case contentLength(Swift.String)
+  case contentType(Swift.String)
+  case accept(Swift.String)
+  case acceptEncoding(Swift.String)
+  case authorization(Swift.String)
+  case other(field: Swift.String, value: Swift.String)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: ZendeskSDKHTTPClient.HTTPHeader, b: ZendeskSDKHTTPClient.HTTPHeader) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum HTTPError : Foundation.LocalizedError {
+  case noResponse
+  case failedToDecode(data: Foundation.Data?, response: Foundation.HTTPURLResponse, error: Swift.Error)
+  case unsuccessfulStatusCodeForRequest(statusCode: Swift.Int, data: Foundation.Data?, response: Foundation.HTTPURLResponse)
+  case requestFailed(error: Swift.Error)
+  public var errorDescription: Swift.String? {
+    get
+  }
+}
+extension HTTPError : Swift.Equatable {
+  public static func == (lhs: ZendeskSDKHTTPClient.HTTPError, rhs: ZendeskSDKHTTPClient.HTTPError) -> Swift.Bool
+}
+public protocol HTTPClient {
+  var baseURL: Foundation.URL { get }
+  var defaultHeaders: [ZendeskSDKHTTPClient.HTTPHeader] { get }
+  var urlSession: Foundation.URLSession { get }
+  @discardableResult
+  func performRequest<D, E>(withBody body: E, method: ZendeskSDKHTTPClient.HTTPMethodWithBody, responseType: D.Type, path: Swift.String, query: [Swift.String : Swift.String]?, headers: [ZendeskSDKHTTPClient.HTTPHeader]?, completionHandler: @escaping (Swift.Result<ZendeskSDKHTTPClient.HTTPClientResponse<D>, ZendeskSDKHTTPClient.HTTPError>) -> Swift.Void) -> Foundation.URLSessionDataTask where D : Swift.Decodable, E : Swift.Encodable
+  @discardableResult
+  func performRequest<D>(method: ZendeskSDKHTTPClient.HTTPMethodWithoutBody, responseType: D.Type, path: Swift.String, query: [Swift.String : Swift.String]?, headers: [ZendeskSDKHTTPClient.HTTPHeader]?, completionHandler: @escaping (Swift.Result<ZendeskSDKHTTPClient.HTTPClientResponse<D>, ZendeskSDKHTTPClient.HTTPError>) -> Swift.Void) -> Foundation.URLSessionDataTask where D : Swift.Decodable
+}
+public struct HTTPClientBuilder {
+  public init(urlSessionConfiguration: Foundation.URLSessionConfiguration = URLSessionConfiguration.default, defaultHeaders: [ZendeskSDKHTTPClient.HTTPHeader], baseURL: Swift.String)
+  public func build() throws -> ZendeskSDKHTTPClient.HTTPClient
+}
+public enum HTTPClientError : Swift.Error {
+  case invalidBaseURL
+  public static func == (a: ZendeskSDKHTTPClient.HTTPClientError, b: ZendeskSDKHTTPClient.HTTPClientError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum HTTPMethodWithBody : Swift.String {
+  case POST
+  case PUT
+  case DELETE
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum HTTPMethodWithoutBody : Swift.String {
+  case GET
+  case HEAD
+  case OPTIONS
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct HTTPClientResponse<D> where D : Swift.Decodable {
+  public let response: Foundation.HTTPURLResponse
+  public let responseObject: D
+  public init(response: Foundation.HTTPURLResponse, responseObject: D)
+}
+extension ZendeskSDKHTTPClient.HTTPClientError : Swift.Equatable {}
+extension ZendeskSDKHTTPClient.HTTPClientError : Swift.Hashable {}
+extension ZendeskSDKHTTPClient.HTTPMethodWithBody : Swift.Equatable {}
+extension ZendeskSDKHTTPClient.HTTPMethodWithBody : Swift.Hashable {}
+extension ZendeskSDKHTTPClient.HTTPMethodWithBody : Swift.RawRepresentable {}
+extension ZendeskSDKHTTPClient.HTTPMethodWithoutBody : Swift.Equatable {}
+extension ZendeskSDKHTTPClient.HTTPMethodWithoutBody : Swift.Hashable {}
+extension ZendeskSDKHTTPClient.HTTPMethodWithoutBody : Swift.RawRepresentable {}

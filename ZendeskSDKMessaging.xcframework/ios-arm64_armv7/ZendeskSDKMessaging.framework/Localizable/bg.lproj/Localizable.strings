@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Зареждане";
+"zma_action_label_cancel" = "Отмяна";
+"zma_actions_attachments_label" = "Изпращане на прикачен файл";
+"zma_alert_message_label_camera" = "Камера";
+"zma_alert_message_label_document" = "Документ";
+"zma_alert_message_label_photoLibrary" = "Библиотека със снимки";
 "zma_conversation_header_logo" = "Лого на бранда";
 "zma_conversation_message_label_cant_be_displayed" = "Съобщението не може да се покаже";
 "zma_conversation_message_label_image_loading_failed" = "Изображението не може да се зареди";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Въведете най-много %@ знака";
 "zma_form_field_min_character_error" = "Въведете най-малко %@ знака";
 "zma_form_field_required_label" = "Това поле е задължително";
-"zma_form_message_input_placeholder" = "Изберете отговор";
 "zma_form_send_button" = "Изпращане";
 "zma_form_submission_error" = "Подробните данни не бяха изпратени. Опитайте отново.";
 "zma_label_add_attachments" = "Прикачване на файлове";

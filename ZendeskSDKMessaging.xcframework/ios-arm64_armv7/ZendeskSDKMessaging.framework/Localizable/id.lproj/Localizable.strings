@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Memuat";
+"zma_action_label_cancel" = "Batal";
+"zma_actions_attachments_label" = "Kirim lampiran";
+"zma_alert_message_label_camera" = "Kamera";
+"zma_alert_message_label_document" = "Dokumen";
+"zma_alert_message_label_photoLibrary" = "Perpustakaan foto";
 "zma_conversation_header_logo" = "Logo merek";
 "zma_conversation_message_label_cant_be_displayed" = "Pesan tidak dapat ditampilkan";
 "zma_conversation_message_label_image_loading_failed" = "Tidak dapat memuat gambar";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Masukkan %@ karakter atau kurang";
 "zma_form_field_min_character_error" = "Masukkan %@ karakter atau lebih";
 "zma_form_field_required_label" = "Petak ini wajib diisi";
-"zma_form_message_input_placeholder" = "Pilih balasan";
 "zma_form_send_button" = "Kirim";
 "zma_form_submission_error" = "Perincian tidak dapat dikirim. Coba lagi.";
 "zma_label_add_attachments" = "Tambah lampiran";

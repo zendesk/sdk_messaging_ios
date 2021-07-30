@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Идет загрузка";
+"zma_action_label_cancel" = "Отмена";
+"zma_actions_attachments_label" = "Отправить прикрепленный файл";
+"zma_alert_message_label_camera" = "Камера";
+"zma_alert_message_label_document" = "Документ";
+"zma_alert_message_label_photoLibrary" = "Библиотека фото";
 "zma_conversation_header_logo" = "Логотип бренда";
 "zma_conversation_message_label_cant_be_displayed" = "Невозможно показать сообщение";
 "zma_conversation_message_label_image_loading_failed" = "Не удалось загрузить изображение";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Введите не более %@ символов";
 "zma_form_field_min_character_error" = "Введите не менее %@ символов";
 "zma_form_field_required_label" = "Это обязательное поле";
-"zma_form_message_input_placeholder" = "Выберите ответ";
 "zma_form_send_button" = "Отправить";
 "zma_form_submission_error" = "Не удалось отправить сведения. Повторите попытку.";
 "zma_label_add_attachments" = "Прикрепить файлы";

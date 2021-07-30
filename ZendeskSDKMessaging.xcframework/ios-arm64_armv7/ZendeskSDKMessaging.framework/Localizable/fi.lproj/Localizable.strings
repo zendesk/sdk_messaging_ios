@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "Ladataan";
+"zma_action_label_cancel" = "Peruuta";
+"zma_actions_attachments_label" = "Lähetä liitetiedosto";
+"zma_alert_message_label_camera" = "Kamera";
+"zma_alert_message_label_document" = "Asiakirja";
+"zma_alert_message_label_photoLibrary" = "Valokuvakirjasto";
 "zma_conversation_header_logo" = "Brändin logo";
 "zma_conversation_message_label_cant_be_displayed" = "Viestiä ei voida näyttää";
 "zma_conversation_message_label_image_loading_failed" = "Kuvaa ei voida ladata";
@@ -12,7 +17,6 @@
 "zma_form_field_max_character_error" = "Anna enintään %@ merkkiä";
 "zma_form_field_min_character_error" = "Anna vähintään %@ merkkiä";
 "zma_form_field_required_label" = "Tämä kenttä on pakollinen";
-"zma_form_message_input_placeholder" = "Valitse vastaus";
 "zma_form_send_button" = "Lähetä";
 "zma_form_submission_error" = "Tietoja ei voitu lähettää. Yritä uudelleen.";
 "zma_label_add_attachments" = "Lisää liitteet";

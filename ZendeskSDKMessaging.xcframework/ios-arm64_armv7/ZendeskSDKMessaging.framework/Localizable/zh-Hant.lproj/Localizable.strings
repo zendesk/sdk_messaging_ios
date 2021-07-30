@@ -1,4 +1,9 @@
 "zma_accessibility_loading_label" = "載入中";
+"zma_action_label_cancel" = "取消";
+"zma_actions_attachments_label" = "傳送一個附件";
+"zma_alert_message_label_camera" = "相機";
+"zma_alert_message_label_document" = "文件";
+"zma_alert_message_label_photoLibrary" = "相片媒體櫃";
 "zma_conversation_header_logo" = "品牌標誌";
 "zma_conversation_message_label_cant_be_displayed" = "不能顯示訊息";
 "zma_conversation_message_label_image_loading_failed" = "不能載入影像";
@@ -12,9 +17,8 @@
 "zma_form_field_max_character_error" = "輸入 %@ 個字元或更少";
 "zma_form_field_min_character_error" = "輸入 %@ 個字元或更多";
 "zma_form_field_required_label" = "此欄位為必填";
-"zma_form_message_input_placeholder" = "選擇一個回覆";
 "zma_form_send_button" = "傳送";
 "zma_form_submission_error" = "不能傳送詳情。再試一次。";
 "zma_label_add_attachments" = "新增附件";
 "zma_label_send_message" = "傳送訊息";
-"zma_message_input_placeholder" = "鍵入消息";
+"zma_message_input_placeholder" = "輸入訊息";
