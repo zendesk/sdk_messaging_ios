@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKMessaging
 import CommonCrypto
 import CoreImage
@@ -14,10 +14,10 @@ import ZendeskSDKLogger
 @_exported import ZendeskSDKMessaging
 import ZendeskSDKUIComponents
 import os
-public enum MessagingError : Foundation.LocalizedError, Foundation.CustomNSError, Swift.Equatable {
+public enum MessagingError : Foundation.LocalizedError, Foundation.CustomNSError {
   case accountNotFound
   case sdkNotEnabled
-  case failedToInitialize
+  case failedToInitialize(error: Swift.Error?)
   case missingConfiguration
   case invalidChannelKey
   public static var errorDomain: Swift.String {
@@ -29,11 +29,9 @@ public enum MessagingError : Foundation.LocalizedError, Foundation.CustomNSError
   public var errorUserInfo: [Swift.String : Any] {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: ZendeskSDKMessaging.MessagingError, b: ZendeskSDKMessaging.MessagingError) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
+}
+extension MessagingError : Swift.Equatable {
+  public static func == (lhs: ZendeskSDKMessaging.MessagingError, rhs: ZendeskSDKMessaging.MessagingError) -> Swift.Bool
 }
 extension UIImageView {
   @objc dynamic open func nuke_display(image: UIKit.UIImage?)
@@ -91,7 +89,6 @@ extension CGSize : Swift.Hashable {
     get
   }
 }
-extension ZendeskSDKMessaging.MessagingError : Swift.Hashable {}
 extension ZendeskSDKMessaging.PushResponsibility : Swift.Equatable {}
 extension ZendeskSDKMessaging.PushResponsibility : Swift.Hashable {}
 extension ZendeskSDKMessaging.PushResponsibility : Swift.RawRepresentable {}

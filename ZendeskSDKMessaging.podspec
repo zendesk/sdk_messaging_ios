@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ZendeskSDKMessaging"
-  s.version      = "1.0.2"
+  s.version      = "1.1.0"
   s.summary      = "ZendeskSDKMessaging #{s.version.to_s}"
   s.homepage     = "https://developer.zendesk.com/documentation/zendesk-sdks/"
   s.license      = {
@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
   s.cocoapods_version = '>= 1.10.0'
   s.source       = { :git => "https://github.com/zendesk/sdk_messaging_ios.git", :tag => s.version }
   s.vendored_frameworks = 'ZendeskSDKMessaging.xcframework'
-  s.dependency 'ZendeskSDKConversationKit', '~> 0.5.0'
+  s.dependency 'ZendeskSDKConversationKit', '~> 0.5.1'
   s.dependency 'ZendeskSDKUIComponents', '~> 0.5.0'
 end
