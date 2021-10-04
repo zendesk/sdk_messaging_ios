@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKHTTPClient
 import Foundation
 import Swift
@@ -39,6 +39,8 @@ public protocol HTTPClient {
   func performRequest<D, E>(withBody body: E, method: ZendeskSDKHTTPClient.HTTPMethodWithBody, responseType: D.Type, path: Swift.String, query: [Swift.String : Swift.String]?, headers: [ZendeskSDKHTTPClient.HTTPHeader]?, completionHandler: @escaping (Swift.Result<ZendeskSDKHTTPClient.HTTPClientResponse<D>, ZendeskSDKHTTPClient.HTTPError>) -> Swift.Void) -> Foundation.URLSessionDataTask where D : Swift.Decodable, E : Swift.Encodable
   @discardableResult
   func performRequest<D>(method: ZendeskSDKHTTPClient.HTTPMethodWithoutBody, responseType: D.Type, path: Swift.String, query: [Swift.String : Swift.String]?, headers: [ZendeskSDKHTTPClient.HTTPHeader]?, completionHandler: @escaping (Swift.Result<ZendeskSDKHTTPClient.HTTPClientResponse<D>, ZendeskSDKHTTPClient.HTTPError>) -> Swift.Void) -> Foundation.URLSessionDataTask where D : Swift.Decodable
+  @discardableResult
+  func performRequest<D>(withBodyData bodyData: Foundation.Data, method: ZendeskSDKHTTPClient.HTTPMethodWithBody, responseType: D.Type, path: Swift.String, query: [Swift.String : Swift.String]?, headers: [ZendeskSDKHTTPClient.HTTPHeader]?, completionHandler: @escaping (Swift.Result<ZendeskSDKHTTPClient.HTTPClientResponse<D>, ZendeskSDKHTTPClient.HTTPError>) -> Swift.Void) -> Foundation.URLSessionDataTask where D : Swift.Decodable
 }
 public struct HTTPClientBuilder {
   public init(urlSessionConfiguration: Foundation.URLSessionConfiguration = URLSessionConfiguration.default, defaultHeaders: [ZendeskSDKHTTPClient.HTTPHeader], baseURL: Swift.String)

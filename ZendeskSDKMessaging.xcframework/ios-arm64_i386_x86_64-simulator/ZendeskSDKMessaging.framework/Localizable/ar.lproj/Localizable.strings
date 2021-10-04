@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "كاميرا";
 "zma_alert_message_label_document" = "مستند";
 "zma_alert_message_label_photoLibrary" = "مكتبة الصور";
+"zma_connection_banner_label_disconnected" = "غير متصل. لن تتلقى رسائل.";
+"zma_connection_banner_label_reconnected" = "أنت الآن متصل";
+"zma_connection_banner_label_reconnecting" = "جارٍ إعادة الاتصال...";
 "zma_conversation_header_logo" = "شعار العلامة التجارية";
 "zma_conversation_message_label_cant_be_displayed" = "تعذر عرض الرسالة";
 "zma_conversation_message_label_image_loading_failed" = "يتعذر تحميل الصورة";

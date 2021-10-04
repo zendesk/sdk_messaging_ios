@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "카메라";
 "zma_alert_message_label_document" = "문서";
 "zma_alert_message_label_photoLibrary" = "사진 라이브러리";
+"zma_connection_banner_label_disconnected" = "오프라인 상태. 메시지를 받지 못합니다.";
+"zma_connection_banner_label_reconnected" = "현재 온라인 상태입니다.";
+"zma_connection_banner_label_reconnecting" = "다시 연결 중…";
 "zma_conversation_header_logo" = "브랜드 로고";
 "zma_conversation_message_label_cant_be_displayed" = "메시지를 표시할 수 없습니다.";
 "zma_conversation_message_label_image_loading_failed" = "이미지를 로드할 수 없습니다.";

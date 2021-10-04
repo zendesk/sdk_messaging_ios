@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Asiakirja";
 "zma_alert_message_label_photoLibrary" = "Valokuvakirjasto";
+"zma_connection_banner_label_disconnected" = "Offline-tila. Et voi vastaanottaa viestejä.";
+"zma_connection_banner_label_reconnected" = "Olet nyt online-tilassa";
+"zma_connection_banner_label_reconnecting" = "Yhteyttä luodaan uudelleen...";
 "zma_conversation_header_logo" = "Brändin logo";
 "zma_conversation_message_label_cant_be_displayed" = "Viestiä ei voida näyttää";
 "zma_conversation_message_label_image_loading_failed" = "Kuvaa ei voida ladata";

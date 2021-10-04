@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Belge";
 "zma_alert_message_label_photoLibrary" = "Fotoğraf kitaplığı";
+"zma_connection_banner_label_disconnected" = "Çevrimdışı. Mesaj almayacaksınız.";
+"zma_connection_banner_label_reconnected" = "Şimdi çevrimiçisiniz";
+"zma_connection_banner_label_reconnecting" = "Yeniden bağlanıyor...";
 "zma_conversation_header_logo" = "Marka logosu";
 "zma_conversation_message_label_cant_be_displayed" = "Mesaj görüntülenemiyor";
 "zma_conversation_message_label_image_loading_failed" = "Resim yüklenemiyor";

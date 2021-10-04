@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokumentum";
 "zma_alert_message_label_photoLibrary" = "Fotóalbum";
+"zma_connection_banner_label_disconnected" = "Ön jelenleg offline. Nem fog üzeneteket kapni.";
+"zma_connection_banner_label_reconnected" = "Ön ismét online.";
+"zma_connection_banner_label_reconnecting" = "Újracsatlakozás…";
 "zma_conversation_header_logo" = "Márka emblémája";
 "zma_conversation_message_label_cant_be_displayed" = "Az üzenet nem jeleníthető meg";
 "zma_conversation_message_label_image_loading_failed" = "Nem lehet betölteni a képet";

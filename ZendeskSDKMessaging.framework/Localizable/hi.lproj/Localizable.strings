@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "कैमरा";
 "zma_alert_message_label_document" = "दस्तावेज़";
 "zma_alert_message_label_photoLibrary" = "फ़ोटो लाइब्रेरी";
+"zma_connection_banner_label_disconnected" = "ऑफ़लाइन। आपको संदेश नहीं मिलेंगे।";
+"zma_connection_banner_label_reconnected" = "अब आप ऑनलाइन हैं";
+"zma_connection_banner_label_reconnecting" = "फिर से कनेक्ट हो रहा है...";
 "zma_conversation_header_logo" = "ब्रांड लोगो";
 "zma_conversation_message_label_cant_be_displayed" = "संदेश दिखाया नहीं जा सकता";
 "zma_conversation_message_label_image_loading_failed" = "इमेज लोड नहीं की जा सकती";

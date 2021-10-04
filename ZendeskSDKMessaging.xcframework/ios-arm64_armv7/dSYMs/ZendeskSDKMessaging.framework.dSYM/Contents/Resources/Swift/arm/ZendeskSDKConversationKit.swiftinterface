@@ -1,8 +1,9 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 import CoreTelephony
 import Foundation
+import MobileCoreServices
 import Swift
 import SystemConfiguration
 import UIKit
@@ -233,7 +234,7 @@ extension DefaultConversationKitBuilder {
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShared {
+public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitInternal, ZendeskSDKConversationKit.ConversationKitShared {
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
   func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, result: ((Swift.Result<ZendeskSDKConversationKit.Config, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
@@ -248,6 +249,16 @@ extension ConversationKit {
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
 }
+public protocol ConversationKitInternal {
+  func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+}
+extension ConversationKitInternal {
+  public func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+}
+@objc(ZDKConversationKitInternal) public protocol ConversationKitObjCInternal {
+  @objc @available(swift, obsoleted: 1.0)
+  func login(with jwt: Swift.String, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
+}
 @objc public protocol ConversationKitShared {
   @objc var config: ZendeskSDKConversationKit.Config? { get }
   @objc var settings: ZendeskSDKConversationKit.ConversationKitSettings? { get }
@@ -259,7 +270,7 @@ extension ConversationKit {
   @objc func logout()
   @objc func updatePushNotificationToken(_ token: Swift.String)
 }
-@objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitShared {
+@objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitObjCInternal, ZendeskSDKConversationKit.ConversationKitShared {
   @objc @available(swift, obsoleted: 1.0)
   func addEventObserver(_ observer: Swift.AnyObject, closure: ((ZendeskSDKConversationKit.ZDKConversationKitEvent, Swift.AnyObject?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
@@ -300,6 +311,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   case incorrectAccessLevelForAction
   case httpError(description: Swift.String, httpError: ZendeskSDKHTTPClient.HTTPError)
   case userExists
+  case invalidJWT
   public static var errorDomain: Swift.String {
     get
   }
@@ -356,6 +368,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc final public let id: Swift.String
   @objc final public let givenName: Swift.String
   @objc final public let surname: Swift.String
+  @objc final public let locale: Swift.String
   @objc final public let conversations: [ZendeskSDKConversationKit.Conversation]
   @objc final public let realtimeSettings: ZendeskSDKConversationKit.RealtimeSettings
   @objc final public let authentication: ZendeskSDKConversationKit.Authentication
@@ -373,7 +386,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
     @objc get
   }
   @objc final public let mediaURL: Swift.String
-  @objc final public let text: Swift.String?
+  @objc final public let text: Swift.String
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
@@ -476,6 +489,7 @@ public enum ConversationKitEvent {
   case messageUpdated(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
   case pushTokenPrepared(Swift.String)
   case pushTokenUpdateResult(token: Swift.String, error: ZendeskSDKConversationKit.ConversationKitError?)
+  case loginResult(result: Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>)
 }
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
@@ -486,20 +500,27 @@ public enum ConversationKitEvent {
   case messageUpdated
   case pushTokenPrepared
   case pushTokenUpdateResult
+  case loginResult
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc public class ZDKMessageEvent : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc final public class ZDKMessageEvent : ObjectiveC.NSObject {
   @objc final public let message: ZendeskSDKConversationKit.Message
   @objc final public let conversationId: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc public class ZDKPushTokenEvent : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc final public class ZDKPushTokenEvent : ObjectiveC.NSObject {
   @objc final public let token: Swift.String
+  @objc final public let error: Swift.Error?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKLoginResult : ObjectiveC.NSObject {
+  @objc final public let user: ZendeskSDKConversationKit.User?
   @objc final public let error: Swift.Error?
   @objc override dynamic public init()
   @objc deinit
@@ -680,6 +701,7 @@ extension ConversationKitSettings {
   final public let actionModels: [ZendeskSDKConversationKit.MessageActionModel]?
   public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(userId: "", displayName: ""), sourceId: Swift.String? = nil, localId: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil)
   @objc convenience public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  @objc convenience public init?(mediaURL: Foundation.URL, text: Swift.String?, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var hash: Swift.Int {
     @objc get

@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "กล้อง";
 "zma_alert_message_label_document" = "เอกสาร";
 "zma_alert_message_label_photoLibrary" = "คลังภาพ";
+"zma_connection_banner_label_disconnected" = "ออฟไลน์ คุณจะไม่ได้รับข้อความ";
+"zma_connection_banner_label_reconnected" = "คุณออนไลน์แล้ว";
+"zma_connection_banner_label_reconnecting" = "กำลังเชื่อมต่อใหม่...";
 "zma_conversation_header_logo" = "โลโก้แบรนด์";
 "zma_conversation_message_label_cant_be_displayed" = "ไม่สามารถแสดงข้อความได้";
 "zma_conversation_message_label_image_loading_failed" = "ไม่สามารถโหลดภาพได้";

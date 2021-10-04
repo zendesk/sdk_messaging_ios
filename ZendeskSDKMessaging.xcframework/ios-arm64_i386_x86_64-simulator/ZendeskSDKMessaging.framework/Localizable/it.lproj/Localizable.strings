@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Fotocamera";
 "zma_alert_message_label_document" = "Documento";
 "zma_alert_message_label_photoLibrary" = "Libreria foto";
+"zma_connection_banner_label_disconnected" = "Offline. Non riceverai messaggi.";
+"zma_connection_banner_label_reconnected" = "Ora sei online";
+"zma_connection_banner_label_reconnecting" = "Riconnessione in corso...";
 "zma_conversation_header_logo" = "Logo del brand";
 "zma_conversation_message_label_cant_be_displayed" = "Impossibile visualizzare il messaggio";
 "zma_conversation_message_label_image_loading_failed" = "Impossibile caricare l’immagine";

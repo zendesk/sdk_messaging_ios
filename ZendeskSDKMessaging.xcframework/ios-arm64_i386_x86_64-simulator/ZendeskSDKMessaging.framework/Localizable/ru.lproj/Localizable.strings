@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Камера";
 "zma_alert_message_label_document" = "Документ";
 "zma_alert_message_label_photoLibrary" = "Библиотека фото";
+"zma_connection_banner_label_disconnected" = "Не в сети. Сообщения поступать не будут.";
+"zma_connection_banner_label_reconnected" = "Вы уже онлайн";
+"zma_connection_banner_label_reconnecting" = "Восстановление подключения...";
 "zma_conversation_header_logo" = "Логотип бренда";
 "zma_conversation_message_label_cant_be_displayed" = "Невозможно показать сообщение";
 "zma_conversation_message_label_image_loading_failed" = "Не удалось загрузить изображение";

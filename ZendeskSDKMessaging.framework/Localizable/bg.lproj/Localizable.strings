@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Камера";
 "zma_alert_message_label_document" = "Документ";
 "zma_alert_message_label_photoLibrary" = "Библиотека със снимки";
+"zma_connection_banner_label_disconnected" = "Офлайн. Няма да получавате съобщения.";
+"zma_connection_banner_label_reconnected" = "Вече сте онлайн";
+"zma_connection_banner_label_reconnecting" = "Възстановяване на връзката…";
 "zma_conversation_header_logo" = "Лого на бранда";
 "zma_conversation_message_label_cant_be_displayed" = "Съобщението не може да се покаже";
 "zma_conversation_message_label_image_loading_failed" = "Изображението не може да се зареди";

@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_document" = "Tài liệu";
 "zma_alert_message_label_photoLibrary" = "Thư viện ảnh";
+"zma_connection_banner_label_disconnected" = "Ngoại tuyến. Bạn sẽ không nhận được tin nhắn.";
+"zma_connection_banner_label_reconnected" = "Bạn đang trực tuyến";
+"zma_connection_banner_label_reconnecting" = "Đang kết nối lại...";
 "zma_conversation_header_logo" = "Biểu tượng thương hiệu";
 "zma_conversation_message_label_cant_be_displayed" = "Không thể hiển thị tin nhắn";
 "zma_conversation_message_label_image_loading_failed" = "Không tải được hình ảnh";

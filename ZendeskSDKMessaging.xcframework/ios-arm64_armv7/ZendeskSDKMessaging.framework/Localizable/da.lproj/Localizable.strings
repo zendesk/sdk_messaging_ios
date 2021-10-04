@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokument";
 "zma_alert_message_label_photoLibrary" = "Fotobibliotek";
+"zma_connection_banner_label_disconnected" = "Offline. Du vil ikke modtage meddelelser.";
+"zma_connection_banner_label_reconnected" = "Du er nu online";
+"zma_connection_banner_label_reconnecting" = "Genopretter forbindelse...";
 "zma_conversation_header_logo" = "Brand-logo";
 "zma_conversation_message_label_cant_be_displayed" = "Meddelelsen kan ikke vises";
 "zma_conversation_message_label_image_loading_failed" = "Billede kan ikke indlæses";

@@ -16,7 +16,7 @@ public struct MessageComposerRendering {
   public var text: Swift.String
   public var keyboardType: UIKit.UIKeyboardType
   public let style: ZendeskSDKUIComponents.MessageComposerStyle
-  public init(enabled: Swift.Bool = true, attachmentsEnabled: Swift.Bool = false, text: Swift.String = "", keyboardType: UIKit.UIKeyboardType = .default, style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
+  public init(enabled: Swift.Bool = true, attachmentsEnabled: Swift.Bool = true, text: Swift.String = "", keyboardType: UIKit.UIKeyboardType = .default, style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
 }
 public struct TextMessageStyle : Swift.Equatable {
   public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor)
@@ -229,6 +229,9 @@ public struct AvatarViewStyle {
   @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
     @objc get
+  }
+  final public var attachmentSourceView: UIKit.UIView {
+    get
   }
   @objc override dynamic public init(frame: CoreGraphics.CGRect)
   public typealias Rendering = ZendeskSDKUIComponents.MessageComposerRendering
@@ -603,7 +606,7 @@ extension UIFont {
   }
 }
 public struct ImageMessageViewStyle : Swift.Equatable {
-  public init(backgroundColor: UIKit.UIColor, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, borderColor: UIKit.UIColor? = nil, textStyle: ZendeskSDKUIComponents.TextMessageStyle? = .default)
+  public init(backgroundColor: UIKit.UIColor = .clear, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, imageAlpha: CoreGraphics.CGFloat = 1.0, borderColor: UIKit.UIColor? = nil, textStyle: ZendeskSDKUIComponents.TextMessageStyle? = .default)
   public static func == (a: ZendeskSDKUIComponents.ImageMessageViewStyle, b: ZendeskSDKUIComponents.ImageMessageViewStyle) -> Swift.Bool
 }
 extension ImageMessageViewStyle {
@@ -666,7 +669,7 @@ extension QuickReplyViewStyle {
   public static let `default`: ZendeskSDKUIComponents.QuickReplyViewStyle
 }
 public struct ReplyOptionCollectionViewCellStyle : Swift.Equatable {
-  public init(textColor: UIKit.UIColor, borderColor: UIKit.UIColor, selectedColor: UIKit.UIColor)
+  public init(textColor: UIKit.UIColor, borderColor: UIKit.UIColor, selectedColor: UIKit.UIColor, textFont: UIKit.UIFont)
   public static func == (a: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle, b: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle) -> Swift.Bool
 }
 extension ReplyOptionCollectionViewCellStyle {

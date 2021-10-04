@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_document" = "Document";
 "zma_alert_message_label_photoLibrary" = "Fotobibliotheek";
+"zma_connection_banner_label_disconnected" = "Offline. U ontvangt geen berichten.";
+"zma_connection_banner_label_reconnected" = "U bent nu online";
+"zma_connection_banner_label_reconnecting" = "Opnieuw verbinden...";
 "zma_conversation_header_logo" = "Merklogo";
 "zma_conversation_message_label_cant_be_displayed" = "Bericht kan niet worden weergegeven";
 "zma_conversation_message_label_image_loading_failed" = "Kan afbeelding niet laden";

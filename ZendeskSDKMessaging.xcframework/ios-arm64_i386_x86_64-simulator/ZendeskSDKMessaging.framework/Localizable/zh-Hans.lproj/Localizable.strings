@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "相机";
 "zma_alert_message_label_document" = "文档";
 "zma_alert_message_label_photoLibrary" = "照片库";
+"zma_connection_banner_label_disconnected" = "离线。您将不会接收到消息。";
+"zma_connection_banner_label_reconnected" = "您现在处于在线状态";
+"zma_connection_banner_label_reconnecting" = "正在重新连接……";
 "zma_conversation_header_logo" = "品牌徽标";
 "zma_conversation_message_label_cant_be_displayed" = "无法显示消息";
 "zma_conversation_message_label_image_loading_failed" = "无法加载图像";

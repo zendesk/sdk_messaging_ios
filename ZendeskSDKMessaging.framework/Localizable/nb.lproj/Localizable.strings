@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokument";
 "zma_alert_message_label_photoLibrary" = "Bildebibliotek";
+"zma_connection_banner_label_disconnected" = "Offline. Du kommer ikke til å motta meldinger.";
+"zma_connection_banner_label_reconnected" = "Du er nå online";
+"zma_connection_banner_label_reconnecting" = "Kobler til igjen...";
 "zma_conversation_header_logo" = "Merkelogo";
 "zma_conversation_message_label_cant_be_displayed" = "Meldingen kan ikke vises";
 "zma_conversation_message_label_image_loading_failed" = "Kan ikke laste inn bilde";

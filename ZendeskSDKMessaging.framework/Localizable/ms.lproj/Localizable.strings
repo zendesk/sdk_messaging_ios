@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokumen";
 "zma_alert_message_label_photoLibrary" = "Perpustakaan foto";
+"zma_connection_banner_label_disconnected" = "Offline. You won't receive messages.";
+"zma_connection_banner_label_reconnected" = "You're now online";
+"zma_connection_banner_label_reconnecting" = "Reconnecting...";
 "zma_conversation_header_logo" = "Logo jenama";
 "zma_conversation_message_label_cant_be_displayed" = "Mesej tidak boleh dipaparkan";
 "zma_conversation_message_label_image_loading_failed" = "Tidak dapat memuatkan imej";

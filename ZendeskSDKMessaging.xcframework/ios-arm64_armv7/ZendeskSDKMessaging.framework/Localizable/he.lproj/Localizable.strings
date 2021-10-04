@@ -4,6 +4,9 @@
 "zma_alert_message_label_camera" = "מצלמה";
 "zma_alert_message_label_document" = "מסמך";
 "zma_alert_message_label_photoLibrary" = "ספריית תמונות";
+"zma_connection_banner_label_disconnected" = "לא מקוון. לא תקבל הודעות.";
+"zma_connection_banner_label_reconnected" = "עכישו אתה מקוון";
+"zma_connection_banner_label_reconnecting" = "מתחבר מחדש...";
 "zma_conversation_header_logo" = "לוגו המותג";
 "zma_conversation_message_label_cant_be_displayed" = "לא ניתן להציג את ההודעה";
 "zma_conversation_message_label_image_loading_failed" = "התמונה לא נטענת";
