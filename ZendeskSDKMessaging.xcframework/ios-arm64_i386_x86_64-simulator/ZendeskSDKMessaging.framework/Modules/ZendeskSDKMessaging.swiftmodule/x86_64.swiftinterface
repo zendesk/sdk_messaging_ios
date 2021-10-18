@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKMessaging
 import CommonCrypto
 import CoreImage
@@ -18,6 +18,7 @@ import ZendeskSDKLogger
 @_exported import ZendeskSDKMessaging
 import ZendeskSDKStorage
 import ZendeskSDKUIComponents
+import _Concurrency
 import os
 public enum MessagingError : Foundation.LocalizedError, Foundation.CustomNSError {
   case accountNotFound
@@ -35,11 +36,11 @@ public enum MessagingError : Foundation.LocalizedError, Foundation.CustomNSError
     get
   }
 }
-extension MessagingError : Swift.Equatable {
+extension ZendeskSDKMessaging.MessagingError : Swift.Equatable {
   public static func == (lhs: ZendeskSDKMessaging.MessagingError, rhs: ZendeskSDKMessaging.MessagingError) -> Swift.Bool
 }
-extension UIImageView {
-  @objc dynamic open func nuke_display(image: UIKit.UIImage?)
+extension UIKit.UIImageView {
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func nuke_display(image: UIKit.UIImage?)
 }
 @objc(ZDKPushResponsibility) public enum PushResponsibility : Swift.Int {
   case messagingShouldDisplay
@@ -55,7 +56,6 @@ extension UIImageView {
   @objc public static func updatePushNotificationToken(_ token: Foundation.Data)
   @objc public static func shouldBeDisplayed(_ userInfo: [Swift.AnyHashable : Any]) -> ZendeskSDKMessaging.PushResponsibility
   @objc public static func handleTap(_ userInfo: [Swift.AnyHashable : Any], completion: ((UIKit.UIViewController?) -> Swift.Void)?)
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(ZDKURLSource) public enum URLSource : Swift.Int, Swift.RawRepresentable {
@@ -72,7 +72,7 @@ extension UIImageView {
 @objc(ZDKMessagingDelegate) public protocol MessagingDelegate {
   @objc func messaging(_ messaging: ZendeskSDKMessaging.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDKMessaging.URLSource) -> Swift.Bool
 }
-extension MessagingDelegate {
+extension ZendeskSDKMessaging.MessagingDelegate {
   public func messaging(_ messaging: ZendeskSDKMessaging.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDKMessaging.URLSource) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers @objc(ZDKMessaging) final public class Messaging : ObjectiveC.NSObject {
@@ -81,14 +81,13 @@ extension MessagingDelegate {
   public static func initialize(channelKey: Swift.String, completionHandler: ((Swift.Result<ZendeskSDKMessaging.Messaging, ZendeskSDKMessaging.MessagingError>) -> Swift.Void)?)
   @objc public static func invalidate()
   @objc final public func messagingViewController() -> UIKit.UIViewController
-  @objc override dynamic public init()
   @objc deinit
 }
-extension Messaging {
+extension ZendeskSDKMessaging.Messaging {
   @available(swift, obsoleted: 1.0)
   @objc public static func initialize(channelKey: Swift.String, completionHandler: ((ZendeskSDKMessaging.Messaging?, Swift.Error?) -> Swift.Void)?)
 }
-extension CGSize : Swift.Hashable {
+extension CoreGraphics.CGSize : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get

@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target armv7-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 import CoreTelephony
 import Foundation
@@ -12,6 +12,7 @@ import ZendeskSDKFayeClient
 import ZendeskSDKHTTPClient
 import ZendeskSDKLogger
 import ZendeskSDKStorage
+import _Concurrency
 @objc(ZDKFormResponseMessageContent) final public class FormResponseMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
     @objc get
@@ -32,7 +33,6 @@ import ZendeskSDKStorage
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -56,7 +56,6 @@ import ZendeskSDKStorage
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -80,7 +79,6 @@ import ZendeskSDKStorage
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -116,7 +114,7 @@ public enum FormField : Swift.Equatable, Swift.Hashable {
     get
   }
 }
-extension FormField : Swift.Codable {
+extension ZendeskSDKConversationKit.FormField : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -135,7 +133,6 @@ extension FormField : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -158,7 +155,6 @@ extension FormField : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -179,7 +175,6 @@ extension FormField : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -191,7 +186,6 @@ extension FormField : Swift.Codable {
   @objc final public var connectionDelay: Foundation.TimeInterval
   @objc final public var enabled: Swift.Bool
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -208,7 +202,7 @@ public protocol ConversationKitBuilder {
   @objc override dynamic public init()
   @objc deinit
 }
-extension DefaultConversationKitBuilder {
+extension ZendeskSDKConversationKit.DefaultConversationKitBuilder {
   @available(swift, obsoleted: 1.0)
   @objc final public func build(withCallbackQueue callbackQueue: Dispatch.DispatchQueue = .main) -> ZendeskSDKConversationKit.ConversationKitObjC
 }
@@ -229,7 +223,6 @@ extension DefaultConversationKitBuilder {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -242,7 +235,7 @@ public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitInter
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
 }
-extension ConversationKit {
+extension ZendeskSDKConversationKit.ConversationKit {
   public func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, result: ((Swift.Result<ZendeskSDKConversationKit.Config, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func createAnonymousUser(with givenName: Swift.String? = nil, surname: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
@@ -252,7 +245,7 @@ extension ConversationKit {
 public protocol ConversationKitInternal {
   func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
 }
-extension ConversationKitInternal {
+extension ZendeskSDKConversationKit.ConversationKitInternal {
   public func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
 }
 @objc(ZDKConversationKitInternal) public protocol ConversationKitObjCInternal {
@@ -302,7 +295,7 @@ public enum MessageContent : Swift.Equatable, Swift.Hashable {
     get
   }
 }
-extension MessageContent : Swift.Codable {
+extension ZendeskSDKConversationKit.MessageContent : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -340,7 +333,6 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -376,7 +368,6 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -398,7 +389,6 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -411,7 +401,6 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -425,7 +414,6 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -458,7 +446,6 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(ZDKMessageType) public enum MessageType : Swift.Int, Swift.Codable {
@@ -510,19 +497,16 @@ public enum ConversationKitEvent {
 @_hasMissingDesignatedInitializers @objc final public class ZDKMessageEvent : ObjectiveC.NSObject {
   @objc final public let message: ZendeskSDKConversationKit.Message
   @objc final public let conversationId: Swift.String
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKPushTokenEvent : ObjectiveC.NSObject {
   @objc final public let token: Swift.String
   @objc final public let error: Swift.Error?
-  @objc override dynamic public init()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKLoginResult : ObjectiveC.NSObject {
   @objc final public let user: ZendeskSDKConversationKit.User?
   @objc final public let error: Swift.Error?
-  @objc override dynamic public init()
   @objc deinit
 }
 @objc(ZDKFieldType) public enum FieldType : Swift.Int, Swift.Codable {
@@ -560,12 +544,11 @@ public enum ConversationKitEvent {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension SelectFormField {
+extension ZendeskSDKConversationKit.SelectFormField {
   @available(swift, obsoleted: 1.0)
   @objc final public var selectSizeObjc: Swift.Int {
     @objc get
@@ -581,12 +564,11 @@ extension SelectFormField {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension Author {
+extension ZendeskSDKConversationKit.Author {
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -625,7 +607,6 @@ extension Author {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -650,7 +631,6 @@ extension Author {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -670,10 +650,9 @@ extension Author {
   final public var baseURL: Swift.String?
   @objc public init(integrationId: Swift.String, region: ZendeskSDKConversationKit.ConversationKitSettings.Region = .us, baseURL: Swift.String? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  @objc override dynamic public init()
   @objc deinit
 }
-extension ConversationKitSettings {
+extension ZendeskSDKConversationKit.ConversationKitSettings {
   @available(swift, obsoleted: 1.0)
   @objc convenience dynamic public init(integrationId: Swift.String)
 }
@@ -709,12 +688,11 @@ extension ConversationKitSettings {
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension Message {
+extension ZendeskSDKConversationKit.Message {
   @objc final public func isAuthoredBy(_ participant: ZendeskSDKConversationKit.Participant?) -> Swift.Bool
 }
 @objc(ZDKFormMessageContent) final public class FormMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
@@ -738,7 +716,6 @@ extension Message {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -776,7 +753,7 @@ public enum MessageActionModel : Swift.Equatable, Swift.Hashable {
     get
   }
 }
-extension MessageActionModel : Swift.Codable {
+extension ZendeskSDKConversationKit.MessageActionModel : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -799,7 +776,6 @@ extension MessageActionModel : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -824,7 +800,6 @@ extension MessageActionModel : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -849,7 +824,6 @@ extension MessageActionModel : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -883,7 +857,6 @@ extension MessageActionModel : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -910,7 +883,6 @@ extension MessageActionModel : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
@@ -946,12 +918,11 @@ extension MessageActionModel : Swift.Codable {
   @objc override final public var hash: Swift.Int {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension TextFormField {
+extension ZendeskSDKConversationKit.TextFormField {
   @available(swift, obsoleted: 1.0)
   @objc final public var minSizeObjc: Swift.Int {
     @objc get
@@ -968,7 +939,6 @@ extension TextFormField {
   @objc override final public var description: Swift.String {
     @objc get
   }
-  @objc override dynamic public init()
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws

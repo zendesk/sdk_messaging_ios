@@ -1,9 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKLogger
 import Foundation
 import Swift
 @_exported import ZendeskSDKLogger
+import _Concurrency
 import os
 public protocol LoggerFactory {
   static func getLogger(namespace: Swift.String, category: Swift.String) -> ZendeskSDKLogger.Log
@@ -25,7 +26,7 @@ public protocol Log {
   var category: Swift.String { get }
   func logit(file: Swift.StaticString, line: Swift.Int, function: Swift.StaticString, level: ZendeskSDKLogger.LogLevel, error: Swift.Error?, message: Swift.String, args: [Swift.CVarArg])
 }
-extension Log {
+extension ZendeskSDKLogger.Log {
   public func `default`(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: Swift.Error? = nil, _ message: Swift.String, _ args: Swift.CVarArg...)
   public func info(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: Swift.Error? = nil, _ message: Swift.String, _ args: Swift.CVarArg...)
   public func debug(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: Swift.Error? = nil, _ message: Swift.String, _ args: Swift.CVarArg...)
@@ -46,7 +47,7 @@ public protocol Loggable {
   static var log: ZendeskSDKLogger.Log { get }
   var log: ZendeskSDKLogger.Log { get }
 }
-extension Loggable {
+extension ZendeskSDKLogger.Loggable {
   public static var log: ZendeskSDKLogger.Log {
     get
   }

@@ -1,11 +1,12 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKUIComponents
 import CoreGraphics
 import Foundation
 import Swift
 import UIKit
 @_exported import ZendeskSDKUIComponents
+import _Concurrency
 public struct ItemGroupViewRendering {
   public let itemViewRenderings: [ZendeskSDKUIComponents.ItemViewRendering]
   public init(itemViewRenderings: [ZendeskSDKUIComponents.ItemViewRendering] = [])
@@ -22,7 +23,7 @@ public struct TextMessageStyle : Swift.Equatable {
   public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.TextMessageStyle, b: ZendeskSDKUIComponents.TextMessageStyle) -> Swift.Bool
 }
-extension TextMessageStyle {
+extension ZendeskSDKUIComponents.TextMessageStyle {
   public static let `default`: ZendeskSDKUIComponents.TextMessageStyle
 }
 public struct FileMessageRendering {
@@ -38,37 +39,35 @@ public struct TextMessageRendering {
   public let style: ZendeskSDKUIComponents.TextMessageStyle
   public init(message: Swift.String = "", corners: UIKit.UIRectCorner? = nil, style: ZendeskSDKUIComponents.TextMessageStyle = .default)
 }
-@objc @_hasMissingDesignatedInitializers final public class ImageMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  final public let textMessageView: ZendeskSDKUIComponents.TextMessageView
-  public init(style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default)
-  public init(style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default, onImageTap: (() -> Swift.Void)?)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ImageMessageViewRendering) -> ZendeskSDKUIComponents.ImageMessageViewRendering)
-  @objc override final public func layoutSubviews()
-  @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  final public func restartImageAnimation()
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ImageMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public let textMessageView: ZendeskSDKUIComponents.TextMessageView
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default, onImageTap: (() -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ImageMessageViewRendering) -> ZendeskSDKUIComponents.ImageMessageViewRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) final public func restartImageAnimation()
   public typealias Rendering = ZendeskSDKUIComponents.ImageMessageViewRendering
   public typealias Style = ZendeskSDKUIComponents.ImageMessageViewStyle
   @objc deinit
 }
-extension ImageMessageView : UIKit.UIGestureRecognizerDelegate {
+extension ZendeskSDKUIComponents.ImageMessageView : UIKit.UIGestureRecognizerDelegate {
 }
-extension UIStackView {
-  public func removeAllArrangedSubViews()
+extension UIKit.UIStackView {
+  @_Concurrency.MainActor(unsafe) public func removeAllArrangedSubViews()
 }
-@objc @_hasMissingDesignatedInitializers final public class TextMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  final public var onURLTap: ((Foundation.URL, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)?
-  public init(style: ZendeskSDKUIComponents.TextMessageStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.TextMessageRendering) -> ZendeskSDKUIComponents.TextMessageRendering)
-  @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override final public func layoutSubviews()
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class TextMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public var onURLTap: ((_ URL: Foundation.URL, _ shouldOpenURL: @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.TextMessageStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.TextMessageRendering) -> ZendeskSDKUIComponents.TextMessageRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.TextMessageRendering
   public typealias Style = ZendeskSDKUIComponents.TextMessageStyle
   @objc deinit
 }
-extension TextMessageView : UIKit.UITextViewDelegate {
-  @objc final public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
+extension ZendeskSDKUIComponents.TextMessageView : UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
 }
 public struct ConversationHeaderRendering {
   public let title: Swift.String
@@ -77,62 +76,60 @@ public struct ConversationHeaderRendering {
   public var verticalSizeClass: UIKit.UIUserInterfaceSizeClass
   public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular)
 }
-@objc @_hasMissingDesignatedInitializers final public class InputFieldView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  final public var onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)?
-  final public var text: Swift.String {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class InputFieldView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public var onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) final public var text: Swift.String {
     get
   }
-  convenience public init(style: ZendeskSDKUIComponents.InputStyle = .default)
-  public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.InputFieldRendering) -> ZendeskSDKUIComponents.InputFieldRendering)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.InputStyle = .default)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.InputFieldRendering) -> ZendeskSDKUIComponents.InputFieldRendering)
   public typealias Rendering = ZendeskSDKUIComponents.InputFieldRendering
   public typealias Style = ZendeskSDKUIComponents.InputStyle
   @objc deinit
 }
-extension InputFieldView : UIKit.UIPickerViewDataSource {
-  @objc final public func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
-  @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
+extension ZendeskSDKUIComponents.InputFieldView : UIKit.UIPickerViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func numberOfComponents(in pickerView: UIKit.UIPickerView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, numberOfRowsInComponent component: Swift.Int) -> Swift.Int
 }
-extension InputFieldView : UIKit.UIPickerViewDelegate {
-  @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
-  @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, viewForRow row: Swift.Int, forComponent component: Swift.Int, reusing view: UIKit.UIView?) -> UIKit.UIView
-  @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
+extension ZendeskSDKUIComponents.InputFieldView : UIKit.UIPickerViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, titleForRow row: Swift.Int, forComponent component: Swift.Int) -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, viewForRow row: Swift.Int, forComponent component: Swift.Int, reusing view: UIKit.UIView?) -> UIKit.UIView
+  @_Concurrency.MainActor(unsafe) @objc final public func pickerView(_ pickerView: UIKit.UIPickerView, didSelectRow row: Swift.Int, inComponent component: Swift.Int)
 }
-extension InputFieldView : UIKit.UITextFieldDelegate {
-  @objc final public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
-  @objc final public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
-  @objc final public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
+extension ZendeskSDKUIComponents.InputFieldView : UIKit.UITextFieldDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func textFieldDidBeginEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc final public func textFieldDidEndEditing(_ textField: UIKit.UITextField)
+  @_Concurrency.MainActor(unsafe) @objc final public func textFieldShouldReturn(_ textField: UIKit.UITextField) -> Swift.Bool
 }
-extension InputFieldView {
-  @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override final public var isFirstResponder: Swift.Bool {
-    @objc get
+extension ZendeskSDKUIComponents.InputFieldView {
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) @objc override final public var isFirstResponder: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  @objc override final public func becomeFirstResponder() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func becomeFirstResponder() -> Swift.Bool
   @discardableResult
-  @objc override final public func resignFirstResponder() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func resignFirstResponder() -> Swift.Bool
 }
 public struct ReplyOptionCollectionViewCellRendering {
   public let text: Swift.String
   public let style: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle?
   public init(text: Swift.String = "", style: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle? = nil)
 }
-@objc @_hasMissingDesignatedInitializers final public class QuickReplyView : UIKit.UIView {
-  final public var contentSize: CoreGraphics.CGSize {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class QuickReplyView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public var contentSize: CoreGraphics.CGSize {
     get
   }
-  final public var onActionSelect: ((Swift.String) -> Swift.Void)?
-  public init(style: ZendeskSDKUIComponents.QuickReplyViewStyle = .default)
-  final public func reload()
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.QuickReplyViewRendering) -> ZendeskSDKUIComponents.QuickReplyViewRendering)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) final public var onActionSelect: ((Swift.String) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.QuickReplyViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func reload()
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.QuickReplyViewRendering) -> ZendeskSDKUIComponents.QuickReplyViewRendering)
   @objc deinit
 }
-extension QuickReplyView : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate {
-  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
-  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
-  @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+extension ZendeskSDKUIComponents.QuickReplyView : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
 }
 public struct QuickReplyViewRendering {
   public let replyOptions: [Swift.String]
@@ -145,7 +142,7 @@ public struct FormViewStyle {
   public let errorColor: UIKit.UIColor
   public init(backgroundColor: UIKit.UIColor, actionColor: UIKit.UIColor, errorColor: UIKit.UIColor)
 }
-extension FormViewStyle {
+extension ZendeskSDKUIComponents.FormViewStyle {
   public static let `default`: ZendeskSDKUIComponents.FormViewStyle
 }
 public struct FormFieldResponseViewRendering : Swift.Equatable {
@@ -163,13 +160,12 @@ public struct MessageReceiptViewStyle : Swift.Equatable {
   public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor, iconTintColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.MessageReceiptViewStyle, b: ZendeskSDKUIComponents.MessageReceiptViewStyle) -> Swift.Bool
 }
-extension MessageReceiptViewStyle {
+extension ZendeskSDKUIComponents.MessageReceiptViewStyle {
   public static let `default`: ZendeskSDKUIComponents.MessageReceiptViewStyle
 }
-@objc @_hasMissingDesignatedInitializers final public class MessageReceiptView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  public init(style: ZendeskSDKUIComponents.MessageReceiptViewStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageReceiptViewRendering) -> ZendeskSDKUIComponents.MessageReceiptViewRendering)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class MessageReceiptView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.MessageReceiptViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageReceiptViewRendering) -> ZendeskSDKUIComponents.MessageReceiptViewRendering)
   public typealias Rendering = ZendeskSDKUIComponents.MessageReceiptViewRendering
   public typealias Style = ZendeskSDKUIComponents.MessageReceiptViewStyle
   @objc deinit
@@ -204,7 +200,7 @@ public struct InputStyle : Swift.Equatable {
   public init(backgroundColor: UIKit.UIColor, actionColor: UIKit.UIColor, errorColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.InputStyle, b: ZendeskSDKUIComponents.InputStyle) -> Swift.Bool
 }
-extension InputStyle {
+extension ZendeskSDKUIComponents.InputStyle {
   public static let `default`: ZendeskSDKUIComponents.InputStyle
 }
 public enum AvatarMask : Swift.Equatable {
@@ -220,27 +216,28 @@ public struct AvatarViewStyle {
   public let shape: ZendeskSDKUIComponents.AvatarMask
   public init(emptyBackgroundColor: UIKit.UIColor, shape: ZendeskSDKUIComponents.AvatarMask)
 }
-@objc final public class MessageComposerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  final public var actions: ZendeskSDKUIComponents.MessageComposerActions?
-  convenience public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
-  public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default, actions: ZendeskSDKUIComponents.MessageComposerActions? = nil)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageComposerRendering) -> ZendeskSDKUIComponents.MessageComposerRendering)
-  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
-  @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
-    @objc get
+@objc @_Concurrency.MainActor(unsafe) final public class MessageComposerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public var actions: ZendeskSDKUIComponents.MessageComposerActions?
+  @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default, actions: ZendeskSDKUIComponents.MessageComposerActions? = nil)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageComposerRendering) -> ZendeskSDKUIComponents.MessageComposerRendering)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @available(iOS 12.0, *)
+  @_Concurrency.MainActor(unsafe) final public func userInterfaceStyleDidChange(style: UIKit.UIUserInterfaceStyle)
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  final public var attachmentSourceView: UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) final public var attachmentSourceView: UIKit.UIView {
     get
   }
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   public typealias Rendering = ZendeskSDKUIComponents.MessageComposerRendering
   public typealias Style = ZendeskSDKUIComponents.MessageComposerStyle
   @objc deinit
 }
-extension MessageComposerView : UIKit.UITextViewDelegate {
-  @objc final public func textViewDidChange(_ textView: UIKit.UITextView)
-  @objc final public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
+extension ZendeskSDKUIComponents.MessageComposerView : UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func textViewDidChange(_ textView: UIKit.UITextView)
+  @_Concurrency.MainActor(unsafe) @objc final public func textView(_ textView: UIKit.UITextView, shouldChangeTextIn range: Foundation.NSRange, replacementText text: Swift.String) -> Swift.Bool
 }
 public struct ItemViewRendering : Swift.Equatable {
   public let title: Swift.String
@@ -283,23 +280,22 @@ public struct KeyboardInfo : Swift.Equatable {
   public func keyboardHeight(for view: UIKit.UIView) -> CoreGraphics.CGFloat
   public static func == (a: ZendeskSDKUIComponents.KeyboardInfo, b: ZendeskSDKUIComponents.KeyboardInfo) -> Swift.Bool
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ReplyOptionCollectionViewCell : UIKit.UICollectionViewCell {
-  @objc override final public var isSelected: Swift.Bool {
-    @objc get
-    @objc set
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ReplyOptionCollectionViewCell : UIKit.UICollectionViewCell {
+  @_Concurrency.MainActor(unsafe) @objc override final public var isSelected: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
   }
-  @objc override final public func preferredLayoutAttributesFitting(_ layoutAttributes: UIKit.UICollectionViewLayoutAttributes) -> UIKit.UICollectionViewLayoutAttributes
-  @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ReplyOptionCollectionViewCellRendering) -> ZendeskSDKUIComponents.ReplyOptionCollectionViewCellRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public func preferredLayoutAttributesFitting(_ layoutAttributes: UIKit.UICollectionViewLayoutAttributes) -> UIKit.UICollectionViewLayoutAttributes
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ReplyOptionCollectionViewCellRendering) -> ZendeskSDKUIComponents.ReplyOptionCollectionViewCellRendering)
   @objc deinit
 }
-@objc @_hasMissingDesignatedInitializers final public class ConversationHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  public init(style: ZendeskSDKUIComponents.ConversationHeaderStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationHeaderRendering) -> ZendeskSDKUIComponents.ConversationHeaderRendering)
-  @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
-    @objc get
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ConversationHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConversationHeaderStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationHeaderRendering) -> ZendeskSDKUIComponents.ConversationHeaderRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
+    @_Concurrency.MainActor(unsafe) @objc get
   }
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
   public typealias Rendering = ZendeskSDKUIComponents.ConversationHeaderRendering
   public typealias Style = ZendeskSDKUIComponents.ConversationHeaderStyle
   @objc deinit
@@ -317,7 +313,7 @@ public struct FileMessageStyle : Swift.Equatable {
   public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor, iconColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.FileMessageStyle, b: ZendeskSDKUIComponents.FileMessageStyle) -> Swift.Bool
 }
-extension FileMessageStyle {
+extension ZendeskSDKUIComponents.FileMessageStyle {
   public static let `default`: ZendeskSDKUIComponents.FileMessageStyle
 }
 public enum ConnectionBannerViewStyle : Swift.Equatable {
@@ -326,7 +322,7 @@ public enum ConnectionBannerViewStyle : Swift.Equatable {
   case connected(UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.ConnectionBannerViewStyle, b: ZendeskSDKUIComponents.ConnectionBannerViewStyle) -> Swift.Bool
 }
-extension ConnectionBannerViewStyle {
+extension ZendeskSDKUIComponents.ConnectionBannerViewStyle {
   public static let `default`: ZendeskSDKUIComponents.ConnectionBannerViewStyle
 }
 public struct ImageMessageViewRendering {
@@ -337,36 +333,34 @@ public struct ImageMessageViewRendering {
   public let style: ZendeskSDKUIComponents.ImageMessageViewStyle
   public init(animatableImage: ZendeskSDKUIComponents.AnimatableImage = .empty, messageText: Swift.String? = nil, imagePlaceHolderText: Swift.String? = nil, corners: UIKit.UIRectCorner = .allCorners, style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default)
 }
-@objc @_hasMissingDesignatedInitializers final public class ItemGroupView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  final public var onURLTap: ((Foundation.URL, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)?
-  public init(style: ZendeskSDKUIComponents.ItemGroupViewStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ItemGroupViewRendering) -> ZendeskSDKUIComponents.ItemGroupViewRendering)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ItemGroupView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public var onURLTap: ((_ URL: Foundation.URL, _ shouldOpenURL: @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ItemGroupViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ItemGroupViewRendering) -> ZendeskSDKUIComponents.ItemGroupViewRendering)
   public typealias Rendering = ZendeskSDKUIComponents.ItemGroupViewRendering
   public typealias Style = ZendeskSDKUIComponents.ItemGroupViewStyle
   @objc deinit
 }
-extension UICollectionView {
-  public var visibleWidth: CoreGraphics.CGFloat {
+extension UIKit.UICollectionView {
+  @_Concurrency.MainActor(unsafe) public var visibleWidth: CoreGraphics.CGFloat {
     get
   }
-  public var lastSection: Swift.Int {
+  @_Concurrency.MainActor(unsafe) public var lastSection: Swift.Int {
     get
   }
-  public var lastIndexPath: Foundation.IndexPath? {
+  @_Concurrency.MainActor(unsafe) public var lastIndexPath: Foundation.IndexPath? {
     get
   }
-  public func register<T>(_: T.Type) where T : UIKit.UICollectionViewCell
-  public func dequeueReusableCell<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionViewCell
-  public func registerFooter<T>(_: T.Type) where T : UIKit.UICollectionReusableView
-  public func dequeueReusableFooter<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionReusableView
-  public func registerHeader<T>(_: T.Type) where T : UIKit.UICollectionReusableView
-  public func dequeueReusableHeader<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) public func register<T>(_: T.Type) where T : UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) public func dequeueReusableCell<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) public func registerFooter<T>(_: T.Type) where T : UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) public func dequeueReusableFooter<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) public func registerHeader<T>(_: T.Type) where T : UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) public func dequeueReusableHeader<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionReusableView
 }
-@objc @_hasMissingDesignatedInitializers final public class AvatarView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  public init(style: ZendeskSDKUIComponents.AvatarViewStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.AvatarViewRendering) -> ZendeskSDKUIComponents.AvatarViewRendering)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class AvatarView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.AvatarViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.AvatarViewRendering) -> ZendeskSDKUIComponents.AvatarViewRendering)
   public typealias Rendering = ZendeskSDKUIComponents.AvatarViewRendering
   public typealias Style = ZendeskSDKUIComponents.AvatarViewStyle
   @objc deinit
@@ -383,7 +377,7 @@ public struct FormResponseViewStyle : Swift.Equatable {
   public init(backgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.FormResponseViewStyle, b: ZendeskSDKUIComponents.FormResponseViewStyle) -> Swift.Bool
 }
-extension FormResponseViewStyle {
+extension ZendeskSDKUIComponents.FormResponseViewStyle {
   public static var `default`: ZendeskSDKUIComponents.FormResponseViewStyle {
     get
   }
@@ -392,19 +386,18 @@ public struct AvatarViewRendering {
   public let animatableImage: ZendeskSDKUIComponents.AnimatableImage
   public init(animatableImage: ZendeskSDKUIComponents.AnimatableImage = .empty)
 }
-@objc @_hasMissingDesignatedInitializers final public class FormView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  final public var onFieldFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FormView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public var onFieldFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? {
     get
     set
   }
-  final public var onFormSubmitted: ((ZendeskSDKUIComponents.FormViewRendering) -> Swift.Void)? {
+  @_Concurrency.MainActor(unsafe) final public var onFormSubmitted: ((ZendeskSDKUIComponents.FormViewRendering) -> Swift.Void)? {
     get
     set
   }
-  public init(style: ZendeskSDKUIComponents.FormViewStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormViewRendering) -> ZendeskSDKUIComponents.FormViewRendering)
-  @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.FormViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormViewRendering) -> ZendeskSDKUIComponents.FormViewRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   public typealias Rendering = ZendeskSDKUIComponents.FormViewRendering
   public typealias Style = ZendeskSDKUIComponents.FormViewStyle
   @objc deinit
@@ -424,23 +417,22 @@ public struct FormViewRendering {
   public let style: ZendeskSDKUIComponents.FormViewStyle
   public init(id: Swift.String = UUID().uuidString, fields: [ZendeskSDKUIComponents.InputFieldRendering], buttonRendering: ZendeskSDKUIComponents.FormButtonRendering, style: ZendeskSDKUIComponents.FormViewStyle = .default)
 }
-extension FormViewRendering {
+extension ZendeskSDKUIComponents.FormViewRendering {
   public func updateField(with field: ZendeskSDKUIComponents.InputFieldRendering) -> ZendeskSDKUIComponents.FormViewRendering
   public func update(fields: [ZendeskSDKUIComponents.InputFieldRendering]? = nil, buttonRendering: ZendeskSDKUIComponents.FormButtonRendering? = nil) -> ZendeskSDKUIComponents.FormViewRendering
 }
-@objc @_hasMissingDesignatedInitializers final public class ItemView : UIKit.UIControl, ZendeskSDKUIComponents.Renderer {
-  final public var onURLTap: ((Foundation.URL, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)?
-  @objc override final public var isHighlighted: Swift.Bool {
-    @objc get
-    @objc set
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ItemView : UIKit.UIControl, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public var onURLTap: ((_ url: Foundation.URL, _ shouldOpenURL: @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) @objc override final public var isHighlighted: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
   }
-  @objc override final public var isSelected: Swift.Bool {
-    @objc get
-    @objc set
+  @_Concurrency.MainActor(unsafe) @objc override final public var isSelected: Swift.Bool {
+    @_Concurrency.MainActor(unsafe) @objc get
+    @_Concurrency.MainActor(unsafe) @objc set
   }
-  public init(style: ZendeskSDKUIComponents.ItemViewStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ItemViewRendering) -> ZendeskSDKUIComponents.ItemViewRendering)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ItemViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ItemViewRendering) -> ZendeskSDKUIComponents.ItemViewRendering)
   public typealias Rendering = ZendeskSDKUIComponents.ItemViewRendering
   public typealias Style = ZendeskSDKUIComponents.ItemViewStyle
   @objc deinit
@@ -451,7 +443,7 @@ public struct MessageComposerActions {
   public let onSend: ((Swift.String) -> Swift.Void)?
   public init(onAttachmentTap: (() -> Swift.Void)?, onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?, onSend: ((Swift.String) -> Swift.Void)?)
 }
-extension UIView {
+extension UIKit.UIView {
   public enum Constrainable {
     public enum Axis {
       case horizontal
@@ -487,72 +479,71 @@ extension UIView {
       }
     }
   }
-  public var safeTopAnchor: UIKit.NSLayoutYAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeTopAnchor: UIKit.NSLayoutYAxisAnchor {
     get
   }
-  public var safeBottomAnchor: UIKit.NSLayoutYAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeBottomAnchor: UIKit.NSLayoutYAxisAnchor {
     get
   }
-  public var safeLeftAnchor: UIKit.NSLayoutXAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeLeftAnchor: UIKit.NSLayoutXAxisAnchor {
     get
   }
-  public var safeRightAnchor: UIKit.NSLayoutXAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeRightAnchor: UIKit.NSLayoutXAxisAnchor {
     get
   }
-  public var safeLeadingAnchor: UIKit.NSLayoutXAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeLeadingAnchor: UIKit.NSLayoutXAxisAnchor {
     get
   }
-  public var safeTrailingAnchor: UIKit.NSLayoutXAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeTrailingAnchor: UIKit.NSLayoutXAxisAnchor {
     get
   }
-  public var safeCenterXAnchor: UIKit.NSLayoutXAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeCenterXAnchor: UIKit.NSLayoutXAxisAnchor {
     get
   }
-  public var safeCenterYAnchor: UIKit.NSLayoutYAxisAnchor {
+  @_Concurrency.MainActor(unsafe) public var safeCenterYAnchor: UIKit.NSLayoutYAxisAnchor {
     get
   }
   @discardableResult
-  public func constrainToSuperview(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  public func constrainToSuperviewSafeLayout(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint?]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint?]
   @discardableResult
-  public func constrainToSuperViewSafeLayout(constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint?]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperViewSafeLayout(constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint?]
   @discardableResult
-  public func constrainToSuperViewEdges(priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperViewEdges(priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  public func constrainToSuperviewSafeLayout(attributes: [UIKit.UIView.Constrainable.Attribute], isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(attributes: [UIKit.UIView.Constrainable.Attribute], isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  public func constrainToSuperviewSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint?
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint?
   @discardableResult
-  public func constrainToSuperviewSafeLayout(insets: UIKit.UIEdgeInsets, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(insets: UIKit.UIEdgeInsets, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  public func constrainToSuperview(attributes: [UIKit.UIView.Constrainable.Attribute], relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(attributes: [UIKit.UIView.Constrainable.Attribute], relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  public func constrainToSuperview(attribute: UIKit.UIView.Constrainable.Attribute, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(attribute: UIKit.UIView.Constrainable.Attribute, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint
   @discardableResult
-  public func constrainCenterToView(view: UIKit.UIView) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainCenterToView(view: UIKit.UIView) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  public func constrainSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0.0) -> UIKit.NSLayoutConstraint?
+  @_Concurrency.MainActor(unsafe) public func constrainSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0.0) -> UIKit.NSLayoutConstraint?
   @discardableResult
-  public func constrain(dimension: UIKit.UIView.Constrainable.Dimension, withConstant constant: CoreGraphics.CGFloat = 0, relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrain(dimension: UIKit.UIView.Constrainable.Dimension, withConstant constant: CoreGraphics.CGFloat = 0, relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required) -> UIKit.NSLayoutConstraint
   @discardableResult
-  public func constrain(size: CoreGraphics.CGSize, relation: UIKit.NSLayoutConstraint.Relation = .equal) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrain(size: CoreGraphics.CGSize, relation: UIKit.NSLayoutConstraint.Relation = .equal) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toView view: UIKit.UIView, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toView view: UIKit.UIView, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint
   @discardableResult
-  public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView?, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, isActive: Swift.Bool = true, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView?, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, isActive: Swift.Bool = true, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint
 }
-@objc @_hasMissingDesignatedInitializers final public class ConnectionBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  public init(style: ZendeskSDKUIComponents.ConnectionBannerViewStyle = .default)
-  public init(style: ZendeskSDKUIComponents.ConnectionBannerViewStyle = .default, onRetryTap: (() -> Swift.Void)?)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConnectionBannerViewRendering) -> ZendeskSDKUIComponents.ConnectionBannerViewRendering)
-  @objc override final public func layoutSubviews()
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ConnectionBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConnectionBannerViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConnectionBannerViewStyle = .default, onRetryTap: (() -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConnectionBannerViewRendering) -> ZendeskSDKUIComponents.ConnectionBannerViewRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.ConnectionBannerViewRendering
   public typealias Style = ZendeskSDKUIComponents.ConnectionBannerViewStyle
   @objc deinit
 }
-extension UIEdgeInsets : Swift.Sequence {
+extension UIKit.UIEdgeInsets : Swift.Sequence {
   public typealias Iterator = ZendeskSDKUIComponents.InsetsIterator
   public typealias Element = CoreGraphics.CGFloat
   public func makeIterator() -> UIKit.UIEdgeInsets.Iterator
@@ -570,7 +561,7 @@ public struct ItemViewStyle : Swift.Equatable {
   public init(backgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, dividerColor: UIKit.UIColor, selectedColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.ItemViewStyle, b: ZendeskSDKUIComponents.ItemViewStyle) -> Swift.Bool
 }
-extension ItemViewStyle {
+extension ZendeskSDKUIComponents.ItemViewStyle {
   public static let `default`: ZendeskSDKUIComponents.ItemViewStyle
 }
 public enum FormButtonState : Swift.Equatable, Swift.CaseIterable {
@@ -592,12 +583,12 @@ public struct FormButtonStyle : Swift.Equatable {
   public init(backgroundColor: UIKit.UIColor, textColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.FormButtonStyle, b: ZendeskSDKUIComponents.FormButtonStyle) -> Swift.Bool
 }
-extension FormButtonStyle {
+extension ZendeskSDKUIComponents.FormButtonStyle {
   public static var `default`: ZendeskSDKUIComponents.FormButtonStyle {
     get
   }
 }
-extension UIFont {
+extension UIKit.UIFont {
   public var bold: UIKit.UIFont {
     get
   }
@@ -609,14 +600,13 @@ public struct ImageMessageViewStyle : Swift.Equatable {
   public init(backgroundColor: UIKit.UIColor = .clear, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, imageAlpha: CoreGraphics.CGFloat = 1.0, borderColor: UIKit.UIColor? = nil, textStyle: ZendeskSDKUIComponents.TextMessageStyle? = .default)
   public static func == (a: ZendeskSDKUIComponents.ImageMessageViewStyle, b: ZendeskSDKUIComponents.ImageMessageViewStyle) -> Swift.Bool
 }
-extension ImageMessageViewStyle {
+extension ZendeskSDKUIComponents.ImageMessageViewStyle {
   public static let `default`: ZendeskSDKUIComponents.ImageMessageViewStyle
 }
-@objc @_hasMissingDesignatedInitializers final public class FormResponseView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  public init(style: ZendeskSDKUIComponents.FormResponseViewStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormResponseViewRendering) -> ZendeskSDKUIComponents.FormResponseViewRendering)
-  @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FormResponseView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.FormResponseViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormResponseViewRendering) -> ZendeskSDKUIComponents.FormResponseViewRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   public typealias Rendering = ZendeskSDKUIComponents.FormResponseViewRendering
   public typealias Style = ZendeskSDKUIComponents.FormResponseViewStyle
   @objc deinit
@@ -628,16 +618,15 @@ public struct AnimatableImage : Swift.Equatable {
   public init(images: [UIKit.UIImage] = [], duration: Foundation.TimeInterval = 0, shouldAnimate: Swift.Bool = false)
   public static func == (a: ZendeskSDKUIComponents.AnimatableImage, b: ZendeskSDKUIComponents.AnimatableImage) -> Swift.Bool
 }
-extension AnimatableImage {
+extension ZendeskSDKUIComponents.AnimatableImage {
   public static var empty: ZendeskSDKUIComponents.AnimatableImage {
     get
   }
 }
-@objc @_hasMissingDesignatedInitializers final public class FileMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  public init(style: ZendeskSDKUIComponents.FileMessageStyle = .default)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FileMessageRendering) -> ZendeskSDKUIComponents.FileMessageRendering)
-  @objc override final public func layoutSubviews()
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FileMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.FileMessageStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FileMessageRendering) -> ZendeskSDKUIComponents.FileMessageRendering)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.FileMessageRendering
   public typealias Style = ZendeskSDKUIComponents.FileMessageStyle
   @objc deinit
@@ -650,7 +639,7 @@ public struct ItemGroupViewStyle : Swift.Equatable {
   public init(backgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, dividerColor: UIKit.UIColor, selectedColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.ItemGroupViewStyle, b: ZendeskSDKUIComponents.ItemGroupViewStyle) -> Swift.Bool
 }
-extension ItemGroupViewStyle {
+extension ZendeskSDKUIComponents.ItemGroupViewStyle {
   public static let `default`: ZendeskSDKUIComponents.ItemGroupViewStyle
 }
 public struct ConversationHeaderStyle {
@@ -665,14 +654,14 @@ public struct QuickReplyViewStyle : Swift.Equatable {
   public init(replyOptionStyle: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle? = nil)
   public static func == (a: ZendeskSDKUIComponents.QuickReplyViewStyle, b: ZendeskSDKUIComponents.QuickReplyViewStyle) -> Swift.Bool
 }
-extension QuickReplyViewStyle {
+extension ZendeskSDKUIComponents.QuickReplyViewStyle {
   public static let `default`: ZendeskSDKUIComponents.QuickReplyViewStyle
 }
 public struct ReplyOptionCollectionViewCellStyle : Swift.Equatable {
   public init(textColor: UIKit.UIColor, borderColor: UIKit.UIColor, selectedColor: UIKit.UIColor, textFont: UIKit.UIFont)
   public static func == (a: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle, b: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle) -> Swift.Bool
 }
-extension ReplyOptionCollectionViewCellStyle {
+extension ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle {
   public static let `default`: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle
 }
 @objc @_inheritsConvenienceInitializers final public class KeyboardHelper : ObjectiveC.NSObject {
@@ -685,22 +674,21 @@ extension ReplyOptionCollectionViewCellStyle {
 public protocol UICollectionReusableViewType {
   static var identifier: Swift.String { get }
 }
-extension UICollectionReusableViewType where Self : UIKit.UICollectionReusableView {
+extension ZendeskSDKUIComponents.UICollectionReusableViewType where Self : UIKit.UICollectionReusableView {
   public static var viewIdentifier: Swift.String {
     get
   }
 }
-extension UICollectionReusableView : ZendeskSDKUIComponents.UICollectionReusableViewType {
-  public static var identifier: Swift.String {
+extension UIKit.UICollectionReusableView : ZendeskSDKUIComponents.UICollectionReusableViewType {
+  @_Concurrency.MainActor(unsafe) public static var identifier: Swift.String {
     get
   }
 }
-@objc @_hasMissingDesignatedInitializers final public class FormButton : UIKit.UIButton, ZendeskSDKUIComponents.Renderer {
-  final public var onTap: (() -> Swift.Void)?
-  convenience public init(style: ZendeskSDKUIComponents.FormButtonStyle)
-  public init(style: ZendeskSDKUIComponents.FormButtonStyle = .default, onTap: (() -> Swift.Void)? = nil)
-  final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormButtonRendering) -> ZendeskSDKUIComponents.FormButtonRendering)
-  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FormButton : UIKit.UIButton, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) final public var onTap: (() -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.FormButtonStyle)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.FormButtonStyle = .default, onTap: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormButtonRendering) -> ZendeskSDKUIComponents.FormButtonRendering)
   public typealias Rendering = ZendeskSDKUIComponents.FormButtonRendering
   public typealias Style = ZendeskSDKUIComponents.FormButtonStyle
   @objc deinit

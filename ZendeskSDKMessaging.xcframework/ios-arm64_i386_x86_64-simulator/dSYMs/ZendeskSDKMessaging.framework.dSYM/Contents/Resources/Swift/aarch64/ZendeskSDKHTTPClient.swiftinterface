@@ -1,10 +1,11 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
 // swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKHTTPClient
 import Foundation
 import Swift
 @_exported import ZendeskSDKHTTPClient
 import ZendeskSDKLogger
+import _Concurrency
 public enum HTTPHeader : Swift.Hashable {
   case userAgent(Swift.String)
   case contentLength(Swift.String)
@@ -28,7 +29,7 @@ public enum HTTPError : Foundation.LocalizedError {
     get
   }
 }
-extension HTTPError : Swift.Equatable {
+extension ZendeskSDKHTTPClient.HTTPError : Swift.Equatable {
   public static func == (lhs: ZendeskSDKHTTPClient.HTTPError, rhs: ZendeskSDKHTTPClient.HTTPError) -> Swift.Bool
 }
 public protocol HTTPClient {
