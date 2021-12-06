@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_document" = "Document";
 "zma_alert_message_label_photoLibrary" = "Photo library";
+"zma_carousel_action_not_supported" = "Option not supported";
 "zma_connection_banner_label_disconnected" = "Offline. You won't receive messages.";
 "zma_connection_banner_label_reconnected" = "You're now online";
 "zma_connection_banner_label_reconnecting" = "Reconnecting...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Enter %@ characters or less";
 "zma_form_field_min_character_error" = "Enter %@ characters or more";
 "zma_form_field_required_label" = "This field is required";
+"zma_form_next_button" = "Next";
 "zma_form_send_button" = "Send";
 "zma_form_submission_error" = "Details couldn’t be sent. Try again.";
 "zma_label_add_attachments" = "Add attachments";

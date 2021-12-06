@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "相机";
 "zma_alert_message_label_document" = "文档";
 "zma_alert_message_label_photoLibrary" = "照片库";
+"zma_carousel_action_not_supported" = "不支持的选项";
 "zma_connection_banner_label_disconnected" = "离线。您将不会接收到消息。";
 "zma_connection_banner_label_reconnected" = "您现在处于在线状态";
 "zma_connection_banner_label_reconnecting" = "正在重新连接……";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "输入 %@ 个或更少的字符";
 "zma_form_field_min_character_error" = "输入 %@ 个或更多的字符";
 "zma_form_field_required_label" = "此字段为必填";
+"zma_form_next_button" = "下一页";
 "zma_form_send_button" = "发送";
 "zma_form_submission_error" = "无法发送详情。再试一次。";
 "zma_label_add_attachments" = "添加附件";

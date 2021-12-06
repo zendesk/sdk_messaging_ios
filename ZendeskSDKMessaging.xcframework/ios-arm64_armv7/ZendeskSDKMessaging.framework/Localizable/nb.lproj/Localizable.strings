@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokument";
 "zma_alert_message_label_photoLibrary" = "Bildebibliotek";
+"zma_carousel_action_not_supported" = "Alternativet støttes ikke";
 "zma_connection_banner_label_disconnected" = "Offline. Du kommer ikke til å motta meldinger.";
 "zma_connection_banner_label_reconnected" = "Du er nå online";
 "zma_connection_banner_label_reconnecting" = "Kobler til igjen...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Legg inn %@ eller færre tegn";
 "zma_form_field_min_character_error" = "Legg inn %@ eller flere tegn";
 "zma_form_field_required_label" = "Dette feltet er obligatorisk";
+"zma_form_next_button" = "Neste";
 "zma_form_send_button" = "Send";
 "zma_form_submission_error" = "Informasjon kunne ikke sendes. Prøv på nytt.";
 "zma_label_add_attachments" = "Legg til vedlegg";

@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Κάμερα";
 "zma_alert_message_label_document" = "Έγγραφο";
 "zma_alert_message_label_photoLibrary" = "Βιβλιοθήκη φωτογραφιών";
+"zma_carousel_action_not_supported" = "Η επιλογή δεν υποστηρίζεται";
 "zma_connection_banner_label_disconnected" = "Offline. Δεν θα λαμβάνετε μηνύματα.";
 "zma_connection_banner_label_reconnected" = "Τώρα είστε online";
 "zma_connection_banner_label_reconnecting" = "Επανασύνδεση...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Εισαγάγετε έως %@ χαρακτήρες";
 "zma_form_field_min_character_error" = "Εισαγάγετε τουλάχιστον %@ χαρακτήρες";
 "zma_form_field_required_label" = "Αυτό το πεδίο είναι υποχρεωτικό";
+"zma_form_next_button" = "Επόμενο";
 "zma_form_send_button" = "Αποστολή";
 "zma_form_submission_error" = "Δεν ήταν δυνατή η αποστολή λεπτομερειών. Προσπαθήστε ξανά.";
 "zma_label_add_attachments" = "Προσθήκη συνημμένων";

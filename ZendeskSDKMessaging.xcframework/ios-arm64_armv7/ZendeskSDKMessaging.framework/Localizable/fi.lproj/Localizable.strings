@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Asiakirja";
 "zma_alert_message_label_photoLibrary" = "Valokuvakirjasto";
+"zma_carousel_action_not_supported" = "Vaihtoehtoa ei tueta";
 "zma_connection_banner_label_disconnected" = "Offline-tila. Et voi vastaanottaa viestejä.";
 "zma_connection_banner_label_reconnected" = "Olet nyt online-tilassa";
 "zma_connection_banner_label_reconnecting" = "Yhteyttä luodaan uudelleen...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Anna enintään %@ merkkiä";
 "zma_form_field_min_character_error" = "Anna vähintään %@ merkkiä";
 "zma_form_field_required_label" = "Tämä kenttä on pakollinen";
+"zma_form_next_button" = "Seuraava";
 "zma_form_send_button" = "Lähetä";
 "zma_form_submission_error" = "Tietoja ei voitu lähettää. Yritä uudelleen.";
 "zma_label_add_attachments" = "Lisää liitteet";

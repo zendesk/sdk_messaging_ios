@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "كاميرا";
 "zma_alert_message_label_document" = "مستند";
 "zma_alert_message_label_photoLibrary" = "مكتبة الصور";
+"zma_carousel_action_not_supported" = "الخيار غير مدعوم";
 "zma_connection_banner_label_disconnected" = "غير متصل. لن تتلقى رسائل.";
 "zma_connection_banner_label_reconnected" = "أنت الآن متصل";
 "zma_connection_banner_label_reconnecting" = "جارٍ إعادة الاتصال...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "أدخِل %@ أحرف أو أقل";
 "zma_form_field_min_character_error" = "أدخِل %@ أحرف أو أكثر";
 "zma_form_field_required_label" = "هذا الحقل مطلوب";
+"zma_form_next_button" = "التالي";
 "zma_form_send_button" = "إرسال";
 "zma_form_submission_error" = "تعذر إرسال التفاصيل أعِد المحاولة.";
 "zma_label_add_attachments" = "إضافة مرفقات";

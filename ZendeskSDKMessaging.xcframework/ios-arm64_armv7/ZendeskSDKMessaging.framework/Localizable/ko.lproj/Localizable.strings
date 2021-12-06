@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "카메라";
 "zma_alert_message_label_document" = "문서";
 "zma_alert_message_label_photoLibrary" = "사진 라이브러리";
+"zma_carousel_action_not_supported" = "옵션이 지원되지 않음";
 "zma_connection_banner_label_disconnected" = "오프라인 상태. 메시지를 받지 못합니다.";
 "zma_connection_banner_label_reconnected" = "현재 온라인 상태입니다.";
 "zma_connection_banner_label_reconnecting" = "다시 연결 중…";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "%@자 이하로 입력하세요.";
 "zma_form_field_min_character_error" = "%@자 이상으로 입력하세요.";
 "zma_form_field_required_label" = "이 필드는 반드시 입력해야 합니다.";
+"zma_form_next_button" = "다음";
 "zma_form_send_button" = "보내기";
 "zma_form_submission_error" = "세부 정보를 보낼 수 없습니다. 다시 시도하세요.";
 "zma_label_add_attachments" = "첨부 파일 추가";

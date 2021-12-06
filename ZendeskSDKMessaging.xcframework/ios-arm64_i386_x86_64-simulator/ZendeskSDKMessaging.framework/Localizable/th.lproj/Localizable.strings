@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "กล้อง";
 "zma_alert_message_label_document" = "เอกสาร";
 "zma_alert_message_label_photoLibrary" = "คลังภาพ";
+"zma_carousel_action_not_supported" = "ไม่รองรับตัวเลือก";
 "zma_connection_banner_label_disconnected" = "ออฟไลน์ คุณจะไม่ได้รับข้อความ";
 "zma_connection_banner_label_reconnected" = "คุณออนไลน์แล้ว";
 "zma_connection_banner_label_reconnecting" = "กำลังเชื่อมต่อใหม่...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "ป้อนตัวอักษรไม่เกิน %@ ตัว";
 "zma_form_field_min_character_error" = "ป้อนตัวอักษรอย่างน้อย %@ ตัว";
 "zma_form_field_required_label" = "จำเป็นต้องระบุฟิลด์นี้";
+"zma_form_next_button" = "ถัดไป";
 "zma_form_send_button" = "ส่ง";
 "zma_form_submission_error" = "ไม่สามารถส่งรายละเอียดได้ ลองอีกครั้ง";
 "zma_label_add_attachments" = "เพิ่มไฟล์แนบ";

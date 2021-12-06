@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Appareil photo";
 "zma_alert_message_label_document" = "Document";
 "zma_alert_message_label_photoLibrary" = "Bibliothèque de photos";
+"zma_carousel_action_not_supported" = "Option non prise en charge";
 "zma_connection_banner_label_disconnected" = "Hors ligne. Vous ne recevrez pas les messages.";
 "zma_connection_banner_label_reconnected" = "Vous êtes désormais en ligne";
 "zma_connection_banner_label_reconnecting" = "Reconnexion en cours";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Saisissez %@ caractères max.";
 "zma_form_field_min_character_error" = "Saisissez %@ caractères min.";
 "zma_form_field_required_label" = "Ce champ est obligatoire.";
+"zma_form_next_button" = "Suiv.";
 "zma_form_send_button" = "Envoyer";
 "zma_form_submission_error" = "Échec de l’envoi des détails. Réessayez.";
 "zma_label_add_attachments" = "Ajouter des pièces jointes";

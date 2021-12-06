@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "מצלמה";
 "zma_alert_message_label_document" = "מסמך";
 "zma_alert_message_label_photoLibrary" = "ספריית תמונות";
+"zma_carousel_action_not_supported" = "האפשרות לא נתמכת";
 "zma_connection_banner_label_disconnected" = "לא מקוון. לא תקבל הודעות.";
 "zma_connection_banner_label_reconnected" = "עכישו אתה מקוון";
 "zma_connection_banner_label_reconnecting" = "מתחבר מחדש...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "הזן %@ תווים או פחות";
 "zma_form_field_min_character_error" = "הזן %@ תווים או יותר";
 "zma_form_field_required_label" = "שדה זה הוא שדה חובה";
+"zma_form_next_button" = "הבא";
 "zma_form_send_button" = "שלח";
 "zma_form_submission_error" = "הפרטים לא נשלחו. נסה שוב.";
 "zma_label_add_attachments" = "צירוף קבצים";

@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "カメラ";
 "zma_alert_message_label_document" = "ドキュメント";
 "zma_alert_message_label_photoLibrary" = "写真ライブラリ";
+"zma_carousel_action_not_supported" = "このオプションはサポートされていません";
 "zma_connection_banner_label_disconnected" = "オフラインです。メッセージの受信は行われません。";
 "zma_connection_banner_label_reconnected" = "現在オンラインです";
 "zma_connection_banner_label_reconnecting" = "再接続中...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "%@文字以内で入力してください";
 "zma_form_field_min_character_error" = "%@文字以上で入力してください";
 "zma_form_field_required_label" = "このフィールドは入力必須です";
+"zma_form_next_button" = "次へ";
 "zma_form_send_button" = "送信";
 "zma_form_submission_error" = "詳細を送信することはできません。もう一度やり直してください。";
 "zma_label_add_attachments" = "ファイルを添付";

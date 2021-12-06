@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "相機";
 "zma_alert_message_label_document" = "文件";
 "zma_alert_message_label_photoLibrary" = "相片媒體櫃";
+"zma_carousel_action_not_supported" = "選項不支援";
 "zma_connection_banner_label_disconnected" = "已離線。您將不會收到訊息。";
 "zma_connection_banner_label_reconnected" = "您現在已在線上";
 "zma_connection_banner_label_reconnecting" = "重新連線中……";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "輸入 %@ 個字元或更少";
 "zma_form_field_min_character_error" = "輸入 %@ 個字元或更多";
 "zma_form_field_required_label" = "此欄位為必填";
+"zma_form_next_button" = "下一個";
 "zma_form_send_button" = "傳送";
 "zma_form_submission_error" = "不能傳送詳情。再試一次。";
 "zma_label_add_attachments" = "新增附件";

@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokumentum";
 "zma_alert_message_label_photoLibrary" = "Fotóalbum";
+"zma_carousel_action_not_supported" = "Nem támogatott beállítás";
 "zma_connection_banner_label_disconnected" = "Ön jelenleg offline. Nem fog üzeneteket kapni.";
 "zma_connection_banner_label_reconnected" = "Ön ismét online.";
 "zma_connection_banner_label_reconnecting" = "Újracsatlakozás…";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Legfeljebb %@ karaktert írjon be";
 "zma_form_field_min_character_error" = "Legalább %@ karaktert írjon be";
 "zma_form_field_required_label" = "A mező kitöltése kötelező";
+"zma_form_next_button" = "Tovább";
 "zma_form_send_button" = "Küldés";
 "zma_form_submission_error" = "A részletek elküldése nem sikerült. Próbálkozzon újra.";
 "zma_label_add_attachments" = "Csatolmányok hozzáadása";

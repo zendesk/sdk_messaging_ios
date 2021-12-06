@@ -1,0 +1,133 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDK
+import CoreTelephony
+import Foundation
+import Swift
+import UIKit
+@_exported import ZendeskSDK
+import ZendeskSDKConversationKit
+import ZendeskSDKHTTPClient
+import ZendeskSDKLogger
+import _Concurrency
+public enum InitializationPhase {
+  case notProcessing, processing
+  public static func == (a: ZendeskSDK.InitializationPhase, b: ZendeskSDK.InitializationPhase) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum ZendeskEvent : Swift.Equatable {
+  case unreadMessageCountChanged(currentUnreadCount: Swift.Int)
+  public static func == (a: ZendeskSDK.ZendeskEvent, b: ZendeskSDK.ZendeskEvent) -> Swift.Bool
+}
+@objc public enum ZDKZendeskEvent : Swift.Int {
+  case unreadMessageCountChanged
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public protocol MessagingFactory {
+  @objc func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
+}
+@_hasMissingDesignatedInitializers @objc(ZDKMessagingFactoryParameters) final public class MessagingFactoryParameters : ObjectiveC.NSObject {
+  final public let messagingSettings: ZendeskSDK.MessagingSettings
+  final public let conversationKit: ZendeskSDKConversationKit.ConversationKit
+  final public let dispatchEvent: ZendeskSDK.DispatchEvent
+  @objc deinit
+}
+public struct ColorTheme : Swift.Equatable, Swift.Hashable {
+  public let primaryColor: UIKit.UIColor
+  public let messageColor: UIKit.UIColor
+  public let actionColor: UIKit.UIColor
+  public static func == (a: ZendeskSDK.ColorTheme, b: ZendeskSDK.ColorTheme) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc(ZDKURLSource) public enum URLSource : Swift.Int, Swift.RawRepresentable {
+  case text
+  case carousel
+  case file
+  case image
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(ZDKMessagingDelegate) public protocol MessagingDelegate {
+  @objc func messaging(_ messaging: ZendeskSDK.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
+}
+extension ZendeskSDK.MessagingDelegate {
+  public func messaging(_ messaging: ZendeskSDK.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers @objc(ZDKMessagingSettings) final public class MessagingSettings : ObjectiveC.NSObject {
+  final public let integrationId: Swift.String
+  final public let enabled: Swift.Bool
+  final public let brand: Swift.String?
+  final public let title: Swift.String
+  final public let accountDescription: Swift.String?
+  final public let logoURL: Swift.String?
+  final public let theme: ZendeskSDK.ColorTheme
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override final public var hash: Swift.Int {
+    @objc get
+  }
+  @objc override final public var description: Swift.String {
+    @objc get
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class Zendesk : ObjectiveC.NSObject {
+  @objc final public var messaging: ZendeskSDK.Messaging? {
+    @objc get
+  }
+  @objc public static var instance: ZendeskSDK.Zendesk? {
+    @objc get
+  }
+  public static var initializationPhase: ZendeskSDK.InitializationPhase {
+    get
+  }
+  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, Swift.Error>) -> Swift.Void)
+  @objc public static func invalidate()
+  final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: @escaping (ZendeskSDK.ZendeskEvent) -> Swift.Void)
+  @objc final public func removeEventObserver(_ observer: Swift.AnyObject)
+  @objc deinit
+}
+extension ZendeskSDK.Zendesk {
+  @available(swift, obsoleted: 1.0)
+  @objc public static func initialize(channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory?, completionHandler: ((ZendeskSDK.Zendesk?, Swift.Error?) -> Swift.Void)?)
+  @available(swift, obsoleted: 1.0)
+  @objc final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: ((ZendeskSDK.ZDKZendeskEvent, Swift.AnyObject?) -> Swift.Void)?)
+}
+extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
+  public static var logNamespace: Swift.String {
+    get
+  }
+  public static var logCategory: Swift.String {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc(ZDKDispatchEvent) final public class DispatchEvent : ObjectiveC.NSObject {
+  final public let event: (ZendeskSDK.ZendeskEvent) -> Swift.Void
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(ZDKMessaging) open class Messaging : ObjectiveC.NSObject {
+  @objc open func messagingViewController() -> UIKit.UIViewController
+  @objc open func getUnreadMessageCount() -> Swift.Int
+  @objc weak public static var delegate: ZendeskSDK.MessagingDelegate?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ZendeskSDK.InitializationPhase : Swift.Equatable {}
+extension ZendeskSDK.InitializationPhase : Swift.Hashable {}
+extension ZendeskSDK.ZDKZendeskEvent : Swift.Equatable {}
+extension ZendeskSDK.ZDKZendeskEvent : Swift.Hashable {}
+extension ZendeskSDK.ZDKZendeskEvent : Swift.RawRepresentable {}
+extension ZendeskSDK.URLSource : Swift.Equatable {}
+extension ZendeskSDK.URLSource : Swift.Hashable {}

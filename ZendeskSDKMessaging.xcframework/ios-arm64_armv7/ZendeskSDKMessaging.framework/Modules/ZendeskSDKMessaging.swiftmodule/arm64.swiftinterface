@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKMessaging
 import CommonCrypto
 import CoreImage
@@ -7,38 +7,18 @@ import CoreServices
 import Foundation
 import MobileCoreServices
 import PhotosUI
-import QuickLook
 import Swift
 import UIKit.UIImage
 import UIKit
 import UniformTypeIdentifiers
+import ZendeskSDK
 import ZendeskSDKConversationKit
-import ZendeskSDKHTTPClient
 import ZendeskSDKLogger
 @_exported import ZendeskSDKMessaging
 import ZendeskSDKStorage
 import ZendeskSDKUIComponents
 import _Concurrency
 import os
-public enum MessagingError : Foundation.LocalizedError, Foundation.CustomNSError {
-  case accountNotFound
-  case sdkNotEnabled
-  case failedToInitialize(error: Swift.Error?)
-  case missingConfiguration
-  case invalidChannelKey
-  public static var errorDomain: Swift.String {
-    get
-  }
-  public var errorDescription: Swift.String? {
-    get
-  }
-  public var errorUserInfo: [Swift.String : Any] {
-    get
-  }
-}
-extension ZendeskSDKMessaging.MessagingError : Swift.Equatable {
-  public static func == (lhs: ZendeskSDKMessaging.MessagingError, rhs: ZendeskSDKMessaging.MessagingError) -> Swift.Bool
-}
 extension UIKit.UIImageView {
   @_Concurrency.MainActor(unsafe) @objc dynamic open func nuke_display(image: UIKit.UIImage?)
 }
@@ -58,34 +38,10 @@ extension UIKit.UIImageView {
   @objc public static func handleTap(_ userInfo: [Swift.AnyHashable : Any], completion: ((UIKit.UIViewController?) -> Swift.Void)?)
   @objc deinit
 }
-@objc(ZDKURLSource) public enum URLSource : Swift.Int, Swift.RawRepresentable {
-  case text
-  case carousel
-  case file
-  case image
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
-@objc(ZDKMessagingDelegate) public protocol MessagingDelegate {
-  @objc func messaging(_ messaging: ZendeskSDKMessaging.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDKMessaging.URLSource) -> Swift.Bool
-}
-extension ZendeskSDKMessaging.MessagingDelegate {
-  public func messaging(_ messaging: ZendeskSDKMessaging.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDKMessaging.URLSource) -> Swift.Bool
-}
-@_hasMissingDesignatedInitializers @objc(ZDKMessaging) final public class Messaging : ObjectiveC.NSObject {
-  @objc weak public static var delegate: ZendeskSDKMessaging.MessagingDelegate?
-  @objc public static var instance: ZendeskSDKMessaging.Messaging?
-  public static func initialize(channelKey: Swift.String, completionHandler: ((Swift.Result<ZendeskSDKMessaging.Messaging, ZendeskSDKMessaging.MessagingError>) -> Swift.Void)?)
-  @objc public static func invalidate()
-  @objc final public func messagingViewController() -> UIKit.UIViewController
+@_inheritsConvenienceInitializers @objc(ZDKDefaultMessagingFactory) final public class DefaultMessagingFactory : ObjectiveC.NSObject, ZendeskSDK.MessagingFactory {
+  @objc final public func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
+  @objc override dynamic public init()
   @objc deinit
-}
-extension ZendeskSDKMessaging.Messaging {
-  @available(swift, obsoleted: 1.0)
-  @objc public static func initialize(channelKey: Swift.String, completionHandler: ((ZendeskSDKMessaging.Messaging?, Swift.Error?) -> Swift.Void)?)
 }
 extension CoreGraphics.CGSize : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
@@ -96,5 +52,3 @@ extension CoreGraphics.CGSize : Swift.Hashable {
 extension ZendeskSDKMessaging.PushResponsibility : Swift.Equatable {}
 extension ZendeskSDKMessaging.PushResponsibility : Swift.Hashable {}
 extension ZendeskSDKMessaging.PushResponsibility : Swift.RawRepresentable {}
-extension ZendeskSDKMessaging.URLSource : Swift.Equatable {}
-extension ZendeskSDKMessaging.URLSource : Swift.Hashable {}

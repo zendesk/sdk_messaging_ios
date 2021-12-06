@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "कैमरा";
 "zma_alert_message_label_document" = "दस्तावेज़";
 "zma_alert_message_label_photoLibrary" = "फ़ोटो लाइब्रेरी";
+"zma_carousel_action_not_supported" = "विकल्प सहायता नहीं";
 "zma_connection_banner_label_disconnected" = "ऑफ़लाइन। आपको संदेश नहीं मिलेंगे।";
 "zma_connection_banner_label_reconnected" = "अब आप ऑनलाइन हैं";
 "zma_connection_banner_label_reconnecting" = "फिर से कनेक्ट हो रहा है...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "%@ या उससे कम वर्ण दर्ज करें";
 "zma_form_field_min_character_error" = "%@ या उससे ज़्यादा वर्ण दर्ज करें";
 "zma_form_field_required_label" = "यह क्षेत्र आवश्यक है";
+"zma_form_next_button" = "अगला";
 "zma_form_send_button" = "भेजें";
 "zma_form_submission_error" = "विवरण नहीं भेजा जा सका. फिर से कोशिश करें.";
 "zma_label_add_attachments" = "अनुलग्नक जोड़ें";

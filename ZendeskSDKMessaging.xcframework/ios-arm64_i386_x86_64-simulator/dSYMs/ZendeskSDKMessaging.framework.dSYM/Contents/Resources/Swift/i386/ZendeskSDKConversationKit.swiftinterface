@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 import CoreTelephony
 import Foundation
@@ -74,7 +74,8 @@ import _Concurrency
   @objc final public let messages: [ZendeskSDKConversationKit.Message]
   @objc final public let hasPrevious: Swift.Bool
   @objc final public let myself: ZendeskSDKConversationKit.Participant?
-  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?)
+  @objc final public let activity: ZendeskSDKConversationKit.Activity?
+  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -96,6 +97,9 @@ public enum FormField : Swift.Equatable, Swift.Hashable {
   case text(ZendeskSDKConversationKit.TextFormField)
   case email(ZendeskSDKConversationKit.EmailFormField)
   case select(ZendeskSDKConversationKit.SelectFormField)
+  public var id: Swift.String {
+    get
+  }
   public var name: Swift.String {
     get
   }
@@ -244,13 +248,17 @@ extension ZendeskSDKConversationKit.ConversationKit {
 }
 public protocol ConversationKitInternal {
   func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func logout(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
 }
 extension ZendeskSDKConversationKit.ConversationKitInternal {
   public func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func logout(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
 }
 @objc(ZDKConversationKitInternal) public protocol ConversationKitObjCInternal {
   @objc @available(swift, obsoleted: 1.0)
   func login(with jwt: Swift.String, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func logout(completion: ((Swift.Error?) -> Swift.Void)?)
 }
 @objc public protocol ConversationKitShared {
   @objc var config: ZendeskSDKConversationKit.Config? { get }
@@ -260,7 +268,6 @@ extension ZendeskSDKConversationKit.ConversationKitInternal {
   @objc func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, config: ZendeskSDKConversationKit.Config)
   @objc func pause()
   @objc func resume()
-  @objc func logout()
   @objc func updatePushNotificationToken(_ token: Swift.String)
 }
 @objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitObjCInternal, ZendeskSDKConversationKit.ConversationKitShared {
@@ -361,6 +368,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc final public let givenName: Swift.String
   @objc final public let surname: Swift.String
   @objc final public let locale: Swift.String
+  @objc final public let userId: Swift.String
   @objc final public let conversations: [ZendeskSDKConversationKit.Conversation]
   @objc final public let realtimeSettings: ZendeskSDKConversationKit.RealtimeSettings
   @objc final public let authentication: ZendeskSDKConversationKit.Authentication
@@ -477,6 +485,9 @@ public enum ConversationKitEvent {
   case pushTokenPrepared(Swift.String)
   case pushTokenUpdateResult(token: Swift.String, error: ZendeskSDKConversationKit.ConversationKitError?)
   case loginResult(result: Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>)
+  case logoutResult(error: ZendeskSDKConversationKit.ConversationKitError?)
+  case persistedUserRetrieved(ZendeskSDKConversationKit.User)
+  case conversationReadReceived(conversationId: Swift.String)
 }
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
@@ -488,6 +499,9 @@ public enum ConversationKitEvent {
   case pushTokenPrepared
   case pushTokenUpdateResult
   case loginResult
+  case logoutResult
+  case persistedUserRetrieved
+  case conversationReadReceived
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -575,6 +589,20 @@ extension ZendeskSDKConversationKit.Author {
   @objc override final public var debugDescription: Swift.String {
     @objc get
   }
+}
+@objc(ZDKActivity) final public class Activity : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let id: Swift.String
+  @objc final public let type: ZendeskSDKConversationKit.ActivityType
+  @objc final public let authorType: ZendeskSDKConversationKit.AuthorType
+  @objc final public let name: Swift.String?
+  @objc final public let avatarURL: Swift.String?
+  @objc final public let appUserId: Swift.String?
+  @objc final public let lastRead: Foundation.Date?
+  public init(id: Swift.String = UUID().uuidString, type: ZendeskSDKConversationKit.ActivityType, authorType: ZendeskSDKConversationKit.AuthorType, name: Swift.String?, avatarURL: Swift.String?, appUserId: Swift.String? = nil, lastRead: Foundation.Date? = nil)
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @objc(ZDKConnectionStatus) public enum ConnectionStatus : Swift.Int {
   case disconnected

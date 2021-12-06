@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Камера";
 "zma_alert_message_label_document" = "Документ";
 "zma_alert_message_label_photoLibrary" = "Библиотека фото";
+"zma_carousel_action_not_supported" = "Вариант не поддерживается";
 "zma_connection_banner_label_disconnected" = "Не в сети. Сообщения поступать не будут.";
 "zma_connection_banner_label_reconnected" = "Вы уже онлайн";
 "zma_connection_banner_label_reconnecting" = "Восстановление подключения...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Введите не более %@ символов";
 "zma_form_field_min_character_error" = "Введите не менее %@ символов";
 "zma_form_field_required_label" = "Это обязательное поле";
+"zma_form_next_button" = "Далее";
 "zma_form_send_button" = "Отправить";
 "zma_form_submission_error" = "Не удалось отправить сведения. Повторите попытку.";
 "zma_label_add_attachments" = "Прикрепить файлы";

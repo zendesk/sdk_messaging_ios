@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Камера";
 "zma_alert_message_label_document" = "Документ";
 "zma_alert_message_label_photoLibrary" = "Библиотека със снимки";
+"zma_carousel_action_not_supported" = "Опцията не се поддържа";
 "zma_connection_banner_label_disconnected" = "Офлайн. Няма да получавате съобщения.";
 "zma_connection_banner_label_reconnected" = "Вече сте онлайн";
 "zma_connection_banner_label_reconnecting" = "Възстановяване на връзката…";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Въведете най-много %@ знака";
 "zma_form_field_min_character_error" = "Въведете най-малко %@ знака";
 "zma_form_field_required_label" = "Това поле е задължително";
+"zma_form_next_button" = "Напред";
 "zma_form_send_button" = "Изпращане";
 "zma_form_submission_error" = "Подробните данни не бяха изпратени. Опитайте отново.";
 "zma_label_add_attachments" = "Прикачване на файлове";

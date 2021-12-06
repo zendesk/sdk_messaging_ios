@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Belge";
 "zma_alert_message_label_photoLibrary" = "Fotoğraf kitaplığı";
+"zma_carousel_action_not_supported" = "Seçenek desteklenmiyor";
 "zma_connection_banner_label_disconnected" = "Çevrimdışı. Mesaj almayacaksınız.";
 "zma_connection_banner_label_reconnected" = "Şimdi çevrimiçisiniz";
 "zma_connection_banner_label_reconnecting" = "Yeniden bağlanıyor...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "En fazla %@ karakter girin";
 "zma_form_field_min_character_error" = "En az %@ karakter girin";
 "zma_form_field_required_label" = "Bu alan gereklidir";
+"zma_form_next_button" = "Sonraki";
 "zma_form_send_button" = "Gönder";
 "zma_form_submission_error" = "Ayrıntılar gönderilemedi. Yeniden deneyin.";
 "zma_label_add_attachments" = "Ek iliştir";

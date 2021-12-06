@@ -4,6 +4,7 @@
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_document" = "Tài liệu";
 "zma_alert_message_label_photoLibrary" = "Thư viện ảnh";
+"zma_carousel_action_not_supported" = "Tùy chọn không được hỗ trợ";
 "zma_connection_banner_label_disconnected" = "Ngoại tuyến. Bạn sẽ không nhận được tin nhắn.";
 "zma_connection_banner_label_reconnected" = "Bạn đang trực tuyến";
 "zma_connection_banner_label_reconnecting" = "Đang kết nối lại...";
@@ -20,6 +21,7 @@
 "zma_form_field_max_character_error" = "Nhập %@ ký tự trở xuống";
 "zma_form_field_min_character_error" = "Nhập %@ ký tự trở lên";
 "zma_form_field_required_label" = "Trường này là bắt buộc";
+"zma_form_next_button" = "Tiếp theo";
 "zma_form_send_button" = "Gửi";
 "zma_form_submission_error" = "Không thể gửi chi tiết. Hãy thử lại.";
 "zma_label_add_attachments" = "Thêm tập tin đính kèm";
