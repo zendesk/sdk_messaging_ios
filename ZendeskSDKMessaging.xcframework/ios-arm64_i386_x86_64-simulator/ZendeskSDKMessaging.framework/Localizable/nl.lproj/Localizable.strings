@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "Verzonden • Zojuist";
 "zma_conversation_message_label_tap_to_retry" = "Tik om het opnieuw te proberen";
 "zma_conversation_message_label_unsupported_item" = "Item kan niet worden weergegeven";
+"zma_conversation_new_messages_divider" = "Nieuw";
+"zma_form_field_counter_label" = "%@ van %@";
 "zma_form_field_invalid_email_error" = "Geef een geldig e-mailadres op";
 "zma_form_field_max_character_error" = "Voer %@ tekens of minder in";
 "zma_form_field_min_character_error" = "Voer %@ tekens of meer in";

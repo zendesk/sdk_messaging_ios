@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "Отправлено • только что";
 "zma_conversation_message_label_tap_to_retry" = "Нажмите, чтобы повторить попытку";
 "zma_conversation_message_label_unsupported_item" = "Не удается показать элемент";
+"zma_conversation_new_messages_divider" = "Новинка";
+"zma_form_field_counter_label" = "%@ из %@";
 "zma_form_field_invalid_email_error" = "Введите действительный адрес электронной почты";
 "zma_form_field_max_character_error" = "Введите не более %@ символов";
 "zma_form_field_min_character_error" = "Введите не менее %@ символов";

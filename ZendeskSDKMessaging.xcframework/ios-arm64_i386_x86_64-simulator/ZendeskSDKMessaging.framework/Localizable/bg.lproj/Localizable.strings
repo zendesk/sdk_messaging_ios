@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "Изпратено • Току-що";
 "zma_conversation_message_label_tap_to_retry" = "Докоснете за нов опит";
 "zma_conversation_message_label_unsupported_item" = "Елементът не може да се покаже";
+"zma_conversation_new_messages_divider" = "Нови";
+"zma_form_field_counter_label" = "%@ от %@";
 "zma_form_field_invalid_email_error" = "Въведете валиден имейл адрес";
 "zma_form_field_max_character_error" = "Въведете най-много %@ знака";
 "zma_form_field_min_character_error" = "Въведете най-малко %@ знака";

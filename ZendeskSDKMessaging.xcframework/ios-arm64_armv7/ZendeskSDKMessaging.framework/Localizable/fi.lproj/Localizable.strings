@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "Lähetetty • Juuri nyt";
 "zma_conversation_message_label_tap_to_retry" = "Yritä uudelleen napauttamalla";
 "zma_conversation_message_label_unsupported_item" = "Kohdetta ei voida näyttää";
+"zma_conversation_new_messages_divider" = "Uusi";
+"zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "Anna toimiva sähköpostiosoite";
 "zma_form_field_max_character_error" = "Anna enintään %@ merkkiä";
 "zma_form_field_min_character_error" = "Anna vähintään %@ merkkiä";

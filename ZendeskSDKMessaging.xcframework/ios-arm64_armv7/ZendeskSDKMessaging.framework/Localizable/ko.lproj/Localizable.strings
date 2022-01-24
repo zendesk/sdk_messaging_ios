@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "보냄 • 방금";
 "zma_conversation_message_label_tap_to_retry" = "다시 시도하려면 탭하세요.";
 "zma_conversation_message_label_unsupported_item" = "항목을 표시할 수 없습니다.";
+"zma_conversation_new_messages_divider" = "신규";
+"zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "올바른 이메일 주소를 입력하세요.";
 "zma_form_field_max_character_error" = "%@자 이하로 입력하세요.";
 "zma_form_field_min_character_error" = "%@자 이상으로 입력하세요.";

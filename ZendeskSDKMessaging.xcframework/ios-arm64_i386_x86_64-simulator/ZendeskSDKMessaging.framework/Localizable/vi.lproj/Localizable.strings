@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "Đã gửi • Vừa xong";
 "zma_conversation_message_label_tap_to_retry" = "Gõ để thử lại";
 "zma_conversation_message_label_unsupported_item" = "Không thể hiển thị mục";
+"zma_conversation_new_messages_divider" = "Mới";
+"zma_form_field_counter_label" = "%@ / %@";
 "zma_form_field_invalid_email_error" = "Nhập địa chỉ email hợp lệ";
 "zma_form_field_max_character_error" = "Nhập %@ ký tự trở xuống";
 "zma_form_field_min_character_error" = "Nhập %@ ký tự trở lên";

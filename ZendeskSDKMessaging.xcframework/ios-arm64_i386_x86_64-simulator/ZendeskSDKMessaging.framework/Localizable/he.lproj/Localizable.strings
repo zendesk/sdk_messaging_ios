@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "נשלח • עכשיו";
 "zma_conversation_message_label_tap_to_retry" = "הקש לניסיון נוסף";
 "zma_conversation_message_label_unsupported_item" = "לא ניתן להציג את הפריט";
+"zma_conversation_new_messages_divider" = "חדש";
+"zma_form_field_counter_label" = "%@ מתוך %@";
 "zma_form_field_invalid_email_error" = "הזן כתובת חוקית של דואר אלקטרוני";
 "zma_form_field_max_character_error" = "הזן %@ תווים או פחות";
 "zma_form_field_min_character_error" = "הזן %@ תווים או יותר";

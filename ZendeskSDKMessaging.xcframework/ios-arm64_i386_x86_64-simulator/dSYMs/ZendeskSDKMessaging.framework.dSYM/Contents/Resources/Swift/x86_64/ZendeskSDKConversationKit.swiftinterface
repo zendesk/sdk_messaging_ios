@@ -231,13 +231,16 @@ extension ZendeskSDKConversationKit.DefaultConversationKitBuilder {
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitInternal, ZendeskSDKConversationKit.ConversationKitShared {
+public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShared {
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
   func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, result: ((Swift.Result<ZendeskSDKConversationKit.Config, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func createConversation(result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
 }
 extension ZendeskSDKConversationKit.ConversationKit {
   public func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, result: ((Swift.Result<ZendeskSDKConversationKit.Config, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
@@ -245,20 +248,9 @@ extension ZendeskSDKConversationKit.ConversationKit {
   public func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-}
-public protocol ConversationKitInternal {
-  func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  func logout(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-}
-extension ZendeskSDKConversationKit.ConversationKitInternal {
-  public func login(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  public func logout(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-}
-@objc(ZDKConversationKitInternal) public protocol ConversationKitObjCInternal {
-  @objc @available(swift, obsoleted: 1.0)
-  func login(with jwt: Swift.String, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
-  @objc @available(swift, obsoleted: 1.0)
-  func logout(completion: ((Swift.Error?) -> Swift.Void)?)
+  public func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func createConversation(result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
 }
 @objc public protocol ConversationKitShared {
   @objc var config: ZendeskSDKConversationKit.Config? { get }
@@ -270,7 +262,7 @@ extension ZendeskSDKConversationKit.ConversationKitInternal {
   @objc func resume()
   @objc func updatePushNotificationToken(_ token: Swift.String)
 }
-@objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitObjCInternal, ZendeskSDKConversationKit.ConversationKitShared {
+@objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitShared {
   @objc @available(swift, obsoleted: 1.0)
   func addEventObserver(_ observer: Swift.AnyObject, closure: ((ZendeskSDKConversationKit.ZDKConversationKitEvent, Swift.AnyObject?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
@@ -283,6 +275,12 @@ extension ZendeskSDKConversationKit.ConversationKitInternal {
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Message?, Swift.Error?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, completion: ((Swift.Error?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func loginUser(with jwt: Swift.String, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func logoutUser(completion: ((Swift.Error?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func createConversation(completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
 }
 @objc(ZDKMessageContent) public protocol Content : ObjectiveC.NSObjectProtocol {
   @objc var type: ZendeskSDKConversationKit.MessageType { get }
@@ -311,7 +309,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   case incorrectAccessLevelForAction
   case httpError(description: Swift.String, httpError: ZendeskSDKHTTPClient.HTTPError)
   case userExists
-  case invalidJWT
+  case failedToDecodeJWT
   public static var errorDomain: Swift.String {
     get
   }
@@ -368,7 +366,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc final public let givenName: Swift.String
   @objc final public let surname: Swift.String
   @objc final public let locale: Swift.String
-  @objc final public let userId: Swift.String
+  @objc final public let externalId: Swift.String
   @objc final public let conversations: [ZendeskSDKConversationKit.Conversation]
   @objc final public let realtimeSettings: ZendeskSDKConversationKit.RealtimeSettings
   @objc final public let authentication: ZendeskSDKConversationKit.Authentication
@@ -478,7 +476,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
 public enum ConversationKitEvent {
   case connectionStatusChanged(ZendeskSDKConversationKit.ConnectionStatus)
   case userUpdated(ZendeskSDKConversationKit.User)
-  case userAccessRevoked
+  case userAccessRevoked(error: ZendeskSDKConversationKit.ConversationKitError)
   case conversationUpdated(ZendeskSDKConversationKit.Conversation)
   case messageReceived(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
   case messageUpdated(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)

@@ -18,17 +18,21 @@ public enum InitializationPhase {
     get
   }
 }
-public enum ZendeskEvent : Swift.Equatable {
+public enum ZendeskEvent {
   case unreadMessageCountChanged(currentUnreadCount: Swift.Int)
-  public static func == (a: ZendeskSDK.ZendeskEvent, b: ZendeskSDK.ZendeskEvent) -> Swift.Bool
+  case authenticationFailed(error: Swift.Error)
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
   case unreadMessageCountChanged
+  case authenticationFailed
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
+}
+extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
+  public static func == (lhs: ZendeskSDK.ZendeskEvent, rhs: ZendeskSDK.ZendeskEvent) -> Swift.Bool
 }
 @objc public protocol MessagingFactory {
   @objc func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
@@ -100,6 +104,14 @@ extension ZendeskSDK.MessagingDelegate {
   @objc deinit
 }
 extension ZendeskSDK.Zendesk {
+  final public func loginUser(with jwt: Swift.String, completionHandler: ((Swift.Result<ZendeskSDK.ZendeskUser, Swift.Error>) -> Swift.Void)? = nil)
+  final public func logoutUser(completionHandler: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)? = nil)
+  @available(swift, obsoleted: 1.0)
+  @objc final public func loginUser(with jwt: Swift.String, completionHandler: ((ZendeskSDK.ZendeskUser?, Swift.Error?) -> Swift.Void)? = nil)
+  @available(swift, obsoleted: 1.0)
+  @objc final public func logoutUser(completionHandler: ((Swift.Error?) -> Swift.Void)? = nil)
+}
+extension ZendeskSDK.Zendesk {
   @available(swift, obsoleted: 1.0)
   @objc public static func initialize(channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory?, completionHandler: ((ZendeskSDK.Zendesk?, Swift.Error?) -> Swift.Void)?)
   @available(swift, obsoleted: 1.0)
@@ -112,6 +124,11 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   public static var logCategory: Swift.String {
     get
   }
+}
+@_hasMissingDesignatedInitializers @objc(ZDKZendeskUser) final public class ZendeskUser : ObjectiveC.NSObject {
+  @objc final public let id: Swift.String
+  @objc final public let externalId: Swift.String
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ZDKDispatchEvent) final public class DispatchEvent : ObjectiveC.NSObject {
   final public let event: (ZendeskSDK.ZendeskEvent) -> Swift.Void

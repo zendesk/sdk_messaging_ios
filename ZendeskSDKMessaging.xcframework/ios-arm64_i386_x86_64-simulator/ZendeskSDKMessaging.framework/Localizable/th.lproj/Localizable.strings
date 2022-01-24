@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "ส่งแล้ว • เมื่อสักครู่";
 "zma_conversation_message_label_tap_to_retry" = "แตะเพื่อลองอีกครั้ง";
 "zma_conversation_message_label_unsupported_item" = "ไม่สามารถแสดงรายการได้";
+"zma_conversation_new_messages_divider" = "ใหม่";
+"zma_form_field_counter_label" = "%@ จาก %@";
 "zma_form_field_invalid_email_error" = "ป้อนที่อยู่อีเมลที่ถูกต้อง";
 "zma_form_field_max_character_error" = "ป้อนตัวอักษรไม่เกิน %@ ตัว";
 "zma_form_field_min_character_error" = "ป้อนตัวอักษรอย่างน้อย %@ ตัว";

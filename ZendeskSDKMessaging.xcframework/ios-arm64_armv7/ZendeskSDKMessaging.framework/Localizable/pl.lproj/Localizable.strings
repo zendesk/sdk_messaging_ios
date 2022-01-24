@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "Wysłano • Przed chwilą";
 "zma_conversation_message_label_tap_to_retry" = "Stuknij, aby spróbować ponownie";
 "zma_conversation_message_label_unsupported_item" = "Nie można wyświetlić pozycji";
+"zma_conversation_new_messages_divider" = "Nowy";
+"zma_form_field_counter_label" = "%@ z %@";
 "zma_form_field_invalid_email_error" = "Wprowadź prawidłowy adres e‑mail";
 "zma_form_field_max_character_error" = "Maksymalna liczba znaków: %@";
 "zma_form_field_min_character_error" = "Minimalna liczba znaków: %@";

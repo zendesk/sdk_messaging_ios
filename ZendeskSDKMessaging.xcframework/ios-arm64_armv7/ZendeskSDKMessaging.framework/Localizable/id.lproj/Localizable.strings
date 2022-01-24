@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "Terkirim • Baru saja";
 "zma_conversation_message_label_tap_to_retry" = "Ketuk untuk mencoba lagi";
 "zma_conversation_message_label_unsupported_item" = "Item tidak dapat ditampilkan";
+"zma_conversation_new_messages_divider" = "Baru";
+"zma_form_field_counter_label" = "%@ dari %@";
 "zma_form_field_invalid_email_error" = "Masukkan alamat email yang valid";
 "zma_form_field_max_character_error" = "Masukkan %@ karakter atau kurang";
 "zma_form_field_min_character_error" = "Masukkan %@ karakter atau lebih";

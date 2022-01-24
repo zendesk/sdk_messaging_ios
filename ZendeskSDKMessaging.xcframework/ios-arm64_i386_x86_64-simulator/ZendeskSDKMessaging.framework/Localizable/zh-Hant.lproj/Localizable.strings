@@ -17,6 +17,8 @@
 "zma_conversation_message_label_sent_relative" = "已傳送 • 剛才";
 "zma_conversation_message_label_tap_to_retry" = "點選以重試";
 "zma_conversation_message_label_unsupported_item" = "不能顯示項目";
+"zma_conversation_new_messages_divider" = "新訊息";
+"zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "輸入有效的電子郵件地址";
 "zma_form_field_max_character_error" = "輸入 %@ 個字元或更少";
 "zma_form_field_min_character_error" = "輸入 %@ 個字元或更多";
