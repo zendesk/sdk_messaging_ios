@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "Камера";
 "zma_alert_message_label_document" = "Документ";
 "zma_alert_message_label_photoLibrary" = "Библиотека фото";
+"zma_attachment_type_not_supported" = "Тип прикрепленного файла не поддерживается";
 "zma_carousel_action_not_supported" = "Вариант не поддерживается";
 "zma_connection_banner_label_disconnected" = "Не в сети. Сообщения поступать не будут.";
 "zma_connection_banner_label_reconnected" = "Вы уже онлайн";
 "zma_connection_banner_label_reconnecting" = "Восстановление подключения...";
+"zma_conversation_error_tap_to_retry" = "Нажмите, чтобы повторить попытку.";
 "zma_conversation_header_logo" = "Логотип бренда";
 "zma_conversation_message_label_cant_be_displayed" = "Невозможно показать сообщение";
 "zma_conversation_message_label_image_loading_failed" = "Не удалось загрузить изображение";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "Отправлено • только что";
 "zma_conversation_message_label_tap_to_retry" = "Нажмите, чтобы повторить попытку";
 "zma_conversation_message_label_unsupported_item" = "Не удается показать элемент";
+"zma_conversation_messages_failed_to_load" = "Не удалось загрузить сообщения";
 "zma_conversation_new_messages_divider" = "Новинка";
 "zma_form_field_counter_label" = "%@ из %@";
 "zma_form_field_invalid_email_error" = "Введите действительный адрес электронной почты";

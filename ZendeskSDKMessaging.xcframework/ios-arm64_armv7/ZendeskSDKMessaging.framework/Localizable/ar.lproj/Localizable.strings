@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "كاميرا";
 "zma_alert_message_label_document" = "مستند";
 "zma_alert_message_label_photoLibrary" = "مكتبة الصور";
+"zma_attachment_type_not_supported" = "نوع المرفق غير مدعوم";
 "zma_carousel_action_not_supported" = "الخيار غير مدعوم";
 "zma_connection_banner_label_disconnected" = "غير متصل. لن تتلقى رسائل.";
 "zma_connection_banner_label_reconnected" = "أنت الآن متصل";
 "zma_connection_banner_label_reconnecting" = "جارٍ إعادة الاتصال...";
+"zma_conversation_error_tap_to_retry" = "اضغط لإعادة المحاولة";
 "zma_conversation_header_logo" = "شعار العلامة التجارية";
 "zma_conversation_message_label_cant_be_displayed" = "تعذر عرض الرسالة";
 "zma_conversation_message_label_image_loading_failed" = "يتعذر تحميل الصورة";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "تم الإرسال • للتوّ";
 "zma_conversation_message_label_tap_to_retry" = "المس لإعادة المحاولة";
 "zma_conversation_message_label_unsupported_item" = "تعذر عرض العنصر";
+"zma_conversation_messages_failed_to_load" = "فشل تحميل الرسائل";
 "zma_conversation_new_messages_divider" = "جديد";
 "zma_form_field_counter_label" = "%@ من %@";
 "zma_form_field_invalid_email_error" = "أدخِل عنوان بريد إلكتروني صالحاً";

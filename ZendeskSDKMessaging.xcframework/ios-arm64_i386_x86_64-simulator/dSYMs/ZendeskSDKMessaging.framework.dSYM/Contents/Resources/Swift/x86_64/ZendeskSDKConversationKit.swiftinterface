@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 import CoreTelephony
 import Foundation
@@ -253,6 +253,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   public func createConversation(result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
 }
 @objc public protocol ConversationKitShared {
+  @objc var clientId: Swift.String? { get }
   @objc var config: ZendeskSDKConversationKit.Config? { get }
   @objc var settings: ZendeskSDKConversationKit.ConversationKitSettings? { get }
   @objc var currentUser: ZendeskSDKConversationKit.User? { get }
@@ -326,10 +327,11 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc final public var itemDescription: Swift.String
   @objc final public var mediaURL: Swift.String
   @objc final public var mediaType: Swift.String
-  @objc final public var actions: [ZendeskSDKConversationKit.MessageAction] {
+  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction] {
     @objc get
   }
   @objc final public let size: ZendeskSDKConversationKit.ActionItemSize
+  final public let actions: [ZendeskSDKConversationKit.MessageActionModel]
   public init(title: Swift.String, itemDescription: Swift.String, mediaURL: Swift.String, size: ZendeskSDKConversationKit.ActionItemSize, mediaType: Swift.String, actions: [ZendeskSDKConversationKit.MessageActionModel])
   @objc override final public var description: Swift.String {
     @objc get
@@ -384,10 +386,14 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   }
   @objc final public let mediaURL: Swift.String
   @objc final public let text: Swift.String
+  final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
+  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction]? {
+    @objc get
+  }
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
-  public init(mediaURL: Swift.String, text: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  public init(mediaURL: Swift.String, text: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -622,10 +628,14 @@ extension ZendeskSDKConversationKit.Author {
   }
   @objc final public let text: Swift.String
   @objc final public let payload: Swift.String?
+  final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
+  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction]? {
+    @objc get
+  }
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
-  public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  public init(text: Swift.String, payload: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -700,11 +710,13 @@ extension ZendeskSDKConversationKit.ConversationKitSettings {
   @objc final public var timestamp: Foundation.Date {
     @objc get
   }
-  @objc final public var actions: [ZendeskSDKConversationKit.MessageAction]? {
+  final public var actions: [ZendeskSDKConversationKit.MessageActionModel]? {
+    get
+  }
+  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction]? {
     @objc get
   }
-  final public let actionModels: [ZendeskSDKConversationKit.MessageActionModel]?
-  public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(userId: "", displayName: ""), sourceId: Swift.String? = nil, localId: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil)
+  public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(userId: "", displayName: ""), sourceId: Swift.String? = nil, localId: Swift.String? = nil)
   @objc convenience public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc convenience public init?(mediaURL: Foundation.URL, text: Swift.String?, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
@@ -773,6 +785,9 @@ public enum MessageActionModel : Swift.Equatable, Swift.Hashable {
   case reply(ZendeskSDKConversationKit.ReplyAction)
   case share(ZendeskSDKConversationKit.ShareAction)
   case webview(ZendeskSDKConversationKit.WebViewAction)
+  public var text: Swift.String {
+    get
+  }
   public static func == (a: ZendeskSDKConversationKit.MessageActionModel, b: ZendeskSDKConversationKit.MessageActionModel) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {

@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokumen";
 "zma_alert_message_label_photoLibrary" = "Perpustakaan foto";
+"zma_attachment_type_not_supported" = "Attachment type not supported";
 "zma_carousel_action_not_supported" = "Pilihan tidak disokong";
 "zma_connection_banner_label_disconnected" = "Luar talian. Anda tidak akan menerima mesej.";
 "zma_connection_banner_label_reconnected" = "Anda kini berada dalam talian";
 "zma_connection_banner_label_reconnecting" = "Menyambung semula...";
+"zma_conversation_error_tap_to_retry" = "Tap to retry";
 "zma_conversation_header_logo" = "Logo jenama";
 "zma_conversation_message_label_cant_be_displayed" = "Mesej tidak boleh dipaparkan";
 "zma_conversation_message_label_image_loading_failed" = "Tidak dapat memuatkan imej";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "Dihantar • Sebentar tadi";
 "zma_conversation_message_label_tap_to_retry" = "Ketik untuk cuba semula";
 "zma_conversation_message_label_unsupported_item" = "Item tidak boleh dipaparkan";
+"zma_conversation_messages_failed_to_load" = "Messages failed to load";
 "zma_conversation_new_messages_divider" = "New";
 "zma_form_field_counter_label" = "%@ of %@";
 "zma_form_field_invalid_email_error" = "Masukkan alamat e-mel yang sah";

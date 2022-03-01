@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Belge";
 "zma_alert_message_label_photoLibrary" = "Fotoğraf kitaplığı";
+"zma_attachment_type_not_supported" = "Ek türü desteklenmiyor";
 "zma_carousel_action_not_supported" = "Seçenek desteklenmiyor";
 "zma_connection_banner_label_disconnected" = "Çevrimdışı. Mesaj almayacaksınız.";
 "zma_connection_banner_label_reconnected" = "Şimdi çevrimiçisiniz";
 "zma_connection_banner_label_reconnecting" = "Yeniden bağlanıyor...";
+"zma_conversation_error_tap_to_retry" = "Yeniden denemek için dokun";
 "zma_conversation_header_logo" = "Marka logosu";
 "zma_conversation_message_label_cant_be_displayed" = "Mesaj görüntülenemiyor";
 "zma_conversation_message_label_image_loading_failed" = "Resim yüklenemiyor";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "Gönderildi • Az önce";
 "zma_conversation_message_label_tap_to_retry" = "Yeniden denemek için dokunun";
 "zma_conversation_message_label_unsupported_item" = "Öğe görüntülenemiyor";
+"zma_conversation_messages_failed_to_load" = "Mesajlar yüklenemedi";
 "zma_conversation_new_messages_divider" = "Yeni";
 "zma_form_field_counter_label" = "%@ / %@";
 "zma_form_field_invalid_email_error" = "Geçerli bir e‑posta adresi girin";

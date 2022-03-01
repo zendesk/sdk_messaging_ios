@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "Cámara";
 "zma_alert_message_label_document" = "Documento";
 "zma_alert_message_label_photoLibrary" = "Biblioteca de fotos";
+"zma_attachment_type_not_supported" = "No se admite este tipo de archivo adjunto";
 "zma_carousel_action_not_supported" = "Opción no admitida";
 "zma_connection_banner_label_disconnected" = "Desconectado. No recibirá ningún mensaje.";
 "zma_connection_banner_label_reconnected" = "Ya está conectado";
 "zma_connection_banner_label_reconnecting" = "Volviendo a conectarse...";
+"zma_conversation_error_tap_to_retry" = "Tocar para volver a intentar";
 "zma_conversation_header_logo" = "Logotipo de marca";
 "zma_conversation_message_label_cant_be_displayed" = "No se puede mostrar el mensaje";
 "zma_conversation_message_label_image_loading_failed" = "No se puede cargar la imagen";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "Enviado • Hace un momento";
 "zma_conversation_message_label_tap_to_retry" = "Tocar para volver a intentar";
 "zma_conversation_message_label_unsupported_item" = "No se puede mostrar el elemento";
+"zma_conversation_messages_failed_to_load" = "No se pudieron cargar los mensajes";
 "zma_conversation_new_messages_divider" = "Nuevo";
 "zma_form_field_counter_label" = "%@ de %@";
 "zma_form_field_invalid_email_error" = "Ingrese una dirección de correo electrónico válida";
