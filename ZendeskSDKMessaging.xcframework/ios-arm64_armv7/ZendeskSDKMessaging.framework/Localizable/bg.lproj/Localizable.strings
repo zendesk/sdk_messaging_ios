@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "Камера";
 "zma_alert_message_label_document" = "Документ";
 "zma_alert_message_label_photoLibrary" = "Библиотека със снимки";
+"zma_attachment_type_not_supported" = "Този тип прикачени файлове не се поддържа";
 "zma_carousel_action_not_supported" = "Опцията не се поддържа";
 "zma_connection_banner_label_disconnected" = "Офлайн. Няма да получавате съобщения.";
 "zma_connection_banner_label_reconnected" = "Вече сте онлайн";
 "zma_connection_banner_label_reconnecting" = "Възстановяване на връзката…";
+"zma_conversation_error_tap_to_retry" = "Докоснете за повторен опит";
 "zma_conversation_header_logo" = "Лого на бранда";
 "zma_conversation_message_label_cant_be_displayed" = "Съобщението не може да се покаже";
 "zma_conversation_message_label_image_loading_failed" = "Изображението не може да се зареди";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "Изпратено • Току-що";
 "zma_conversation_message_label_tap_to_retry" = "Докоснете за нов опит";
 "zma_conversation_message_label_unsupported_item" = "Елементът не може да се покаже";
+"zma_conversation_messages_failed_to_load" = "Неуспешно зареждане на съобщенията";
 "zma_conversation_new_messages_divider" = "Нови";
 "zma_form_field_counter_label" = "%@ от %@";
 "zma_form_field_invalid_email_error" = "Въведете валиден имейл адрес";

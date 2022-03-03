@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_document" = "Tài liệu";
 "zma_alert_message_label_photoLibrary" = "Thư viện ảnh";
+"zma_attachment_type_not_supported" = "Loại tập tin đính kèm không được hỗ trợ";
 "zma_carousel_action_not_supported" = "Tùy chọn không được hỗ trợ";
 "zma_connection_banner_label_disconnected" = "Ngoại tuyến. Bạn sẽ không nhận được tin nhắn.";
 "zma_connection_banner_label_reconnected" = "Bạn đang trực tuyến";
 "zma_connection_banner_label_reconnecting" = "Đang kết nối lại...";
+"zma_conversation_error_tap_to_retry" = "Gõ để thử lại";
 "zma_conversation_header_logo" = "Biểu tượng thương hiệu";
 "zma_conversation_message_label_cant_be_displayed" = "Không thể hiển thị tin nhắn";
 "zma_conversation_message_label_image_loading_failed" = "Không tải được hình ảnh";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "Đã gửi • Vừa xong";
 "zma_conversation_message_label_tap_to_retry" = "Gõ để thử lại";
 "zma_conversation_message_label_unsupported_item" = "Không thể hiển thị mục";
+"zma_conversation_messages_failed_to_load" = "Không thể tải tin nhắn";
 "zma_conversation_new_messages_divider" = "Mới";
 "zma_form_field_counter_label" = "%@ / %@";
 "zma_form_field_invalid_email_error" = "Nhập địa chỉ email hợp lệ";

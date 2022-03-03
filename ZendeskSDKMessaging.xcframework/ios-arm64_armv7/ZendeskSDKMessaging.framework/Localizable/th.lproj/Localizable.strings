@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "กล้อง";
 "zma_alert_message_label_document" = "เอกสาร";
 "zma_alert_message_label_photoLibrary" = "คลังภาพ";
+"zma_attachment_type_not_supported" = "ไม่รองรับประเภทไฟล์แนบ";
 "zma_carousel_action_not_supported" = "ไม่รองรับตัวเลือก";
 "zma_connection_banner_label_disconnected" = "ออฟไลน์ คุณจะไม่ได้รับข้อความ";
 "zma_connection_banner_label_reconnected" = "คุณออนไลน์แล้ว";
 "zma_connection_banner_label_reconnecting" = "กำลังเชื่อมต่อใหม่...";
+"zma_conversation_error_tap_to_retry" = "แตะเพื่อลองอีกครั้ง";
 "zma_conversation_header_logo" = "โลโก้แบรนด์";
 "zma_conversation_message_label_cant_be_displayed" = "ไม่สามารถแสดงข้อความได้";
 "zma_conversation_message_label_image_loading_failed" = "ไม่สามารถโหลดภาพได้";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "ส่งแล้ว • เมื่อสักครู่";
 "zma_conversation_message_label_tap_to_retry" = "แตะเพื่อลองอีกครั้ง";
 "zma_conversation_message_label_unsupported_item" = "ไม่สามารถแสดงรายการได้";
+"zma_conversation_messages_failed_to_load" = "ไม่สามารถโหลดข้อความได้";
 "zma_conversation_new_messages_divider" = "ใหม่";
 "zma_form_field_counter_label" = "%@ จาก %@";
 "zma_form_field_invalid_email_error" = "ป้อนที่อยู่อีเมลที่ถูกต้อง";

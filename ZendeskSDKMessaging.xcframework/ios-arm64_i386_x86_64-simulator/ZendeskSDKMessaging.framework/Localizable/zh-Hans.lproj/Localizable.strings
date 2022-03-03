@@ -4,10 +4,12 @@
 "zma_alert_message_label_camera" = "相机";
 "zma_alert_message_label_document" = "文档";
 "zma_alert_message_label_photoLibrary" = "照片库";
+"zma_attachment_type_not_supported" = "不支持的附件类型";
 "zma_carousel_action_not_supported" = "不支持的选项";
 "zma_connection_banner_label_disconnected" = "离线。您将不会接收到消息。";
 "zma_connection_banner_label_reconnected" = "您现在处于在线状态";
 "zma_connection_banner_label_reconnecting" = "正在重新连接……";
+"zma_conversation_error_tap_to_retry" = "点击以重试";
 "zma_conversation_header_logo" = "品牌徽标";
 "zma_conversation_message_label_cant_be_displayed" = "无法显示消息";
 "zma_conversation_message_label_image_loading_failed" = "无法加载图像";
@@ -17,6 +19,7 @@
 "zma_conversation_message_label_sent_relative" = "已发送 • 刚才";
 "zma_conversation_message_label_tap_to_retry" = "点击以重试";
 "zma_conversation_message_label_unsupported_item" = "无法显示项目";
+"zma_conversation_messages_failed_to_load" = "消息加载失败";
 "zma_conversation_new_messages_divider" = "新建";
 "zma_form_field_counter_label" = "%@ / %@";
 "zma_form_field_invalid_email_error" = "输入一个有效的电邮地址";
