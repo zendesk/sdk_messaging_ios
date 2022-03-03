@@ -4,12 +4,10 @@
 "zma_alert_message_label_camera" = "Fotocamera";
 "zma_alert_message_label_document" = "Documento";
 "zma_alert_message_label_photoLibrary" = "Libreria foto";
-"zma_attachment_type_not_supported" = "Tipo di allegato non supportato";
 "zma_carousel_action_not_supported" = "Opzione non supportata";
 "zma_connection_banner_label_disconnected" = "Offline. Non riceverai messaggi.";
 "zma_connection_banner_label_reconnected" = "Ora sei online";
 "zma_connection_banner_label_reconnecting" = "Riconnessione in corso...";
-"zma_conversation_error_tap_to_retry" = "Tocca per riprovare";
 "zma_conversation_header_logo" = "Logo del brand";
 "zma_conversation_message_label_cant_be_displayed" = "Impossibile visualizzare il messaggio";
 "zma_conversation_message_label_image_loading_failed" = "Impossibile caricare l’immagine";
@@ -19,7 +17,6 @@
 "zma_conversation_message_label_sent_relative" = "Inviato • Adesso";
 "zma_conversation_message_label_tap_to_retry" = "Tocca per riprovare";
 "zma_conversation_message_label_unsupported_item" = "Impossibile visualizzare l’elemento";
-"zma_conversation_messages_failed_to_load" = "Caricamento dei messaggi non riuscito";
 "zma_conversation_new_messages_divider" = "Novità";
 "zma_form_field_counter_label" = "%@ di %@";
 "zma_form_field_invalid_email_error" = "Inserisci un indirizzo email valido";

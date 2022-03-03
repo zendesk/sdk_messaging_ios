@@ -4,12 +4,10 @@
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_document" = "Dokumento";
 "zma_alert_message_label_photoLibrary" = "Library ng larawan";
-"zma_attachment_type_not_supported" = "Attachment type not supported";
 "zma_carousel_action_not_supported" = "Hindi sinusuportahan ang opsiyon";
 "zma_connection_banner_label_disconnected" = "Offline. Hindi ka makakatanggap ng mga mensahe.";
 "zma_connection_banner_label_reconnected" = "Naka-online ka na";
 "zma_connection_banner_label_reconnecting" = "Muling kumokonekta...";
-"zma_conversation_error_tap_to_retry" = "Tap to retry";
 "zma_conversation_header_logo" = "Logo ng brand";
 "zma_conversation_message_label_cant_be_displayed" = "Hindi maipakita ang mensahe";
 "zma_conversation_message_label_image_loading_failed" = "Hindi ma-load ang larawan";
@@ -19,7 +17,6 @@
 "zma_conversation_message_label_sent_relative" = "Naipadala • Ngayon lang";
 "zma_conversation_message_label_tap_to_retry" = "I-tap para subukang muli";
 "zma_conversation_message_label_unsupported_item" = "Hindi maipakita ang item";
-"zma_conversation_messages_failed_to_load" = "Messages failed to load";
 "zma_conversation_new_messages_divider" = "New";
 "zma_form_field_counter_label" = "%@ of %@";
 "zma_form_field_invalid_email_error" = "Maglagay ng wastong email address";

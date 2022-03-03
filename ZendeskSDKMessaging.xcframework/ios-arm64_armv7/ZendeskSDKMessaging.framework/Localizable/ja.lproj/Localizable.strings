@@ -4,12 +4,10 @@
 "zma_alert_message_label_camera" = "カメラ";
 "zma_alert_message_label_document" = "ドキュメント";
 "zma_alert_message_label_photoLibrary" = "写真ライブラリ";
-"zma_attachment_type_not_supported" = "添付ファイルの種類はサポートされていません";
 "zma_carousel_action_not_supported" = "このオプションはサポートされていません";
 "zma_connection_banner_label_disconnected" = "オフラインです。メッセージの受信は行われません。";
 "zma_connection_banner_label_reconnected" = "現在オンラインです";
 "zma_connection_banner_label_reconnecting" = "再接続中...";
-"zma_conversation_error_tap_to_retry" = "タップして再試行する";
 "zma_conversation_header_logo" = "ブランドのロゴ";
 "zma_conversation_message_label_cant_be_displayed" = "メッセージを表示できません";
 "zma_conversation_message_label_image_loading_failed" = "画像を読み込めません";
@@ -19,7 +17,6 @@
 "zma_conversation_message_label_sent_relative" = "送信済み・たった今";
 "zma_conversation_message_label_tap_to_retry" = "タップして再送信";
 "zma_conversation_message_label_unsupported_item" = "アイテムを表示できません。";
-"zma_conversation_messages_failed_to_load" = "メッセージを読み込めませんでした";
 "zma_conversation_new_messages_divider" = "新規";
 "zma_form_field_counter_label" = "%@ / %@";
 "zma_form_field_invalid_email_error" = "有効なメールアドレスを入力してください";

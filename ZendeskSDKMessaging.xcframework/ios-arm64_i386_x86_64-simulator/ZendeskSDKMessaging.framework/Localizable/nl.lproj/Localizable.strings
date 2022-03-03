@@ -4,12 +4,10 @@
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_document" = "Document";
 "zma_alert_message_label_photoLibrary" = "Fotobibliotheek";
-"zma_attachment_type_not_supported" = "Type bijlage wordt niet ondersteund";
 "zma_carousel_action_not_supported" = "Optie niet ondersteund";
 "zma_connection_banner_label_disconnected" = "Offline. U ontvangt geen berichten.";
 "zma_connection_banner_label_reconnected" = "U bent nu online";
 "zma_connection_banner_label_reconnecting" = "Opnieuw verbinden...";
-"zma_conversation_error_tap_to_retry" = "Tik om het opnieuw te proberen";
 "zma_conversation_header_logo" = "Merklogo";
 "zma_conversation_message_label_cant_be_displayed" = "Bericht kan niet worden weergegeven";
 "zma_conversation_message_label_image_loading_failed" = "Kan afbeelding niet laden";
@@ -19,7 +17,6 @@
 "zma_conversation_message_label_sent_relative" = "Verzonden • Zojuist";
 "zma_conversation_message_label_tap_to_retry" = "Tik om het opnieuw te proberen";
 "zma_conversation_message_label_unsupported_item" = "Item kan niet worden weergegeven";
-"zma_conversation_messages_failed_to_load" = "Berichten kunnen niet worden geladen";
 "zma_conversation_new_messages_divider" = "Nieuw";
 "zma_form_field_counter_label" = "%@ van %@";
 "zma_form_field_invalid_email_error" = "Geef een geldig e-mailadres op";

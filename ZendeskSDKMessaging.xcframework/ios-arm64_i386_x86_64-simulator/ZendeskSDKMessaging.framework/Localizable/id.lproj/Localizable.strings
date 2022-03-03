@@ -4,12 +4,10 @@
 "zma_alert_message_label_camera" = "Kamera";
 "zma_alert_message_label_document" = "Dokumen";
 "zma_alert_message_label_photoLibrary" = "Perpustakaan foto";
-"zma_attachment_type_not_supported" = "Jenis lampiran tidak didukung";
 "zma_carousel_action_not_supported" = "Opsi tidak didukung";
 "zma_connection_banner_label_disconnected" = "Offline. Anda tidak akan menerima pesan.";
 "zma_connection_banner_label_reconnected" = "Anda kini online";
 "zma_connection_banner_label_reconnecting" = "Menghubungkan ulang...";
-"zma_conversation_error_tap_to_retry" = "Ketuk untuk mencoba lagi";
 "zma_conversation_header_logo" = "Logo merek";
 "zma_conversation_message_label_cant_be_displayed" = "Pesan tidak dapat ditampilkan";
 "zma_conversation_message_label_image_loading_failed" = "Tidak dapat memuat gambar";
@@ -19,7 +17,6 @@
 "zma_conversation_message_label_sent_relative" = "Terkirim • Baru saja";
 "zma_conversation_message_label_tap_to_retry" = "Ketuk untuk mencoba lagi";
 "zma_conversation_message_label_unsupported_item" = "Item tidak dapat ditampilkan";
-"zma_conversation_messages_failed_to_load" = "Pesan gagal dimuat";
 "zma_conversation_new_messages_divider" = "Baru";
 "zma_form_field_counter_label" = "%@ dari %@";
 "zma_form_field_invalid_email_error" = "Masukkan alamat email yang valid";

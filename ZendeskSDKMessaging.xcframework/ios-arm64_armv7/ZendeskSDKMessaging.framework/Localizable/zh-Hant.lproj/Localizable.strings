@@ -4,12 +4,10 @@
 "zma_alert_message_label_camera" = "相機";
 "zma_alert_message_label_document" = "文件";
 "zma_alert_message_label_photoLibrary" = "相片媒體櫃";
-"zma_attachment_type_not_supported" = "附件類型不受支援";
 "zma_carousel_action_not_supported" = "選項不支援";
 "zma_connection_banner_label_disconnected" = "已離線。您將不會收到訊息。";
 "zma_connection_banner_label_reconnected" = "您現在已在線上";
 "zma_connection_banner_label_reconnecting" = "重新連線中……";
-"zma_conversation_error_tap_to_retry" = "點選以重試";
 "zma_conversation_header_logo" = "品牌標誌";
 "zma_conversation_message_label_cant_be_displayed" = "不能顯示訊息";
 "zma_conversation_message_label_image_loading_failed" = "不能載入影像";
@@ -19,7 +17,6 @@
 "zma_conversation_message_label_sent_relative" = "已傳送 • 剛才";
 "zma_conversation_message_label_tap_to_retry" = "點選以重試";
 "zma_conversation_message_label_unsupported_item" = "不能顯示項目";
-"zma_conversation_messages_failed_to_load" = "訊息載入失敗";
 "zma_conversation_new_messages_divider" = "新訊息";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "輸入有效的電子郵件地址";

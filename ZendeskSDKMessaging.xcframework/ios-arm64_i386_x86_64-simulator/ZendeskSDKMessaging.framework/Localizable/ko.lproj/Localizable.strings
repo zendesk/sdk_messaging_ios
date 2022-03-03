@@ -4,12 +4,10 @@
 "zma_alert_message_label_camera" = "카메라";
 "zma_alert_message_label_document" = "문서";
 "zma_alert_message_label_photoLibrary" = "사진 라이브러리";
-"zma_attachment_type_not_supported" = "지원되지 않는 첨부 파일 유형입니다.";
 "zma_carousel_action_not_supported" = "옵션이 지원되지 않음";
 "zma_connection_banner_label_disconnected" = "오프라인 상태. 메시지를 받지 못합니다.";
 "zma_connection_banner_label_reconnected" = "현재 온라인 상태입니다.";
 "zma_connection_banner_label_reconnecting" = "다시 연결 중…";
-"zma_conversation_error_tap_to_retry" = "탭하여 다시 시도";
 "zma_conversation_header_logo" = "브랜드 로고";
 "zma_conversation_message_label_cant_be_displayed" = "메시지를 표시할 수 없습니다.";
 "zma_conversation_message_label_image_loading_failed" = "이미지를 로드할 수 없습니다.";
@@ -19,7 +17,6 @@
 "zma_conversation_message_label_sent_relative" = "보냄 • 방금";
 "zma_conversation_message_label_tap_to_retry" = "다시 시도하려면 탭하세요.";
 "zma_conversation_message_label_unsupported_item" = "항목을 표시할 수 없습니다.";
-"zma_conversation_messages_failed_to_load" = "메시지를 로드하지 못했습니다.";
 "zma_conversation_new_messages_divider" = "신규";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "올바른 이메일 주소를 입력하세요.";
