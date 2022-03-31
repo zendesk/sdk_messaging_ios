@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "오프라인 상태. 메시지를 받지 못합니다.";
 "zma_connection_banner_label_reconnected" = "현재 온라인 상태입니다.";
 "zma_connection_banner_label_reconnecting" = "다시 연결 중…";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "탭하여 다시 시도";
 "zma_conversation_header_logo" = "브랜드 로고";
 "zma_conversation_message_label_cant_be_displayed" = "메시지를 표시할 수 없습니다.";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "항목을 표시할 수 없습니다.";
 "zma_conversation_messages_failed_to_load" = "메시지를 로드하지 못했습니다.";
 "zma_conversation_new_messages_divider" = "신규";
+"zma_exceeds_max_file_size" = "최대 파일 크기를 초과합니다(%@MB).";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "올바른 이메일 주소를 입력하세요.";
 "zma_form_field_max_character_error" = "%@자 이하로 입력하세요.";

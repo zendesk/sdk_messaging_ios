@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Ön jelenleg offline. Nem fog üzeneteket kapni.";
 "zma_connection_banner_label_reconnected" = "Ön ismét online.";
 "zma_connection_banner_label_reconnecting" = "Újracsatlakozás…";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Koppintson az újrapróbálkozáshoz";
 "zma_conversation_header_logo" = "Márka emblémája";
 "zma_conversation_message_label_cant_be_displayed" = "Az üzenet nem jeleníthető meg";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "A tétel nem jeleníthető meg";
 "zma_conversation_messages_failed_to_load" = "Az üzenetek betöltése sikertelen volt";
 "zma_conversation_new_messages_divider" = "Új";
+"zma_exceeds_max_file_size" = "Meghaladja a maximális fájlméretet (%@ MB)";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "Érvényes e-mail-címet adjon meg";
 "zma_form_field_max_character_error" = "Legfeljebb %@ karaktert írjon be";

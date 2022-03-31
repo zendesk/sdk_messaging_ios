@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Çevrimdışı. Mesaj almayacaksınız.";
 "zma_connection_banner_label_reconnected" = "Şimdi çevrimiçisiniz";
 "zma_connection_banner_label_reconnecting" = "Yeniden bağlanıyor...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Yeniden denemek için dokun";
 "zma_conversation_header_logo" = "Marka logosu";
 "zma_conversation_message_label_cant_be_displayed" = "Mesaj görüntülenemiyor";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Öğe görüntülenemiyor";
 "zma_conversation_messages_failed_to_load" = "Mesajlar yüklenemedi";
 "zma_conversation_new_messages_divider" = "Yeni";
+"zma_exceeds_max_file_size" = "Maksimum dosya boyutundan (%@ MB) büyük";
 "zma_form_field_counter_label" = "%@ / %@";
 "zma_form_field_invalid_email_error" = "Geçerli bir e‑posta adresi girin";
 "zma_form_field_max_character_error" = "En fazla %@ karakter girin";

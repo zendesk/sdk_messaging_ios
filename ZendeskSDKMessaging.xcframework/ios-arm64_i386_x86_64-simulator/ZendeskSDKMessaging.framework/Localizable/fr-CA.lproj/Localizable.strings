@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Hors ligne. Vous ne recevrez pas les messages.";
 "zma_connection_banner_label_reconnected" = "Vous êtes désormais en ligne";
 "zma_connection_banner_label_reconnecting" = "Reconnexion en cours...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Appuyer pour réessayer";
 "zma_conversation_header_logo" = "Logo de la marque";
 "zma_conversation_message_label_cant_be_displayed" = "Échec d’affichage du message";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Échec d’affichage de l’élément";
 "zma_conversation_messages_failed_to_load" = "Échec du chargement des messages";
 "zma_conversation_new_messages_divider" = "Nouveau";
+"zma_exceeds_max_file_size" = "Taille maximum dépassée (%@ Mo)";
 "zma_form_field_counter_label" = "%@ sur %@";
 "zma_form_field_invalid_email_error" = "Saisissez une adresse courriel valide";
 "zma_form_field_max_character_error" = "Saisissez %@ caractères max.";

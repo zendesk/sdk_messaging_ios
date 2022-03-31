@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Offline-tila. Et voi vastaanottaa viestejä.";
 "zma_connection_banner_label_reconnected" = "Olet nyt online-tilassa";
 "zma_connection_banner_label_reconnecting" = "Yhteyttä luodaan uudelleen...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Yritä uudelleen napauttamalla";
 "zma_conversation_header_logo" = "Brändin logo";
 "zma_conversation_message_label_cant_be_displayed" = "Viestiä ei voida näyttää";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Kohdetta ei voida näyttää";
 "zma_conversation_messages_failed_to_load" = "Viestien lataaminen epäonnistui";
 "zma_conversation_new_messages_divider" = "Uusi";
+"zma_exceeds_max_file_size" = "Ylittää tiedoston maksimikoon (%@ Mt)";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "Anna toimiva sähköpostiosoite";
 "zma_form_field_max_character_error" = "Anna enintään %@ merkkiä";

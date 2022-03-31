@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Sunteți offline. Nu veți primi mesaje.";
 "zma_connection_banner_label_reconnected" = "Acum sunteți online";
 "zma_connection_banner_label_reconnecting" = "Se reconectează...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Atingeți pentru a reîncerca";
 "zma_conversation_header_logo" = "Sigla mărcii";
 "zma_conversation_message_label_cant_be_displayed" = "Mesajul nu poate fi afișat";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Elementul nu poate fi afișat";
 "zma_conversation_messages_failed_to_load" = "Mesajele nu s-au putut încărcat";
 "zma_conversation_new_messages_divider" = "Nou";
+"zma_exceeds_max_file_size" = "Depășește dimensiunea maximă a fișierului (%@ MB)";
 "zma_form_field_counter_label" = "%@ din %@";
 "zma_form_field_invalid_email_error" = "Introduceți o adresă de e-mail validă";
 "zma_form_field_max_character_error" = "Introduceți %@ caractere sau mai puțin";

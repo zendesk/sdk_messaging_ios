@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "ऑफ़लाइन। आपको संदेश नहीं मिलेंगे।";
 "zma_connection_banner_label_reconnected" = "अब आप ऑनलाइन हैं";
 "zma_connection_banner_label_reconnecting" = "फिर से कनेक्ट हो रहा है...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "फिर से कोशिश करने के लिए टैप करें";
 "zma_conversation_header_logo" = "ब्रांड लोगो";
 "zma_conversation_message_label_cant_be_displayed" = "संदेश दिखाया नहीं जा सकता";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "आइटम दिखाया नहीं जा सकता";
 "zma_conversation_messages_failed_to_load" = "संदेशों को लोड करने में विफल";
 "zma_conversation_new_messages_divider" = "नया";
+"zma_exceeds_max_file_size" = "फ़ाइल का आकार ज़्यादा से ज़्यादा (%@ MB) होना चाहिए और वह पार हो चुका है";
 "zma_form_field_counter_label" = "%@ में से %@";
 "zma_form_field_invalid_email_error" = "मान्य ईमेल पता दर्ज करें";
 "zma_form_field_max_character_error" = "%@ या उससे कम वर्ण दर्ज करें";

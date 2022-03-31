@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Не в сети. Сообщения поступать не будут.";
 "zma_connection_banner_label_reconnected" = "Вы уже онлайн";
 "zma_connection_banner_label_reconnecting" = "Восстановление подключения...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Нажмите, чтобы повторить попытку.";
 "zma_conversation_header_logo" = "Логотип бренда";
 "zma_conversation_message_label_cant_be_displayed" = "Невозможно показать сообщение";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Не удается показать элемент";
 "zma_conversation_messages_failed_to_load" = "Не удалось загрузить сообщения";
 "zma_conversation_new_messages_divider" = "Новинка";
+"zma_exceeds_max_file_size" = "Превышен максимальный размер файла (%@ МБ)";
 "zma_form_field_counter_label" = "%@ из %@";
 "zma_form_field_invalid_email_error" = "Введите действительный адрес электронной почты";
 "zma_form_field_max_character_error" = "Введите не более %@ символов";

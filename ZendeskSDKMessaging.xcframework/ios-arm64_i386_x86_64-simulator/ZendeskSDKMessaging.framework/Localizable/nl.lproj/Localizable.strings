@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Offline. U ontvangt geen berichten.";
 "zma_connection_banner_label_reconnected" = "U bent nu online";
 "zma_connection_banner_label_reconnecting" = "Opnieuw verbinden...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Tik om het opnieuw te proberen";
 "zma_conversation_header_logo" = "Merklogo";
 "zma_conversation_message_label_cant_be_displayed" = "Bericht kan niet worden weergegeven";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Item kan niet worden weergegeven";
 "zma_conversation_messages_failed_to_load" = "Berichten kunnen niet worden geladen";
 "zma_conversation_new_messages_divider" = "Nieuw";
+"zma_exceeds_max_file_size" = "Overschrijdt maximale bestandsgrootte (%@ MB)";
 "zma_form_field_counter_label" = "%@ van %@";
 "zma_form_field_invalid_email_error" = "Geef een geldig e-mailadres op";
 "zma_form_field_max_character_error" = "Voer %@ tekens of minder in";

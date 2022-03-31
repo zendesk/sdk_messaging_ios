@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "לא מקוון. לא תקבל הודעות.";
 "zma_connection_banner_label_reconnected" = "עכישו אתה מקוון";
 "zma_connection_banner_label_reconnecting" = "מתחבר מחדש...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "הקש לניסיון נוסף";
 "zma_conversation_header_logo" = "לוגו המותג";
 "zma_conversation_message_label_cant_be_displayed" = "לא ניתן להציג את ההודעה";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "לא ניתן להציג את הפריט";
 "zma_conversation_messages_failed_to_load" = "טעינת ההודעות נכשלה";
 "zma_conversation_new_messages_divider" = "חדש";
+"zma_exceeds_max_file_size" = "חריגה מהגודל המקסימלי של הקובץ (‎%@ MB)";
 "zma_form_field_counter_label" = "%@ מתוך %@";
 "zma_form_field_invalid_email_error" = "הזן כתובת חוקית של דואר אלקטרוני";
 "zma_form_field_max_character_error" = "הזן %@ תווים או פחות";

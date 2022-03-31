@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "غير متصل. لن تتلقى رسائل.";
 "zma_connection_banner_label_reconnected" = "أنت الآن متصل";
 "zma_connection_banner_label_reconnecting" = "جارٍ إعادة الاتصال...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "اضغط لإعادة المحاولة";
 "zma_conversation_header_logo" = "شعار العلامة التجارية";
 "zma_conversation_message_label_cant_be_displayed" = "تعذر عرض الرسالة";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "تعذر عرض العنصر";
 "zma_conversation_messages_failed_to_load" = "فشل تحميل الرسائل";
 "zma_conversation_new_messages_divider" = "جديد";
+"zma_exceeds_max_file_size" = "يتجاوز أقصى حجم للملف (%@ ميجابايت)";
 "zma_form_field_counter_label" = "%@ من %@";
 "zma_form_field_invalid_email_error" = "أدخِل عنوان بريد إلكتروني صالحاً";
 "zma_form_field_max_character_error" = "أدخِل %@ أحرف أو أقل";

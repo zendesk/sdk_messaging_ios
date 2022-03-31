@@ -100,6 +100,7 @@ extension ZendeskSDK.MessagingDelegate {
     get
   }
   final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, Swift.Error>) -> Swift.Void)
+  final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
   @objc public static func invalidate()
   final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: @escaping (ZendeskSDK.ZendeskEvent) -> Swift.Void)
   @objc final public func removeEventObserver(_ observer: Swift.AnyObject)
@@ -118,6 +119,8 @@ extension ZendeskSDK.Zendesk {
   @objc public static func initialize(channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory?, completionHandler: ((ZendeskSDK.Zendesk?, Swift.Error?) -> Swift.Void)?)
   @available(swift, obsoleted: 1.0)
   @objc final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: ((ZendeskSDK.ZDKZendeskEvent, Swift.AnyObject?) -> Swift.Void)?)
+  @available(swift, obsoleted: 1.0)
+  @objc final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: ((Swift.Error?) -> Swift.Void)?)
 }
 extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   public static var logNamespace: Swift.String {
@@ -127,10 +130,12 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKZendeskUser) final public class ZendeskUser : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc(ZDKZendeskUser) final public class ZendeskUser : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
   @objc final public let externalId: Swift.String
   @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKDispatchEvent) final public class DispatchEvent : ObjectiveC.NSObject {
   final public let event: (ZendeskSDK.ZendeskEvent) -> Swift.Void
@@ -141,6 +146,10 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   @objc open func getUnreadMessageCount() -> Swift.Int
   @objc weak public static var delegate: ZendeskSDK.MessagingDelegate?
   @objc override dynamic public init()
+  @objc deinit
+}
+@objc(ZDKPageView) final public class PageView : ObjectiveC.NSObject {
+  @objc public init(pageTitle: Swift.String, url: Swift.String)
   @objc deinit
 }
 extension ZendeskSDK.InitializationPhase : Swift.Equatable {}

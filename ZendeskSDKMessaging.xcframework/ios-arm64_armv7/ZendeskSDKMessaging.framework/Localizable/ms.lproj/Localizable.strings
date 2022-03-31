@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Luar talian. Anda tidak akan menerima mesej.";
 "zma_connection_banner_label_reconnected" = "Anda kini berada dalam talian";
 "zma_connection_banner_label_reconnecting" = "Menyambung semula...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Tap to retry";
 "zma_conversation_header_logo" = "Logo jenama";
 "zma_conversation_message_label_cant_be_displayed" = "Mesej tidak boleh dipaparkan";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Item tidak boleh dipaparkan";
 "zma_conversation_messages_failed_to_load" = "Messages failed to load";
 "zma_conversation_new_messages_divider" = "New";
+"zma_exceeds_max_file_size" = "Exceeds max file size (%@ MB)";
 "zma_form_field_counter_label" = "%@ of %@";
 "zma_form_field_invalid_email_error" = "Masukkan alamat e-mel yang sah";
 "zma_form_field_max_character_error" = "Masukkan %@ aksara atau kurang";

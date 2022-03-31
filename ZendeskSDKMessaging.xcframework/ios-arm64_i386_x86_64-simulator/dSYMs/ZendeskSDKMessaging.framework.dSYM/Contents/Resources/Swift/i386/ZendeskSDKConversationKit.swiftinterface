@@ -873,6 +873,11 @@ extension ZendeskSDKConversationKit.MessageActionModel : Swift.Codable {
   case pending
   case sent
   case failed
+  case exceedsMaxFileSize
+  case failedAttachmentNotSupported
+  public var isFailed: Swift.Bool {
+    get
+  }
   public var description: Swift.String {
     get
   }

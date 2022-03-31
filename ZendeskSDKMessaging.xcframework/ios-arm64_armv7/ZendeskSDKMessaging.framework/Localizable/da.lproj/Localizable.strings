@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Offline. Du vil ikke modtage meddelelser.";
 "zma_connection_banner_label_reconnected" = "Du er nu online";
 "zma_connection_banner_label_reconnecting" = "Genopretter forbindelse...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Tryk for at prøve igen";
 "zma_conversation_header_logo" = "Brand-logo";
 "zma_conversation_message_label_cant_be_displayed" = "Meddelelsen kan ikke vises";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Elementet kan ikke vises";
 "zma_conversation_messages_failed_to_load" = "Meddelelserne kunne ikke indlæses";
 "zma_conversation_new_messages_divider" = "Ny";
+"zma_exceeds_max_file_size" = "Overstiger den maksimale filstørrelse (%@ MB)";
 "zma_form_field_counter_label" = "%@ af %@";
 "zma_form_field_invalid_email_error" = "Indtast en gyldig e‑mailadresse";
 "zma_form_field_max_character_error" = "Indtast %@ tegn eller færre";

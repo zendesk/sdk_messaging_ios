@@ -9,6 +9,7 @@
 "zma_connection_banner_label_disconnected" = "Offline. You won't receive messages.";
 "zma_connection_banner_label_reconnected" = "You're now online";
 "zma_connection_banner_label_reconnecting" = "Reconnecting...";
+"zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Tap to retry";
 "zma_conversation_header_logo" = "Brand logo";
 "zma_conversation_message_label_cant_be_displayed" = "Message can't be displayed";
@@ -21,6 +22,7 @@
 "zma_conversation_message_label_unsupported_item" = "Item can't be displayed";
 "zma_conversation_messages_failed_to_load" = "Messages failed to load";
 "zma_conversation_new_messages_divider" = "New";
+"zma_exceeds_max_file_size" = "Exceeds max file size (%@ MB)";
 "zma_form_field_counter_label" = "%@ of %@";
 "zma_form_field_invalid_email_error" = "Enter a valid email address";
 "zma_form_field_max_character_error" = "Enter %@ characters or less";
