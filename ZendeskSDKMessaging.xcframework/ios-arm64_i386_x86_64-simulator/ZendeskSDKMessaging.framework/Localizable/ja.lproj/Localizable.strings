@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "キャンセル";
 "zma_actions_attachments_label" = "添付ファイルを送信する";
 "zma_alert_message_label_camera" = "カメラ";
+"zma_alert_message_label_discard" = "変更を破棄";
 "zma_alert_message_label_document" = "ドキュメント";
 "zma_alert_message_label_photoLibrary" = "写真ライブラリ";
 "zma_attachment_type_not_supported" = "添付ファイルの種類はサポートされていません";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "オフラインです。メッセージの受信は行われません。";
 "zma_connection_banner_label_reconnected" = "現在オンラインです";
 "zma_connection_banner_label_reconnecting" = "再接続中...";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "コピー";
 "zma_conversation_error_tap_to_retry" = "タップして再試行する";
 "zma_conversation_header_logo" = "ブランドのロゴ";
 "zma_conversation_message_label_cant_be_displayed" = "メッセージを表示できません";

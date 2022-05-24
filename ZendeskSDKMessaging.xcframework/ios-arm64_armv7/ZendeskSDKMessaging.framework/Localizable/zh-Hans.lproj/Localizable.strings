@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "取消";
 "zma_actions_attachments_label" = "发送附件";
 "zma_alert_message_label_camera" = "相机";
+"zma_alert_message_label_discard" = "放弃更改";
 "zma_alert_message_label_document" = "文档";
 "zma_alert_message_label_photoLibrary" = "照片库";
 "zma_attachment_type_not_supported" = "不支持的附件类型";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "离线。您将不会接收到消息。";
 "zma_connection_banner_label_reconnected" = "您现在处于在线状态";
 "zma_connection_banner_label_reconnecting" = "正在重新连接……";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "复制";
 "zma_conversation_error_tap_to_retry" = "点击以重试";
 "zma_conversation_header_logo" = "品牌徽标";
 "zma_conversation_message_label_cant_be_displayed" = "无法显示消息";

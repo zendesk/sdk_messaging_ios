@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "취소";
 "zma_actions_attachments_label" = "첨부 파일 보내기";
 "zma_alert_message_label_camera" = "카메라";
+"zma_alert_message_label_discard" = "변경 내용 버리기";
 "zma_alert_message_label_document" = "문서";
 "zma_alert_message_label_photoLibrary" = "사진 라이브러리";
 "zma_attachment_type_not_supported" = "지원되지 않는 첨부 파일 유형입니다.";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "오프라인 상태. 메시지를 받지 못합니다.";
 "zma_connection_banner_label_reconnected" = "현재 온라인 상태입니다.";
 "zma_connection_banner_label_reconnecting" = "다시 연결 중…";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "복사";
 "zma_conversation_error_tap_to_retry" = "탭하여 다시 시도";
 "zma_conversation_header_logo" = "브랜드 로고";
 "zma_conversation_message_label_cant_be_displayed" = "메시지를 표시할 수 없습니다.";

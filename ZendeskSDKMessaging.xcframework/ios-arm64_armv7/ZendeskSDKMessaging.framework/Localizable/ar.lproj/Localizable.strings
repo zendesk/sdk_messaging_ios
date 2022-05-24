@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "إلغاء";
 "zma_actions_attachments_label" = "إرسال مرفق";
 "zma_alert_message_label_camera" = "كاميرا";
+"zma_alert_message_label_discard" = "تجاهل التغييرات";
 "zma_alert_message_label_document" = "مستند";
 "zma_alert_message_label_photoLibrary" = "مكتبة الصور";
 "zma_attachment_type_not_supported" = "نوع المرفق غير مدعوم";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "غير متصل. لن تتلقى رسائل.";
 "zma_connection_banner_label_reconnected" = "أنت الآن متصل";
 "zma_connection_banner_label_reconnecting" = "جارٍ إعادة الاتصال...";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "نسخ";
 "zma_conversation_error_tap_to_retry" = "اضغط لإعادة المحاولة";
 "zma_conversation_header_logo" = "شعار العلامة التجارية";
 "zma_conversation_message_label_cant_be_displayed" = "تعذر عرض الرسالة";

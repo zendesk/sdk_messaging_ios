@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "Anulare";
 "zma_actions_attachments_label" = "Trimiteți un fișier atașat";
 "zma_alert_message_label_camera" = "Cameră";
+"zma_alert_message_label_discard" = "Eliminare modificări";
 "zma_alert_message_label_document" = "Document";
 "zma_alert_message_label_photoLibrary" = "Bibliotecă fotografii";
 "zma_attachment_type_not_supported" = "Tipul de fișier atașat nu este acceptat";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "Sunteți offline. Nu veți primi mesaje.";
 "zma_connection_banner_label_reconnected" = "Acum sunteți online";
 "zma_connection_banner_label_reconnecting" = "Se reconectează...";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "Copiere";
 "zma_conversation_error_tap_to_retry" = "Atingeți pentru a reîncerca";
 "zma_conversation_header_logo" = "Sigla mărcii";
 "zma_conversation_message_label_cant_be_displayed" = "Mesajul nu poate fi afișat";

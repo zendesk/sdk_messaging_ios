@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "Annuleren";
 "zma_actions_attachments_label" = "Een bijlage sturen";
 "zma_alert_message_label_camera" = "Camera";
+"zma_alert_message_label_discard" = "Wijzigingen ongedaan maken";
 "zma_alert_message_label_document" = "Document";
 "zma_alert_message_label_photoLibrary" = "Fotobibliotheek";
 "zma_attachment_type_not_supported" = "Type bijlage wordt niet ondersteund";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "Offline. U ontvangt geen berichten.";
 "zma_connection_banner_label_reconnected" = "U bent nu online";
 "zma_connection_banner_label_reconnecting" = "Opnieuw verbinden...";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "Kopiëren";
 "zma_conversation_error_tap_to_retry" = "Tik om het opnieuw te proberen";
 "zma_conversation_header_logo" = "Merklogo";
 "zma_conversation_message_label_cant_be_displayed" = "Bericht kan niet worden weergegeven";

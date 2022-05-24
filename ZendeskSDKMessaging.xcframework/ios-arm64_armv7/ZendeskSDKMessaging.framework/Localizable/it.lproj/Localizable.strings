@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "Annulla";
 "zma_actions_attachments_label" = "Invia un allegato";
 "zma_alert_message_label_camera" = "Fotocamera";
+"zma_alert_message_label_discard" = "Scarta modifiche";
 "zma_alert_message_label_document" = "Documento";
 "zma_alert_message_label_photoLibrary" = "Libreria foto";
 "zma_attachment_type_not_supported" = "Tipo di allegato non supportato";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "Offline. Non riceverai messaggi.";
 "zma_connection_banner_label_reconnected" = "Ora sei online";
 "zma_connection_banner_label_reconnecting" = "Riconnessione in corso...";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "Copia";
 "zma_conversation_error_tap_to_retry" = "Tocca per riprovare";
 "zma_conversation_header_logo" = "Logo del brand";
 "zma_conversation_message_label_cant_be_displayed" = "Impossibile visualizzare il messaggio";

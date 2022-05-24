@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "Avbryt";
 "zma_actions_attachments_label" = "Send et vedlegg";
 "zma_alert_message_label_camera" = "Kamera";
+"zma_alert_message_label_discard" = "Forkast endringer";
 "zma_alert_message_label_document" = "Dokument";
 "zma_alert_message_label_photoLibrary" = "Bildebibliotek";
 "zma_attachment_type_not_supported" = "Vedleggstypen støttes ikke";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "Offline. Du kommer ikke til å motta meldinger.";
 "zma_connection_banner_label_reconnected" = "Du er nå online";
 "zma_connection_banner_label_reconnecting" = "Kobler til igjen...";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "Kopier";
 "zma_conversation_error_tap_to_retry" = "Trykk for å prøve igjen";
 "zma_conversation_header_logo" = "Merkelogo";
 "zma_conversation_message_label_cant_be_displayed" = "Meldingen kan ikke vises";

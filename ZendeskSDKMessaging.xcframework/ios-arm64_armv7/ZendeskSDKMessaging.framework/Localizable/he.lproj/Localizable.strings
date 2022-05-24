@@ -2,6 +2,7 @@
 "zma_action_label_cancel" = "בטל";
 "zma_actions_attachments_label" = "שלח קובץ מצורף";
 "zma_alert_message_label_camera" = "מצלמה";
+"zma_alert_message_label_discard" = "ותר על השינויים";
 "zma_alert_message_label_document" = "מסמך";
 "zma_alert_message_label_photoLibrary" = "ספריית תמונות";
 "zma_attachment_type_not_supported" = "סוג הקובץ המצורף אינו נתמך";
@@ -9,7 +10,7 @@
 "zma_connection_banner_label_disconnected" = "לא מקוון. לא תקבל הודעות.";
 "zma_connection_banner_label_reconnected" = "עכישו אתה מקוון";
 "zma_connection_banner_label_reconnecting" = "מתחבר מחדש...";
-"zma_contextual_menu_copy" = "Copy";
+"zma_contextual_menu_copy" = "העתק";
 "zma_conversation_error_tap_to_retry" = "הקש לניסיון נוסף";
 "zma_conversation_header_logo" = "לוגו המותג";
 "zma_conversation_message_label_cant_be_displayed" = "לא ניתן להציג את ההודעה";
