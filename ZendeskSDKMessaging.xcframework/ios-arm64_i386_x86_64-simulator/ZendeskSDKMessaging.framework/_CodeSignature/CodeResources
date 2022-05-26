@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		Ku4CeICmYLE0gX/6Bdxpecnyzsg=
+		Ew08jNHmF4s1p79fdMuPvHJhbbE=
 		</data>
 		<key>Headers/ZendeskSDKMessaging-Swift.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		RGMIVBDaDdJqq+fMsANQ/VXJT3I=
+		7UvOwqKv0wzCl69cNq1jnsBc4xs=
 		</data>
 		<key>Localizable/Info.plist</key>
 		<data>
@@ -413,11 +413,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Ku4CeICmYLE0gX/6Bdxpecnyzsg=
+			Ew08jNHmF4s1p79fdMuPvHJhbbE=
 			</data>
 			<key>hash2</key>
 			<data>
-			IaqZ2ozAC/22cYj1S4xdxk1a4sCLZgqhEgxB+5STJx8=
+			PWgNDUlaq8kd+Yf3jfmU5Hx85eLcSmgSnrg80M9nRGk=
 			</data>
 		</dict>
 		<key>Headers/ZendeskSDKMessaging-Swift.h</key>
