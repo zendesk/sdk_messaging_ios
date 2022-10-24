@@ -459,7 +459,9 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
 @objc(ZDKConfig) final public class Config : ObjectiveC.NSObject {
   @objc final public var appId: Swift.String
   @objc final public var baseURL: Swift.String
-  @objc public init(appId: Swift.String, baseURL: Swift.String)
+  @objc final public var multiConvoEnabled: Swift.Bool
+  @objc final public var canUserCreateMoreConversations: Swift.Bool
+  @objc public init(appId: Swift.String, baseURL: Swift.String, multiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -498,6 +500,8 @@ public enum ConversationKitEvent {
   case logoutResult(error: ZendeskSDKConversationKit.ConversationKitError?)
   case persistedUserRetrieved(ZendeskSDKConversationKit.User)
   case conversationReadReceived(conversationId: Swift.String)
+  case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)
+  case conversationRemoved(conversationId: Swift.String)
 }
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
@@ -512,6 +516,8 @@ public enum ConversationKitEvent {
   case logoutResult
   case persistedUserRetrieved
   case conversationReadReceived
+  case conversationAdded
+  case conversationRemoved
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
