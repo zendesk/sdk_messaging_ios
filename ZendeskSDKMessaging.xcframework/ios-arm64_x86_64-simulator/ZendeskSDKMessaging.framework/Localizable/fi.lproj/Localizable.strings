@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Ladataan";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Peruuta";
 "zma_actions_attachments_label" = "Lähetä liitetiedosto";
 "zma_alert_message_label_camera" = "Kamera";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Kopioi";
 "zma_conversation_error_tap_to_retry" = "Yritä uudelleen napauttamalla";
 "zma_conversation_header_logo" = "Brändin logo";
+"zma_conversation_list_item_description_carousel" = "Lähetti karusellin";
+"zma_conversation_list_item_description_file" = "Lähetti tiedoston";
+"zma_conversation_list_item_description_form" = "Lähetti lomakkeen";
+"zma_conversation_list_item_description_image" = "Lähetti kuvan";
+"zma_conversation_list_item_description_message" = "Lähetti viestin";
+"zma_conversation_list_item_description_no_messages" = "Ei viestejä";
+"zma_conversation_list_item_description_sender_you" = "Sinä: ";
+"zma_conversation_list_item_timestamp_just_now" = "Juuri nyt";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Viestiä ei voida näyttää";
 "zma_conversation_message_label_image_loading_failed" = "Kuvaa ei voida ladata";
 "zma_conversation_message_label_just_now" = "Juuri nyt";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Lähetä viesti";
 "zma_message_action_option_not_supported_label" = "Vaihtoehtoa ei tueta";
 "zma_message_input_placeholder" = "Kirjoita viesti";
+"zma_new_conversation_button" = "Uusi keskustelu";
+"zma_new_conversation_error_alert_dismiss_button" = "Ok";
+"zma_new_conversation_error_alert_message" = "Yritä myöhemmin uudelleen.";
+"zma_new_conversation_error_alert_title" = "Keskustelua ei voitu luoda";

@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Memuat";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Batal";
 "zma_actions_attachments_label" = "Kirim lampiran";
 "zma_alert_message_label_camera" = "Kamera";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Salin";
 "zma_conversation_error_tap_to_retry" = "Ketuk untuk mencoba lagi";
 "zma_conversation_header_logo" = "Logo merek";
+"zma_conversation_list_item_description_carousel" = "Mengirim korsel";
+"zma_conversation_list_item_description_file" = "Mengirim file";
+"zma_conversation_list_item_description_form" = "Mengirim formulir";
+"zma_conversation_list_item_description_image" = "Mengirim gambar";
+"zma_conversation_list_item_description_message" = "Mengirim pesan";
+"zma_conversation_list_item_description_no_messages" = "Tidak ada pesan";
+"zma_conversation_list_item_description_sender_you" = "Anda: ";
+"zma_conversation_list_item_timestamp_just_now" = "Baru saja";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Pesan tidak dapat ditampilkan";
 "zma_conversation_message_label_image_loading_failed" = "Tidak dapat memuat gambar";
 "zma_conversation_message_label_just_now" = "Baru saja";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Kirim pesan";
 "zma_message_action_option_not_supported_label" = "Opsi tidak didukung";
 "zma_message_input_placeholder" = "Ketik pesan";
+"zma_new_conversation_button" = "Percakapan baru";
+"zma_new_conversation_error_alert_dismiss_button" = "Ok";
+"zma_new_conversation_error_alert_message" = "Coba lagi nanti.";
+"zma_new_conversation_error_alert_title" = "Tidak dapat membuat percakapan";

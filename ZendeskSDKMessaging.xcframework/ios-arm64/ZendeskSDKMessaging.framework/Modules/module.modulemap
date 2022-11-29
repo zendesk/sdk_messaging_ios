@@ -6,6 +6,6 @@ framework module ZendeskSDKMessaging {
 }
 
 module ZendeskSDKMessaging.Swift {
-    header "ZendeskSDKMessaging-Swift.h"
-    requires objc
+  header "ZendeskSDKMessaging-Swift.h"
+  requires objc
 }

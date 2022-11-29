@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Se încarcă";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Anulare";
 "zma_actions_attachments_label" = "Trimiteți un fișier atașat";
 "zma_alert_message_label_camera" = "Cameră";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Copiere";
 "zma_conversation_error_tap_to_retry" = "Atingeți pentru a reîncerca";
 "zma_conversation_header_logo" = "Sigla mărcii";
+"zma_conversation_list_item_description_carousel" = "A trimis un carusel";
+"zma_conversation_list_item_description_file" = "A trimis un fișier";
+"zma_conversation_list_item_description_form" = "A trimis un formular";
+"zma_conversation_list_item_description_image" = "A trimis o imagine";
+"zma_conversation_list_item_description_message" = "A trimis un mesaj";
+"zma_conversation_list_item_description_no_messages" = "Nu există mesaje";
+"zma_conversation_list_item_description_sender_you" = "Dumneavoastră: ";
+"zma_conversation_list_item_timestamp_just_now" = "Chiar acum";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Mesajul nu poate fi afișat";
 "zma_conversation_message_label_image_loading_failed" = "Imposibil de încărcat imaginea";
 "zma_conversation_message_label_just_now" = "Chiar acum";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Trimitere mesaj";
 "zma_message_action_option_not_supported_label" = "Opțiunea nu este acceptată";
 "zma_message_input_placeholder" = "Tastați un mesaj";
+"zma_new_conversation_button" = "Conversație nouă";
+"zma_new_conversation_error_alert_dismiss_button" = "OK";
+"zma_new_conversation_error_alert_message" = "Încercați din nou mai târziu.";
+"zma_new_conversation_error_alert_title" = "Nu s-a putut crea conversația";

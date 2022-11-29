@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Téléchargement en cours";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Annuler";
 "zma_actions_attachments_label" = "Envoyer une pièce jointe";
 "zma_alert_message_label_camera" = "Appareil photo";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Copier";
 "zma_conversation_error_tap_to_retry" = "Appuyez pour réessayer";
 "zma_conversation_header_logo" = "Logo de la marque";
+"zma_conversation_list_item_description_carousel" = "A envoyé un carrousel";
+"zma_conversation_list_item_description_file" = "A envoyé un fichier";
+"zma_conversation_list_item_description_form" = "A envoyé un formulaire";
+"zma_conversation_list_item_description_image" = "A envoyé une image";
+"zma_conversation_list_item_description_message" = "A envoyé un message";
+"zma_conversation_list_item_description_no_messages" = "Aucun message";
+"zma_conversation_list_item_description_sender_you" = "Vous : ";
+"zma_conversation_list_item_timestamp_just_now" = "À l’instant";
+"zma_conversation_list_item_unread_indicator_maximum" = "+ de 99";
 "zma_conversation_message_label_cant_be_displayed" = "Échec d’affichage du message";
 "zma_conversation_message_label_image_loading_failed" = "Chargement de l’image impossible";
 "zma_conversation_message_label_just_now" = "À l’instant";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Envoyer le message";
 "zma_message_action_option_not_supported_label" = "Option non prise en charge";
 "zma_message_input_placeholder" = "Tapez un message";
+"zma_new_conversation_button" = "Nouvelle conversation";
+"zma_new_conversation_error_alert_dismiss_button" = "OK";
+"zma_new_conversation_error_alert_message" = "Réessayez ultérieurement.";
+"zma_new_conversation_error_alert_title" = "Impossible de créer la conversation";

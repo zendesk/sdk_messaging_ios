@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "טוען";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "בטל";
 "zma_actions_attachments_label" = "שלח קובץ מצורף";
 "zma_alert_message_label_camera" = "מצלמה";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "העתק";
 "zma_conversation_error_tap_to_retry" = "הקש לניסיון נוסף";
 "zma_conversation_header_logo" = "לוגו המותג";
+"zma_conversation_list_item_description_carousel" = "שלח/ה קרוסלה";
+"zma_conversation_list_item_description_file" = "שלח/ה קובץ";
+"zma_conversation_list_item_description_form" = "שלח/ה טופס";
+"zma_conversation_list_item_description_image" = "שלח/ה תמונה";
+"zma_conversation_list_item_description_message" = "שלח/ה הודעה";
+"zma_conversation_list_item_description_no_messages" = "אין הודעות";
+"zma_conversation_list_item_description_sender_you" = "את/ה: ";
+"zma_conversation_list_item_timestamp_just_now" = "עכשיו";
+"zma_conversation_list_item_unread_indicator_maximum" = "‎99+‎";
 "zma_conversation_message_label_cant_be_displayed" = "לא ניתן להציג את ההודעה";
 "zma_conversation_message_label_image_loading_failed" = "התמונה לא נטענת";
 "zma_conversation_message_label_just_now" = "עכשיו";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "שליחת ההודעה";
 "zma_message_action_option_not_supported_label" = "האפשרות לא נתמכת";
 "zma_message_input_placeholder" = "כאן מקלידים את ההודעה";
+"zma_new_conversation_button" = "שיחה חדשה";
+"zma_new_conversation_error_alert_dismiss_button" = "אישור";
+"zma_new_conversation_error_alert_message" = "נסה שוב מאוחר יותר.";
+"zma_new_conversation_error_alert_title" = "לא ניתן ליצור שיחה";

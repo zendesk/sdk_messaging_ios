@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "로드 중";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "취소";
 "zma_actions_attachments_label" = "첨부 파일 보내기";
 "zma_alert_message_label_camera" = "카메라";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "복사";
 "zma_conversation_error_tap_to_retry" = "탭하여 다시 시도";
 "zma_conversation_header_logo" = "브랜드 로고";
+"zma_conversation_list_item_description_carousel" = "회전 슬라이드 보냄";
+"zma_conversation_list_item_description_file" = "파일 보냄";
+"zma_conversation_list_item_description_form" = "양식 보냄";
+"zma_conversation_list_item_description_image" = "이미지 보냄";
+"zma_conversation_list_item_description_message" = "메시지 보냄";
+"zma_conversation_list_item_description_no_messages" = "메시지 없음";
+"zma_conversation_list_item_description_sender_you" = "나: ";
+"zma_conversation_list_item_timestamp_just_now" = "방금";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "메시지를 표시할 수 없습니다.";
 "zma_conversation_message_label_image_loading_failed" = "이미지를 로드할 수 없습니다.";
 "zma_conversation_message_label_just_now" = "방금";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "메시지 보내기";
 "zma_message_action_option_not_supported_label" = "옵션이 지원되지 않음";
 "zma_message_input_placeholder" = "메시지 입력";
+"zma_new_conversation_button" = "새 대화";
+"zma_new_conversation_error_alert_dismiss_button" = "확인";
+"zma_new_conversation_error_alert_message" = "나중에 다시 시도하세요.";
+"zma_new_conversation_error_alert_title" = "대화를 만들 수 없음";

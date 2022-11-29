@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Cargando";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Cancelar";
 "zma_actions_attachments_label" = "Enviar un archivo adjunto";
 "zma_alert_message_label_camera" = "Cámara";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Copiar";
 "zma_conversation_error_tap_to_retry" = "Tocar para volver a intentar";
 "zma_conversation_header_logo" = "Logotipo de marca";
+"zma_conversation_list_item_description_carousel" = "Se envió un carrusel";
+"zma_conversation_list_item_description_file" = "Se envió un archivo";
+"zma_conversation_list_item_description_form" = "Se envió un formulario";
+"zma_conversation_list_item_description_image" = "Se envió una imagen";
+"zma_conversation_list_item_description_message" = "Se envió un mensaje";
+"zma_conversation_list_item_description_no_messages" = "No hay mensajes";
+"zma_conversation_list_item_description_sender_you" = "Usted: ";
+"zma_conversation_list_item_timestamp_just_now" = "Hace un momento";
+"zma_conversation_list_item_unread_indicator_maximum" = "+99";
 "zma_conversation_message_label_cant_be_displayed" = "No se puede mostrar el mensaje";
 "zma_conversation_message_label_image_loading_failed" = "No se puede cargar la imagen";
 "zma_conversation_message_label_just_now" = "Hace un momento";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Enviar mensaje";
 "zma_message_action_option_not_supported_label" = "Opción no admitida";
 "zma_message_input_placeholder" = "Escriba un mensaje";
+"zma_new_conversation_button" = "Nueva conversación";
+"zma_new_conversation_error_alert_dismiss_button" = "Aceptar";
+"zma_new_conversation_error_alert_message" = "Vuelva a intentarlo más tarde.";
+"zma_new_conversation_error_alert_title" = "No se pudo crear la conversación";

@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Načítání";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Zrušit";
 "zma_actions_attachments_label" = "Odeslat přílohu";
 "zma_alert_message_label_camera" = "Fotoaparát";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Kopírovat";
 "zma_conversation_error_tap_to_retry" = "Klepnutím akci opakujte";
 "zma_conversation_header_logo" = "Logo značky";
+"zma_conversation_list_item_description_carousel" = "Odeslali jste karusel";
+"zma_conversation_list_item_description_file" = "Odeslali jste soubor";
+"zma_conversation_list_item_description_form" = "Odeslali jste formulář";
+"zma_conversation_list_item_description_image" = "Odeslal jste obrázek";
+"zma_conversation_list_item_description_message" = "Odeslali jste zprávu";
+"zma_conversation_list_item_description_no_messages" = "Žádné zprávy";
+"zma_conversation_list_item_description_sender_you" = "Vy ";
+"zma_conversation_list_item_timestamp_just_now" = "Právě teď";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Zprávu nelze zobrazit";
 "zma_conversation_message_label_image_loading_failed" = "Obrázek nelze načíst";
 "zma_conversation_message_label_just_now" = "Právě teď";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Poslat zprávu";
 "zma_message_action_option_not_supported_label" = "Možnost není podporována";
 "zma_message_input_placeholder" = "Napište zprávu";
+"zma_new_conversation_button" = "Nová konverzace";
+"zma_new_conversation_error_alert_dismiss_button" = "OK";
+"zma_new_conversation_error_alert_message" = "Zkuste to znovu později.";
+"zma_new_conversation_error_alert_title" = "Konverzaci se nepodařilo vytvořit";

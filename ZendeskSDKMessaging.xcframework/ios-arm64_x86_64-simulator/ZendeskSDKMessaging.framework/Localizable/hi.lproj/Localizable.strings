@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "लोड हो रहा है";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "रद्द करें";
 "zma_actions_attachments_label" = "एक अटैचमेंट भेजें";
 "zma_alert_message_label_camera" = "कैमरा";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "कॉपी करें";
 "zma_conversation_error_tap_to_retry" = "फिर से कोशिश करने के लिए टैप करें";
 "zma_conversation_header_logo" = "ब्रांड लोगो";
+"zma_conversation_list_item_description_carousel" = "एक हिंडोला भेजा";
+"zma_conversation_list_item_description_file" = "एक फाइल भेजी";
+"zma_conversation_list_item_description_form" = "एक फॉर्म भेजा";
+"zma_conversation_list_item_description_image" = "एक छवि भेजी";
+"zma_conversation_list_item_description_message" = "एक संदेश भेजा";
+"zma_conversation_list_item_description_no_messages" = "(कोई संदेश नहीं)";
+"zma_conversation_list_item_description_sender_you" = "आप: ";
+"zma_conversation_list_item_timestamp_just_now" = "अभी तुरंत";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "संदेश दिखाया नहीं जा सकता";
 "zma_conversation_message_label_image_loading_failed" = "इमेज लोड नहीं की जा सकती";
 "zma_conversation_message_label_just_now" = "बिल्कुल अभी";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "संदेश भेजें";
 "zma_message_action_option_not_supported_label" = "विकल्प समर्थित नहीं है";
 "zma_message_input_placeholder" = "एक संदेश टाइप करें";
+"zma_new_conversation_button" = "नई बातचीत";
+"zma_new_conversation_error_alert_dismiss_button" = "ठीक है";
+"zma_new_conversation_error_alert_message" = "बाद में दोबारा कोशिश करें।";
+"zma_new_conversation_error_alert_title" = "बातचीत नहीं बना सका";

@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Memuatkan";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Batal";
 "zma_actions_attachments_label" = "Hantar lampiran";
 "zma_alert_message_label_camera" = "Kamera";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Tap to retry";
 "zma_conversation_header_logo" = "Logo jenama";
+"zma_conversation_list_item_description_carousel" = "Sent a carousel";
+"zma_conversation_list_item_description_file" = "Sent a file";
+"zma_conversation_list_item_description_form" = "Sent a form";
+"zma_conversation_list_item_description_image" = "Sent an image";
+"zma_conversation_list_item_description_message" = "Sent a message";
+"zma_conversation_list_item_description_no_messages" = "No messages";
+"zma_conversation_list_item_description_sender_you" = "You: ";
+"zma_conversation_list_item_timestamp_just_now" = "Just now";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Mesej tidak boleh dipaparkan";
 "zma_conversation_message_label_image_loading_failed" = "Tidak dapat memuatkan imej";
 "zma_conversation_message_label_just_now" = "Sebentar tadi";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Hantar mesej";
 "zma_message_action_option_not_supported_label" = "Option not supported";
 "zma_message_input_placeholder" = "Taip mesej";
+"zma_new_conversation_button" = "New conversation";
+"zma_new_conversation_error_alert_dismiss_button" = "Ok";
+"zma_new_conversation_error_alert_message" = "Try again later.";
+"zma_new_conversation_error_alert_title" = "Couldn't create conversation";

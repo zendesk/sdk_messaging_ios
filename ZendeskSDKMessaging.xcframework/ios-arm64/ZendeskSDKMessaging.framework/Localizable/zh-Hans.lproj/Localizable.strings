@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "正在加载";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "取消";
 "zma_actions_attachments_label" = "发送附件";
 "zma_alert_message_label_camera" = "相机";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "复制";
 "zma_conversation_error_tap_to_retry" = "点击以重试";
 "zma_conversation_header_logo" = "品牌徽标";
+"zma_conversation_list_item_description_carousel" = "已发送轮播";
+"zma_conversation_list_item_description_file" = "已发送文件";
+"zma_conversation_list_item_description_form" = "已发送表格";
+"zma_conversation_list_item_description_image" = "已发送图像";
+"zma_conversation_list_item_description_message" = "已发送一条消息";
+"zma_conversation_list_item_description_no_messages" = "无消息";
+"zma_conversation_list_item_description_sender_you" = "您：";
+"zma_conversation_list_item_timestamp_just_now" = "刚才";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "无法显示消息";
 "zma_conversation_message_label_image_loading_failed" = "无法加载图像";
 "zma_conversation_message_label_just_now" = "刚才";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "发送消息";
 "zma_message_action_option_not_supported_label" = "不支持的选项";
 "zma_message_input_placeholder" = "输入消息";
+"zma_new_conversation_button" = "新建对话";
+"zma_new_conversation_error_alert_dismiss_button" = "确定";
+"zma_new_conversation_error_alert_message" = "请稍后重试。";
+"zma_new_conversation_error_alert_title" = "无法创建对话";

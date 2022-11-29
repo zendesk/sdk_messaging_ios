@@ -1,12 +1,14 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.6.1 (swiftlang-5.6.0.323.66 clang-1316.0.20.12)
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
 // swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKUIComponents
+// swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreGraphics
 import Foundation
 import Swift
 import UIKit
 @_exported import ZendeskSDKUIComponents
 import _Concurrency
+import _StringProcessing
 public struct MessageComposerRendering {
   public let enabled: Swift.Bool
   public let attachmentsEnabled: Swift.Bool
@@ -37,6 +39,14 @@ public struct TextAndMessageButtonViewStyle : Swift.Equatable {
 }
 extension ZendeskSDKUIComponents.TextAndMessageButtonViewStyle {
   public static let `default`: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle
+}
+public struct ConversationListItemStyle {
+  public init(titleForegroundColor: UIKit.UIColor, descriptionForegroundColor: UIKit.UIColor, timestampForegroundColor: UIKit.UIColor, unreadIndicatorForegroundColor: UIKit.UIColor, unreadIndicatorBackgroundColor: UIKit.UIColor)
+}
+extension ZendeskSDKUIComponents.ConversationListItemStyle {
+  public static var `default`: ZendeskSDKUIComponents.ConversationListItemStyle {
+    get
+  }
 }
 public struct TextMessageStyle : Swift.Equatable {
   public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor)
@@ -152,7 +162,7 @@ public struct ReplyOptionCollectionViewCellRendering {
   public init(text: Swift.String = "", style: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle? = nil)
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class QuickReplyView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  @_Concurrency.MainActor(unsafe) final public var contentSize: CoreGraphics.CGSize {
+  @_Concurrency.MainActor(unsafe) final public var contentSize: CoreFoundation.CGSize {
     get
   }
   @_Concurrency.MainActor(unsafe) final public var onActionSelect: ((Swift.String) -> Swift.Void)?
@@ -269,8 +279,8 @@ extension ZendeskSDKUIComponents.InputStyle {
   public static let `default`: ZendeskSDKUIComponents.InputStyle
 }
 public enum AvatarMask : Swift.Equatable {
-  case none(imageSize: CoreGraphics.CGSize)
-  case circle(diameterLength: CoreGraphics.CGFloat)
+  case none(imageSize: CoreFoundation.CGSize)
+  case circle(diameterLength: CoreFoundation.CGFloat)
   public static func == (a: ZendeskSDKUIComponents.AvatarMask, b: ZendeskSDKUIComponents.AvatarMask) -> Swift.Bool
 }
 public struct AvatarViewStyle {
@@ -295,8 +305,8 @@ public struct ConversationErrorViewRendering {
   @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @available(iOS 12.0, *)
   @_Concurrency.MainActor(unsafe) final public func userInterfaceStyleDidChange(style: UIKit.UIUserInterfaceStyle)
-  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
-    @_Concurrency.MainActor(unsafe) @objc get
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) final public var attachmentSourceView: UIKit.UIView {
     get
@@ -333,7 +343,7 @@ extension ZendeskSDKUIComponents.MessagesDividerStyle {
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class CarouselView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) final public var onURLTap: ZendeskSDKUIComponents.OnURLTap?
-  @_Concurrency.MainActor(unsafe) final public var onOffsetDidChange: ((CoreGraphics.CGPoint) -> Swift.Void)? {
+  @_Concurrency.MainActor(unsafe) final public var onOffsetDidChange: ((CoreFoundation.CGPoint) -> Swift.Void)? {
     get
     set
   }
@@ -344,11 +354,11 @@ extension ZendeskSDKUIComponents.MessagesDividerStyle {
 }
 extension ZendeskSDKUIComponents.CarouselView {
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.CarouselViewRendering) -> ZendeskSDKUIComponents.CarouselViewRendering)
-  @_Concurrency.MainActor(unsafe) final public func updateWidth(constant: CoreGraphics.CGFloat)
-  @_Concurrency.MainActor(unsafe) @objc override final public func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) final public func updateWidth(constant: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.CarouselView : UIKit.UIScrollViewDelegate {
-  @_Concurrency.MainActor(unsafe) @objc final public func scrollViewWillEndDragging(_ scrollView: UIKit.UIScrollView, withVelocity velocity: CoreGraphics.CGPoint, targetContentOffset: Swift.UnsafeMutablePointer<CoreGraphics.CGPoint>)
+  @_Concurrency.MainActor(unsafe) @objc final public func scrollViewWillEndDragging(_ scrollView: UIKit.UIScrollView, withVelocity velocity: CoreFoundation.CGPoint, targetContentOffset: Swift.UnsafeMutablePointer<CoreFoundation.CGPoint>)
 }
 public struct KeyboardInfo : Swift.Equatable {
   public enum NotificationType : Swift.CaseIterable, Swift.Equatable {
@@ -371,15 +381,15 @@ public struct KeyboardInfo : Swift.Equatable {
   public var animationOptions: UIKit.UIView.AnimationOptions {
     get
   }
-  public let beginFrame: CoreGraphics.CGRect
-  public let endFrame: CoreGraphics.CGRect
+  public let beginFrame: CoreFoundation.CGRect
+  public let endFrame: CoreFoundation.CGRect
   public let isLocal: Swift.Bool
   public var notificationType: ZendeskSDKUIComponents.KeyboardInfo.NotificationType? {
     get
   }
   public let notification: Foundation.Notification
-  public func keyboardEndFrame(for view: UIKit.UIView) -> CoreGraphics.CGRect
-  public func keyboardHeight(for view: UIKit.UIView) -> CoreGraphics.CGFloat
+  public func keyboardEndFrame(for view: UIKit.UIView) -> CoreFoundation.CGRect
+  public func keyboardHeight(for view: UIKit.UIView) -> CoreFoundation.CGFloat
   public static func == (a: ZendeskSDKUIComponents.KeyboardInfo, b: ZendeskSDKUIComponents.KeyboardInfo) -> Swift.Bool
 }
 public struct IconCircleRendering {
@@ -387,8 +397,8 @@ public struct IconCircleRendering {
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ReplyOptionCollectionViewCell : UIKit.UICollectionViewCell {
   @_Concurrency.MainActor(unsafe) @objc override final public var isSelected: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+    @objc get
+    @objc set
   }
   @_Concurrency.MainActor(unsafe) @objc override final public func preferredLayoutAttributesFitting(_ layoutAttributes: UIKit.UICollectionViewLayoutAttributes) -> UIKit.UICollectionViewLayoutAttributes
   @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
@@ -398,8 +408,8 @@ public struct IconCircleRendering {
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ConversationHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConversationHeaderStyle = .default)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationHeaderRendering) -> ZendeskSDKUIComponents.ConversationHeaderRendering)
-  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreGraphics.CGSize {
-    @_Concurrency.MainActor(unsafe) @objc get
+  @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
   }
   public typealias Rendering = ZendeskSDKUIComponents.ConversationHeaderRendering
   public typealias Style = ZendeskSDKUIComponents.ConversationHeaderStyle
@@ -472,6 +482,13 @@ public struct ImageMessageViewRendering {
   public let customButtonRenderings: [ZendeskSDKUIComponents.CustomButtonRendering]
   public init(animatableImage: ZendeskSDKUIComponents.AnimatableImage = .empty, messageText: Swift.String? = nil, imagePlaceHolderText: Swift.String? = nil, corners: UIKit.UIRectCorner? = .allCorners, style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default, state: ZendeskSDKUIComponents.ImageMessageViewState = .normal, customButtonRenderings: [ZendeskSDKUIComponents.CustomButtonRendering] = [])
 }
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ConversationListItemView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConversationListItemStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationListItemRendering) -> ZendeskSDKUIComponents.ConversationListItemRendering)
+  public typealias Rendering = ZendeskSDKUIComponents.ConversationListItemRendering
+  public typealias Style = ZendeskSDKUIComponents.ConversationListItemStyle
+  @objc deinit
+}
 public typealias LoadingSpinnerRenderingUpdate = (ZendeskSDKUIComponents.LoadingSpinnerViewRendering) -> ZendeskSDKUIComponents.LoadingSpinnerViewRendering
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class LoadingSpinnerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   public typealias Style = ZendeskSDKUIComponents.LoadingSpinnerViewStyle
@@ -530,17 +547,17 @@ extension ZendeskSDKUIComponents.InputFieldView : UIKit.UITextFieldDelegate {
 }
 extension ZendeskSDKUIComponents.InputFieldView {
   @_Concurrency.MainActor(unsafe) @objc override final public var isFirstResponder: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
+    @objc get
   }
   @_Concurrency.MainActor(unsafe) @objc override final public func becomeFirstResponder() -> Swift.Bool
   @discardableResult
   @_Concurrency.MainActor(unsafe) @objc override final public func resignFirstResponder() -> Swift.Bool
 }
 extension UIKit.UICollectionView {
-  @_Concurrency.MainActor(unsafe) public var visibleWidth: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) public var visibleWidth: CoreFoundation.CGFloat {
     get
   }
-  @_Concurrency.MainActor(unsafe) public var visibleHeight: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) public var visibleHeight: CoreFoundation.CGFloat {
     get
   }
   @_Concurrency.MainActor(unsafe) public var lastSection: Swift.Int {
@@ -660,12 +677,12 @@ public typealias ConversationErrorRenderingUpdate = (ZendeskSDKUIComponents.Conv
 }
 extension ZendeskSDKUIComponents.CustomButton {
   @_Concurrency.MainActor(unsafe) @objc override final public var isHighlighted: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+    @objc get
+    @objc set
   }
   @_Concurrency.MainActor(unsafe) @objc override final public var isEnabled: Swift.Bool {
-    @_Concurrency.MainActor(unsafe) @objc get
-    @_Concurrency.MainActor(unsafe) @objc set
+    @objc get
+    @objc set
   }
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class FormView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
@@ -689,8 +706,17 @@ public struct FormResponseViewRendering {
   public let fields: [ZendeskSDKUIComponents.FormFieldResponseViewRendering]
   public init(fields: [ZendeskSDKUIComponents.FormFieldResponseViewRendering] = [])
 }
+public struct ConversationListItemRendering {
+  public let title: Swift.String
+  public let message: Swift.String
+  public let timestamp: Swift.String?
+  public let unreadCount: Swift.String?
+  public let icon: UIKit.UIImage?
+  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil)
+  public func update(title: Swift.String? = nil, message: Swift.String? = nil, timestamp: Swift.String? = nil, unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil) -> ZendeskSDKUIComponents.ConversationListItemRendering
+}
 public struct ColorFactory {
-  public static func hex(_ hexString: Swift.String, alpha: CoreGraphics.CGFloat = 1.0) -> UIKit.UIColor?
+  public static func hex(_ hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor?
   public static func dynamic(light: UIKit.UIColor, dark: UIKit.UIColor) -> UIKit.UIColor
 }
 public struct FormViewRendering {
@@ -788,35 +814,35 @@ extension UIKit.UIView {
     get
   }
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint?]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint?]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperViewSafeLayout(constant: CoreGraphics.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> [UIKit.NSLayoutConstraint?]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperViewSafeLayout(constant: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> [UIKit.NSLayoutConstraint?]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperViewEdges(priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperViewEdges(priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(attributes: [UIKit.UIView.Constrainable.Attribute], isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(attributes: [UIKit.UIView.Constrainable.Attribute], isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint?
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> UIKit.NSLayoutConstraint?
   @discardableResult
   @_Concurrency.MainActor(unsafe) public func constrainToSuperviewSafeLayout(insets: UIKit.UIEdgeInsets, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(attributes: [UIKit.UIView.Constrainable.Attribute], relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0, multiplier: CoreGraphics.CGFloat = 1) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(attributes: [UIKit.UIView.Constrainable.Attribute], relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0, multiplier: CoreFoundation.CGFloat = 1) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(attribute: UIKit.UIView.Constrainable.Attribute, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0, multiplier: CoreGraphics.CGFloat = 1) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrainToSuperview(attribute: UIKit.UIView.Constrainable.Attribute, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0, multiplier: CoreFoundation.CGFloat = 1) -> UIKit.NSLayoutConstraint
   @discardableResult
   @_Concurrency.MainActor(unsafe) public func constrainCenterToView(view: UIKit.UIView) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrainSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView, priority: UIKit.UILayoutPriority = .required, constant: CoreGraphics.CGFloat = 0.0) -> UIKit.NSLayoutConstraint?
+  @_Concurrency.MainActor(unsafe) public func constrainSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0.0) -> UIKit.NSLayoutConstraint?
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrain(dimension: UIKit.UIView.Constrainable.Dimension, withConstant constant: CoreGraphics.CGFloat = 0, relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrain(dimension: UIKit.UIView.Constrainable.Dimension, withConstant constant: CoreFoundation.CGFloat = 0, relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required) -> UIKit.NSLayoutConstraint
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrain(size: CoreGraphics.CGSize, relation: UIKit.NSLayoutConstraint.Relation = .equal) -> [UIKit.NSLayoutConstraint]
+  @_Concurrency.MainActor(unsafe) public func constrain(size: CoreFoundation.CGSize, relation: UIKit.NSLayoutConstraint.Relation = .equal) -> [UIKit.NSLayoutConstraint]
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toView view: UIKit.UIView, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, constant: CoreGraphics.CGFloat = 0) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toView view: UIKit.UIView, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, constant: CoreFoundation.CGFloat = 0) -> UIKit.NSLayoutConstraint
   @discardableResult
-  @_Concurrency.MainActor(unsafe) public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView?, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, isActive: Swift.Bool = true, constant: CoreGraphics.CGFloat = 0, multiplier: CoreGraphics.CGFloat = 1) -> UIKit.NSLayoutConstraint
+  @_Concurrency.MainActor(unsafe) public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView?, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, isActive: Swift.Bool = true, constant: CoreFoundation.CGFloat = 0, multiplier: CoreFoundation.CGFloat = 1) -> UIKit.NSLayoutConstraint
 }
 public struct IconCircleStyle {
   public let backgroundColor: UIKit.UIColor
@@ -833,22 +859,22 @@ public typealias BannerRenderingUpdate = (ZendeskSDKUIComponents.ConnectionBanne
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConnectionBannerViewRendering) -> ZendeskSDKUIComponents.ConnectionBannerViewRendering)
   @_Concurrency.MainActor(unsafe) final public func display(in view: UIKit.UIView, withThrottle throttleTime: Foundation.TimeInterval = 1, rendering: ZendeskSDKUIComponents.ConnectionBannerViewRendering, onDisplay: (() -> Swift.Void)? = nil)
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override final public func point(inside point: CoreGraphics.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
   public typealias Rendering = ZendeskSDKUIComponents.ConnectionBannerViewRendering
   public typealias Style = ZendeskSDKUIComponents.ConnectionBannerViewStyle
   @objc deinit
 }
 extension UIKit.UIEdgeInsets : Swift.Sequence {
   public typealias Iterator = ZendeskSDKUIComponents.InsetsIterator
-  public typealias Element = CoreGraphics.CGFloat
+  public typealias Element = CoreFoundation.CGFloat
   public func makeIterator() -> UIKit.UIEdgeInsets.Iterator
 }
 public struct InsetsIterator : Swift.IteratorProtocol {
-  public typealias Element = CoreGraphics.CGFloat
-  public mutating func next() -> CoreGraphics.CGFloat?
+  public typealias Element = CoreFoundation.CGFloat
+  public mutating func next() -> CoreFoundation.CGFloat?
 }
 public typealias OnURLTap = ((Foundation.URL, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)
-public func + (left: CoreGraphics.CGSize, right: CoreGraphics.CGSize) -> CoreGraphics.CGSize
+public func + (left: CoreFoundation.CGSize, right: CoreFoundation.CGSize) -> CoreFoundation.CGSize
 public struct LoadingSpinnerViewStyle : Swift.Equatable {
   public init(color: UIKit.UIColor?, indicatorStyle: UIKit.UIActivityIndicatorView.Style)
   public static func == (a: ZendeskSDKUIComponents.LoadingSpinnerViewStyle, b: ZendeskSDKUIComponents.LoadingSpinnerViewStyle) -> Swift.Bool
@@ -878,7 +904,7 @@ public enum ImageMessageViewState : Swift.Equatable, Swift.CaseIterable {
   }
 }
 public struct ImageMessageViewStyle : Swift.Equatable {
-  public init(backgroundColor: UIKit.UIColor = .clear, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, imageAlpha: CoreGraphics.CGFloat = 1.0, borderColor: UIKit.UIColor? = nil, textAndButtonStyle: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle? = .default, imageContentMode: UIKit.UIView.ContentMode = .scaleAspectFill, isFixedImageSize: Swift.Bool = true)
+  public init(backgroundColor: UIKit.UIColor = .clear, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, imageAlpha: CoreFoundation.CGFloat = 1.0, borderColor: UIKit.UIColor? = nil, textAndButtonStyle: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle? = .default, imageContentMode: UIKit.UIView.ContentMode = .scaleAspectFill, isFixedImageSize: Swift.Bool = true)
   public static func == (a: ZendeskSDKUIComponents.ImageMessageViewStyle, b: ZendeskSDKUIComponents.ImageMessageViewStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.ImageMessageViewStyle {
@@ -1001,7 +1027,7 @@ extension ZendeskSDKUIComponents.TextAndMessageButtonViewRendering {
   public static let `default`: ZendeskSDKUIComponents.TextAndMessageButtonViewRendering
 }
 extension UIKit.UITableView {
-  @_Concurrency.MainActor(unsafe) public var contentSizeHeight: CoreGraphics.CGFloat {
+  @_Concurrency.MainActor(unsafe) public var contentSizeHeight: CoreFoundation.CGFloat {
     get
   }
   @_Concurrency.MainActor(unsafe) public func removeHeaderLine()
@@ -1026,8 +1052,8 @@ public struct InputFieldRendering : Swift.Equatable {
     case text
     case email
     case select
-    public static func == (a: ZendeskSDKUIComponents.InputFieldRendering.FieldType, b: ZendeskSDKUIComponents.InputFieldRendering.FieldType) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: ZendeskSDKUIComponents.InputFieldRendering.FieldType, b: ZendeskSDKUIComponents.InputFieldRendering.FieldType) -> Swift.Bool
     public var hashValue: Swift.Int {
       get
     }

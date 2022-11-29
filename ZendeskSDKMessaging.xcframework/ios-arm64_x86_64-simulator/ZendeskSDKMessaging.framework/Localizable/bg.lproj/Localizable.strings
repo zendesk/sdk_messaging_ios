@@ -1,4 +1,5 @@
 "zma_accessibility_loading_label" = "Зареждане";
+"zma_accessibility_message_author_replied" = "%@ replied";
 "zma_action_label_cancel" = "Отмяна";
 "zma_actions_attachments_label" = "Изпращане на прикачен файл";
 "zma_alert_message_label_camera" = "Камера";
@@ -13,6 +14,15 @@
 "zma_contextual_menu_copy" = "Копиране";
 "zma_conversation_error_tap_to_retry" = "Докоснете за повторен опит";
 "zma_conversation_header_logo" = "Лого на бранда";
+"zma_conversation_list_item_description_carousel" = "Изпратихте каталог с елементи";
+"zma_conversation_list_item_description_file" = "Изпратихте файл";
+"zma_conversation_list_item_description_form" = "Изпратихте формуляр";
+"zma_conversation_list_item_description_image" = "Изпратихте изображение";
+"zma_conversation_list_item_description_message" = "Изпратихте съобщение";
+"zma_conversation_list_item_description_no_messages" = "Няма съобщения";
+"zma_conversation_list_item_description_sender_you" = "Вие: ";
+"zma_conversation_list_item_timestamp_just_now" = "Току-що";
+"zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Съобщението не може да се покаже";
 "zma_conversation_message_label_image_loading_failed" = "Изображението не може да се зареди";
 "zma_conversation_message_label_just_now" = "Сега";
@@ -36,3 +46,7 @@
 "zma_label_send_message" = "Изпращане на SMS";
 "zma_message_action_option_not_supported_label" = "Опцията не се поддържа";
 "zma_message_input_placeholder" = "Въведете съобщение";
+"zma_new_conversation_button" = "Нов разговор";
+"zma_new_conversation_error_alert_dismiss_button" = "ОК";
+"zma_new_conversation_error_alert_message" = "Опитайте отново по-късно.";
+"zma_new_conversation_error_alert_title" = "Неуспешно създаване на разговор";
