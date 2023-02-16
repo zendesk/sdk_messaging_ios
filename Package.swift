@@ -22,7 +22,7 @@ let package = Package(
                  from: "2.3.0"),
         .package(name: "ZendeskSDK",
                  url: "https://github.com/zendesk/sdk_ios",
-                 from: "zendesk_ios_version")
+                 from: "1.8.0")
     ],
     targets: [
         .binaryTarget(
