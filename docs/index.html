@@ -1,90 +1,106 @@
+<!--
+ERB template model: DocumentERBDescriptor
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZendeskSDKMessaging - ZendeskSDKMessaging</title>
-    <link rel="stylesheet" type="text/css" href="/all.css" media="all" />
+  <!-- Required meta tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>ZendeskSDKMessaging</title>
+  <style>
+      body,
+      html {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+      }
+      .button-dropdown {
+          font-size: 12px;
+      }
+      .last-update {
+          font-size: 10px;
+      }
+      iframe {
+          border: none;
+      }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="/">
-            <strong>
-                ZendeskSDKMessaging
-            </strong>
-            <span>Documentation</span>
-        </a>
-    </header>
-
-    <!--
-    <form class="search">
-        <input type="search" placeholder="Search" />
-    </form>
-    -->
-
-    <nav>
-        <div class="wrapper">
-            <h2>On This Page</h2>
-            <ol><li><a href="#classes">Classes</a></li><li><a href="#enumerations">Enumerations</a></li></ol>
-        </div>
-    </nav>
-
-    <main>
-        <article>
-                <section id="classes">
-        <h2>Classes</h2>
-        <dl>
-            <dt class="class">
-    <a href="/DefaultMessagingFactory" title="class - DefaultMessagingFactory">
-        Default​Messaging​Factory
-    </a>
-</dt>
-<dd>
-    
-</dd>
-<dt class="class">
-    <a href="/PushNotifications" title="class - PushNotifications">
-        Push​Notifications
-    </a>
-</dt>
-<dd>
-    <p>The entry point to execute push notification related SDK actions.
-Register device token with <code>PushNotifications.updatePushNotificationToken(:)</code>.</p>
-
-</dd>
-        </dl>
-    </section>
-    <section id="enumerations">
-        <h2>Enumerations</h2>
-        <dl>
-            <dt class="enumeration">
-    <a href="/Resource_AccessibilityStrings" title="enumeration - Resource.AccessibilityStrings">
-        Resource.​Accessibility​Strings
-    </a>
-</dt>
-<dd>
-    
-</dd>
-<dt class="enumeration">
-    <a href="/PushResponsibility" title="enumeration - PushResponsibility">
-        Push​Responsibility
-    </a>
-</dt>
-<dd>
-    <p>Represents whether a push notification payload belongs to <code>Messaging</code>,
-and if the SDK is in a state in which the notification should be displayed.</p>
-
-</dd>
-        </dl>
-    </section>
-
-        </article>
-    </main>
-
-    <footer>
-        <p>
-    Generated on <time datetime="2023-02-16T10:12:56+0000">February 16, 2023</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
-</p>
-    </footer>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" href="#">ZendeskSDKMessaging</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle button-dropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Versions
+              </a>
+              <div class="dropdown-menu">
+                  <a class="dropdown-item" href="ZendeskSDKMessaging/2.8.1/documentation/zendesksdkmessaging" target="javadoc-viewer">2.8.1 (latest)</a>
+              </div>
+          </li>
+      </ul>
+      <span class="navbar-text last-update">Last update 09:37, 23-02-2023</span>
+  </div>
+</nav>
+<iframe style="width: 100vw; height: 100vh; position: relative; padding-bottom: 56px;" id="javadoc-viewer" name="javadoc-viewer" src="about:blank" allowfullscreen></iframe>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+  const getUrlParameter = function getUrlParameter(sParam) {
+      let sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split("&"),
+          sParameterName,
+          i;
+       for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split("=");
+           if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+      }
+  };
+   const openInIframe = function openInIframe(url, clazz, hash) {
+      if (clazz) {
+          $("#javadoc-viewer").on("load", function () {
+              const frame = $(this).contents().find("iframe[name='classFrame']");
+              frame.attr("src", clazz);
+               if (hash) {
+                  frame.on("load", function () {
+                      const contentDocument = frame[0].contentDocument || frame[0].contentWindow.document;
+                      const offset = contentDocument.getElementById(hash.substring(1)).offsetTop;
+                      $(this).contents().scrollTop(offset);
+                      frame.unbind("load");
+                  });
+              }
+               $("#javadoc-viewer").unbind("load");
+          });
+      }
+      $("#javadoc-viewer").attr("src", url);
+  };
+   $(document).ready(function () {
+      // Check if we have to deep-link
+      const module = getUrlParameter("m");
+      const tag = getUrlParameter("t");
+      const diff = getUrlParameter("d");
+      const clazz = getUrlParameter("c");
+      const hash = window.location.hash;
+       if (module) {
+          let url = module + "/";
+           if (tag) {
+              url += tag + "/index.html";
+          } else if (diff) {
+              url += diff + "/changes.html";
+          } else {
+              url = $("#dropdown-" + module).find(".dropdown-item")[0].href;
+          }
+           openInIframe(url, clazz, hash);
+      } else {
+          openInIframe($(".dropdown-item")[0].href);
+      }
+  });
+</script>
 </body>
 </html>
