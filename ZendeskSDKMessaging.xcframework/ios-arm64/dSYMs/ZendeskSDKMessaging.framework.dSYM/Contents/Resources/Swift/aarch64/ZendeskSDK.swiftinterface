@@ -8,6 +8,7 @@ import Swift
 import UIKit
 @_exported import ZendeskSDK
 import ZendeskSDKConversationKit
+import ZendeskSDKCoreUtilities
 import ZendeskSDKHTTPClient
 import ZendeskSDKLogger
 import ZendeskSDKStorage
@@ -154,6 +155,7 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
 }
 @objc(ZDKPageView) final public class PageView : ObjectiveC.NSObject {
   @objc public init(pageTitle: Swift.String, url: Swift.String)
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
 }
 extension ZendeskSDK.InitializationPhase : Swift.Equatable {}

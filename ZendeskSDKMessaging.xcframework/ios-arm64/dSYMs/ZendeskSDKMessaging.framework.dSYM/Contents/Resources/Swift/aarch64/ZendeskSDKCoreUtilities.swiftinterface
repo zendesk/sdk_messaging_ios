@@ -1,0 +1,40 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-module-flags: -target arm64-apple-ios11.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKCoreUtilities
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+public struct JWT : Swift.Decodable {
+  public let externalId: Swift.String
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct JWTDecoder {
+  public static func decode<T>(jwt: Swift.String) -> T? where T : Swift.Decodable
+}
+public enum ApplicationState {
+  case willEnterForeground
+  case didEnterBackground
+  case willTerminate
+  public static func == (a: ZendeskSDKCoreUtilities.ApplicationState, b: ZendeskSDKCoreUtilities.ApplicationState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ApplicationStateObserver {
+  var onApplicationStateEvent: ((ZendeskSDKCoreUtilities.ApplicationState) -> Swift.Void)? { get set }
+  func registerForApplicationStateNotifications()
+  func unregisterForApplicationStateNotifications()
+}
+final public class DefaultApplicationStateObserver : ZendeskSDKCoreUtilities.ApplicationStateObserver {
+  final public var onApplicationStateEvent: ((ZendeskSDKCoreUtilities.ApplicationState) -> Swift.Void)?
+  public init()
+  final public func registerForApplicationStateNotifications()
+  final public func unregisterForApplicationStateNotifications()
+  @objc deinit
+}
+extension ZendeskSDKCoreUtilities.ApplicationState : Swift.Equatable {}
+extension ZendeskSDKCoreUtilities.ApplicationState : Swift.Hashable {}

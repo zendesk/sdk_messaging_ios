@@ -10,6 +10,7 @@ import SwiftUI
 import SystemConfiguration
 import UIKit
 @_exported import ZendeskSDKConversationKit
+import ZendeskSDKCoreUtilities
 import ZendeskSDKFayeClient
 import ZendeskSDKHTTPClient
 import ZendeskSDKLogger
@@ -78,7 +79,8 @@ import _StringProcessing
   @objc final public let hasPrevious: Swift.Bool
   @objc final public let myself: ZendeskSDKConversationKit.Participant?
   @objc final public let activity: ZendeskSDKConversationKit.Activity?
-  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil)
+  @objc final public let status: ZendeskSDKConversationKit.ConversationStatus
+  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -234,29 +236,56 @@ extension ZendeskSDKConversationKit.DefaultConversationKitBuilder {
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
+@objc(ZDKProactiveMessageStatus) public enum ProactiveMessageStatus : Swift.Int {
+  case notificationWillDisplay
+  case notificationHasBeenDisplayed
+  case notificationHasBeenClicked
+  case conversationHasBeenRepliedTo
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(ZDKConversationList) final public class ConversationList : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let conversations: [ZendeskSDKConversationKit.Conversation]
+  @objc final public let hasMore: Swift.Bool
+  @objc public init(conversations: [ZendeskSDKConversationKit.Conversation], hasMore: Swift.Bool = false)
+  @objc deinit
+  final public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
 public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShared {
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
   func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, result: ((Swift.Result<ZendeskSDKConversationKit.Config, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func getConversations(offset: Swift.Int, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  func createConversation(result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func createConversation(proactiveMessageId: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func getVisitType(result: ((Swift.Result<ZendeskSDKConversationKit.VisitType, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
 }
 extension ZendeskSDKConversationKit.ConversationKit {
   public func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, result: ((Swift.Result<ZendeskSDKConversationKit.Config, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  public func createAnonymousUser(with givenName: Swift.String? = nil, surname: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func createAnonymousUser(with givenName: Swift.String? = nil, surname: Swift.String? = nil, proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func getConversations(offset: Swift.Int, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  public func createConversation(result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func createConversation(proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func proactiveMessageStatusChanged(_ status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage, jwt: Swift.String? = nil)
+  public func clearProactiveMessages(proactiveMessageIds: [Swift.String])
+  public func getVisitType(result: ((Swift.Result<ZendeskSDKConversationKit.VisitType, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
 }
 @objc public protocol ConversationKitShared {
   @objc var clientId: Swift.String? { get }
@@ -268,6 +297,9 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc func pause()
   @objc func resume()
   @objc func updatePushNotificationToken(_ token: Swift.String)
+  @objc func proactiveMessageStatusChanged(_ status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage, jwt: Swift.String?)
+  @objc func setVisitType(_ visitType: ZendeskSDKConversationKit.VisitType)
+  @objc func clearProactiveMessages(proactiveMessageIds: [Swift.String])
 }
 @objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitShared {
   @objc @available(swift, obsoleted: 1.0)
@@ -275,9 +307,11 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc @available(swift, obsoleted: 1.0)
   func setup(with settings: ZendeskSDKConversationKit.ConversationKitSettings, completion: ((ZendeskSDKConversationKit.Config?, Swift.Error?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
+  func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
   func getConversation(with identifier: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func getConversations(offset: Swift.Int, completion: ((ZendeskSDKConversationKit.ConversationList, Swift.Error?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
@@ -289,7 +323,11 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc @available(swift, obsoleted: 1.0)
   func logoutUser(completion: ((Swift.Error?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func createConversation(completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
+  func createConversation(proactiveMessageId: Swift.String?, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func getVisitType(completion: ((ZendeskSDKConversationKit.VisitType, Swift.Error?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
 }
 @objc(ZDKMessageContent) public protocol Content : ObjectiveC.NSObjectProtocol {
   @objc var type: ZendeskSDKConversationKit.MessageType { get }
@@ -329,6 +367,15 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
     get
   }
   public static func == (a: ZendeskSDKConversationKit.ConversationKitError, b: ZendeskSDKConversationKit.ConversationKitError) -> Swift.Bool
+}
+@objc(ZDKProactiveMessage) public class ProactiveMessage : ObjectiveC.NSObject {
+  @objc final public let id: Swift.String
+  @objc final public let title: Swift.String
+  @objc final public let body: Swift.String
+  @objc final public let campaignId: Swift.String
+  @objc final public let campaignVersion: Swift.Int
+  public init(id: Swift.String, title: Swift.String, body: Swift.String, campaignId: Swift.String, campaignVersion: Swift.Int)
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ZDKMessageActionItem) final public class MessageActionItem : ObjectiveC.NSObject, Swift.Codable {
   @objc final public var title: Swift.String
@@ -387,6 +434,11 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+}
+extension ZendeskSDKConversationKit.User {
+  @objc final public var isLatestConversationActive: Swift.Bool {
+    @objc get
+  }
 }
 @objc(ZDKImageMessageContent) final public class ImageMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
@@ -504,6 +556,7 @@ public enum ConversationKitEvent {
   case conversationReadReceived(conversationId: Swift.String)
   case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationRemoved(conversationId: Swift.String)
+  case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
 }
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
@@ -520,6 +573,7 @@ public enum ConversationKitEvent {
   case conversationReadReceived
   case conversationAdded
   case conversationRemoved
+  case proactiveMessageStatusChanged
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -539,6 +593,11 @@ public enum ConversationKitEvent {
 @_hasMissingDesignatedInitializers @objc final public class ZDKLoginResult : ObjectiveC.NSObject {
   @objc final public let user: ZendeskSDKConversationKit.User?
   @objc final public let error: Swift.Error?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageStatusChanged : ObjectiveC.NSObject {
+  @objc final public let status: ZendeskSDKConversationKit.ProactiveMessageStatus
+  @objc final public let proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage
   @objc deinit
 }
 @objc(ZDKFieldType) public enum FieldType : Swift.Int, Swift.Codable {
@@ -706,6 +765,18 @@ extension ZendeskSDKConversationKit.ConversationKitSettings {
   @available(swift, obsoleted: 1.0)
   @objc convenience dynamic public init(integrationId: Swift.String)
 }
+@objc(ZDKVisitType) public enum VisitType : Swift.Int, Swift.Codable {
+  case new
+  case `repeat`
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @objc(ZDKMessage) final public class Message : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
   final public let content: ZendeskSDKConversationKit.MessageContent
@@ -771,6 +842,17 @@ extension ZendeskSDKConversationKit.Message {
   @objc deinit
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
+}
+@objc(ZDKConversationStatus) public enum ConversationStatus : Swift.Int, Swift.Codable {
+  case active
+  case idle
+  case unknown
+  public init?(rawValue: Swift.String)
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @objc(ZDKMessageAction) public protocol MessageAction : ObjectiveC.NSObjectProtocol {
   @objc var id: Swift.String { get }
@@ -1016,6 +1098,9 @@ extension ZendeskSDKConversationKit.TextFormField {
 extension ZendeskSDKConversationKit.ConversationType : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ConversationType : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ConversationType : Swift.RawRepresentable {}
+extension ZendeskSDKConversationKit.ProactiveMessageStatus : Swift.Equatable {}
+extension ZendeskSDKConversationKit.ProactiveMessageStatus : Swift.Hashable {}
+extension ZendeskSDKConversationKit.ProactiveMessageStatus : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ActionItemSize : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ActionItemSize : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ActionItemSize : Swift.RawRepresentable {}
@@ -1040,6 +1125,12 @@ extension ZendeskSDKConversationKit.ConnectionStatus : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.RawRepresentable {}
+extension ZendeskSDKConversationKit.VisitType : Swift.Equatable {}
+extension ZendeskSDKConversationKit.VisitType : Swift.Hashable {}
+extension ZendeskSDKConversationKit.VisitType : Swift.RawRepresentable {}
+extension ZendeskSDKConversationKit.ConversationStatus : Swift.Equatable {}
+extension ZendeskSDKConversationKit.ConversationStatus : Swift.Hashable {}
+extension ZendeskSDKConversationKit.ConversationStatus : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ActionType : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ActionType : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ActionType : Swift.RawRepresentable {}

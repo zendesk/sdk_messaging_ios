@@ -7,6 +7,7 @@
 "zma_alert_message_label_document" = "Document";
 "zma_alert_message_label_photoLibrary" = "Photo library";
 "zma_attachment_type_not_supported" = "Attachment type not supported";
+"zma_back_button_accessibility_label" = "Go back";
 "zma_carousel_action_not_supported" = "Option not supported";
 "zma_connection_banner_label_disconnected" = "Offline. You won't receive messages.";
 "zma_connection_banner_label_reconnected" = "You're now online";
@@ -14,12 +15,14 @@
 "zma_contextual_menu_copy" = "Copy";
 "zma_conversation_error_tap_to_retry" = "Tap to retry";
 "zma_conversation_header_logo" = "Brand logo";
+"zma_conversation_list_failed_to_load" = "Conversations failed to load";
 "zma_conversation_list_item_description_carousel" = "Sent a carousel";
 "zma_conversation_list_item_description_file" = "Sent a file";
 "zma_conversation_list_item_description_form" = "Sent a form";
 "zma_conversation_list_item_description_image" = "Sent an image";
 "zma_conversation_list_item_description_message" = "Sent a message";
 "zma_conversation_list_item_description_no_messages" = "No messages";
+"zma_conversation_list_item_description_prefix_you" = "You: %@";
 "zma_conversation_list_item_description_sender_you" = "You: ";
 "zma_conversation_list_item_timestamp_just_now" = "Just now";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
@@ -31,6 +34,8 @@
 "zma_conversation_message_label_sent_relative" = "Sent • Just now";
 "zma_conversation_message_label_tap_to_retry" = "Tap to retry";
 "zma_conversation_message_label_unsupported_item" = "Item can't be displayed";
+"zma_conversation_message_menu_copy_button_label" = "Copy";
+"zma_conversation_message_menu_delete_button_label" = "Delete";
 "zma_conversation_messages_failed_to_load" = "Messages failed to load";
 "zma_conversation_new_messages_divider" = "New";
 "zma_exceeds_max_file_size" = "Exceeds max file size (%@ MB)";

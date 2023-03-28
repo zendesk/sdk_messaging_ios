@@ -12,8 +12,10 @@ import Swift
 import UIKit.UIImage
 import UIKit
 import UniformTypeIdentifiers
+import UserNotifications
 import ZendeskSDK
 import ZendeskSDKConversationKit
+import ZendeskSDKCoreUtilities
 import ZendeskSDKLogger
 @_exported import ZendeskSDKMessaging
 import ZendeskSDKStorage

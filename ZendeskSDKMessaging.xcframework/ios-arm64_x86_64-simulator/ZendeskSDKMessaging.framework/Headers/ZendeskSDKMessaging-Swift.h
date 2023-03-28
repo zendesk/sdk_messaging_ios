@@ -257,7 +257,6 @@ using UInt = size_t;
 
 
 
-
 @class ZDKMessagingFactoryParameters;
 @class ZDKMessaging;
 
@@ -266,7 +265,6 @@ SWIFT_CLASS_NAMED("DefaultMessagingFactory")
 - (ZDKMessaging * _Nonnull)createMessagingWith:(ZDKMessagingFactoryParameters * _Nonnull)parameters SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -350,12 +348,17 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
+
 @class UIImage;
 
 @interface UIImageView (SWIFT_EXTENSION(ZendeskSDKMessaging))
 /// Displays an image.
 - (void)nuke_displayWithImage:(UIImage * _Nullable)image;
 @end
+
+
+
 
 
 
@@ -631,7 +634,6 @@ using UInt = size_t;
 
 
 
-
 @class ZDKMessagingFactoryParameters;
 @class ZDKMessaging;
 
@@ -640,7 +642,6 @@ SWIFT_CLASS_NAMED("DefaultMessagingFactory")
 - (ZDKMessaging * _Nonnull)createMessagingWith:(ZDKMessagingFactoryParameters * _Nonnull)parameters SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
-
 
 
 
@@ -724,12 +725,17 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
+
 @class UIImage;
 
 @interface UIImageView (SWIFT_EXTENSION(ZendeskSDKMessaging))
 /// Displays an image.
 - (void)nuke_displayWithImage:(UIImage * _Nullable)image;
 @end
+
+
+
 
 
 
