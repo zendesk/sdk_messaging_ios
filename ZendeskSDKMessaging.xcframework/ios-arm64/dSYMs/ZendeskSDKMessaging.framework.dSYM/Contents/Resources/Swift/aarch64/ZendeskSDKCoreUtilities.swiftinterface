@@ -14,6 +14,11 @@ public struct JWT : Swift.Decodable {
 public struct JWTDecoder {
   public static func decode<T>(jwt: Swift.String) -> T? where T : Swift.Decodable
 }
+extension Foundation.URLSessionConfiguration {
+  public static var defaultRespectingServerCache: Foundation.URLSessionConfiguration {
+    get
+  }
+}
 public enum ApplicationState {
   case willEnterForeground
   case didEnterBackground

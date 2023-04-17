@@ -366,7 +366,6 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
-
 #endif
 #if defined(__cplusplus)
 #endif

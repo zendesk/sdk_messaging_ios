@@ -806,6 +806,7 @@ extension UIKit.UIView {
       case leading
       case width
       case height
+      case firstBaseline
       public init?(rawValue: Swift.String)
       public typealias RawValue = Swift.String
       public var rawValue: Swift.String {
