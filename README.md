@@ -8,6 +8,10 @@ The ZendeskSDKMessaging is an SDK that provides customer support through a Messa
 
 You can find our documentation on https://developer.zendesk.com/embeddables/docs/zendesk-sdk-for-ios/getting_started.
 
+## API reference documentation
+
+You can check the [API documentation](https://zendesk.github.io/sdk_messaging_ios/) for Swift and Objective-C. In addition, a [DocCArchive](https://developer.apple.com/documentation/xcode/distributing-documentation-to-external-developers#Send-a-documentation-archive-directly-to-developers) is also attached to every GitHub release. Download the file, open it and Xcode will add it to the Imported Documentation section of the documentation viewer.
+
 ## Feature requests and issues
 
 All feature requests and issues are welcomed. Please see our [contributing guidelines](./CONTRIBUTING.md) to find out how to contact us.
