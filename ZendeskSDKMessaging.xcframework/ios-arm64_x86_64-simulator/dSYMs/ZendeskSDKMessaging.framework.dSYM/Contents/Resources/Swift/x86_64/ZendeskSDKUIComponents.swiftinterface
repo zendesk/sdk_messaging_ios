@@ -748,6 +748,7 @@ public struct ConversationListItemRendering {
 public struct ColorFactory {
   public static func hex(_ hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor?
   public static func dynamic(light: UIKit.UIColor, dark: UIKit.UIColor) -> UIKit.UIColor
+  public static func dynamic(light: UIKit.UIColor?, dark: UIKit.UIColor?, defaultValue: UIKit.UIColor) -> UIKit.UIColor
 }
 public struct FormViewRendering {
   public let id: Swift.String

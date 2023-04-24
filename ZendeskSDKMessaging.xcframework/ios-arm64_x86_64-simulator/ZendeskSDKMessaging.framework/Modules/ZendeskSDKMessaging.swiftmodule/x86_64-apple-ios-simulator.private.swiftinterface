@@ -45,6 +45,12 @@ extension UIKit.UIImageView {
 @_inheritsConvenienceInitializers @objc(ZDKDefaultMessagingFactory) final public class DefaultMessagingFactory : ObjectiveC.NSObject, ZendeskSDK.MessagingFactory {
   @objc final public func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
   @objc override dynamic public init()
+  @objc public init(userLightColors: ZendeskSDKMessaging.UserColors)
+  @objc public init(userLightColors: ZendeskSDKMessaging.UserColors, userDarkColors: ZendeskSDKMessaging.UserColors)
+  @objc deinit
+}
+@objc(ZDKUserColors) final public class UserColors : ObjectiveC.NSObject {
+  @objc public init(onPrimary: UIKit.UIColor?, onMessage: UIKit.UIColor?, onAction: UIKit.UIColor?)
   @objc deinit
 }
 extension CoreFoundation.CGSize : Swift.Hashable {

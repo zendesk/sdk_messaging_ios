@@ -2858,6 +2858,72 @@
               "Override"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(userLightColors:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DefaultMessagingFactory",
+                "printedName": "ZendeskSDKMessaging.DefaultMessagingFactory",
+                "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKDefaultMessagingFactory"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserColors",
+                "printedName": "ZendeskSDKMessaging.UserColors",
+                "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKDefaultMessagingFactory(im)initWithUserLightColors:",
+            "mangledName": "$s19ZendeskSDKMessaging23DefaultMessagingFactoryC15userLightColorsAcA04UserH0C_tcfc",
+            "moduleName": "ZendeskSDKMessaging",
+            "objc_name": "initWithUserLightColors:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(userLightColors:userDarkColors:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "DefaultMessagingFactory",
+                "printedName": "ZendeskSDKMessaging.DefaultMessagingFactory",
+                "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKDefaultMessagingFactory"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserColors",
+                "printedName": "ZendeskSDKMessaging.UserColors",
+                "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UserColors",
+                "printedName": "ZendeskSDKMessaging.UserColors",
+                "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKDefaultMessagingFactory(im)initWithUserLightColors:userDarkColors:",
+            "mangledName": "$s19ZendeskSDKMessaging23DefaultMessagingFactoryC15userLightColors0f4DarkH0AcA04UserH0C_AGtcfc",
+            "moduleName": "ZendeskSDKMessaging",
+            "objc_name": "initWithUserLightColors:userDarkColors:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
           }
         ],
         "declKind": "Class",
@@ -3519,6 +3585,180 @@
         "moduleName": "ZendeskSDKMessaging",
         "declAttributes": [
           "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKMessaging",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UserColors",
+        "printedName": "UserColors",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(onPrimary:onMessage:onAction:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UserColors",
+                "printedName": "ZendeskSDKMessaging.UserColors",
+                "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIColor?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIColor?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIColor?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIColor",
+                    "printedName": "UIKit.UIColor",
+                    "usr": "c:objc(cs)UIColor"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors(im)initOnPrimary:onMessage:onAction:",
+            "mangledName": "$s19ZendeskSDKMessaging10UserColorsC9onPrimary0E7Message0E6ActionACSo7UIColorCSg_A2Itcfc",
+            "moduleName": "ZendeskSDKMessaging",
+            "objc_name": "initOnPrimary:onMessage:onAction:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UserColors",
+                "printedName": "ZendeskSDKMessaging.UserColors",
+                "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors(im)init",
+            "mangledName": "$s19ZendeskSDKMessaging10UserColorsCACycfc",
+            "moduleName": "ZendeskSDKMessaging",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@ZendeskSDKMessaging@objc(cs)ZDKUserColors",
+        "mangledName": "$s19ZendeskSDKMessaging10UserColorsC",
+        "moduleName": "ZendeskSDKMessaging",
+        "objc_name": "ZDKUserColors",
+        "declAttributes": [
+          "Final",
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
         ]
       },
       {
@@ -6242,49 +6482,49 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Utils\/Resources.swift",
       "kind": "IntegerLiteral",
-      "offset": 14917,
+      "offset": 16220,
       "length": 2,
       "value": "32"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Utils\/Resources.swift",
       "kind": "IntegerLiteral",
-      "offset": 14929,
+      "offset": 16232,
       "length": 2,
       "value": "32"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Utils\/Resources.swift",
       "kind": "IntegerLiteral",
-      "offset": 14991,
+      "offset": 16294,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Utils\/Resources.swift",
       "kind": "IntegerLiteral",
-      "offset": 15003,
+      "offset": 16306,
       "length": 2,
       "value": "48"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Utils\/Resources.swift",
       "kind": "IntegerLiteral",
-      "offset": 15068,
+      "offset": 16371,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Utils\/Resources.swift",
       "kind": "FloatLiteral",
-      "offset": 15116,
+      "offset": 16419,
       "length": 3,
       "value": "0.5"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Utils\/Resources.swift",
       "kind": "IntegerLiteral",
-      "offset": 15162,
+      "offset": 16465,
       "length": 1,
       "value": "0"
     },
@@ -6298,7 +6538,7 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/Coordinator\/ConversationViewCoordinator.swift",
       "kind": "StringLiteral",
-      "offset": 21712,
+      "offset": 22269,
       "length": 2,
       "value": "\"\""
     },
@@ -6466,7 +6706,7 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/DefaultMessaging.swift",
       "kind": "StringLiteral",
-      "offset": 4416,
+      "offset": 4634,
       "length": 19,
       "value": "\"DEFAULT_MESSAGING\""
     },
@@ -7577,6 +7817,13 @@
       "value": "0.001"
     },
     {
+      "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Public\/Models\/UserColors.swift",
+      "kind": "StringLiteral",
+      "offset": 695,
+      "length": 10,
+      "value": "\"ZendeskSDKMessaging.UserColors\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Queue\/ConversationQueue.swift",
       "kind": "BooleanLiteral",
       "offset": 1196,
@@ -7677,21 +7924,21 @@
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/Media\/PhotoLibraryPresenter.swift",
       "kind": "Array",
-      "offset": 1146,
+      "offset": 1187,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/Media\/PhotoLibraryPresenter.swift",
       "kind": "StringLiteral",
-      "offset": 1267,
+      "offset": 1308,
       "length": 25,
       "value": "\"PHOTO_LIBRARY_PRESENTER\""
     },
     {
       "filePath": "\/Users\/runner\/work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/Media\/PhotoLibraryPresenter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1333,
+      "offset": 1374,
       "length": 2,
       "value": "25"
     },

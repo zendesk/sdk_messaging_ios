@@ -259,11 +259,22 @@ using UInt = size_t;
 
 @class ZDKMessagingFactoryParameters;
 @class ZDKMessaging;
+@class ZDKUserColors;
 
 SWIFT_CLASS_NAMED("DefaultMessagingFactory")
 @interface ZDKDefaultMessagingFactory : NSObject <MessagingFactory>
 - (ZDKMessaging * _Nonnull)createMessagingWith:(ZDKMessagingFactoryParameters * _Nonnull)parameters SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// Default initialization of <code>MessagingFactory</code>
+/// \param userLightColors object that contains the light colors provided by the user to be used in the SDK.
+///
+- (nonnull instancetype)initWithUserLightColors:(ZDKUserColors * _Nonnull)userLightColors OBJC_DESIGNATED_INITIALIZER;
+/// Default initialization of <code>MessagingFactory</code>
+/// \param userLightColors object that contains the light colors provided by the user to be used in the SDK.
+///
+/// \param userDarkColors object that contains the dark colors provided by the user to be used in the SDK.
+///
+- (nonnull instancetype)initWithUserLightColors:(ZDKUserColors * _Nonnull)userLightColors userDarkColors:(ZDKUserColors * _Nonnull)userDarkColors OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -365,6 +376,16 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
+@class UIColor;
+
+/// Model that contains the colors provided by the user to be used in the SDK.
+SWIFT_CLASS_NAMED("UserColors")
+@interface ZDKUserColors : NSObject
+- (nonnull instancetype)initOnPrimary:(UIColor * _Nullable)onPrimary onMessage:(UIColor * _Nullable)onMessage onAction:(UIColor * _Nullable)onAction OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 #endif
 #if defined(__cplusplus)
@@ -635,11 +656,22 @@ using UInt = size_t;
 
 @class ZDKMessagingFactoryParameters;
 @class ZDKMessaging;
+@class ZDKUserColors;
 
 SWIFT_CLASS_NAMED("DefaultMessagingFactory")
 @interface ZDKDefaultMessagingFactory : NSObject <MessagingFactory>
 - (ZDKMessaging * _Nonnull)createMessagingWith:(ZDKMessagingFactoryParameters * _Nonnull)parameters SWIFT_WARN_UNUSED_RESULT;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+/// Default initialization of <code>MessagingFactory</code>
+/// \param userLightColors object that contains the light colors provided by the user to be used in the SDK.
+///
+- (nonnull instancetype)initWithUserLightColors:(ZDKUserColors * _Nonnull)userLightColors OBJC_DESIGNATED_INITIALIZER;
+/// Default initialization of <code>MessagingFactory</code>
+/// \param userLightColors object that contains the light colors provided by the user to be used in the SDK.
+///
+/// \param userDarkColors object that contains the dark colors provided by the user to be used in the SDK.
+///
+- (nonnull instancetype)initWithUserLightColors:(ZDKUserColors * _Nonnull)userLightColors userDarkColors:(ZDKUserColors * _Nonnull)userDarkColors OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -741,6 +773,16 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
+@class UIColor;
+
+/// Model that contains the colors provided by the user to be used in the SDK.
+SWIFT_CLASS_NAMED("UserColors")
+@interface ZDKUserColors : NSObject
+- (nonnull instancetype)initOnPrimary:(UIColor * _Nullable)onPrimary onMessage:(UIColor * _Nullable)onMessage onAction:(UIColor * _Nullable)onAction OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 #endif
 #if defined(__cplusplus)
