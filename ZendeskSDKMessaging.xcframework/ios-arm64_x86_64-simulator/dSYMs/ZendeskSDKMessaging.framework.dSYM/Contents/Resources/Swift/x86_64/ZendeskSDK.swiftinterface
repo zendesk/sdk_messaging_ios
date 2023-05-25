@@ -43,6 +43,7 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
 }
 @_hasMissingDesignatedInitializers @objc(ZDKMessagingFactoryParameters) final public class MessagingFactoryParameters : ObjectiveC.NSObject {
   final public let messagingSettings: ZendeskSDK.MessagingSettings
+  final public let featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager
   final public let conversationKit: ZendeskSDKConversationKit.ConversationKit
   final public let dispatchEvent: ZendeskSDK.DispatchEvent
   @objc deinit

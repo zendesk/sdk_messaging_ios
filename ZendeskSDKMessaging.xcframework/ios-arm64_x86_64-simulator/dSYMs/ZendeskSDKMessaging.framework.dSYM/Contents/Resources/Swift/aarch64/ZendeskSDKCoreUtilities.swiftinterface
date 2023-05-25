@@ -7,6 +7,11 @@ import Swift
 import UIKit
 import _Concurrency
 import _StringProcessing
+@objc final public class FeatureFlagManager : ObjectiveC.NSObject {
+  final public let hipaaAttachmentFlag: Swift.Bool
+  public init(hipaaAttachmentFlag: Swift.Bool)
+  @objc deinit
+}
 public struct JWT : Swift.Decodable {
   public let externalId: Swift.String
   public init(from decoder: Swift.Decoder) throws

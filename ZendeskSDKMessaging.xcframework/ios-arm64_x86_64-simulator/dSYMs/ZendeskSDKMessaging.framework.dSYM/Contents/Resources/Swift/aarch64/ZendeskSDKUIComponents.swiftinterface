@@ -306,9 +306,9 @@ public struct AvatarViewStyle {
   public static var `default`: ZendeskSDKUIComponents.AvatarViewStyle {
     get
   }
-  public let emptyBackgroundColor: UIKit.UIColor
+  public let backgroundColor: UIKit.UIColor
   public let shape: ZendeskSDKUIComponents.AvatarMask
-  public init(emptyBackgroundColor: UIKit.UIColor, shape: ZendeskSDKUIComponents.AvatarMask)
+  public init(backgroundColor: UIKit.UIColor, shape: ZendeskSDKUIComponents.AvatarMask)
 }
 public struct ConversationErrorViewRendering {
   public var text: Swift.String
