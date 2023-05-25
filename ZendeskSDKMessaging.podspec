@@ -24,6 +24,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'ZendeskSDKMessaging.xcframework'
   s.dependency 'ZendeskSDKConversationKit', '~> 1.9.0'
   s.dependency 'ZendeskSDKUIComponents', '~> 2.7.0'
-  s.dependency 'Zendesk', '~> 1.11.0'
+  s.dependency 'Zendesk', '~> 1.12.0'
   s.dependency 'ZendeskSDKCoreUtilities', '~> 1.3.0'
 end
