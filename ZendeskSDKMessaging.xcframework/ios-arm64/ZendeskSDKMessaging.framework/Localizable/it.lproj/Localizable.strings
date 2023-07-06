@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Invia un messaggio";
 "zma_conversation_list_item_description_no_messages" = "Nessun messaggio";
 "zma_conversation_list_item_description_prefix_you" = "Tu: %@";
-"zma_conversation_list_item_description_sender_you" = "Tu: ";
 "zma_conversation_list_item_timestamp_just_now" = "Adesso";
 "zma_conversation_list_item_unread_indicator_maximum" = "+99";
 "zma_conversation_message_label_cant_be_displayed" = "Impossibile visualizzare il messaggio";

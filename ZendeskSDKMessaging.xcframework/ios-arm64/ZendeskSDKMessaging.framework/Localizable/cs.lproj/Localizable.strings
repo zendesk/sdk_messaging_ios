@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Odeslali jste zprávu";
 "zma_conversation_list_item_description_no_messages" = "Žádné zprávy";
 "zma_conversation_list_item_description_prefix_you" = "Vy: %@";
-"zma_conversation_list_item_description_sender_you" = "Vy ";
 "zma_conversation_list_item_timestamp_just_now" = "Právě teď";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Zprávu nelze zobrazit";

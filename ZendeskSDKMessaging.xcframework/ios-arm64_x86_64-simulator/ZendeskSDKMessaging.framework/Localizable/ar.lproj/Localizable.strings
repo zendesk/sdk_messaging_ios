@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "أرسل رسالة";
 "zma_conversation_list_item_description_no_messages" = "لا توجد رسالة";
 "zma_conversation_list_item_description_prefix_you" = "أنت: %@";
-"zma_conversation_list_item_description_sender_you" = "أنت: ";
 "zma_conversation_list_item_timestamp_just_now" = "للتوّ";
 "zma_conversation_list_item_unread_indicator_maximum" = " +99";
 "zma_conversation_message_label_cant_be_displayed" = "تعذر عرض الرسالة";

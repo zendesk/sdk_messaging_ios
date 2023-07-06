@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Üzenetet küldött";
 "zma_conversation_list_item_description_no_messages" = "Nincs üzenet";
 "zma_conversation_list_item_description_prefix_you" = "Ön: %@";
-"zma_conversation_list_item_description_sender_you" = "Ön: ";
 "zma_conversation_list_item_timestamp_just_now" = "Éppen most";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Az üzenet nem jeleníthető meg";

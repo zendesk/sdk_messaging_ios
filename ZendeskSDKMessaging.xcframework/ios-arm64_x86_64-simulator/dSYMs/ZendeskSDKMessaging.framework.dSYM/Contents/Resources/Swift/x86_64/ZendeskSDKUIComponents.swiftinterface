@@ -1142,6 +1142,10 @@ public enum Resource {
     public static var author: Swift.String {
       get
     }
+    public static var formDropdownFieldHint: Swift.String {
+      get
+    }
+    public static func dropdownViewAnnounce(_ options: Swift.Int) -> Swift.String
     public static var timeDivider: Swift.String {
       get
     }

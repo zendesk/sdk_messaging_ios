@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "メッセージを送信しました";
 "zma_conversation_list_item_description_no_messages" = "メッセージなし";
 "zma_conversation_list_item_description_prefix_you" = "自分：%@";
-"zma_conversation_list_item_description_sender_you" = "あなた：";
 "zma_conversation_list_item_timestamp_just_now" = "たった今";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "メッセージを表示できません";

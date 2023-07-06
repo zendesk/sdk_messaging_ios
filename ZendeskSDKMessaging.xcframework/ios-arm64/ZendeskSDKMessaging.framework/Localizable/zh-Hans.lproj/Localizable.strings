@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "已发送一条消息";
 "zma_conversation_list_item_description_no_messages" = "无消息";
 "zma_conversation_list_item_description_prefix_you" = "您：%@";
-"zma_conversation_list_item_description_sender_you" = "您：";
 "zma_conversation_list_item_timestamp_just_now" = "刚才";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "无法显示消息";

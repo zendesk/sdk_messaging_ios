@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "एक संदेश भेजा";
 "zma_conversation_list_item_description_no_messages" = "(कोई संदेश नहीं)";
 "zma_conversation_list_item_description_prefix_you" = "आप: %@";
-"zma_conversation_list_item_description_sender_you" = "आप: ";
 "zma_conversation_list_item_timestamp_just_now" = "अभी तुरंत";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "संदेश दिखाया नहीं जा सकता";

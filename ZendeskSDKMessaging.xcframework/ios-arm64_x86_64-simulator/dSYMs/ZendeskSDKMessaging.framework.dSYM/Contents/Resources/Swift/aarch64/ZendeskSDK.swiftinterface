@@ -43,16 +43,31 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
 }
 @_hasMissingDesignatedInitializers @objc(ZDKMessagingFactoryParameters) final public class MessagingFactoryParameters : ObjectiveC.NSObject {
   final public let messagingSettings: ZendeskSDK.MessagingSettings
-  final public let featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager
   final public let conversationKit: ZendeskSDKConversationKit.ConversationKit
+  final public let theme: ZendeskSDK.ColorTheme
   final public let dispatchEvent: ZendeskSDK.DispatchEvent
   @objc deinit
 }
 public struct ColorTheme : Swift.Equatable, Swift.Hashable {
-  public let primaryColor: UIKit.UIColor
-  public let messageColor: UIKit.UIColor
-  public let actionColor: UIKit.UIColor
-  public let notifyColor: UIKit.UIColor
+  public let primaryColor: UIKit.UIColor?
+  public let messageColor: UIKit.UIColor?
+  public let actionColor: UIKit.UIColor?
+  public let notifyColor: UIKit.UIColor?
+  public let inboundMessageColor: UIKit.UIColor?
+  public let systemMessageColor: UIKit.UIColor?
+  public let backgroundColor: UIKit.UIColor?
+  public let elevatedColor: UIKit.UIColor?
+  public let onPrimaryColor: UIKit.UIColor?
+  public let onActionColor: UIKit.UIColor?
+  public let onMessageColor: UIKit.UIColor?
+  public let onBackgroundColor: UIKit.UIColor?
+  public let successColor: UIKit.UIColor?
+  public let dangerColor: UIKit.UIColor?
+  public let onDangerColor: UIKit.UIColor?
+  public let disabledColor: UIKit.UIColor?
+  public let iconColor: UIKit.UIColor?
+  public let actionBackgroundColor: UIKit.UIColor?
+  public let onActionBackgroundColor: UIKit.UIColor?
   public static func == (a: ZendeskSDK.ColorTheme, b: ZendeskSDK.ColorTheme) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -85,7 +100,6 @@ extension ZendeskSDK.MessagingDelegate {
   final public let title: Swift.String
   final public let accountDescription: Swift.String?
   final public let logoURL: Swift.String?
-  final public let theme: ZendeskSDK.ColorTheme
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var hash: Swift.Int {
     @objc get
@@ -150,6 +164,10 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
 @_inheritsConvenienceInitializers @objc(ZDKMessaging) open class Messaging : ObjectiveC.NSObject {
   @objc open func messagingViewController() -> UIKit.UIViewController
   @objc open func getUnreadMessageCount() -> Swift.Int
+  @objc open func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
+  @objc open func setConversationTags(_ tags: [Swift.String])
+  @objc open func clearConversationFields()
+  @objc open func clearConversationTags()
   @objc weak public static var delegate: ZendeskSDK.MessagingDelegate?
   @objc override dynamic public init()
   @objc deinit

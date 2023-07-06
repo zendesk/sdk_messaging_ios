@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Sent a message";
 "zma_conversation_list_item_description_no_messages" = "No messages";
 "zma_conversation_list_item_description_prefix_you" = "You: %@";
-"zma_conversation_list_item_description_sender_you" = "You: ";
 "zma_conversation_list_item_timestamp_just_now" = "Just now";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Message can't be displayed";

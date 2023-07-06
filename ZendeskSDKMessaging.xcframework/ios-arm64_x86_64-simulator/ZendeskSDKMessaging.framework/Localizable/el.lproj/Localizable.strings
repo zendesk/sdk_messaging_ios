@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Έστειλε ένα μήνυμα";
 "zma_conversation_list_item_description_no_messages" = "Δεν υπάρχουν μηνύματα";
 "zma_conversation_list_item_description_prefix_you" = "Εσείς: %@";
-"zma_conversation_list_item_description_sender_you" = "Εσείς: ";
 "zma_conversation_list_item_timestamp_just_now" = "Μόλις τώρα";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Δεν είναι δυνατή η εμφάνιση του μηνύματος";

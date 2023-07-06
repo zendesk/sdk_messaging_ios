@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "메시지 보냄";
 "zma_conversation_list_item_description_no_messages" = "메시지 없음";
 "zma_conversation_list_item_description_prefix_you" = "나: %@";
-"zma_conversation_list_item_description_sender_you" = "나: ";
 "zma_conversation_list_item_timestamp_just_now" = "방금";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "메시지를 표시할 수 없습니다.";

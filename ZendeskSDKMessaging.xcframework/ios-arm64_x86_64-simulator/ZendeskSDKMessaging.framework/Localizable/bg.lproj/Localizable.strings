@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Изпратихте съобщение";
 "zma_conversation_list_item_description_no_messages" = "Няма съобщения";
 "zma_conversation_list_item_description_prefix_you" = "Вие: %@";
-"zma_conversation_list_item_description_sender_you" = "Вие: ";
 "zma_conversation_list_item_timestamp_just_now" = "Току-що";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Съобщението не може да се покаже";

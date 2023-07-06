@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Lähetti viestin";
 "zma_conversation_list_item_description_no_messages" = "Ei viestejä";
 "zma_conversation_list_item_description_prefix_you" = "Sinä: %@";
-"zma_conversation_list_item_description_sender_you" = "Sinä: ";
 "zma_conversation_list_item_timestamp_just_now" = "Juuri nyt";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Viestiä ei voida näyttää";

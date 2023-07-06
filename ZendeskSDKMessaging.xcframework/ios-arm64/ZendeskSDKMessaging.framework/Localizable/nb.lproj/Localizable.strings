@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Sendte en melding";
 "zma_conversation_list_item_description_no_messages" = "Ingen meldinger";
 "zma_conversation_list_item_description_prefix_you" = "Du: %@";
-"zma_conversation_list_item_description_sender_you" = "Du: ";
 "zma_conversation_list_item_timestamp_just_now" = "Akkurat nå";
 "zma_conversation_list_item_unread_indicator_maximum" = "+99";
 "zma_conversation_message_label_cant_be_displayed" = "Meldingen kan ikke vises";

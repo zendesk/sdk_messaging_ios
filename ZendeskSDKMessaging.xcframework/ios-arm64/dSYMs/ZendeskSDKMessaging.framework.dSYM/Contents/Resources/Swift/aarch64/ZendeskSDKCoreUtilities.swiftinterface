@@ -7,9 +7,12 @@ import Swift
 import UIKit
 import _Concurrency
 import _StringProcessing
-@objc final public class FeatureFlagManager : ObjectiveC.NSObject {
+@objc(ZDKFeatureFlagManager) final public class FeatureFlagManager : ObjectiveC.NSObject {
   final public let hipaaAttachmentFlag: Swift.Bool
-  public init(hipaaAttachmentFlag: Swift.Bool)
+  final public let isMultiConvoEnabled: Swift.Bool
+  final public let canUserCreateMoreConversations: Swift.Bool
+  final public let enableColorsFromSettings: Swift.Bool
+  @objc public init(hipaaAttachmentFlag: Swift.Bool, isMultiConvoEnabled: Swift.Bool, canUserCreateMoreConversations: Swift.Bool)
   @objc deinit
 }
 public struct JWT : Swift.Decodable {

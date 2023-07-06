@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "A trimis un mesaj";
 "zma_conversation_list_item_description_no_messages" = "Nu există mesaje";
 "zma_conversation_list_item_description_prefix_you" = "Dumneavoastră: %@";
-"zma_conversation_list_item_description_sender_you" = "Dumneavoastră: ";
 "zma_conversation_list_item_timestamp_just_now" = "Chiar acum";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Mesajul nu poate fi afișat";

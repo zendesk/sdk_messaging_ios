@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Wysłano wiadomość";
 "zma_conversation_list_item_description_no_messages" = "Brak wiadomości";
 "zma_conversation_list_item_description_prefix_you" = "Ty: %@";
-"zma_conversation_list_item_description_sender_you" = "Ty: ";
 "zma_conversation_list_item_timestamp_just_now" = "Przed chwilą";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Nie można wyświetlić wiadomości";

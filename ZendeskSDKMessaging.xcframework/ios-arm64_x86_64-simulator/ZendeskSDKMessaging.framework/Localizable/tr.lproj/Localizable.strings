@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Bir mesaj gönderdi";
 "zma_conversation_list_item_description_no_messages" = "Mesaj yok";
 "zma_conversation_list_item_description_prefix_you" = "Siz: %@";
-"zma_conversation_list_item_description_sender_you" = "Siz: ";
 "zma_conversation_list_item_timestamp_just_now" = "Az önce";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Mesaj görüntülenemiyor";

@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Отправить сообщение";
 "zma_conversation_list_item_description_no_messages" = "Нет сообщений";
 "zma_conversation_list_item_description_prefix_you" = "Вы: %@";
-"zma_conversation_list_item_description_sender_you" = "Вы ";
 "zma_conversation_list_item_timestamp_just_now" = "Только что";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Невозможно показать сообщение";

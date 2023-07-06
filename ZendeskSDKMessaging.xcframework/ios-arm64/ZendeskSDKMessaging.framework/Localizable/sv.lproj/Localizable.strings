@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "Skickade ett meddelande";
 "zma_conversation_list_item_description_no_messages" = "Inga meddelanden";
 "zma_conversation_list_item_description_prefix_you" = "Du: %@";
-"zma_conversation_list_item_description_sender_you" = "Du: ";
 "zma_conversation_list_item_timestamp_just_now" = "Just nu";
 "zma_conversation_list_item_unread_indicator_maximum" = "99+";
 "zma_conversation_message_label_cant_be_displayed" = "Det går inte att visa meddelandet";

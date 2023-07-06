@@ -23,7 +23,6 @@
 "zma_conversation_list_item_description_message" = "שלח/ה הודעה";
 "zma_conversation_list_item_description_no_messages" = "אין הודעות";
 "zma_conversation_list_item_description_prefix_you" = "את/ה: %@";
-"zma_conversation_list_item_description_sender_you" = "את/ה: ";
 "zma_conversation_list_item_timestamp_just_now" = "עכשיו";
 "zma_conversation_list_item_unread_indicator_maximum" = "‎99+‎";
 "zma_conversation_message_label_cant_be_displayed" = "לא ניתן להציג את ההודעה";
