@@ -1,4 +1,4 @@
 github "zendesk/sdk_conversation_kit_ios" == 1.10.0
 github "zendesk/sdk_ui_components_ios" ~> 2.8.0
 github "zendesk/sdk_zendesk_ios" == 1.13.0
-github "zendesk/sdk_core_utilities_ios" ~> 1.4.0
+github "zendesk/sdk_core_utilities_ios" == 1.4.0

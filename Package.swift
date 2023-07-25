@@ -25,7 +25,7 @@ let package = Package(
                  .exact("1.13.0")),
         .package(name: "ZendeskSDKCoreUtilities",
                  url: "https://github.com/zendesk/sdk_core_utilities_ios",
-                 from: "1.4.0")
+                 .exact("1.4.0"))
     ],
     targets: [
         .binaryTarget(
