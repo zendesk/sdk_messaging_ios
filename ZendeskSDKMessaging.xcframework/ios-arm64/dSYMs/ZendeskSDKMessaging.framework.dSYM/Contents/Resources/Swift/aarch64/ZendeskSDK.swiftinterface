@@ -46,13 +46,15 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   final public let conversationKit: ZendeskSDKConversationKit.ConversationKit
   final public let theme: ZendeskSDK.ColorTheme
   final public let dispatchEvent: ZendeskSDK.DispatchEvent
+  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming Zendesk version. This property is now created as part of the following method:\n`Zendesk.initialize(withChannelKey:messagingFactory:completionHandler:)`\nThe values of this property will be ignored.")
+  final public let featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager
   @objc deinit
 }
 public struct ColorTheme : Swift.Equatable, Swift.Hashable {
-  public let primaryColor: UIKit.UIColor?
-  public let messageColor: UIKit.UIColor?
-  public let actionColor: UIKit.UIColor?
-  public let notifyColor: UIKit.UIColor?
+  public let primaryColor: UIKit.UIColor
+  public let messageColor: UIKit.UIColor
+  public let actionColor: UIKit.UIColor
+  public let notifyColor: UIKit.UIColor
   public let inboundMessageColor: UIKit.UIColor?
   public let systemMessageColor: UIKit.UIColor?
   public let backgroundColor: UIKit.UIColor?
@@ -100,6 +102,8 @@ extension ZendeskSDK.MessagingDelegate {
   final public let title: Swift.String
   final public let accountDescription: Swift.String?
   final public let logoURL: Swift.String?
+  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming Zendesk version. The theme is now mapped\nin the `Zendesk.initialize` method.")
+  final public let theme: ZendeskSDK.ColorTheme
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var hash: Swift.Int {
     @objc get

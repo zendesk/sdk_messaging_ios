@@ -83,6 +83,7 @@ import _StringProcessing
   @objc final public let myself: ZendeskSDKConversationKit.Participant?
   @objc final public let activity: ZendeskSDKConversationKit.Activity?
   @objc final public let status: ZendeskSDKConversationKit.ConversationStatus
+  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown)
   @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
@@ -528,7 +529,11 @@ extension ZendeskSDKConversationKit.User {
 @objc(ZDKConfig) final public class Config : ObjectiveC.NSObject {
   @objc final public var appId: Swift.String
   @objc final public var baseURL: Swift.String
-  @objc public init(appId: Swift.String, baseURL: Swift.String)
+  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming ConversationKit version. This property has been moved to `FeatureFlagManager.swift`.")
+  @objc final public var multiConvoEnabled: Swift.Bool
+  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming ConversationKit version. This property has been moved to `FeatureFlagManager.swift`.")
+  @objc final public var canUserCreateMoreConversations: Swift.Bool
+  @objc public init(appId: Swift.String, baseURL: Swift.String, multiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
