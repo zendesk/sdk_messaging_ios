@@ -553,6 +553,7 @@ extension ZendeskSDKUIComponents.ActionButtonRendering {
   @_Concurrency.MainActor(unsafe) final public var onNextSelected: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) final public var onFieldFocused: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) final public var onFieldSelectTapped: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)?
+  @_Concurrency.MainActor(unsafe) final public var onFieldContentDidChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) final public var text: Swift.String {
     get
   }
@@ -563,7 +564,9 @@ extension ZendeskSDKUIComponents.ActionButtonRendering {
     get
   }
   @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.InputStyle = .default)
-  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onNextSelected: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onFieldFocused: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onSelectFieldFocused: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)? = nil)
+  @available(*, deprecated, message: "This method will be removed in a future UIComponents version.")
+  @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onNextSelected: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onFieldFocused: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onSelectFieldFocused: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onNextSelected: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onFieldFocused: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onSelectFieldFocused: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)? = nil, onFieldContentChanged: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.InputFieldRendering) -> ZendeskSDKUIComponents.InputFieldRendering)
   @_Concurrency.MainActor(unsafe) final public func updateFieldTypeSelect(with newValue: Swift.String?)
   public typealias Rendering = ZendeskSDKUIComponents.InputFieldRendering
@@ -725,6 +728,7 @@ extension ZendeskSDKUIComponents.CustomButton {
     get
     set
   }
+  @_Concurrency.MainActor(unsafe) final public var onFieldContentChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) final public var onFieldSelectTapped: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)?
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.FormViewStyle = .default)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormViewRendering) -> ZendeskSDKUIComponents.FormViewRendering)

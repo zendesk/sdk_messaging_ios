@@ -7,6 +7,7 @@ import CoreImage
 import CoreServices
 import Foundation
 import MobileCoreServices
+import Photos
 import PhotosUI
 import Swift
 import UIKit.UIImage
