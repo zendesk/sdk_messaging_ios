@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "حذف";
 "zma_conversation_messages_failed_to_load" = "فشل تحميل الرسائل";
 "zma_conversation_new_messages_divider" = "جديد";
+"zma_conversation_see_latest" = "معاينة أحدث رسالة";
 "zma_exceeds_max_file_size" = "يتجاوز أقصى حجم للملف (%@ ميجابايت)";
 "zma_form_field_counter_label" = "%@ من %@";
 "zma_form_field_invalid_email_error" = "أدخِل عنوان بريد إلكتروني صالحاً";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "موافق";
 "zma_new_conversation_error_alert_message" = "أعد المحاولة لاحقًا.";
 "zma_new_conversation_error_alert_title" = "تعذر إنشاء محادثة";
+"zma_postback_error_banner_message" = "تعذر إكمال %@. أعد المحاولة لاحقًا.";

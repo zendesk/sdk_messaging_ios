@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Удалить";
 "zma_conversation_messages_failed_to_load" = "Не удалось загрузить сообщения";
 "zma_conversation_new_messages_divider" = "Новые";
+"zma_conversation_see_latest" = "Посмотреть последние";
 "zma_exceeds_max_file_size" = "Превышен максимальный размер файла (%@ МБ)";
 "zma_form_field_counter_label" = "%@ из %@";
 "zma_form_field_invalid_email_error" = "Введите действительный адрес электронной почты";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Повторите попытку позже.";
 "zma_new_conversation_error_alert_title" = "Не удалось создать разговор";
+"zma_postback_error_banner_message" = "Не удалось выполнить действие «%@». Повторите попытку позже.";

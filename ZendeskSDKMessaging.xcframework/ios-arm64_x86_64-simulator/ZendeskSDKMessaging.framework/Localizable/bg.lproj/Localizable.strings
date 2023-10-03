@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Изтриване";
 "zma_conversation_messages_failed_to_load" = "Неуспешно зареждане на съобщенията";
 "zma_conversation_new_messages_divider" = "Нови";
+"zma_conversation_see_latest" = "Към най-новите";
 "zma_exceeds_max_file_size" = "Надвишава максималния размер за файл (%@ MB)";
 "zma_form_field_counter_label" = "%@ от %@";
 "zma_form_field_invalid_email_error" = "Въведете валиден имейл адрес";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "ОК";
 "zma_new_conversation_error_alert_message" = "Опитайте отново по-късно.";
 "zma_new_conversation_error_alert_title" = "Неуспешно създаване на разговор";
+"zma_postback_error_banner_message" = "Действието „%@“ не беше завършено. Опитайте отново по-късно.";

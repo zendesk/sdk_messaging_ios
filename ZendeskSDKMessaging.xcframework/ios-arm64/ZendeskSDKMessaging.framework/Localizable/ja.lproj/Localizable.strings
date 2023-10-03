@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "削除";
 "zma_conversation_messages_failed_to_load" = "メッセージを読み込めませんでした";
 "zma_conversation_new_messages_divider" = "新規";
+"zma_conversation_see_latest" = "最新メッセージを見る";
 "zma_exceeds_max_file_size" = "最大ファイルサイズ (%@MB) を超えています";
 "zma_form_field_counter_label" = "%@ / %@";
 "zma_form_field_invalid_email_error" = "有効なメールアドレスを入力してください";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "後でもう一度試してください。";
 "zma_new_conversation_error_alert_title" = "会話を作成できませんでした";
+"zma_postback_error_banner_message" = "%@を完了できませんでした。後でもう一度試してください。";

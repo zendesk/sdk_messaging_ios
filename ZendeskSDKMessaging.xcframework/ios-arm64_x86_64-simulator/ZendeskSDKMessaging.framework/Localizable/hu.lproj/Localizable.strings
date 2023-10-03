@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Törlés";
 "zma_conversation_messages_failed_to_load" = "Az üzenetek betöltése sikertelen volt";
 "zma_conversation_new_messages_divider" = "Új";
+"zma_conversation_see_latest" = "Legutóbbiak megtekintése";
 "zma_exceeds_max_file_size" = "Meghaladja a maximális fájlméretet (%@ MB)";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "Érvényes e-mail-címet adjon meg";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Próbálkozzon újra később.";
 "zma_new_conversation_error_alert_title" = "A beszélgetés létrehozása nem sikerült";
+"zma_postback_error_banner_message" = "A(z) %@ művelet végrehajtása sikertelen volt. Próbálkozzon újra később.";

@@ -3,7 +3,7 @@ import PackageDescription
 let package = Package(
     name: "ZendeskSDKMessaging",
     platforms: [
-        .iOS(.v11)
+        .iOS(.v12)
     ],
     products: [
         .library(
@@ -14,32 +14,42 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(name: "ZendeskSDKConversationKit",
-                 url: "https://github.com/zendesk/sdk_conversation_kit_ios",
-                 from: "1.12.0"),
-        .package(name: "ZendeskSDKUIComponents",
-                 url: "https://github.com/zendesk/sdk_ui_components_ios",
-                 from: "2.9.0"),
-        .package(name: "ZendeskSDK",
-                 url: "https://github.com/zendesk/sdk_zendesk_ios",
-                 from: "1.15.0"),
-        .package(name: "ZendeskSDKCoreUtilities",
-                 url: "https://github.com/zendesk/sdk_core_utilities_ios",
-                 from: "1.5.0")
+        .package(
+            name: "ZendeskSDKConversationKit",
+            url: "https://github.com/zendesk/sdk_conversation_kit_ios",
+            from: "1.13.0"
+        ),
+        .package(
+            name: "ZendeskSDKUIComponents",
+            url: "https://github.com/zendesk/sdk_ui_components_ios",
+            from: "3.0.0"
+        ),
+        .package(
+            name: "ZendeskSDK",
+            url: "https://github.com/zendesk/sdk_zendesk_ios",
+            from: "1.16.0"
+        ),
+        .package(
+            name: "ZendeskSDKCoreUtilities",
+            url: "https://github.com/zendesk/sdk_core_utilities_ios",
+            from: "1.6.0"
+        )
     ],
     targets: [
         .binaryTarget(
             name: "ZendeskSDKMessaging",
             path: "ZendeskSDKMessaging.xcframework"
         ),
-        .target(name: "ZendeskSDKMessagingTargets",
-                dependencies: [
-                    .target(name: "ZendeskSDKMessaging"),
-                    .product(name: "ZendeskSDKConversationKit", package: "ZendeskSDKConversationKit"),
-                    .product(name: "ZendeskSDKUIComponents", package: "ZendeskSDKUIComponents"),
-                    .product(name: "ZendeskSDK", package: "ZendeskSDK"),
-                    .product(name: "ZendeskSDKCoreUtilities", package: "ZendeskSDKCoreUtilities")
-                ],
-                path: "Sources")
+        .target(
+            name: "ZendeskSDKMessagingTargets",
+            dependencies: [
+                .target(name: "ZendeskSDKMessaging"),
+                .product(name: "ZendeskSDKConversationKit", package: "ZendeskSDKConversationKit"),
+                .product(name: "ZendeskSDKUIComponents", package: "ZendeskSDKUIComponents"),
+                .product(name: "ZendeskSDK", package: "ZendeskSDK"),
+                .product(name: "ZendeskSDKCoreUtilities", package: "ZendeskSDKCoreUtilities")
+            ],
+            path: "Sources"
+        )
     ]
 )

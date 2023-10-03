@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Poista";
 "zma_conversation_messages_failed_to_load" = "Viestien lataaminen epäonnistui";
 "zma_conversation_new_messages_divider" = "Uusi";
+"zma_conversation_see_latest" = "Katso viimeisin";
 "zma_exceeds_max_file_size" = "Ylittää tiedoston maksimikoon (%@ Mt)";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "Anna toimiva sähköpostiosoite";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "Ok";
 "zma_new_conversation_error_alert_message" = "Yritä myöhemmin uudelleen.";
 "zma_new_conversation_error_alert_title" = "Keskustelua ei voitu luoda";
+"zma_postback_error_banner_message" = "Toimintoa %@ ei voitu suorittaa loppuun. Yritä myöhemmin uudelleen.";

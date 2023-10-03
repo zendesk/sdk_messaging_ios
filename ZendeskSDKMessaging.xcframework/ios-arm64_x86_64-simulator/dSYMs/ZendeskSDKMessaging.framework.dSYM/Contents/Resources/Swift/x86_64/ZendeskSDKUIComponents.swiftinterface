@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKUIComponents
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKUIComponents
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreGraphics
 import Foundation
@@ -202,17 +202,23 @@ public struct QuickReplyViewRendering {
 }
 public struct FormViewStyle {
   public let backgroundColor: UIKit.UIColor
-  public let actionColor: UIKit.UIColor
-  public let errorColor: UIKit.UIColor
-  public init(backgroundColor: UIKit.UIColor, actionColor: UIKit.UIColor, errorColor: UIKit.UIColor)
+  public let borderColor: UIKit.UIColor
+  public let counterColor: UIKit.UIColor
+  public let inputStyle: ZendeskSDKUIComponents.InputStyle
+  public let buttonStyle: ZendeskSDKUIComponents.CustomButtonStyle
+  public init(backgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor, counterColor: UIKit.UIColor, inputStyle: ZendeskSDKUIComponents.InputStyle, buttonStyle: ZendeskSDKUIComponents.CustomButtonStyle)
 }
 extension ZendeskSDKUIComponents.FormViewStyle {
   public static let `default`: ZendeskSDKUIComponents.FormViewStyle
 }
+public struct ButtonBannerStyle {
+  public static var `default`: ZendeskSDKUIComponents.ButtonBannerStyle
+}
 public struct FormFieldResponseViewRendering : Swift.Equatable {
   public let title: Swift.String
   public let value: Swift.String
-  public init(title: Swift.String, value: Swift.String)
+  public let style: ZendeskSDKUIComponents.FormFieldResponseViewStyle
+  public init(title: Swift.String, value: Swift.String, style: ZendeskSDKUIComponents.FormFieldResponseViewStyle = .default)
   public static func == (a: ZendeskSDKUIComponents.FormFieldResponseViewRendering, b: ZendeskSDKUIComponents.FormFieldResponseViewRendering) -> Swift.Bool
 }
 public enum ConnectionBannerLifetime : Foundation.TimeInterval, Swift.Equatable {
@@ -291,7 +297,7 @@ public enum InputState : Swift.Equatable, Swift.Hashable {
   }
 }
 public struct InputStyle : Swift.Equatable {
-  public init(backgroundColor: UIKit.UIColor, actionColor: UIKit.UIColor, errorColor: UIKit.UIColor)
+  public init(backgroundColor: UIKit.UIColor, actionColor: UIKit.UIColor, errorColor: UIKit.UIColor, textColor: UIKit.UIColor, placeholderColor: UIKit.UIColor, borderColor: UIKit.UIColor, dropdownActionColor: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.InputStyle, b: ZendeskSDKUIComponents.InputStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.InputStyle {
@@ -351,6 +357,7 @@ extension ZendeskSDKUIComponents.MessagesDividerStyle {
   public static let `default`: ZendeskSDKUIComponents.MessagesDividerStyle
   public static func newMessagesDivider(_ color: UIKit.UIColor? = nil) -> ZendeskSDKUIComponents.MessagesDividerStyle
   public static let timeDivider: ZendeskSDKUIComponents.MessagesDividerStyle
+  public static func timeDivider(_ textColor: UIKit.UIColor? = nil) -> ZendeskSDKUIComponents.MessagesDividerStyle
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class IconCircleView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.IconCircleStyle = .default)
@@ -461,7 +468,21 @@ public struct MessageComposerStyle {
   public let color: UIKit.UIColor
   public let placeholderText: Swift.String
   public let inputMaxLength: Swift.Int?
-  public init(placeholderText: Swift.String, color: UIKit.UIColor, inputMaxLength: Swift.Int?)
+  public let placeholderTextColor: UIKit.UIColor
+  public let disabledPlaceholderTextColor: UIKit.UIColor
+  public let backgroundColor: UIKit.UIColor
+  public let disabledBackgroundColor: UIKit.UIColor
+  public let borderColor: UIKit.UIColor
+  public init(placeholderText: Swift.String, color: UIKit.UIColor, inputMaxLength: Swift.Int?, placeholderTextColor: UIKit.UIColor, disabledPlaceholderTextColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, disabledBackgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ButtonBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.ButtonBannerStyle = .default)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ButtonBannerStyle = .default, onButtonTap: (() -> Swift.Void)? = nil, onBannerTap: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ButtonBannerRendering) -> ZendeskSDKUIComponents.ButtonBannerRendering)
+  public typealias Rendering = ZendeskSDKUIComponents.ButtonBannerRendering
+  public typealias Style = ZendeskSDKUIComponents.ButtonBannerStyle
+  @objc deinit
 }
 public struct CarouselViewRendering {
   public func update(items: [ZendeskSDKUIComponents.CardViewRendering]? = nil, index: Swift.Int? = nil) -> ZendeskSDKUIComponents.CarouselViewRendering
@@ -488,10 +509,10 @@ extension UIKit.UITableView {
   @_Concurrency.MainActor(unsafe) public func dequeueReusableCell<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UITableViewCell
 }
 public enum ConnectionBannerViewStyle : Swift.Equatable {
-  case disconnected(UIKit.UIColor)
-  case connecting(UIKit.UIColor)
-  case connected(UIKit.UIColor)
-  case conversationLoadingFailed(UIKit.UIColor)
+  case disconnected(background: UIKit.UIColor, label: UIKit.UIColor)
+  case connecting(background: UIKit.UIColor, label: UIKit.UIColor)
+  case connected(background: UIKit.UIColor, label: UIKit.UIColor)
+  case conversationLoadingFailed(background: UIKit.UIColor, label: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.ConnectionBannerViewStyle, b: ZendeskSDKUIComponents.ConnectionBannerViewStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.ConnectionBannerViewStyle {
@@ -563,12 +584,14 @@ extension ZendeskSDKUIComponents.ActionButtonRendering {
   @_Concurrency.MainActor(unsafe) final public var actionColor: UIKit.UIColor {
     get
   }
+  @_Concurrency.MainActor(unsafe) final public var dropdownActionColor: UIKit.UIColor {
+    get
+  }
   @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.InputStyle = .default)
-  @available(*, deprecated, message: "This method will be removed in a future UIComponents version.")
-  @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onNextSelected: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onFieldFocused: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onSelectFieldFocused: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)? = nil)
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onNextSelected: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onFieldFocused: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onSelectFieldFocused: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)? = nil, onFieldContentChanged: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.InputFieldRendering) -> ZendeskSDKUIComponents.InputFieldRendering)
   @_Concurrency.MainActor(unsafe) final public func updateFieldTypeSelect(with newValue: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.InputFieldRendering
   public typealias Style = ZendeskSDKUIComponents.InputStyle
   @objc deinit
@@ -668,9 +691,14 @@ extension ZendeskSDKUIComponents.FormResponseViewStyle {
 public struct CardViewStyle : Swift.Equatable, Swift.Hashable {
   public let actionColor: UIKit.UIColor
   public let backgroundColor: UIKit.UIColor
+  public let itemBackgroundColor: UIKit.UIColor
   public let textColor: UIKit.UIColor
-  public let backgroudImageColor: UIKit.UIColor
-  public init(actionColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, backgroudImageColor: UIKit.UIColor)
+  public let backgroundImageColor: UIKit.UIColor
+  public let borderColor: UIKit.UIColor
+  public let elevatedColor: UIKit.UIColor
+  public let iconColor: UIKit.UIColor?
+  public let shimmerColor: UIKit.UIColor?
+  public init(actionColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, itemBackgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, backgroundImageColor: UIKit.UIColor, borderColor: UIKit.UIColor, elevatedColor: UIKit.UIColor, iconColor: UIKit.UIColor, shimmerColor: UIKit.UIColor? = nil)
   public static func == (a: ZendeskSDKUIComponents.CardViewStyle, b: ZendeskSDKUIComponents.CardViewStyle) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -689,7 +717,8 @@ extension ZendeskSDKUIComponents.TypingIndicatorStyle {
 }
 public struct AvatarViewRendering {
   public let animatableImage: ZendeskSDKUIComponents.AnimatableImage
-  public init(animatableImage: ZendeskSDKUIComponents.AnimatableImage = .empty)
+  public let style: ZendeskSDKUIComponents.AvatarViewStyle
+  public init(animatableImage: ZendeskSDKUIComponents.AnimatableImage = .empty, style: ZendeskSDKUIComponents.AvatarViewStyle = .default)
 }
 public typealias ConversationErrorRenderingUpdate = (ZendeskSDKUIComponents.ConversationErrorViewRendering) -> ZendeskSDKUIComponents.ConversationErrorViewRendering
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ConversationErrorView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
@@ -733,13 +762,15 @@ extension ZendeskSDKUIComponents.CustomButton {
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.FormViewStyle = .default)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormViewRendering) -> ZendeskSDKUIComponents.FormViewRendering)
   @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.FormViewRendering
   public typealias Style = ZendeskSDKUIComponents.FormViewStyle
   @objc deinit
 }
 public struct FormResponseViewRendering {
   public let fields: [ZendeskSDKUIComponents.FormFieldResponseViewRendering]
-  public init(fields: [ZendeskSDKUIComponents.FormFieldResponseViewRendering] = [])
+  public let style: ZendeskSDKUIComponents.FormResponseViewStyle
+  public init(fields: [ZendeskSDKUIComponents.FormFieldResponseViewRendering] = [], style: ZendeskSDKUIComponents.FormResponseViewStyle = .default)
 }
 public struct ConversationListItemRendering {
   public let title: Swift.String
@@ -747,7 +778,8 @@ public struct ConversationListItemRendering {
   public let timestamp: Swift.String?
   public let unreadCount: Swift.String?
   public let icon: UIKit.UIImage?
-  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil)
+  public var style: ZendeskSDKUIComponents.ConversationListItemStyle?
+  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil)
 }
 public struct ColorFactory {
   public static func hex(_ hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor?
@@ -779,6 +811,10 @@ public struct MessageComposerActions {
   public let onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?
   public let onSend: ((Swift.String) -> Swift.Void)?
   public init(onAttachmentTap: (() -> Swift.Void)?, onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?, onSend: ((Swift.String) -> Swift.Void)?)
+}
+public struct ButtonBannerRendering {
+  public init(icon: UIKit.UIImage? = nil, text: Swift.String)
+  public static var empty: ZendeskSDKUIComponents.ButtonBannerRendering
 }
 extension UIKit.UIView {
   public enum Constrainable {
@@ -888,6 +924,22 @@ public struct IconCircleStyle {
     get
   }
 }
+public struct ActionButtonStyle : Swift.Equatable, Swift.Hashable {
+  public let backgroundColor: UIKit.UIColor
+  public let actionColor: UIKit.UIColor
+  public let disabledTextColor: UIKit.UIColor
+  public let disabledBackgroundColor: UIKit.UIColor
+  public let borderColor: UIKit.UIColor
+  public init(backgroundColor: UIKit.UIColor, actionColor: UIKit.UIColor, disabledTextColor: UIKit.UIColor, disabledBackgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor)
+  public static func == (a: ZendeskSDKUIComponents.ActionButtonStyle, b: ZendeskSDKUIComponents.ActionButtonStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension ZendeskSDKUIComponents.ActionButtonStyle {
+  public static let `default`: ZendeskSDKUIComponents.ActionButtonStyle
+}
 public typealias BannerRenderingUpdate = (ZendeskSDKUIComponents.ConnectionBannerViewRendering) -> ZendeskSDKUIComponents.ConnectionBannerViewRendering
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ConnectionBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConnectionBannerViewStyle = .default)
@@ -939,11 +991,23 @@ public enum ImageMessageViewState : Swift.Equatable, Swift.CaseIterable {
   }
 }
 public struct ImageMessageViewStyle : Swift.Equatable {
-  public init(backgroundColor: UIKit.UIColor = .clear, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, imageAlpha: CoreFoundation.CGFloat = 1.0, borderColor: UIKit.UIColor? = nil, textAndButtonStyle: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle? = .default, imageContentMode: UIKit.UIView.ContentMode = .scaleAspectFill, isFixedImageSize: Swift.Bool = true)
+  public init(backgroundColor: UIKit.UIColor = .clear, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, imageAlpha: CoreFoundation.CGFloat = 1.0, borderColor: UIKit.UIColor? = nil, textAndButtonStyle: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle, imageContentMode: UIKit.UIView.ContentMode = .scaleAspectFill, isFixedImageSize: Swift.Bool = true, shimmerColor: UIKit.UIColor? = nil)
   public static func == (a: ZendeskSDKUIComponents.ImageMessageViewStyle, b: ZendeskSDKUIComponents.ImageMessageViewStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.ImageMessageViewStyle {
   public static let `default`: ZendeskSDKUIComponents.ImageMessageViewStyle
+}
+public struct FormFieldResponseViewStyle {
+  public let textColor: UIKit.UIColor
+  public init(textColor: UIKit.UIColor)
+}
+extension ZendeskSDKUIComponents.FormFieldResponseViewStyle : Swift.Equatable {
+  public static func == (lhs: ZendeskSDKUIComponents.FormFieldResponseViewStyle, rhs: ZendeskSDKUIComponents.FormFieldResponseViewStyle) -> Swift.Bool
+}
+extension ZendeskSDKUIComponents.FormFieldResponseViewStyle {
+  public static var `default`: ZendeskSDKUIComponents.FormFieldResponseViewStyle {
+    get
+  }
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class MessagesDividerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   public enum MessageDividerType {
@@ -1036,7 +1100,7 @@ public struct ButtonsViewRendering : Swift.Equatable, Swift.Hashable {
   }
 }
 public struct ReplyOptionCollectionViewCellStyle : Swift.Equatable {
-  public init(textColor: UIKit.UIColor, borderColor: UIKit.UIColor, selectedColor: UIKit.UIColor, textFont: UIKit.UIFont)
+  public init(textColor: UIKit.UIColor, borderColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, selectedBackgroundColor: UIKit.UIColor, textFont: UIKit.UIFont)
   public static func == (a: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle, b: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle {

@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "ลบ";
 "zma_conversation_messages_failed_to_load" = "ไม่สามารถโหลดข้อความได้";
 "zma_conversation_new_messages_divider" = "ใหม่";
+"zma_conversation_see_latest" = "ดูล่าสุด";
 "zma_exceeds_max_file_size" = "เกินขนาดไฟล์สูงสุด (%@ MB)";
 "zma_form_field_counter_label" = "%@ จาก %@";
 "zma_form_field_invalid_email_error" = "ป้อนที่อยู่อีเมลที่ถูกต้อง";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "ตกลง";
 "zma_new_conversation_error_alert_message" = "ลองอีกครั้งในภายหลัง";
 "zma_new_conversation_error_alert_title" = "ไม่สามารถสร้างการสนทนาได้";
+"zma_postback_error_banner_message" = "%@ ไม่สามารถดำเนินการให้เสร็จสมบูรณ์ได้ ลองอีกครั้งในภายหลัง";

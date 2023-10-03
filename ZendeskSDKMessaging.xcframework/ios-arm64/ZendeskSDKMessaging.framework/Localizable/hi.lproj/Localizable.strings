@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "हटाएँ";
 "zma_conversation_messages_failed_to_load" = "संदेशों को लोड करने में विफल";
 "zma_conversation_new_messages_divider" = "नया";
+"zma_conversation_see_latest" = "नवीनतम देखें";
 "zma_exceeds_max_file_size" = "फ़ाइल का आकार ज़्यादा से ज़्यादा (%@ MB) होना चाहिए और वह पार हो चुका है";
 "zma_form_field_counter_label" = "%@ में से %@";
 "zma_form_field_invalid_email_error" = "मान्य ईमेल पता दर्ज करें";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "ठीक है";
 "zma_new_conversation_error_alert_message" = "बाद में दोबारा कोशिश करें।";
 "zma_new_conversation_error_alert_title" = "बातचीत नहीं बना सका";
+"zma_postback_error_banner_message" = "%@ पूरा नहीं किया जा सका। बाद में दोबारा कोशिश करें।";

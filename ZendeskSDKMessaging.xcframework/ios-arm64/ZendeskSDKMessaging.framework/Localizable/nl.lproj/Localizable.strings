@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Verwijderen";
 "zma_conversation_messages_failed_to_load" = "Berichten kunnen niet worden geladen";
 "zma_conversation_new_messages_divider" = "Nieuw";
+"zma_conversation_see_latest" = "Nieuwste bekijken";
 "zma_exceeds_max_file_size" = "Overschrijdt maximale bestandsgrootte (%@ MB)";
 "zma_form_field_counter_label" = "%@ van %@";
 "zma_form_field_invalid_email_error" = "Geef een geldig e-mailadres op";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Probeer het later opnieuw.";
 "zma_new_conversation_error_alert_title" = "Kan gesprek niet maken";
+"zma_postback_error_banner_message" = "%@ kan niet worden voltooid. Probeer het later opnieuw.";

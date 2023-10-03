@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Διαγραφή";
 "zma_conversation_messages_failed_to_load" = "Η φόρτωση των μηνυμάτων απέτυχε";
 "zma_conversation_new_messages_divider" = "Νέο";
+"zma_conversation_see_latest" = "Εμφάνιση πιο πρόσφατων";
 "zma_exceeds_max_file_size" = "Υπέρβαση μέγιστου μεγέθους αρχείου (%@ MB)";
 "zma_form_field_counter_label" = "%@ από %@";
 "zma_form_field_invalid_email_error" = "Εισαγάγετε μια έγκυρη διεύθυνση email";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "ΟΚ";
 "zma_new_conversation_error_alert_message" = "Προσπαθήστε ξανά αργότερα.";
 "zma_new_conversation_error_alert_title" = "Δεν ήταν δυνατή η δημιουργία συζήτησης";
+"zma_postback_error_banner_message" = "Δεν ήταν δυνατή η ολοκλήρωση του %@. Προσπαθήστε ξανά αργότερα.";

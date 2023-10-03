@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Delete";
 "zma_conversation_messages_failed_to_load" = "Messages failed to load";
 "zma_conversation_new_messages_divider" = "New";
+"zma_conversation_see_latest" = "See latest";
 "zma_exceeds_max_file_size" = "Exceeds max file size (%@ MB)";
 "zma_form_field_counter_label" = "%@ of %@";
 "zma_form_field_invalid_email_error" = "Masukkan alamat e-mel yang sah";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "Ok";
 "zma_new_conversation_error_alert_message" = "Try again later.";
 "zma_new_conversation_error_alert_title" = "Couldn't create conversation";
+"zma_postback_error_banner_message" = "%@ could not be completed. Try again later.";

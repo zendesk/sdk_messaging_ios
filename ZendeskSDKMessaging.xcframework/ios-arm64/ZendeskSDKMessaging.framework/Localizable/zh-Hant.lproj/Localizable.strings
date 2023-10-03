@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "刪除";
 "zma_conversation_messages_failed_to_load" = "訊息載入失敗";
 "zma_conversation_new_messages_divider" = "新訊息";
+"zma_conversation_see_latest" = "檢視最新訊息";
 "zma_exceeds_max_file_size" = "已超過檔案大小上限（%@ MB）";
 "zma_form_field_counter_label" = "%@/%@";
 "zma_form_field_invalid_email_error" = "輸入有效的電子郵件地址";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "確定";
 "zma_new_conversation_error_alert_message" = "請稍後再試一次。";
 "zma_new_conversation_error_alert_title" = "無法建立對話";
+"zma_postback_error_banner_message" = "無法完成 %@。請稍後再試一次。";

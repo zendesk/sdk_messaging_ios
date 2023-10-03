@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Elimina";
 "zma_conversation_messages_failed_to_load" = "Caricamento dei messaggi non riuscito";
 "zma_conversation_new_messages_divider" = "Novità";
+"zma_conversation_see_latest" = "Mostra più recenti";
 "zma_exceeds_max_file_size" = "Il file supera le dimensioni massime (%@ MB)";
 "zma_form_field_counter_label" = "%@ di %@";
 "zma_form_field_invalid_email_error" = "Inserisci un indirizzo email valido";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Riprova più tardi.";
 "zma_new_conversation_error_alert_title" = "Impossibile creare la conversazione";
+"zma_postback_error_banner_message" = "Impossibile completare l’azione “%@”. Riprova più tardi.";

@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "מחק";
 "zma_conversation_messages_failed_to_load" = "טעינת ההודעות נכשלה";
 "zma_conversation_new_messages_divider" = "חדש";
+"zma_conversation_see_latest" = "הצג הודעה אחרונה";
 "zma_exceeds_max_file_size" = "חריגה מהגודל המקסימלי של הקובץ (‎%@ MB)";
 "zma_form_field_counter_label" = "%@ מתוך %@";
 "zma_form_field_invalid_email_error" = "הזן כתובת חוקית של דואר אלקטרוני";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "אישור";
 "zma_new_conversation_error_alert_message" = "נסה שוב מאוחר יותר.";
 "zma_new_conversation_error_alert_title" = "לא ניתן ליצור שיחה";
+"zma_postback_error_banner_message" = "לא ניתן להשלים את '%@'. נסה שוב מאוחר יותר.";

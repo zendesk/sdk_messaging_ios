@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
-// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreTelephony
 import Foundation
@@ -565,16 +565,18 @@ public enum ConversationKitEvent {
   case userAccessRevoked(error: ZendeskSDKConversationKit.ConversationKitError)
   case conversationUpdated(ZendeskSDKConversationKit.Conversation)
   case messageReceived(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
+  case activityReceived(activity: ZendeskSDKConversationKit.Activity, conversationId: Swift.String)
   case messageUpdated(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
   case pushTokenPrepared(Swift.String)
   case pushTokenUpdateResult(token: Swift.String, error: ZendeskSDKConversationKit.ConversationKitError?)
   case loginResult(result: Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>)
   case logoutResult(error: ZendeskSDKConversationKit.ConversationKitError?)
   case persistedUserRetrieved(ZendeskSDKConversationKit.User)
-  case conversationReadReceived(conversationId: Swift.String)
   case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationRemoved(conversationId: Swift.String)
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
+  @available(*, deprecated, message: "Use `activityReceived` instead. This event will be removed in a future ConversationKit version.")
+  case conversationReadReceived(conversationId: Swift.String)
 }
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
@@ -582,12 +584,14 @@ public enum ConversationKitEvent {
   case userAccessRevoked
   case conversationUpdated
   case newMessage
+  case newActivity
   case messageUpdated
   case pushTokenPrepared
   case pushTokenUpdateResult
   case loginResult
   case logoutResult
   case persistedUserRetrieved
+  @available(*, deprecated, message: "Use `activityReceived` instead. This event will be removed in a future ConversationKit version.")
   case conversationReadReceived
   case conversationAdded
   case conversationRemoved
@@ -600,6 +604,11 @@ public enum ConversationKitEvent {
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKMessageEvent : ObjectiveC.NSObject {
   @objc final public let message: ZendeskSDKConversationKit.Message
+  @objc final public let conversationId: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKActivityEvent : ObjectiveC.NSObject {
+  @objc final public let activity: ZendeskSDKConversationKit.Activity
   @objc final public let conversationId: Swift.String
   @objc deinit
 }

@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Slet";
 "zma_conversation_messages_failed_to_load" = "Meddelelserne kunne ikke indlæses";
 "zma_conversation_new_messages_divider" = "Ny";
+"zma_conversation_see_latest" = "Se seneste";
 "zma_exceeds_max_file_size" = "Overstiger den maksimale filstørrelse (%@ MB)";
 "zma_form_field_counter_label" = "%@ af %@";
 "zma_form_field_invalid_email_error" = "Indtast en gyldig e‑mailadresse";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Prøv igen senere.";
 "zma_new_conversation_error_alert_title" = "Samtalen kunne ikke oprettes";
+"zma_postback_error_banner_message" = "%@ kunne ikke fuldføres. Prøv igen senere.";

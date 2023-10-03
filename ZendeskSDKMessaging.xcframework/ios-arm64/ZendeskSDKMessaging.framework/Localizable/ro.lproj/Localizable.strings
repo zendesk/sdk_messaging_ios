@@ -37,6 +37,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Ștergere";
 "zma_conversation_messages_failed_to_load" = "Mesajele nu s-au putut încărcat";
 "zma_conversation_new_messages_divider" = "Nou";
+"zma_conversation_see_latest" = "Vezi ultimele";
 "zma_exceeds_max_file_size" = "Depășește dimensiunea maximă a fișierului (%@ MB)";
 "zma_form_field_counter_label" = "%@ din %@";
 "zma_form_field_invalid_email_error" = "Introduceți o adresă de e-mail validă";
@@ -54,3 +55,4 @@
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Încercați din nou mai târziu.";
 "zma_new_conversation_error_alert_title" = "Nu s-a putut crea conversația";
+"zma_postback_error_banner_message" = "%@ nu a putut fi finalizată. Încercați din nou mai târziu.";
