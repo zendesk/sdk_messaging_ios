@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "読み込み中";
 "zma_accessibility_message_author_replied" = "%@が返信";
+"zma_accessibility_postback_error_message" = "エラー、%@";
 "zma_action_label_cancel" = "キャンセル";
 "zma_actions_attachments_label" = "添付ファイルを送信する";
 "zma_alert_message_label_camera" = "カメラ";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "コピー";
 "zma_conversation_message_menu_delete_button_label" = "削除";
 "zma_conversation_messages_failed_to_load" = "メッセージを読み込めませんでした";
+"zma_conversation_new_messages_banner" = "%@件の新規メッセージ";
 "zma_conversation_new_messages_divider" = "新規";
 "zma_conversation_see_latest" = "最新メッセージを見る";
 "zma_exceeds_max_file_size" = "最大ファイルサイズ (%@MB) を超えています";

@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "טוען";
 "zma_accessibility_message_author_replied" = "%@ השיב/ה";
+"zma_accessibility_postback_error_message" = "שגיאה, %@";
 "zma_action_label_cancel" = "בטל";
 "zma_actions_attachments_label" = "שלח קובץ מצורף";
 "zma_alert_message_label_camera" = "מצלמה";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "העתק";
 "zma_conversation_message_menu_delete_button_label" = "מחק";
 "zma_conversation_messages_failed_to_load" = "טעינת ההודעות נכשלה";
+"zma_conversation_new_messages_banner" = "%@ הודעות חדשות";
 "zma_conversation_new_messages_divider" = "חדש";
 "zma_conversation_see_latest" = "הצג הודעה אחרונה";
 "zma_exceeds_max_file_size" = "חריגה מהגודל המקסימלי של הקובץ (‎%@ MB)";

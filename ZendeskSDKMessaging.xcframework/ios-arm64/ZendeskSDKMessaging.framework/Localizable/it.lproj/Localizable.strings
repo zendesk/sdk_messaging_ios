@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Caricamento";
 "zma_accessibility_message_author_replied" = "%@ ha risposto";
+"zma_accessibility_postback_error_message" = "Errore, %@";
 "zma_action_label_cancel" = "Annulla";
 "zma_actions_attachments_label" = "Invia un allegato";
 "zma_alert_message_label_camera" = "Fotocamera";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "Copia";
 "zma_conversation_message_menu_delete_button_label" = "Elimina";
 "zma_conversation_messages_failed_to_load" = "Caricamento dei messaggi non riuscito";
+"zma_conversation_new_messages_banner" = "%@ nuovi messaggi";
 "zma_conversation_new_messages_divider" = "Novità";
 "zma_conversation_see_latest" = "Mostra più recenti";
 "zma_exceeds_max_file_size" = "Il file supera le dimensioni massime (%@ MB)";

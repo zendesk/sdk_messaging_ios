@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Wird geladen";
 "zma_accessibility_message_author_replied" = "%@ hat geantwortet";
+"zma_accessibility_postback_error_message" = "Fehler, %@";
 "zma_action_label_cancel" = "Abbrechen";
 "zma_actions_attachments_label" = "Anhang senden";
 "zma_alert_message_label_camera" = "Kamera";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "Kopieren";
 "zma_conversation_message_menu_delete_button_label" = "Löschen";
 "zma_conversation_messages_failed_to_load" = "Nachrichten konnten nicht geladen werden";
+"zma_conversation_new_messages_banner" = "%@ neue Nachrichten";
 "zma_conversation_new_messages_divider" = "Neu";
 "zma_conversation_see_latest" = "Neueste anzeigen";
 "zma_exceeds_max_file_size" = "Maximale Dateigröße (%@ MB) überschritten";

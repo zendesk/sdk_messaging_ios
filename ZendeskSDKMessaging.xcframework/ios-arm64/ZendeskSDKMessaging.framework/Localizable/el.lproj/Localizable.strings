@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Γίνεται φόρτωση";
 "zma_accessibility_message_author_replied" = "Ο χρήστης %@ απάντησε";
+"zma_accessibility_postback_error_message" = "Σφάλμα, %@";
 "zma_action_label_cancel" = "Ακύρωση";
 "zma_actions_attachments_label" = "Αποστολή συνημμένου";
 "zma_alert_message_label_camera" = "Κάμερα";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "Αντιγραφή";
 "zma_conversation_message_menu_delete_button_label" = "Διαγραφή";
 "zma_conversation_messages_failed_to_load" = "Η φόρτωση των μηνυμάτων απέτυχε";
+"zma_conversation_new_messages_banner" = "%@ νέα μηνύματα";
 "zma_conversation_new_messages_divider" = "Νέο";
 "zma_conversation_see_latest" = "Εμφάνιση πιο πρόσφατων";
 "zma_exceeds_max_file_size" = "Υπέρβαση μέγιστου μεγέθους αρχείου (%@ MB)";

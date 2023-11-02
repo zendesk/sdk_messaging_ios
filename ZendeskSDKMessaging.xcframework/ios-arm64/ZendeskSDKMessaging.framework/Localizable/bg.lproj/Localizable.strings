@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Зареждане";
 "zma_accessibility_message_author_replied" = "%@ отговори";
+"zma_accessibility_postback_error_message" = "Грешка, %@";
 "zma_action_label_cancel" = "Отмяна";
 "zma_actions_attachments_label" = "Изпращане на прикачен файл";
 "zma_alert_message_label_camera" = "Камера";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "Копиране";
 "zma_conversation_message_menu_delete_button_label" = "Изтриване";
 "zma_conversation_messages_failed_to_load" = "Неуспешно зареждане на съобщенията";
+"zma_conversation_new_messages_banner" = "%@ нови съобщения";
 "zma_conversation_new_messages_divider" = "Нови";
 "zma_conversation_see_latest" = "Към най-новите";
 "zma_exceeds_max_file_size" = "Надвишава максималния размер за файл (%@ MB)";

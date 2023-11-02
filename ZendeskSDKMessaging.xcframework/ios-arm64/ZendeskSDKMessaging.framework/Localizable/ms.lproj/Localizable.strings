@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Memuatkan";
 "zma_accessibility_message_author_replied" = "%@ replied";
+"zma_accessibility_postback_error_message" = "Error, %@";
 "zma_action_label_cancel" = "Batal";
 "zma_actions_attachments_label" = "Hantar lampiran";
 "zma_alert_message_label_camera" = "Kamera";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "Copy";
 "zma_conversation_message_menu_delete_button_label" = "Delete";
 "zma_conversation_messages_failed_to_load" = "Messages failed to load";
+"zma_conversation_new_messages_banner" = "%@ new messages";
 "zma_conversation_new_messages_divider" = "New";
 "zma_conversation_see_latest" = "See latest";
 "zma_exceeds_max_file_size" = "Exceeds max file size (%@ MB)";

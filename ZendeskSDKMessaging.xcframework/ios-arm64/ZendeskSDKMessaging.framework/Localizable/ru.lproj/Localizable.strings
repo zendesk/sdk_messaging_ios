@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Идет загрузка";
 "zma_accessibility_message_author_replied" = "Ответ от %@";
+"zma_accessibility_postback_error_message" = "Ошибка, %@";
 "zma_action_label_cancel" = "Отмена";
 "zma_actions_attachments_label" = "Отправить прикрепленный файл";
 "zma_alert_message_label_camera" = "Камера";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "Копировать";
 "zma_conversation_message_menu_delete_button_label" = "Удалить";
 "zma_conversation_messages_failed_to_load" = "Не удалось загрузить сообщения";
+"zma_conversation_new_messages_banner" = "Новые сообщения: %@";
 "zma_conversation_new_messages_divider" = "Новые";
 "zma_conversation_see_latest" = "Посмотреть последние";
 "zma_exceeds_max_file_size" = "Превышен максимальный размер файла (%@ МБ)";

@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Laden";
 "zma_accessibility_message_author_replied" = "%@ heeft gereageerd";
+"zma_accessibility_postback_error_message" = "Fout, %@";
 "zma_action_label_cancel" = "Annuleren";
 "zma_actions_attachments_label" = "Een bijlage sturen";
 "zma_alert_message_label_camera" = "Camera";
@@ -36,6 +37,7 @@
 "zma_conversation_message_menu_copy_button_label" = "Kopiëren";
 "zma_conversation_message_menu_delete_button_label" = "Verwijderen";
 "zma_conversation_messages_failed_to_load" = "Berichten kunnen niet worden geladen";
+"zma_conversation_new_messages_banner" = "%@ nieuwe berichten";
 "zma_conversation_new_messages_divider" = "Nieuw";
 "zma_conversation_see_latest" = "Nieuwste bekijken";
 "zma_exceeds_max_file_size" = "Overschrijdt maximale bestandsgrootte (%@ MB)";

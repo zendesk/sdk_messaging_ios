@@ -16,6 +16,21 @@ import _StringProcessing
   @objc public init(hipaaAttachmentFlag: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc deinit
 }
+public protocol Observable : AnyObject {
+  associatedtype Observed
+  var callbackQueue: Dispatch.DispatchQueue { get }
+  var observers: [Swift.ObjectIdentifier : (Self.Observed) -> Swift.Void] { get set }
+  func addObserver(_ observer: Swift.AnyObject, _ closure: @escaping (Self.Observed) -> Swift.Void)
+  func removeObserver(_ observer: Swift.AnyObject)
+}
+extension ZendeskSDKCoreUtilities.Observable {
+  public var callbackQueue: Dispatch.DispatchQueue {
+    get
+  }
+  public func addObserver(_ observer: Swift.AnyObject, _ closure: @escaping (Self.Observed) -> Swift.Void)
+  public func removeObserver(_ observer: Swift.AnyObject)
+  public func notifyObservers(_ observed: Self.Observed)
+}
 public struct JWT : Swift.Decodable {
   public let externalId: Swift.String
   public init(from decoder: Swift.Decoder) throws
@@ -48,6 +63,20 @@ final public class DefaultApplicationStateObserver : ZendeskSDKCoreUtilities.App
   public init()
   final public func registerForApplicationStateNotifications()
   final public func unregisterForApplicationStateNotifications()
+  @objc deinit
+}
+public protocol Scheduler {
+  @discardableResult
+  func schedule(after delay: Foundation.TimeInterval, _ action: @escaping () -> Swift.Void) -> ZendeskSDKCoreUtilities.ScheduledTask
+}
+public struct ScheduledTask {
+  public init(action: @escaping () -> Swift.Void, cancelAction: @escaping () -> Swift.Void)
+  public func cancel()
+}
+final public class DefaultTimeScheduler : ZendeskSDKCoreUtilities.Scheduler {
+  public init()
+  @discardableResult
+  final public func schedule(after delay: Foundation.TimeInterval, _ action: @escaping () -> Swift.Void) -> ZendeskSDKCoreUtilities.ScheduledTask
   @objc deinit
 }
 extension ZendeskSDKCoreUtilities.ApplicationState : Swift.Equatable {}

@@ -267,6 +267,7 @@ public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShare
   func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
@@ -284,6 +285,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   public func getConversations(offset: Swift.Int, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  public func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, conversationId: Swift.String, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
@@ -341,6 +343,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc @available(swift, obsoleted: 1.0)
   func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
 }
+public typealias MessageActionTitle = Swift.String
 @objc(ZDKMessageContent) public protocol Content : ObjectiveC.NSObjectProtocol {
   @objc var type: ZendeskSDKConversationKit.MessageType { get }
   @objc var metadata: [Swift.String : Swift.AnyHashable]? { get }
@@ -529,11 +532,7 @@ extension ZendeskSDKConversationKit.User {
 @objc(ZDKConfig) final public class Config : ObjectiveC.NSObject {
   @objc final public var appId: Swift.String
   @objc final public var baseURL: Swift.String
-  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming ConversationKit version. This property has been moved to `FeatureFlagManager.swift`.")
-  @objc final public var multiConvoEnabled: Swift.Bool
-  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming ConversationKit version. This property has been moved to `FeatureFlagManager.swift`.")
-  @objc final public var canUserCreateMoreConversations: Swift.Bool
-  @objc public init(appId: Swift.String, baseURL: Swift.String, multiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
+  @objc public init(appId: Swift.String, baseURL: Swift.String)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -575,8 +574,6 @@ public enum ConversationKitEvent {
   case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationRemoved(conversationId: Swift.String)
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
-  @available(*, deprecated, message: "Use `activityReceived` instead. This event will be removed in a future ConversationKit version.")
-  case conversationReadReceived(conversationId: Swift.String)
 }
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
@@ -591,8 +588,6 @@ public enum ConversationKitEvent {
   case loginResult
   case logoutResult
   case persistedUserRetrieved
-  @available(*, deprecated, message: "Use `activityReceived` instead. This event will be removed in a future ConversationKit version.")
-  case conversationReadReceived
   case conversationAdded
   case conversationRemoved
   case proactiveMessageStatusChanged
@@ -867,6 +862,7 @@ extension ZendeskSDKConversationKit.Message {
   final public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
+public typealias PostbackActionID = Swift.String
 @objc(ZDKConversationStatus) public enum ConversationStatus : Swift.Int, Swift.Codable {
   case active
   case idle
@@ -917,6 +913,11 @@ public enum MessageActionModel : Swift.Equatable, Swift.Hashable {
 extension ZendeskSDKConversationKit.MessageActionModel : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+}
+extension ZendeskSDKConversationKit.MessageActionModel {
+  public var value: ZendeskSDKConversationKit.MessageAction {
+    get
+  }
 }
 @_hasMissingDesignatedInitializers @objc(ZDKReplyAction) final public class ReplyAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
