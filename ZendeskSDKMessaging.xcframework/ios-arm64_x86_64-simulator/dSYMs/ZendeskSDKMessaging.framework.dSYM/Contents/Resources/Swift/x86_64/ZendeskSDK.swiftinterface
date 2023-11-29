@@ -14,6 +14,24 @@ import ZendeskSDKLogger
 import ZendeskSDKStorage
 import _Concurrency
 import _StringProcessing
+@available(iOS 13.0.0, *)
+extension ZendeskSDK.Zendesk {
+  #if compiler(>=5.3) && $AsyncAwait
+  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory? = nil) async throws -> ZendeskSDK.Zendesk
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView) async throws
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func addEventObserver(_ observer: Swift.AnyObject) async -> ZendeskSDK.ZendeskEvent
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func loginUser(with jwt: Swift.String) async throws -> ZendeskSDK.ZendeskUser
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  final public func logoutUser() async throws
+  #endif
+}
 public enum InitializationPhase {
   case notProcessing, processing
   public static func == (a: ZendeskSDK.InitializationPhase, b: ZendeskSDK.InitializationPhase) -> Swift.Bool
@@ -125,7 +143,12 @@ extension ZendeskSDK.MessagingDelegate {
   }
   final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, Swift.Error>) -> Swift.Void)
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  @available(*, deprecated, message: "Use invalidate(_ :) instead. This function will be removed in a future Zendesk version.")
+  @available(swift, obsoleted: 1.0)
   @objc public static func invalidate()
+  public static func invalidate(_ clearStorage: Swift.Bool = false)
+  @available(swift, obsoleted: 1.0)
+  @objc public static func invalidate(clearStorage: Swift.Bool)
   final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: @escaping (ZendeskSDK.ZendeskEvent) -> Swift.Void)
   @objc final public func removeEventObserver(_ observer: Swift.AnyObject)
   @objc deinit

@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Laster inn";
 "zma_accessibility_message_author_replied" = "%@ svarte";
+"zma_accessibility_message_dismiss" = "Lukk";
 "zma_accessibility_postback_error_message" = "Feil, %@";
 "zma_action_label_cancel" = "Avbryt";
 "zma_actions_attachments_label" = "Send et vedlegg";

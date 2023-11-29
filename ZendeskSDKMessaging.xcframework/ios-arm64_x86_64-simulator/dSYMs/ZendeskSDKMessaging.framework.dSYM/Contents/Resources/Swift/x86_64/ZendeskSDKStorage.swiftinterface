@@ -43,6 +43,7 @@ public protocol Storage {
   func set<E>(_ object: E, forKey key: Swift.String) where E : Swift.Decodable, E : Swift.Encodable
   func remove(forKey key: Swift.String)
   func clear()
+  func clearTemporaryStorage(for item: Swift.String?)
 }
 extension ZendeskSDKStorage.StorageType : Swift.Equatable {}
 extension ZendeskSDKStorage.StorageType : Swift.Hashable {}

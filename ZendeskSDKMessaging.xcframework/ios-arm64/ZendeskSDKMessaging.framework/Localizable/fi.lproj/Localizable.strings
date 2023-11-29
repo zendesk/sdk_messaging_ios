@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Ladataan";
 "zma_accessibility_message_author_replied" = "%@ vastasi";
+"zma_accessibility_message_dismiss" = "Hylkää";
 "zma_accessibility_postback_error_message" = "Virhe, %@";
 "zma_action_label_cancel" = "Peruuta";
 "zma_actions_attachments_label" = "Lähetä liitetiedosto";

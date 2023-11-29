@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Wird geladen";
 "zma_accessibility_message_author_replied" = "%@ hat geantwortet";
+"zma_accessibility_message_dismiss" = "Abweisen";
 "zma_accessibility_postback_error_message" = "Fehler, %@";
 "zma_action_label_cancel" = "Abbrechen";
 "zma_actions_attachments_label" = "Anhang senden";

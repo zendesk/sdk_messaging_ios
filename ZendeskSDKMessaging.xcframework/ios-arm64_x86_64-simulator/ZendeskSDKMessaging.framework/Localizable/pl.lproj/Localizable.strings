@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Ładowanie";
 "zma_accessibility_message_author_replied" = "Odpowiedź od: %@";
+"zma_accessibility_message_dismiss" = "Odrzuć";
 "zma_accessibility_postback_error_message" = "Błąd, %@";
 "zma_action_label_cancel" = "Anuluj";
 "zma_actions_attachments_label" = "Wyślij załącznik";

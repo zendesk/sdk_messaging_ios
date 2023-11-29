@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "טוען";
 "zma_accessibility_message_author_replied" = "%@ השיב/ה";
+"zma_accessibility_message_dismiss" = "סגור";
 "zma_accessibility_postback_error_message" = "שגיאה, %@";
 "zma_action_label_cancel" = "בטל";
 "zma_actions_attachments_label" = "שלח קובץ מצורף";

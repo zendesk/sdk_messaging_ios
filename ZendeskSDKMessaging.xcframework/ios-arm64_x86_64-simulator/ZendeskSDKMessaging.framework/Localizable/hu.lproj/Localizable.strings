@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Betöltés";
 "zma_accessibility_message_author_replied" = "%@ válaszolt";
+"zma_accessibility_message_dismiss" = "Bezárás";
 "zma_accessibility_postback_error_message" = "Hiba, %@";
 "zma_action_label_cancel" = "Mégse";
 "zma_actions_attachments_label" = "Melléklet küldése";

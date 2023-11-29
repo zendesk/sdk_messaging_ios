@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "載入中";
 "zma_accessibility_message_author_replied" = "%@ 已回覆";
+"zma_accessibility_message_dismiss" = "關閉";
 "zma_accessibility_postback_error_message" = "錯誤，%@";
 "zma_action_label_cancel" = "取消";
 "zma_actions_attachments_label" = "傳送一個附件";

@@ -730,6 +730,9 @@ public struct CardViewStyle : Swift.Equatable, Swift.Hashable {
   public let onActionColor: UIKit.UIColor
   public let disabledColor: UIKit.UIColor
   public let onBackgroundColorWithAlpha: UIKit.UIColor
+  public var buttonStyle: ZendeskSDKUIComponents.CustomButtonStyle {
+    get
+  }
   public init(actionColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, itemBackgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, backgroundImageColor: UIKit.UIColor, borderColor: UIKit.UIColor, elevatedColor: UIKit.UIColor, iconColor: UIKit.UIColor, shimmerColor: UIKit.UIColor? = nil, onActionColor: UIKit.UIColor, disabledColor: UIKit.UIColor, onBackgroundColorWithAlpha: UIKit.UIColor)
   public static func == (a: ZendeskSDKUIComponents.CardViewStyle, b: ZendeskSDKUIComponents.CardViewStyle) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
@@ -1147,19 +1150,6 @@ extension ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle {
   final public func unregisterForKeyboardNotifications()
   @objc override dynamic public init()
   @objc deinit
-}
-public protocol UICollectionReusableViewType {
-  static var identifier: Swift.String { get }
-}
-extension ZendeskSDKUIComponents.UICollectionReusableViewType where Self : UIKit.UICollectionReusableView {
-  public static var viewIdentifier: Swift.String {
-    get
-  }
-}
-extension UIKit.UICollectionReusableView : ZendeskSDKUIComponents.UICollectionReusableViewType {
-  @_Concurrency.MainActor(unsafe) public static var identifier: Swift.String {
-    get
-  }
 }
 final public class BundleUtils {
   public init(object: Swift.AnyClass, stringResourcePath: Swift.String)

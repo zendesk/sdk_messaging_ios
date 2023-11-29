@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "लोड हो रहा है";
 "zma_accessibility_message_author_replied" = "%@ ने जवाब दिया";
+"zma_accessibility_message_dismiss" = "खारिज करें";
 "zma_accessibility_postback_error_message" = "त्रुटि, %@";
 "zma_action_label_cancel" = "रद्द करें";
 "zma_actions_attachments_label" = "एक अटैचमेंट भेजें";

@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Téléchargement en cours";
 "zma_accessibility_message_author_replied" = "%@ a répondu";
+"zma_accessibility_message_dismiss" = "Ignorer";
 "zma_accessibility_postback_error_message" = "Erreur, %@";
 "zma_action_label_cancel" = "Annuler";
 "zma_actions_attachments_label" = "Envoyer une pièce jointe";
@@ -39,7 +40,7 @@
 "zma_conversation_messages_failed_to_load" = "Échec du chargement des messages";
 "zma_conversation_new_messages_banner" = "%@ nouveaux messages";
 "zma_conversation_new_messages_divider" = "Nouveau";
-"zma_conversation_see_latest" = "Afficher le plus récent";
+"zma_conversation_see_latest" = "Afficher les plus récents";
 "zma_exceeds_max_file_size" = "Taille maximum dépassée (%@ Mo)";
 "zma_form_field_counter_label" = "%@ sur %@";
 "zma_form_field_invalid_email_error" = "Saisissez une adresse courriel valide";

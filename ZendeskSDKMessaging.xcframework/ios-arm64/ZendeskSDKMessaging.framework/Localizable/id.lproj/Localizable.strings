@@ -1,5 +1,6 @@
 "zma_accessibility_loading_label" = "Memuat";
 "zma_accessibility_message_author_replied" = "%@ dibalas";
+"zma_accessibility_message_dismiss" = "Tutup";
 "zma_accessibility_postback_error_message" = "Kesalahan, %@";
 "zma_action_label_cancel" = "Batal";
 "zma_actions_attachments_label" = "Kirim lampiran";

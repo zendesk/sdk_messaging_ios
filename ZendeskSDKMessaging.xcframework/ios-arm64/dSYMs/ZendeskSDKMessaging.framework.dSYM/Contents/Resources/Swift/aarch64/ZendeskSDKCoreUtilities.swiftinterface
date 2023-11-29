@@ -11,7 +11,6 @@ import _StringProcessing
   final public let hipaaAttachmentFlag: Swift.Bool
   final public let isMultiConvoEnabled: Swift.Bool
   final public let canUserCreateMoreConversations: Swift.Bool
-  final public let enableColorsFromSettings: Swift.Bool
   @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
   @objc public init(hipaaAttachmentFlag: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc deinit
