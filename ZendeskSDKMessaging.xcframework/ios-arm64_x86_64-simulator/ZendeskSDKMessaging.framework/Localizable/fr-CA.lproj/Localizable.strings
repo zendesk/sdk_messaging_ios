@@ -18,7 +18,7 @@
 "zma_conversation_error_tap_to_retry" = "Appuyez pour réessayer";
 "zma_conversation_header_logo" = "Logo de la marque";
 "zma_conversation_list_failed_to_load" = "Échec du chargement des conversations";
-"zma_conversation_list_item_description_carousel" = "A envoyé une liste de défilement";
+"zma_conversation_list_item_description_carousel" = "A envoyé un carrousel";
 "zma_conversation_list_item_description_file" = "A envoyé un fichier";
 "zma_conversation_list_item_description_form" = "A envoyé un formulaire";
 "zma_conversation_list_item_description_image" = "A envoyé une image";

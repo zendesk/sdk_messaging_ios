@@ -18,7 +18,7 @@
 "zma_conversation_error_tap_to_retry" = "फिर से कोशिश करने के लिए टैप करें";
 "zma_conversation_header_logo" = "ब्रांड लोगो";
 "zma_conversation_list_failed_to_load" = "बातचीत लोड होने में विफल रही";
-"zma_conversation_list_item_description_carousel" = "एक हिंडोला भेजा";
+"zma_conversation_list_item_description_carousel" = "एक कैरोसेल भेजा";
 "zma_conversation_list_item_description_file" = "एक फाइल भेजी";
 "zma_conversation_list_item_description_form" = "एक फॉर्म भेजा";
 "zma_conversation_list_item_description_image" = "एक छवि भेजी";

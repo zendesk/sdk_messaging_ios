@@ -18,7 +18,7 @@
 "zma_conversation_error_tap_to_retry" = "Докоснете за повторен опит";
 "zma_conversation_header_logo" = "Лого на бранда";
 "zma_conversation_list_failed_to_load" = "Неуспешно зареждане на разговорите";
-"zma_conversation_list_item_description_carousel" = "Изпратихте каталог с елементи";
+"zma_conversation_list_item_description_carousel" = "Изпратихте въртележка";
 "zma_conversation_list_item_description_file" = "Изпратихте файл";
 "zma_conversation_list_item_description_form" = "Изпратихте формуляр";
 "zma_conversation_list_item_description_image" = "Изпратихте изображение";

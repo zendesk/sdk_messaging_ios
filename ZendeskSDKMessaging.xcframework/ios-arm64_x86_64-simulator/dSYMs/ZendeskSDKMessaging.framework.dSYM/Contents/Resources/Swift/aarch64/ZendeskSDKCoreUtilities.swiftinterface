@@ -42,6 +42,9 @@ extension Foundation.URLSessionConfiguration {
     get
   }
 }
+public protocol Pasteboard {
+  func setString(_ string: Swift.String?)
+}
 public enum ApplicationState {
   case willEnterForeground
   case didEnterBackground

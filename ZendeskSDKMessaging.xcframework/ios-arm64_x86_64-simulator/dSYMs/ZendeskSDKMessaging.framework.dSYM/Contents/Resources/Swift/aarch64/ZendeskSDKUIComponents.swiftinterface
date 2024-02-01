@@ -6,6 +6,7 @@ import CoreGraphics
 import Foundation
 import Swift
 import UIKit
+import WebKit
 import ZendeskSDKCoreUtilities
 @_exported import ZendeskSDKUIComponents
 import _Concurrency
@@ -32,6 +33,16 @@ public struct MessageComposerRendering {
   @_Concurrency.MainActor(unsafe) final public func updateActionButton(to state: ZendeskSDKUIComponents.CustomButtonState, actionId: Swift.String)
   @objc deinit
 }
+extension ZendeskSDKUIComponents.ArticleViewerView : UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc final public func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc final public func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+}
+extension ZendeskSDKUIComponents.ArticleViewerView : UIKit.UITableViewDelegate {
+}
 public struct TextAndMessageButtonViewStyle : Swift.Equatable {
   public let buttonsViewStyle: ZendeskSDKUIComponents.ButtonsViewStyle
   public let textMessageStyle: ZendeskSDKUIComponents.TextMessageStyle
@@ -41,6 +52,12 @@ public struct TextAndMessageButtonViewStyle : Swift.Equatable {
 }
 extension ZendeskSDKUIComponents.TextAndMessageButtonViewStyle {
   public static let `default`: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle
+}
+public struct ArticleHeaderRendering {
+  public init(displayBackButton: Swift.Bool = false)
+}
+extension ZendeskSDKUIComponents.ArticleHeaderRendering {
+  public static var `default`: ZendeskSDKUIComponents.ArticleHeaderRendering
 }
 public struct ConversationListItemStyle {
   public init(titleForegroundColor: UIKit.UIColor, descriptionForegroundColor: UIKit.UIColor, timestampForegroundColor: UIKit.UIColor, unreadIndicatorForegroundColor: UIKit.UIColor, unreadIndicatorBackgroundColor: UIKit.UIColor)
@@ -56,6 +73,13 @@ public struct TextMessageStyle : Swift.Equatable {
 }
 extension ZendeskSDKUIComponents.TextMessageStyle {
   public static let `default`: ZendeskSDKUIComponents.TextMessageStyle
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ArticleHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ArticleHeaderStyle)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ArticleHeaderRendering) -> ZendeskSDKUIComponents.ArticleHeaderRendering)
+  public typealias Rendering = ZendeskSDKUIComponents.ArticleHeaderRendering
+  public typealias Style = ZendeskSDKUIComponents.ArticleHeaderStyle
+  @objc deinit
 }
 public struct FileMessageRendering {
   public let fileURL: Swift.String
@@ -89,6 +113,35 @@ public struct TextMessageRendering : Swift.Equatable {
   public let messageDirection: ZendeskSDKUIComponents.TextMessageRendering.MessageDirection
   public init(message: Swift.String = "", corners: UIKit.UIRectCorner? = nil, style: ZendeskSDKUIComponents.TextMessageStyle = .default, isAnimated: Swift.Bool = true, messageStatus: ZendeskSDKUIComponents.TextMessageRendering.MessageStatus = .pending, messageDirection: ZendeskSDKUIComponents.TextMessageRendering.MessageDirection = .outbound)
   public static func == (a: ZendeskSDKUIComponents.TextMessageRendering, b: ZendeskSDKUIComponents.TextMessageRendering) -> Swift.Bool
+}
+public struct MessageFooterStyle {
+  public static var `default`: ZendeskSDKUIComponents.MessageFooterStyle {
+    get
+  }
+}
+public struct ArticleAttachmentButtonStyle : Swift.Equatable, Swift.Hashable {
+  public let backgroundColor: UIKit.UIColor
+  public let actionColor: UIKit.UIColor
+  public let iconColor: UIKit.UIColor
+  public init(backgroundColor: UIKit.UIColor, actionColor: UIKit.UIColor, iconColor: UIKit.UIColor)
+  public static func == (a: ZendeskSDKUIComponents.ArticleAttachmentButtonStyle, b: ZendeskSDKUIComponents.ArticleAttachmentButtonStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct ArticleAttachmentCarouselViewStyle : Swift.Equatable, Swift.Hashable {
+  public let backgroundColor: UIKit.UIColor
+  public let borderColor: UIKit.UIColor
+  public let textColor: UIKit.UIColor
+  public let detailsColor: UIKit.UIColor
+  public let buttonStyle: ZendeskSDKUIComponents.ArticleAttachmentButtonStyle
+  public init(backgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor, textColor: UIKit.UIColor, detailsColor: UIKit.UIColor, buttonStyle: ZendeskSDKUIComponents.ArticleAttachmentButtonStyle)
+  public static func == (a: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle, b: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ImageMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) final public let textAndButtonView: ZendeskSDKUIComponents.TextAndMessageButtonView
@@ -133,6 +186,9 @@ extension UIKit.UIStackView {
 extension ZendeskSDKUIComponents.TextMessageView : UIKit.UITextViewDelegate {
   @_Concurrency.MainActor(unsafe) @objc final public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
 }
+extension UIKit.UIPasteboard : ZendeskSDKCoreUtilities.Pasteboard {
+  public func setString(_ string: Swift.String?)
+}
 public struct MessagesDividerRendering {
   public let text: Swift.String
   public let style: ZendeskSDKUIComponents.MessagesDividerStyle
@@ -164,10 +220,59 @@ public struct ConversationHeaderRendering {
   public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular)
   public func update(title: Swift.String? = nil, description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass? = nil) -> ZendeskSDKUIComponents.ConversationHeaderRendering
 }
+public struct ArticleViewerRendering {
+  public init(state: ZendeskSDKUIComponents.ArticleViewerState, articleViewerHeaderRendering: ZendeskSDKUIComponents.ArticleHeaderRendering = .default, errorViewRendering: ZendeskSDKUIComponents.ConversationErrorViewRendering = .default, articleFeedbackBannerRendering: ZendeskSDKUIComponents.ArticleFeedbackBannerRendering = .default)
+}
+public enum ArticleViewerState {
+  case loading
+  case error
+  case loadUrl(url: Swift.String)
+  case loaded(content: ZendeskSDKUIComponents.ArticleViewerContent)
+}
+public struct ArticleViewerContent {
+  public init(articleTitle: Swift.String?, articleBody: Swift.String, attachments: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewRendering?, displayFeedbackBanner: Swift.Bool? = false)
+}
 public struct ReplyOptionCollectionViewCellRendering {
   public let text: Swift.String
   public let style: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle?
   public init(text: Swift.String = "", style: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle? = nil)
+}
+public struct ArticleFeedbackBannerStyle : Swift.Equatable {
+  public init(backgroundColor: UIKit.UIColor, labelColor: UIKit.UIColor, buttonStyle: ZendeskSDKUIComponents.CustomButtonStyle)
+  public static func == (a: ZendeskSDKUIComponents.ArticleFeedbackBannerStyle, b: ZendeskSDKUIComponents.ArticleFeedbackBannerStyle) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ArticleViewerWebViewCell : UIKit.UITableViewCell {
+  @objc deinit
+}
+extension ZendeskSDKUIComponents.ArticleViewerWebViewCell : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor(unsafe) @objc final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+}
+public protocol ArticleAttachmentProtocol : AnyObject {
+  func itemSelected(atIndex index: Swift.Int)
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ArticleAttachmentCarouselView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: ZendeskSDKUIComponents.ArticleAttachmentProtocol?
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle)
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle, rendering: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewRendering)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ArticleAttachmentCarouselViewRendering) -> ZendeskSDKUIComponents.ArticleAttachmentCarouselViewRendering)
+  @_Concurrency.MainActor(unsafe) final public func updateStyle(style: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle)
+  public typealias Rendering = ZendeskSDKUIComponents.ArticleAttachmentCarouselViewRendering
+  public typealias Style = ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle
+}
+extension ZendeskSDKUIComponents.ArticleAttachmentCarouselView : UIKit.UICollectionViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc final public func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+}
+extension ZendeskSDKUIComponents.ArticleAttachmentCarouselView : UIKit.UICollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc final public func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, didSelectItemAt indexPath: Foundation.IndexPath)
+}
+extension ZendeskSDKUIComponents.ArticleAttachmentCarouselView : UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
 }
 public typealias UnreadBannerViewRenderingUpdate = (ZendeskSDKUIComponents.UnreadBannerViewRendering) -> ZendeskSDKUIComponents.UnreadBannerViewRendering
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class UnreadBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
@@ -202,6 +307,12 @@ public struct QuickReplyViewRendering {
   public let replyOptions: [Swift.String]
   public let style: ZendeskSDKUIComponents.QuickReplyViewStyle
   public init(replyOptions: [Swift.String] = [], style: ZendeskSDKUIComponents.QuickReplyViewStyle = .default)
+}
+public struct ArticleFeedbackBannerRendering {
+  public init(text: Swift.String = "")
+}
+extension ZendeskSDKUIComponents.ArticleFeedbackBannerRendering {
+  public static var `default`: ZendeskSDKUIComponents.ArticleFeedbackBannerRendering
 }
 public struct FormViewStyle {
   public let backgroundColor: UIKit.UIColor
@@ -281,6 +392,36 @@ extension ZendeskSDKUIComponents.MessageReceiptViewStyle {
   public typealias Style = ZendeskSDKUIComponents.MessageReceiptViewStyle
   @objc deinit
 }
+public protocol ArticleViewerProtocol : AnyObject {
+  func linkTapped(link: Swift.String)
+  func attachmentTapped(atIndex index: Swift.Int)
+  func feedbackButtonTapped(value: ZendeskSDKUIComponents.FeedbackRatingValue)
+  func backButtonPressed()
+  func closeButtonPressed()
+  func shareButtonPressed()
+  func retryButtonPressed()
+  func articleDidFinishLoading()
+}
+public enum FeedbackRatingValue {
+  case positive
+  case negative
+  public static func == (a: ZendeskSDKUIComponents.FeedbackRatingValue, b: ZendeskSDKUIComponents.FeedbackRatingValue) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ArticleViewerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: ZendeskSDKUIComponents.ArticleViewerProtocol?
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ArticleViewerStyle)
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ArticleViewerRendering) -> ZendeskSDKUIComponents.ArticleViewerRendering)
+  public typealias Rendering = ZendeskSDKUIComponents.ArticleViewerRendering
+  public typealias Style = ZendeskSDKUIComponents.ArticleViewerStyle
+}
+extension ZendeskSDKUIComponents.ArticleViewerView : ZendeskSDKUIComponents.ArticleAttachmentProtocol {
+  @_Concurrency.MainActor(unsafe) final public func itemSelected(atIndex index: Swift.Int)
+}
 public struct MessageReceiptViewRendering {
   public enum IconPosition {
     case right
@@ -342,6 +483,15 @@ public struct ConversationErrorViewRendering {
   public var text: Swift.String
   public var buttonText: Swift.String
   public init(text: Swift.String = "", buttonText: Swift.String = "")
+}
+extension ZendeskSDKUIComponents.ConversationErrorViewRendering {
+  public static var `default`: ZendeskSDKUIComponents.ConversationErrorViewRendering
+}
+public struct ArticleAttachmentItemRendering {
+  public let title: Swift.String
+  public let type: Swift.String
+  public let size: Swift.Int64
+  public init(title: Swift.String, type: Swift.String, size: Swift.Int64)
 }
 @objc @_Concurrency.MainActor(unsafe) final public class MessageComposerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) final public var actions: ZendeskSDKUIComponents.MessageComposerActions?
@@ -501,6 +651,9 @@ public struct MessageComposerStyle {
   public let borderColor: UIKit.UIColor
   public init(placeholderText: Swift.String, color: UIKit.UIColor, inputMaxLength: Swift.Int?, placeholderTextColor: UIKit.UIColor, disabledPlaceholderTextColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, disabledBackgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor)
 }
+public struct ArticleHeaderStyle {
+  public init(backgroundColor: UIKit.UIColor, onBackgroundColor: UIKit.UIColor)
+}
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ButtonBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.ButtonBannerStyle = .default)
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ButtonBannerStyle = .default, onButtonTap: (() -> Swift.Void)? = nil, onBannerTap: (() -> Swift.Void)? = nil)
@@ -533,6 +686,8 @@ extension ZendeskSDKUIComponents.FileMessageStyle {
   @_Concurrency.MainActor(unsafe) convenience public init(style: ZendeskSDKUIComponents.ButtonsViewStyle = .default)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ButtonsViewRendering) -> ZendeskSDKUIComponents.ButtonsViewRendering)
   @objc deinit
+}
+public struct ArticleViewerStyle {
 }
 extension UIKit.UITableView {
   @_Concurrency.MainActor(unsafe) public func dequeueReusableCell<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UITableViewCell
@@ -594,6 +749,9 @@ public struct ActionButtonRendering : Swift.Equatable, Swift.Hashable {
 }
 extension ZendeskSDKUIComponents.ActionButtonRendering {
   public static let `default`: ZendeskSDKUIComponents.ActionButtonRendering
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ArticleAttachmentCell : UIKit.UITableViewCell {
+  @objc deinit
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class InputFieldView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) final public var rendering: ZendeskSDKUIComponents.InputFieldRendering {
@@ -661,7 +819,7 @@ extension UIKit.UICollectionView {
 public struct FormViewStrings {
   public init(counter: Swift.String, send: Swift.String, next: Swift.String)
 }
-@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class AvatarView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@_hasMissingDesignatedInitializers @objc(ZDKAvatarView) @_Concurrency.MainActor(unsafe) final public class AvatarView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.AvatarViewStyle = .default)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.AvatarViewRendering) -> ZendeskSDKUIComponents.AvatarViewRendering)
   public typealias Rendering = ZendeskSDKUIComponents.AvatarViewRendering
@@ -847,6 +1005,12 @@ public struct MessageComposerActions {
   public let onSend: ((Swift.String) -> Swift.Void)?
   public init(onAttachmentTap: (() -> Swift.Void)?, onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?, onSend: ((Swift.String) -> Swift.Void)?)
 }
+public struct MessageFooterRendering {
+  public let messageFooterString: Swift.String
+  public let iconImage: UIKit.UIImage?
+  public init(icon: UIKit.UIImage? = nil, messageFooterString: Swift.String)
+  public static var empty: ZendeskSDKUIComponents.MessageFooterRendering
+}
 public struct ButtonBannerRendering {
   public init(icon: UIKit.UIImage? = nil, text: Swift.String)
   public init(icon: UIKit.UIImage? = nil, text: Foundation.NSAttributedString)
@@ -1014,6 +1178,13 @@ extension UIKit.UIFont {
     get
   }
 }
+public struct ArticleAttachmentCarouselViewRendering {
+  public let items: [ZendeskSDKUIComponents.ArticleAttachmentItemRendering]
+  public init(items: [ZendeskSDKUIComponents.ArticleAttachmentItemRendering])
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ArticleViewerTitleCell : UIKit.UITableViewCell {
+  @objc deinit
+}
 public enum ImageMessageViewState : Swift.Equatable, Swift.CaseIterable {
   case normal
   case loading
@@ -1068,6 +1239,13 @@ extension ZendeskSDKUIComponents.FormFieldResponseViewStyle {
   @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   public typealias Rendering = ZendeskSDKUIComponents.FormResponseViewRendering
   public typealias Style = ZendeskSDKUIComponents.FormResponseViewStyle
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class MessageFooterView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+  @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.MessageFooterStyle = .default)
+  @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageFooterRendering) -> ZendeskSDKUIComponents.MessageFooterRendering)
+  public typealias Rendering = ZendeskSDKUIComponents.MessageFooterRendering
+  public typealias Style = ZendeskSDKUIComponents.MessageFooterStyle
   @objc deinit
 }
 public struct AnimatableImage : Swift.Equatable {
@@ -1240,6 +1418,9 @@ public enum Resource {
     public static var formDropdownFieldHint: Swift.String {
       get
     }
+    public static var contextMenuButtonLabel: Swift.String {
+      get
+    }
     public static func dropdownViewAnnounce(_ options: Swift.Int) -> Swift.String
     public static var timeDivider: Swift.String {
       get
@@ -1250,6 +1431,8 @@ public enum Resource {
     public static var backButton: Swift.String {
       get
     }
+  }
+  public enum Strings {
   }
 }
 extension ZendeskSDKUIComponents.TextMessageRendering.MessageStatus : Swift.Equatable {}
@@ -1262,6 +1445,8 @@ extension ZendeskSDKUIComponents.ButtonBannerStyle.CornerStyle : Swift.Equatable
 extension ZendeskSDKUIComponents.ButtonBannerStyle.CornerStyle : Swift.Hashable {}
 extension ZendeskSDKUIComponents.ConnectionBannerLifetime : Swift.Hashable {}
 extension ZendeskSDKUIComponents.ConnectionBannerLifetime : Swift.RawRepresentable {}
+extension ZendeskSDKUIComponents.FeedbackRatingValue : Swift.Equatable {}
+extension ZendeskSDKUIComponents.FeedbackRatingValue : Swift.Hashable {}
 extension ZendeskSDKUIComponents.MessageReceiptViewRendering.IconPosition : Swift.Equatable {}
 extension ZendeskSDKUIComponents.MessageReceiptViewRendering.IconPosition : Swift.Hashable {}
 extension ZendeskSDKUIComponents.MessageReceiptViewRendering.ReceiptStatus : Swift.Equatable {}
