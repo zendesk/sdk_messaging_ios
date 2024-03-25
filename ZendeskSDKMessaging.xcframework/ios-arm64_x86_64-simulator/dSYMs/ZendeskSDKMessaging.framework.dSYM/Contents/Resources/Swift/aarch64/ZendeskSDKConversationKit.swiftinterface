@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreTelephony
@@ -17,12 +17,13 @@ import ZendeskSDKLogger
 import ZendeskSDKStorage
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 @objc(ZDKFormResponseMessageContent) final public class FormResponseMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
     @objc get
   }
   @objc final public let quotedMessageId: Swift.String
-  @objc final public var fields: [ZendeskSDKConversationKit.Field] {
+  @objc final public var fields: [any ZendeskSDKConversationKit.Field] {
     @objc get
   }
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
@@ -38,8 +39,8 @@ import _StringProcessing
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKLinkAction) final public class LinkAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -61,8 +62,8 @@ import _StringProcessing
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKConversation) final public class Conversation : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
@@ -90,8 +91,8 @@ import _StringProcessing
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKConversationType) public enum ConversationType : Swift.Int, Swift.Codable {
   case personal
@@ -128,8 +129,8 @@ public enum FormField : Swift.Equatable, Swift.Hashable {
   }
 }
 extension ZendeskSDKConversationKit.FormField : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 @objc(ZDKUnsupportedMessageContent) final public class UnsupportedMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
@@ -147,8 +148,8 @@ extension ZendeskSDKConversationKit.FormField : Swift.Codable {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKPostbackAction) final public class PostbackAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -169,8 +170,8 @@ extension ZendeskSDKConversationKit.FormField : Swift.Codable {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKCarouselMessageContent) final public class CarouselMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
@@ -189,8 +190,8 @@ extension ZendeskSDKConversationKit.FormField : Swift.Codable {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKRealtimeSettings) final public class RealtimeSettings : ObjectiveC.NSObject, Swift.Codable {
   @objc final public var baseURL: Swift.String
@@ -200,24 +201,32 @@ extension ZendeskSDKConversationKit.FormField : Swift.Codable {
   @objc final public var enabled: Swift.Bool
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol ConversationKitBuilder {
-  func build(with settingsParameters: ZendeskSDKConversationKit.SettingsParameters, callbackQueue: Dispatch.DispatchQueue) -> ZendeskSDKConversationKit.ConversationKit
+  func build(with settingsParameters: ZendeskSDKConversationKit.SettingsParameters, callbackQueue: Dispatch.DispatchQueue) -> any ZendeskSDKConversationKit.ConversationKit
 }
 @objc(ZDKConversationKitBuilder) public protocol ConversationKitBuilderObjC {
   @objc @available(swift, obsoleted: 1.0)
-  func build() -> ZendeskSDKConversationKit.ConversationKitObjC
+  func build() -> any ZendeskSDKConversationKit.ConversationKitObjC
 }
 @_inheritsConvenienceInitializers @objc(ZDKDefaultConversationKitBuilder) final public class DefaultConversationKitBuilder : ObjectiveC.NSObject, ZendeskSDKConversationKit.ConversationKitBuilder, ZendeskSDKConversationKit.ConversationKitBuilderObjC {
-  final public func build(with settingsParameters: ZendeskSDKConversationKit.SettingsParameters, callbackQueue: Dispatch.DispatchQueue = .main) -> ZendeskSDKConversationKit.ConversationKit
+  final public func build(with settingsParameters: ZendeskSDKConversationKit.SettingsParameters, callbackQueue: Dispatch.DispatchQueue = .main) -> any ZendeskSDKConversationKit.ConversationKit
   @objc override dynamic public init()
   @objc deinit
 }
 extension ZendeskSDKConversationKit.DefaultConversationKitBuilder {
   @available(swift, obsoleted: 1.0)
-  @objc final public func build(with settings: ZendeskSDKConversationKit.ConversationKitSettings, config: ZendeskSDKConversationKit.Config, featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager, callbackQueue: Dispatch.DispatchQueue = .main) -> ZendeskSDKConversationKit.ConversationKitObjC
+  @objc final public func build(with settings: ZendeskSDKConversationKit.ConversationKitSettings, config: ZendeskSDKConversationKit.Config, featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager, callbackQueue: Dispatch.DispatchQueue = .main) -> any ZendeskSDKConversationKit.ConversationKitObjC
+}
+public enum Subrole : Swift.Int, Swift.Codable {
+  public typealias RawValue = Swift.String
+  case AI
+  public var rawValue: ZendeskSDKConversationKit.Subrole.RawValue {
+    get
+  }
+  public init?(rawValue: ZendeskSDKConversationKit.Subrole.RawValue)
 }
 @_hasMissingDesignatedInitializers @objc(ZDKLocationRequestAction) final public class LocationRequestAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -237,8 +246,8 @@ extension ZendeskSDKConversationKit.DefaultConversationKitBuilder {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKProactiveMessageStatus) public enum ProactiveMessageStatus : Swift.Int {
   case notificationWillDisplay
@@ -256,8 +265,8 @@ extension ZendeskSDKConversationKit.DefaultConversationKitBuilder {
   @objc final public let hasMore: Swift.Bool
   @objc public init(conversations: [ZendeskSDKConversationKit.Conversation], hasMore: Swift.Bool = false)
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShared {
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
@@ -426,27 +435,27 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc @available(swift, obsoleted: 1.0)
   func addEventObserver(_ observer: Swift.AnyObject, closure: ((ZendeskSDKConversationKit.ZDKConversationKitEvent, Swift.AnyObject?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
+  func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?, completion: ((ZendeskSDKConversationKit.User?, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func getConversation(with identifier: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
+  func getConversation(with identifier: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func getConversations(offset: Swift.Int, completion: ((ZendeskSDKConversationKit.ConversationList, Swift.Error?) -> Swift.Void)?)
+  func getConversations(offset: Swift.Int, completion: ((ZendeskSDKConversationKit.ConversationList, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
+  func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Message?, Swift.Error?) -> Swift.Void)?)
+  func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Message?, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, completion: ((Swift.Error?) -> Swift.Void)?)
+  func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, completion: (((any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func loginUser(with jwt: Swift.String, completion: ((ZendeskSDKConversationKit.User?, Swift.Error?) -> Swift.Void)?)
+  func loginUser(with jwt: Swift.String, completion: ((ZendeskSDKConversationKit.User?, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func logoutUser(completion: ((Swift.Error?) -> Swift.Void)?)
+  func logoutUser(completion: (((any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func createConversation(proactiveMessageId: Swift.String?, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
+  func createConversation(proactiveMessageId: Swift.String?, completion: ((ZendeskSDKConversationKit.Conversation?, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func getVisitType(completion: ((ZendeskSDKConversationKit.VisitType, Swift.Error?) -> Swift.Void)?)
+  func getVisitType(completion: ((ZendeskSDKConversationKit.VisitType, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, Swift.Error?) -> Swift.Void)?)
+  func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, (any Swift.Error)?) -> Swift.Void)?)
 }
 public typealias MessageActionTitle = Swift.String
 @objc(ZDKMessageContent) public protocol Content : ObjectiveC.NSObjectProtocol {
@@ -468,8 +477,8 @@ public enum MessageContent : Swift.Equatable, Swift.Hashable {
   }
 }
 extension ZendeskSDKConversationKit.MessageContent : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomNSError, Swift.Equatable {
   case mappingError
@@ -502,7 +511,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc final public var itemDescription: Swift.String
   @objc final public var mediaURL: Swift.String
   @objc final public var mediaType: Swift.String
-  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction] {
+  @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction] {
     @objc get
   }
   @objc final public let size: ZendeskSDKConversationKit.ActionItemSize
@@ -516,8 +525,8 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKMessageItemSize) public enum ActionItemSize : Swift.Int, Swift.Codable {
   case large
@@ -556,8 +565,8 @@ public struct SettingsParameters : Swift.Equatable {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.User {
   @objc final public var isLatestConversationActive: Swift.Bool {
@@ -571,7 +580,7 @@ extension ZendeskSDKConversationKit.User {
   @objc final public let mediaURL: Swift.String
   @objc final public let text: Swift.String
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
-  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction]? {
+  @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     @objc get
   }
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
@@ -586,8 +595,8 @@ extension ZendeskSDKConversationKit.User {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKOption) final public class Option : ObjectiveC.NSObject, Swift.Codable {
   final public let label: Swift.String
@@ -598,8 +607,8 @@ extension ZendeskSDKConversationKit.User {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKParticipant) final public class Participant : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
@@ -611,8 +620,8 @@ extension ZendeskSDKConversationKit.User {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKField) public protocol Field : ObjectiveC.NSObjectProtocol {
   @objc var id: Swift.String { get }
@@ -714,12 +723,12 @@ public enum ConversationKitEvent {
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKPushTokenEvent : ObjectiveC.NSObject {
   @objc final public let token: Swift.String
-  @objc final public let error: Swift.Error?
+  @objc final public let error: (any Swift.Error)?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKLoginResult : ObjectiveC.NSObject {
   @objc final public let user: ZendeskSDKConversationKit.User?
-  @objc final public let error: Swift.Error?
+  @objc final public let error: (any Swift.Error)?
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageStatusChanged : ObjectiveC.NSObject {
@@ -763,8 +772,8 @@ public enum ConversationKitEvent {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.SelectFormField {
   @available(swift, obsoleted: 1.0)
@@ -777,11 +786,12 @@ extension ZendeskSDKConversationKit.SelectFormField {
   @objc final public let type: ZendeskSDKConversationKit.AuthorType
   @objc final public let displayName: Swift.String?
   @objc final public var avatarURL: Swift.String?
-  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.AuthorType, displayName: Swift.String? = nil, avatarURL: Swift.String? = nil)
+  @objc final public var subroles: [Swift.String]?
+  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.AuthorType, displayName: Swift.String? = nil, avatarURL: Swift.String? = nil, subroles: [Swift.String]? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.Author {
   @objc override final public var description: Swift.String {
@@ -802,8 +812,8 @@ extension ZendeskSDKConversationKit.Author {
   public init(id: Swift.String = UUID().uuidString, type: ZendeskSDKConversationKit.ActivityType, authorType: ZendeskSDKConversationKit.AuthorType, name: Swift.String?, avatarURL: Swift.String?, appUserId: Swift.String? = nil, lastRead: Foundation.Date? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKConnectionStatus) public enum ConnectionStatus : Swift.Int {
   case disconnected
@@ -826,7 +836,7 @@ extension ZendeskSDKConversationKit.Author {
   @objc final public let text: Swift.String
   @objc final public let payload: Swift.String?
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
-  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction]? {
+  @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     @objc get
   }
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
@@ -841,8 +851,8 @@ extension ZendeskSDKConversationKit.Author {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKWebViewAction) final public class WebViewAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -865,8 +875,8 @@ extension ZendeskSDKConversationKit.Author {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKConversationKitSettings) final public class ConversationKitSettings : ObjectiveC.NSObject {
   @objc(ZDKRegion) public enum Region : Swift.Int {
@@ -904,7 +914,7 @@ extension ZendeskSDKConversationKit.ConversationKitSettings {
 @objc(ZDKMessage) final public class Message : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
   final public let content: ZendeskSDKConversationKit.MessageContent
-  @objc final public var messageContent: ZendeskSDKConversationKit.Content {
+  @objc final public var messageContent: any ZendeskSDKConversationKit.Content {
     @objc get
   }
   @objc final public var messageType: ZendeskSDKConversationKit.MessageType {
@@ -922,7 +932,7 @@ extension ZendeskSDKConversationKit.ConversationKitSettings {
   final public var actions: [ZendeskSDKConversationKit.MessageActionModel]? {
     get
   }
-  @objc final public var messageActions: [ZendeskSDKConversationKit.MessageAction]? {
+  @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     @objc get
   }
   public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(id: UUID().uuidString, type: .user), sourceId: Swift.String? = nil, localId: Swift.String? = nil)
@@ -936,8 +946,8 @@ extension ZendeskSDKConversationKit.ConversationKitSettings {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.Message {
   @objc final public func isAuthoredBy(_ participant: ZendeskSDKConversationKit.Participant?) -> Swift.Bool
@@ -947,7 +957,7 @@ extension ZendeskSDKConversationKit.Message {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
     @objc get
   }
-  @objc final public var fields: [ZendeskSDKConversationKit.Field] {
+  @objc final public var fields: [any ZendeskSDKConversationKit.Field] {
     @objc get
   }
   @objc final public let blockChatInput: Swift.Bool
@@ -964,8 +974,8 @@ extension ZendeskSDKConversationKit.Message {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public typealias PostbackActionID = Swift.String
 @objc(ZDKConversationStatus) public enum ConversationStatus : Swift.Int, Swift.Codable {
@@ -1016,11 +1026,11 @@ public enum MessageActionModel : Swift.Equatable, Swift.Hashable {
   }
 }
 extension ZendeskSDKConversationKit.MessageActionModel : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 extension ZendeskSDKConversationKit.MessageActionModel {
-  public var value: ZendeskSDKConversationKit.MessageAction {
+  public var value: any ZendeskSDKConversationKit.MessageAction {
     get
   }
 }
@@ -1044,8 +1054,8 @@ extension ZendeskSDKConversationKit.MessageActionModel {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKEmailFormField) final public class EmailFormField : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Field {
   @objc final public var type: ZendeskSDKConversationKit.FieldType {
@@ -1068,8 +1078,8 @@ extension ZendeskSDKConversationKit.MessageActionModel {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKFileMessageContent) final public class FileMessageContent : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Content {
   @objc final public var type: ZendeskSDKConversationKit.MessageType {
@@ -1092,8 +1102,8 @@ extension ZendeskSDKConversationKit.MessageActionModel {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKMessageStatus) public enum MessageStatus : Swift.Int, Swift.Codable {
   case pending
@@ -1130,8 +1140,8 @@ extension ZendeskSDKConversationKit.MessageActionModel {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKBuyAction) final public class BuyAction : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.MessageAction {
   @objc final public let id: Swift.String
@@ -1156,8 +1166,8 @@ extension ZendeskSDKConversationKit.MessageActionModel {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKMessageActionBuyState) public enum MessageActionBuyState : Swift.Int, Swift.Codable {
   case offered
@@ -1191,8 +1201,8 @@ extension ZendeskSDKConversationKit.MessageActionModel {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.TextFormField {
   @available(swift, obsoleted: 1.0)
@@ -1212,8 +1222,8 @@ extension ZendeskSDKConversationKit.TextFormField {
     @objc get
   }
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKAuthenticationType) public enum AuthenticationType : Swift.Int, Swift.Codable {
   case sessionToken
@@ -1228,6 +1238,9 @@ extension ZendeskSDKConversationKit.TextFormField {
 extension ZendeskSDKConversationKit.ConversationType : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ConversationType : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ConversationType : Swift.RawRepresentable {}
+extension ZendeskSDKConversationKit.Subrole : Swift.Equatable {}
+extension ZendeskSDKConversationKit.Subrole : Swift.Hashable {}
+extension ZendeskSDKConversationKit.Subrole : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ProactiveMessageStatus : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ProactiveMessageStatus : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ProactiveMessageStatus : Swift.RawRepresentable {}

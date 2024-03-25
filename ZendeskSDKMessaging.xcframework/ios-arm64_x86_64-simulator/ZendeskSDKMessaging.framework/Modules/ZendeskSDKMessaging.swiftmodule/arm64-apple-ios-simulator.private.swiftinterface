@@ -1,28 +1,33 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKMessaging
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CommonCrypto
 import CoreImage
 import CoreServices
+import DeveloperToolsSupport
 import Foundation
 import MobileCoreServices
 import Photos
 import PhotosUI
 import Swift
+import SwiftUI
 import UIKit.UIImage
 import UIKit
 import UniformTypeIdentifiers
 import UserNotifications
+import WebKit
 import ZendeskSDK
 import ZendeskSDKConversationKit
 import ZendeskSDKCoreUtilities
+import ZendeskSDKGuideKit
 import ZendeskSDKLogger
 @_exported import ZendeskSDKMessaging
 import ZendeskSDKStorage
 import ZendeskSDKUIComponents
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 import os
 extension UIKit.UIImageView {
   @_Concurrency.MainActor(unsafe) @objc dynamic open func nuke_display(image: UIKit.UIImage?)

@@ -50,6 +50,7 @@
 "zma_form_next_button" = "ถัดไป";
 "zma_form_send_button" = "ส่ง";
 "zma_form_submission_error" = "ไม่สามารถส่งรายละเอียดได้ ลองอีกครั้ง";
+"zma_generated_by_ai" = "สร้างโดย AI";
 "zma_label_add_attachments" = "เพิ่มไฟล์แนบ";
 "zma_label_send_message" = "ส่งข้อความ";
 "zma_message_action_option_not_supported_label" = "ตัวเลือกที่ไม่รองรับ";

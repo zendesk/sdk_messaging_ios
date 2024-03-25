@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKCoreUtilities
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import Foundation
@@ -7,6 +7,7 @@ import Swift
 import UIKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 @objc(ZDKFeatureFlagManager) final public class FeatureFlagManager : ObjectiveC.NSObject {
   final public let hipaaAttachmentFlag: Swift.Bool
   final public let isMultiConvoEnabled: Swift.Bool
@@ -32,7 +33,7 @@ extension ZendeskSDKCoreUtilities.Observable {
 }
 public struct JWT : Swift.Decodable {
   public let externalId: Swift.String
-  public init(from decoder: Swift.Decoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public struct JWTDecoder {
   public static func decode<T>(jwt: Swift.String) -> T? where T : Swift.Decodable

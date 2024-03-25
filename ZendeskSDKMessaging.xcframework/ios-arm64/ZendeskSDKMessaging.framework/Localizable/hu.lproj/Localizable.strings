@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Tovább";
 "zma_form_send_button" = "Küldés";
 "zma_form_submission_error" = "A részletek elküldése nem sikerült. Próbálkozzon újra.";
+"zma_generated_by_ai" = "Mesterséges intelligencia által generált";
 "zma_label_add_attachments" = "Csatolmányok hozzáadása";
 "zma_label_send_message" = "Üzenet küldése";
 "zma_message_action_option_not_supported_label" = "Nem támogatott beállítás";

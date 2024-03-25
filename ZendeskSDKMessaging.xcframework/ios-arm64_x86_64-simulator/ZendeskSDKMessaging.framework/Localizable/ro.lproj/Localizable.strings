@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Înainte";
 "zma_form_send_button" = "Trimitere";
 "zma_form_submission_error" = "Detaliile nu au putut fi trimise. Încercați din nou.";
+"zma_generated_by_ai" = "Generat de IA";
 "zma_label_add_attachments" = "Adăugare fișiere atașate";
 "zma_label_send_message" = "Trimitere mesaj";
 "zma_message_action_option_not_supported_label" = "Opțiunea nu este acceptată";

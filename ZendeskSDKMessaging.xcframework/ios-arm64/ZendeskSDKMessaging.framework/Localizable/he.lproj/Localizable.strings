@@ -50,6 +50,7 @@
 "zma_form_next_button" = "הבא";
 "zma_form_send_button" = "שלח";
 "zma_form_submission_error" = "הפרטים לא נשלחו. נסה שוב.";
+"zma_generated_by_ai" = "נוצר על-ידי בינה מלאכותית";
 "zma_label_add_attachments" = "צירוף קבצים";
 "zma_label_send_message" = "שליחת ההודעה";
 "zma_message_action_option_not_supported_label" = "האפשרות לא נתמכת";

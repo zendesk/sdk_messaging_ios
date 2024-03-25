@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Далее";
 "zma_form_send_button" = "Отправить";
 "zma_form_submission_error" = "Не удалось отправить сведения. Повторите попытку.";
+"zma_generated_by_ai" = "Создано с помощью ИИ";
 "zma_label_add_attachments" = "Прикрепить файлы";
 "zma_label_send_message" = "Отправить сообщение";
 "zma_message_action_option_not_supported_label" = "Вариант не поддерживается";

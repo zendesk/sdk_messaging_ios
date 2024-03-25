@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Næste";
 "zma_form_send_button" = "Send";
 "zma_form_submission_error" = "Detaljerne kunne ikke sendes. Prøv igen.";
+"zma_generated_by_ai" = "Genereret af AI";
 "zma_label_add_attachments" = "Tilføj vedhæftede filer";
 "zma_label_send_message" = "Send besked";
 "zma_message_action_option_not_supported_label" = "Valg understøttes ikke";

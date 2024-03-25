@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Berikutnya";
 "zma_form_send_button" = "Kirim";
 "zma_form_submission_error" = "Perincian tidak dapat dikirim. Coba lagi.";
+"zma_generated_by_ai" = "Dibuat oleh AI";
 "zma_label_add_attachments" = "Tambah lampiran";
 "zma_label_send_message" = "Kirim pesan";
 "zma_message_action_option_not_supported_label" = "Opsi tidak didukung";

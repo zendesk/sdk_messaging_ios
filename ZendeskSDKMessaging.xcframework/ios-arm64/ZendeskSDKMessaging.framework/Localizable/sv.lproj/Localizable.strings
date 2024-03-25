@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Nästa";
 "zma_form_send_button" = "Skicka";
 "zma_form_submission_error" = "Det gick inte att skicka uppgifterna. Försök igen.";
+"zma_generated_by_ai" = "Genererad av AI";
 "zma_label_add_attachments" = "Lägg till bilagor";
 "zma_label_send_message" = "Skicka meddelande";
 "zma_message_action_option_not_supported_label" = "Alternativet stöds inte";

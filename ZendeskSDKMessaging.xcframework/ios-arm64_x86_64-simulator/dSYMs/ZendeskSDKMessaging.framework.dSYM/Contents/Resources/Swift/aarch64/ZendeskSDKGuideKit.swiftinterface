@@ -1,0 +1,114 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKGuideKit
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+import Swift
+import UIKit
+import ZendeskSDKCoreUtilities
+import ZendeskSDKHTTPClient
+import ZendeskSDKStorage
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@objc(ZDKGuideKitSettings) final public class GuideKitSettings : ObjectiveC.NSObject {
+  @objc final public let baseURL: Swift.String
+  @objc public init(baseURL: Swift.String)
+  @objc deinit
+}
+public protocol GuideKit : ZendeskSDKGuideKit.GuideKitShared {
+  func getArticle(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale, result: @escaping ((Swift.Result<ZendeskSDKGuideKit.GuideArticle, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void))
+  func sendArticleStatsView(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale, result: ((Swift.Result<Swift.Void, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void)?)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, *)
+  func getArticle(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws -> ZendeskSDKGuideKit.GuideArticle
+  #endif
+  func getGuideArticleLink(for url: Swift.String) -> Swift.Result<ZendeskSDKGuideKit.GuideArticleUrl, ZendeskSDKGuideKit.GuideKitError>
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, *)
+  func sendArticleStatsView(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws
+  #endif
+}
+extension ZendeskSDKGuideKit.GuideKit {
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, *)
+  public func getArticle(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws -> ZendeskSDKGuideKit.GuideArticle
+  #endif
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, *)
+  public func sendArticleStatsView(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws
+  #endif
+}
+@objc public protocol GuideKitShared {
+  @objc func isValidGuideUrl(url: Swift.String) -> Swift.Bool
+}
+public protocol GuideKitBuilder {
+  func build(with settings: ZendeskSDKGuideKit.GuideKitSettings) -> any ZendeskSDKGuideKit.GuideKit
+}
+@_inheritsConvenienceInitializers @objc(ZDKDefaultGuideKitBuilder) final public class DefaultGuideKitBuilder : ObjectiveC.NSObject, ZendeskSDKGuideKit.GuideKitBuilder {
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension ZendeskSDKGuideKit.DefaultGuideKitBuilder {
+  final public func build(with settings: ZendeskSDKGuideKit.GuideKitSettings) -> any ZendeskSDKGuideKit.GuideKit
+}
+@objc(ZDKGuideArticle) final public class GuideArticle : ObjectiveC.NSObject {
+  @objc final public let id: Swift.UInt64
+  @objc final public let locale: Swift.String?
+  @objc final public let url: Swift.String
+  @objc final public let title: Swift.String?
+  @objc final public let body: Swift.String
+  @objc final public let attachments: [ZendeskSDKGuideKit.GuideArticleAttachment]
+  @objc public init(id: Swift.UInt64, locale: Swift.String?, url: Swift.String, title: Swift.String?, body: Swift.String, attachments: [ZendeskSDKGuideKit.GuideArticleAttachment])
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(ZDKGuideArticleUrl) final public class GuideArticleUrl : ObjectiveC.NSObject {
+  @objc final public let url: Swift.String
+  @objc final public let articleId: Swift.UInt64
+  @objc final public let locale: ZendeskSDKGuideKit.GuideLocale
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@objc(ZDKGuideArticleVote) public enum GuideArticleVote : Swift.Int, Swift.Codable, Swift.Equatable {
+  case upVoted
+  case downVoted
+  case notVoted
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc(ZDKGuideLocale) final public class GuideLocale : ObjectiveC.NSObject {
+  @objc public init(locale: Swift.String)
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+@objc(ZDKGuideArticleAttachment) final public class GuideArticleAttachment : ObjectiveC.NSObject {
+  @objc final public let id: Swift.UInt64
+  @objc final public let title: Swift.String
+  @objc final public let type: Swift.String
+  final public let size: Swift.Int64?
+  @objc final public let url: Swift.String
+  public init(id: Swift.UInt64, title: Swift.String, type: Swift.String, size: Swift.Int64?, url: Swift.String)
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+}
+public enum GuideKitError : Foundation.LocalizedError, Foundation.CustomNSError, Swift.Equatable {
+  case failToFetchArticle
+  case restricted
+  case failToSendStatsView
+  case invalidGuideArticleUrl
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: ZendeskSDKGuideKit.GuideKitError, b: ZendeskSDKGuideKit.GuideKitError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension ZendeskSDKGuideKit.GuideArticleVote : Swift.Hashable {}
+extension ZendeskSDKGuideKit.GuideArticleVote : Swift.RawRepresentable {}
+extension ZendeskSDKGuideKit.GuideKitError : Swift.Hashable {}

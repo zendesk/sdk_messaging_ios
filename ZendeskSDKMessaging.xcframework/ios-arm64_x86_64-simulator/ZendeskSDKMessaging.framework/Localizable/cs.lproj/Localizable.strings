@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Další";
 "zma_form_send_button" = "Odeslat";
 "zma_form_submission_error" = "Detaily se nepovedlo odeslat. Zkuste to znovu.";
+"zma_generated_by_ai" = "Generováno umělou inteligencí";
 "zma_label_add_attachments" = "Přidat přílohy";
 "zma_label_send_message" = "Poslat zprávu";
 "zma_message_action_option_not_supported_label" = "Možnost není podporována";

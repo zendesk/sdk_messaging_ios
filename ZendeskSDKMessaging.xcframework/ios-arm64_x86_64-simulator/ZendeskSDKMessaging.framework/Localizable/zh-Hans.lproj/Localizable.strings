@@ -50,6 +50,7 @@
 "zma_form_next_button" = "下一页";
 "zma_form_send_button" = "发送";
 "zma_form_submission_error" = "无法发送详情。再试一次。";
+"zma_generated_by_ai" = "由人工智能生成";
 "zma_label_add_attachments" = "添加附件";
 "zma_label_send_message" = "发送消息";
 "zma_message_action_option_not_supported_label" = "不支持的选项";

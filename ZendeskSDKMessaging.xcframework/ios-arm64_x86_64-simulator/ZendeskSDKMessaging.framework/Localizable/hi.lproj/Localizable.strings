@@ -50,6 +50,7 @@
 "zma_form_next_button" = "अगला";
 "zma_form_send_button" = "भेजें";
 "zma_form_submission_error" = "विवरण नहीं भेजा जा सका. फिर से कोशिश करें.";
+"zma_generated_by_ai" = "AI द्वारा उत्पन्न किया गया";
 "zma_label_add_attachments" = "अनुलग्नक जोड़ें";
 "zma_label_send_message" = "संदेश भेजें";
 "zma_message_action_option_not_supported_label" = "विकल्प समर्थित नहीं है";

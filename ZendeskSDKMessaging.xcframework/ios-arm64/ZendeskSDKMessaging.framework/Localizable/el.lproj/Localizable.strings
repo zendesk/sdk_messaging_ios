@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Επόμενο";
 "zma_form_send_button" = "Αποστολή";
 "zma_form_submission_error" = "Δεν ήταν δυνατή η αποστολή λεπτομερειών. Προσπαθήστε ξανά.";
+"zma_generated_by_ai" = "Δημιουργήθηκε από την Τεχνητή Νοημοσύνη";
 "zma_label_add_attachments" = "Προσθήκη συνημμένων";
 "zma_label_send_message" = "Αποστολή μηνύματος";
 "zma_message_action_option_not_supported_label" = "Η επιλογή δεν υποστηρίζεται";

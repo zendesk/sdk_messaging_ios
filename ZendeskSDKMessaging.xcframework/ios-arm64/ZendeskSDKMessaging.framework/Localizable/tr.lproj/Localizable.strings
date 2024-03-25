@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Sonraki";
 "zma_form_send_button" = "Gönder";
 "zma_form_submission_error" = "Ayrıntılar gönderilemedi. Yeniden deneyin.";
+"zma_generated_by_ai" = "Yapay zeka tarafından oluşturuldu";
 "zma_label_add_attachments" = "Ek iliştir";
 "zma_label_send_message" = "Mesaj gönder";
 "zma_message_action_option_not_supported_label" = "Seçenek desteklenmiyor";

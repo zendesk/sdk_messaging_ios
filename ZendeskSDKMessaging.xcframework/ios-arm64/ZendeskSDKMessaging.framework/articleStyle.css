@@ -1,0 +1,130 @@
+/*=========================================
+Reset
+=========================================== */
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+    display:block
+}
+body{
+    line-height:1
+}
+blockquote,q{
+    quotes:none
+}
+blockquote:before,blockquote:after,q:before,q:after{
+    content:none
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+    width:100%;
+}
+*, *:before, *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.group:before,
+.group:after { content: ""; display: table;}
+.group:after { clear: both;}
+.group { zoom: 1;}
+.hidden { display: none; }
+
+/*=========================================
+Styling
+=========================================== */
+
+body {
+    font: -apple-system-body;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    margin: 16px;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: %@;
+    background-color: %@;
+  }
+  a {
+      color: %@;
+  }
+  a:link {-webkit-tap-highlight-color: %@;}
+  h1, h2, h3, h4, h5, h6{
+      color: %@;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: %@;
+    background-color: %@;
+  }
+  a {
+      color: %@;
+  }
+  a:link {-webkit-tap-highlight-color: %@;}
+  h1, h2, h3, h4, h5, h6{
+      color: %@;
+  }
+}
+
+a {
+    text-decoration: underline;
+}
+
+img {
+    max-width:100%%;
+    height: auto;
+    display: block;
+}
+
+th, td {
+  border: 1px solid;
+}
+
+iframe {
+    max-width:100%%;
+    height: auto;
+    display: block;
+}
+
+strong{
+    font-weight:bold;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight:bold;
+    margin-bottom: 20px;
+    line-height: 1.25em;
+}
+
+h1 {font-size:1.647em;}
+h2 {font-size:1.44em;}
+h3 {font-size:1.2em;}
+h4 {font-size:1em;}
+h5 {font-size:.833em;}
+h6 {font-size:.833em;}
+
+span{
+    font-size: 1em !important;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+li{
+    margin-bottom: 8px;
+}
+
+ul, ol{
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+em{font-style: italic;}

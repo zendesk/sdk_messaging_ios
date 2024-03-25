@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Volgende";
 "zma_form_send_button" = "Verzenden";
 "zma_form_submission_error" = "Kan details niet verzenden. Probeer het opnieuw.";
+"zma_generated_by_ai" = "Gegenereerd door AI";
 "zma_label_add_attachments" = "Bijlagen toevoegen";
 "zma_label_send_message" = "Bericht verzenden";
 "zma_message_action_option_not_supported_label" = "Optie niet ondersteund";

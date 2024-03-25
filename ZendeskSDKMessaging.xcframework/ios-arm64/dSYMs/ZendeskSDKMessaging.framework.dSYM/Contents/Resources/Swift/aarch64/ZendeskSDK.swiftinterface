@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import CoreTelephony
@@ -14,10 +14,11 @@ import ZendeskSDKLogger
 import ZendeskSDKStorage
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 @available(iOS 13.0.0, *)
 extension ZendeskSDK.Zendesk {
   #if compiler(>=5.3) && $AsyncAwait
-  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory? = nil) async throws -> ZendeskSDK.Zendesk
+  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil) async throws -> ZendeskSDK.Zendesk
   #endif
   #if compiler(>=5.3) && $AsyncAwait
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView) async throws
@@ -42,7 +43,7 @@ public enum InitializationPhase {
 }
 public enum ZendeskEvent {
   case unreadMessageCountChanged(currentUnreadCount: Swift.Int)
-  case authenticationFailed(error: Swift.Error)
+  case authenticationFailed(error: any Swift.Error)
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
   case unreadMessageCountChanged
@@ -61,7 +62,7 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
 }
 @_hasMissingDesignatedInitializers @objc(ZDKMessagingFactoryParameters) final public class MessagingFactoryParameters : ObjectiveC.NSObject {
   final public let messagingSettings: ZendeskSDK.MessagingSettings
-  final public let conversationKit: ZendeskSDKConversationKit.ConversationKit
+  final public let conversationKit: any ZendeskSDKConversationKit.ConversationKit
   final public let theme: ZendeskSDK.ColorTheme
   final public let dispatchEvent: ZendeskSDK.DispatchEvent
   @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming Zendesk version. This property is now created as part of the following method:\n`Zendesk.initialize(withChannelKey:messagingFactory:completionHandler:)`\nThe values of this property will be ignored.")
@@ -116,6 +117,7 @@ extension ZendeskSDK.MessagingDelegate {
 @_hasMissingDesignatedInitializers @objc(ZDKMessagingSettings) final public class MessagingSettings : ObjectiveC.NSObject {
   final public let integrationId: Swift.String
   final public let enabled: Swift.Bool
+  final public let settingsURL: Swift.String
   final public let brand: Swift.String?
   final public let title: Swift.String
   final public let accountDescription: Swift.String?
@@ -131,6 +133,11 @@ extension ZendeskSDK.MessagingDelegate {
   }
   @objc deinit
 }
+extension ZendeskSDK.MessagingSettings {
+  final public var baseURL: Swift.String {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc final public class Zendesk : ObjectiveC.NSObject {
   @objc final public var messaging: ZendeskSDK.Messaging? {
     @objc get
@@ -141,8 +148,8 @@ extension ZendeskSDK.MessagingDelegate {
   public static var initializationPhase: ZendeskSDK.InitializationPhase {
     get
   }
-  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, Swift.Error>) -> Swift.Void)
-  final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: @escaping (Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)
+  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, any Swift.Error>) -> Swift.Void)
+  final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
   @available(*, deprecated, message: "Use invalidate(_ :) instead. This function will be removed in a future Zendesk version.")
   @available(swift, obsoleted: 1.0)
   @objc public static func invalidate()
@@ -154,20 +161,20 @@ extension ZendeskSDK.MessagingDelegate {
   @objc deinit
 }
 extension ZendeskSDK.Zendesk {
-  final public func loginUser(with jwt: Swift.String, completionHandler: ((Swift.Result<ZendeskSDK.ZendeskUser, Swift.Error>) -> Swift.Void)? = nil)
-  final public func logoutUser(completionHandler: ((Swift.Result<Swift.Void, Swift.Error>) -> Swift.Void)? = nil)
+  final public func loginUser(with jwt: Swift.String, completionHandler: ((Swift.Result<ZendeskSDK.ZendeskUser, any Swift.Error>) -> Swift.Void)? = nil)
+  final public func logoutUser(completionHandler: ((Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)? = nil)
   @available(swift, obsoleted: 1.0)
-  @objc final public func loginUser(with jwt: Swift.String, completionHandler: ((ZendeskSDK.ZendeskUser?, Swift.Error?) -> Swift.Void)? = nil)
+  @objc final public func loginUser(with jwt: Swift.String, completionHandler: ((ZendeskSDK.ZendeskUser?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @available(swift, obsoleted: 1.0)
-  @objc final public func logoutUser(completionHandler: ((Swift.Error?) -> Swift.Void)? = nil)
+  @objc final public func logoutUser(completionHandler: (((any Swift.Error)?) -> Swift.Void)? = nil)
 }
 extension ZendeskSDK.Zendesk {
   @available(swift, obsoleted: 1.0)
-  @objc public static func initialize(channelKey: Swift.String, messagingFactory: ZendeskSDK.MessagingFactory?, completionHandler: ((ZendeskSDK.Zendesk?, Swift.Error?) -> Swift.Void)?)
+  @objc public static func initialize(channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)?, completionHandler: ((ZendeskSDK.Zendesk?, (any Swift.Error)?) -> Swift.Void)?)
   @available(swift, obsoleted: 1.0)
   @objc final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: ((ZendeskSDK.ZDKZendeskEvent, Swift.AnyObject?) -> Swift.Void)?)
   @available(swift, obsoleted: 1.0)
-  @objc final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: ((Swift.Error?) -> Swift.Void)?)
+  @objc final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: (((any Swift.Error)?) -> Swift.Void)?)
 }
 extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   public static var logNamespace: Swift.String {
@@ -181,8 +188,8 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   @objc final public let id: Swift.String
   @objc final public let externalId: Swift.String
   @objc deinit
-  final public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @_hasMissingDesignatedInitializers @objc(ZDKDispatchEvent) final public class DispatchEvent : ObjectiveC.NSObject {
   final public let event: (ZendeskSDK.ZendeskEvent) -> Swift.Void
@@ -195,7 +202,7 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   @objc open func setConversationTags(_ tags: [Swift.String])
   @objc open func clearConversationFields()
   @objc open func clearConversationTags()
-  @objc weak public static var delegate: ZendeskSDK.MessagingDelegate?
+  @objc weak public static var delegate: (any ZendeskSDK.MessagingDelegate)?
   @objc override dynamic public init()
   @objc deinit
 }

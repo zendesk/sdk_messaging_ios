@@ -50,6 +50,7 @@
 "zma_form_next_button" = "下一個";
 "zma_form_send_button" = "傳送";
 "zma_form_submission_error" = "不能傳送詳情。再試一次。";
+"zma_generated_by_ai" = "由人工智慧產生";
 "zma_label_add_attachments" = "新增附件";
 "zma_label_send_message" = "傳送訊息";
 "zma_message_action_option_not_supported_label" = "選項不支援";

@@ -50,6 +50,7 @@
 "zma_form_next_button" = "次へ";
 "zma_form_send_button" = "送信";
 "zma_form_submission_error" = "詳細を送信することはできません。もう一度やり直してください。";
+"zma_generated_by_ai" = "AIにより生成されました";
 "zma_label_add_attachments" = "ファイルを添付";
 "zma_label_send_message" = "メッセージを送信";
 "zma_message_action_option_not_supported_label" = "このオプションはサポートされていません";

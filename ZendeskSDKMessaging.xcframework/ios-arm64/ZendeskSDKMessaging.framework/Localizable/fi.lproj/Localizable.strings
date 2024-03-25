@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Seuraava";
 "zma_form_send_button" = "Lähetä";
 "zma_form_submission_error" = "Tietoja ei voitu lähettää. Yritä uudelleen.";
+"zma_generated_by_ai" = "Tekoälyn luoma";
 "zma_label_add_attachments" = "Lisää liitteet";
 "zma_label_send_message" = "Lähetä viesti";
 "zma_message_action_option_not_supported_label" = "Vaihtoehtoa ei tueta";

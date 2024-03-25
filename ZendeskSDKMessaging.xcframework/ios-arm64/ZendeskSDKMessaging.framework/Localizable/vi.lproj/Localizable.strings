@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Tiếp theo";
 "zma_form_send_button" = "Gửi";
 "zma_form_submission_error" = "Không thể gửi chi tiết. Hãy thử lại.";
+"zma_generated_by_ai" = "Được tạo bởi AI";
 "zma_label_add_attachments" = "Thêm tập tin đính kèm";
 "zma_label_send_message" = "Gửi tin nhắn";
 "zma_message_action_option_not_supported_label" = "Tùy chọn không được hỗ trợ";

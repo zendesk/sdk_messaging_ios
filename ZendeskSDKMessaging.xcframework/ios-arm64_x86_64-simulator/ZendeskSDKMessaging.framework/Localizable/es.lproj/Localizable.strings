@@ -50,6 +50,7 @@
 "zma_form_next_button" = "Siguiente";
 "zma_form_send_button" = "Enviar";
 "zma_form_submission_error" = "No se pudieron enviar los detalles. Vuelva a intentarlo.";
+"zma_generated_by_ai" = "Generado por IA";
 "zma_label_add_attachments" = "Agregar adjuntos";
 "zma_label_send_message" = "Enviar mensaje";
 "zma_message_action_option_not_supported_label" = "Opción no admitida";
