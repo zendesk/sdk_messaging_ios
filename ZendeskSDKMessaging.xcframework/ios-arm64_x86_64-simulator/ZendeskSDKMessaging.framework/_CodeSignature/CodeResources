@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		i6Oa6vsIgqHxeYUKJxNZI9ZVGBM=
+		CGxqC9POWHdgSEyCK0Sj2ukEadE=
 		</data>
 		<key>Localizable/Info.plist</key>
 		<data>
@@ -373,6 +373,10 @@
 		<key>Modules/module.modulemap</key>
 		<data>
 		feZ9232T6qD5yBkTTGUdEXXwLZc=
+		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		x8OSduvNEZnEiC0Cwt2ElqWEqsE=
 		</data>
 		<key>articleStyle.css</key>
 		<data>
@@ -790,6 +794,13 @@
 			<key>hash2</key>
 			<data>
 			enObA1vfzNr9nwyOe0AeUEXIwCLd6hR8C491/sSt4vk=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			++dRAyp7mI/fCp6lEeupDQOaAOa99Mr/Q2xKk8fsVMM=
 			</data>
 		</dict>
 		<key>articleStyle.css</key>
