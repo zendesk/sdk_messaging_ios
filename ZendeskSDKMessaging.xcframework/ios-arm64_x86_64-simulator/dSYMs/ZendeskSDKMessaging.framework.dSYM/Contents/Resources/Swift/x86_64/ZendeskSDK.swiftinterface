@@ -24,9 +24,6 @@ extension ZendeskSDK.Zendesk {
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView) async throws
   #endif
   #if compiler(>=5.3) && $AsyncAwait
-  final public func addEventObserver(_ observer: Swift.AnyObject) async -> ZendeskSDK.ZendeskEvent
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
   final public func loginUser(with jwt: Swift.String) async throws -> ZendeskSDK.ZendeskUser
   #endif
   #if compiler(>=5.3) && $AsyncAwait
