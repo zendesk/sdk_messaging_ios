@@ -1014,7 +1014,9 @@ public struct ConversationListItemRendering {
   public let unreadCount: Swift.String?
   public let icon: UIKit.UIImage?
   public var style: ZendeskSDKUIComponents.ConversationListItemStyle?
-  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil)
+  public var isSentBySelf: Swift.Bool
+  public var authorName: Swift.String?
+  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil, isSentBySelf: Swift.Bool = true, authorName: Swift.String? = "")
 }
 public struct ColorFactory {
   public static func hex(_ hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor?

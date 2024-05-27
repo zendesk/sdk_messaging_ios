@@ -5,6 +5,7 @@
 import CoreTelephony
 import Foundation
 import Swift
+import SwiftUI
 import UIKit
 @_exported import ZendeskSDK
 import ZendeskSDKConversationKit
@@ -57,15 +58,6 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
 @objc public protocol MessagingFactory {
   @objc func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
 }
-@_hasMissingDesignatedInitializers @objc(ZDKMessagingFactoryParameters) final public class MessagingFactoryParameters : ObjectiveC.NSObject {
-  final public let messagingSettings: ZendeskSDK.MessagingSettings
-  final public let conversationKit: any ZendeskSDKConversationKit.ConversationKit
-  final public let theme: ZendeskSDK.ColorTheme
-  final public let dispatchEvent: ZendeskSDK.DispatchEvent
-  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming Zendesk version. This property is now created as part of the following method:\n`Zendesk.initialize(withChannelKey:messagingFactory:completionHandler:)`\nThe values of this property will be ignored.")
-  final public let featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager
-  @objc deinit
-}
 public struct ColorTheme : Swift.Equatable, Swift.Hashable {
   public let primaryColor: UIKit.UIColor
   public let messageColor: UIKit.UIColor
@@ -92,24 +84,32 @@ public struct ColorTheme : Swift.Equatable, Swift.Hashable {
     get
   }
 }
-@objc(ZDKURLSource) public enum URLSource : Swift.Int, Swift.RawRepresentable {
-  case text
-  case carousel
-  case file
-  case image
-  case linkMessageAction
-  case webViewMessageAction
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
+open class MessagingSwiftUI {
+  public init()
+  @available(iOS 14, *)
+  open func messagingView() -> SwiftUI.AnyView
+  open func getUnreadMessageCount() -> Swift.Int
+  open func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
+  open func setConversationTags(_ tags: [Swift.String])
+  open func clearConversationFields()
+  open func clearConversationTags()
+  weak public static var delegate: (any ZendeskSDK.MessagingSwiftUIDelegate)?
+  @objc deinit
 }
 @objc(ZDKMessagingDelegate) public protocol MessagingDelegate {
   @objc func messaging(_ messaging: ZendeskSDK.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
 }
 extension ZendeskSDK.MessagingDelegate {
   public func messaging(_ messaging: ZendeskSDK.Messaging, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers @objc(ZDKMessagingFactoryParameters) final public class MessagingFactoryParameters : ObjectiveC.NSObject {
+  final public let messagingSettings: ZendeskSDK.MessagingSettings
+  final public let conversationKit: any ZendeskSDKConversationKit.ConversationKit
+  final public let theme: ZendeskSDK.ColorTheme
+  final public let dispatchEvent: ZendeskSDK.DispatchEvent
+  @available(*, deprecated, message: "This property exists for backwards-compatability only, and will be removed in an upcoming Zendesk version. This property is now created as part of the following method:\n`Zendesk.initialize(withChannelKey:messagingFactory:completionHandler:)`\nThe values of this property will be ignored.")
+  final public let featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ZDKMessagingSettings) final public class MessagingSettings : ObjectiveC.NSObject {
   final public let integrationId: Swift.String
@@ -134,6 +134,12 @@ extension ZendeskSDK.MessagingSettings {
   final public var baseURL: Swift.String {
     get
   }
+}
+public protocol MessagingSwiftUIDelegate : AnyObject {
+  func messaging(_ messaging: ZendeskSDK.MessagingSwiftUI, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
+}
+extension ZendeskSDK.MessagingSwiftUIDelegate {
+  public func messaging(_ messaging: ZendeskSDK.MessagingSwiftUI, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers @objc final public class Zendesk : ObjectiveC.NSObject {
   @objc final public var messaging: ZendeskSDK.Messaging? {
@@ -188,6 +194,19 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+@objc(ZDKURLSource) public enum URLSource : Swift.Int, Swift.RawRepresentable {
+  case text
+  case carousel
+  case file
+  case image
+  case linkMessageAction
+  case webViewMessageAction
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc(ZDKDispatchEvent) final public class DispatchEvent : ObjectiveC.NSObject {
   final public let event: (ZendeskSDK.ZendeskEvent) -> Swift.Void
   @objc deinit
@@ -207,6 +226,10 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   @objc public init(pageTitle: Swift.String, url: Swift.String)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
+}
+public protocol MessagingSwiftUIFactory {
+  @available(iOS 14, *)
+  func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.MessagingSwiftUI
 }
 extension ZendeskSDK.InitializationPhase : Swift.Equatable {}
 extension ZendeskSDK.InitializationPhase : Swift.Hashable {}

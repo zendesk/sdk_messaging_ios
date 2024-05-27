@@ -413,6 +413,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
 @class UIImage;
 
 @interface UIImageView (SWIFT_EXTENSION(ZendeskSDKMessaging))
@@ -846,6 +847,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 /// The payload is not from <code>Messaging</code> and can’t be handled by the SDK.
   ZDKPushResponsibilityNotFromMessaging = 2,
 };
+
 
 
 

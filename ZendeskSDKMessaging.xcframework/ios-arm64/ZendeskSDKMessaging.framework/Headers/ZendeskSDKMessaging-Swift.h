@@ -413,6 +413,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
 @class UIImage;
 
 @interface UIImageView (SWIFT_EXTENSION(ZendeskSDKMessaging))
