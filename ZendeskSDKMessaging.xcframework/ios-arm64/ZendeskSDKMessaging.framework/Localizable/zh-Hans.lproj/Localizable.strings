@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "正在加载";
 "zma_accessibility_message_author_replied" = "%@ 已回复";
 "zma_accessibility_message_dismiss" = "关闭";
+"zma_accessibility_message_received" = "从 %@ 收到的消息";
 "zma_accessibility_postback_error_message" = "错误，%@";
 "zma_action_label_cancel" = "取消";
 "zma_actions_attachments_label" = "发送附件";

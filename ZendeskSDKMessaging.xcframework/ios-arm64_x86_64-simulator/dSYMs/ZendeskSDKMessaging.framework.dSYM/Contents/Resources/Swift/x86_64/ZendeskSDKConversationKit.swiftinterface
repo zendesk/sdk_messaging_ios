@@ -539,6 +539,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   }
 }
 public struct SettingsParameters : Swift.Equatable {
+  public let settings: ZendeskSDKConversationKit.ConversationKitSettings
   public init(settings: ZendeskSDKConversationKit.ConversationKitSettings, config: ZendeskSDKConversationKit.Config, featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager)
   public static func == (a: ZendeskSDKConversationKit.SettingsParameters, b: ZendeskSDKConversationKit.SettingsParameters) -> Swift.Bool
 }
@@ -688,6 +689,7 @@ public enum ConversationKitEvent {
   case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationRemoved(conversationId: Swift.String)
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
+  case openWebViewMessageReceived(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String)
 }
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
@@ -705,6 +707,7 @@ public enum ConversationKitEvent {
   case conversationAdded
   case conversationRemoved
   case proactiveMessageStatusChanged
+  case openWebViewMessageReceived
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -734,6 +737,12 @@ public enum ConversationKitEvent {
 @_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageStatusChanged : ObjectiveC.NSObject {
   @objc final public let status: ZendeskSDKConversationKit.ProactiveMessageStatus
   @objc final public let proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKOpenWebViewMessageReceived : ObjectiveC.NSObject {
+  @objc final public let url: Swift.String
+  @objc final public let conversationId: Swift.String
+  @objc final public let size: ZendeskSDKConversationKit.WebViewActionSize
   @objc deinit
 }
 @objc(ZDKFieldType) public enum FieldType : Swift.Int, Swift.Codable {
@@ -866,7 +875,9 @@ extension ZendeskSDKConversationKit.Author {
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
-  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, fallback: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  @objc final public let openOnReceive: Swift.Bool
+  @objc final public let size: ZendeskSDKConversationKit.WebViewActionSize
+  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, fallback: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil, openOnReceive: Swift.Bool, size: ZendeskSDKConversationKit.WebViewActionSize)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -877,6 +888,16 @@ extension ZendeskSDKConversationKit.Author {
   @objc deinit
   final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+@objc(ZDKWebViewActionSize) public enum WebViewActionSize : Swift.Int, Swift.Codable, Swift.Equatable {
+  case full
+  case tall
+  case compact
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
 }
 @objc(ZDKConversationKitSettings) final public class ConversationKitSettings : ObjectiveC.NSObject {
   @objc(ZDKRegion) public enum Region : Swift.Int {
@@ -1264,6 +1285,8 @@ extension ZendeskSDKConversationKit.FieldType : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ConnectionStatus : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ConnectionStatus : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ConnectionStatus : Swift.RawRepresentable {}
+extension ZendeskSDKConversationKit.WebViewActionSize : Swift.Hashable {}
+extension ZendeskSDKConversationKit.WebViewActionSize : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.RawRepresentable {}

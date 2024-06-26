@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Naglo-load";
 "zma_accessibility_message_author_replied" = "%@ replied";
 "zma_accessibility_message_dismiss" = "Dismiss";
+"zma_accessibility_message_received" = "Message received from %@";
 "zma_accessibility_postback_error_message" = "Error, %@";
 "zma_action_label_cancel" = "Kanselahin";
 "zma_actions_attachments_label" = "Magpadala ng attachment";

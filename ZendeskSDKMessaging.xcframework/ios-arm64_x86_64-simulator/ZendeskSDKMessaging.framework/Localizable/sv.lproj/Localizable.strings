@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Läser in";
 "zma_accessibility_message_author_replied" = "%@ svarade";
 "zma_accessibility_message_dismiss" = "Stäng";
+"zma_accessibility_message_received" = "Meddelande mottaget från %@";
 "zma_accessibility_postback_error_message" = "Fel, %@";
 "zma_action_label_cancel" = "Avbryt";
 "zma_actions_attachments_label" = "Skicka en bilaga";

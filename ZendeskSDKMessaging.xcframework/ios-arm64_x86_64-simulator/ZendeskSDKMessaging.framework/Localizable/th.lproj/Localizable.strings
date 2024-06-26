@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "กำลังโหลด";
 "zma_accessibility_message_author_replied" = "%@ ตอบกลับแล้ว";
 "zma_accessibility_message_dismiss" = "ยกเลิก";
+"zma_accessibility_message_received" = "ข้อความที่ได้รับจาก %@";
 "zma_accessibility_postback_error_message" = "ข้อผิดพลาด %@";
 "zma_action_label_cancel" = "ยกเลิก";
 "zma_actions_attachments_label" = "ส่งไฟล์แนบ";

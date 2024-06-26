@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Indlæser";
 "zma_accessibility_message_author_replied" = "%@ besvaret";
 "zma_accessibility_message_dismiss" = "Afvis";
+"zma_accessibility_message_received" = "Meddelelse modtaget fra %@";
 "zma_accessibility_postback_error_message" = "Fejl, %@";
 "zma_action_label_cancel" = "Annuller";
 "zma_actions_attachments_label" = "Send en vedhæftet fil";

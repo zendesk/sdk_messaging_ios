@@ -43,14 +43,14 @@ extension ZendeskSDKGuideKit.GuideKit {
   @objc func isValidGuideUrl(url: Swift.String) -> Swift.Bool
 }
 public protocol GuideKitBuilder {
-  func build(with settings: ZendeskSDKGuideKit.GuideKitSettings) -> any ZendeskSDKGuideKit.GuideKit
+  func build(with settings: ZendeskSDKGuideKit.GuideKitSettings, and integrationId: Swift.String) -> any ZendeskSDKGuideKit.GuideKit
 }
 @_inheritsConvenienceInitializers @objc(ZDKDefaultGuideKitBuilder) final public class DefaultGuideKitBuilder : ObjectiveC.NSObject, ZendeskSDKGuideKit.GuideKitBuilder {
   @objc override dynamic public init()
   @objc deinit
 }
 extension ZendeskSDKGuideKit.DefaultGuideKitBuilder {
-  final public func build(with settings: ZendeskSDKGuideKit.GuideKitSettings) -> any ZendeskSDKGuideKit.GuideKit
+  final public func build(with settings: ZendeskSDKGuideKit.GuideKitSettings, and integrationId: Swift.String) -> any ZendeskSDKGuideKit.GuideKit
 }
 @objc(ZDKGuideArticle) final public class GuideArticle : ObjectiveC.NSObject {
   @objc final public let id: Swift.UInt64

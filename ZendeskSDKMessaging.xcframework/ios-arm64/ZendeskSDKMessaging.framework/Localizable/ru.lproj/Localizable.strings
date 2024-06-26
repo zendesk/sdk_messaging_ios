@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Идет загрузка";
 "zma_accessibility_message_author_replied" = "Ответ от %@";
 "zma_accessibility_message_dismiss" = "Отклонить";
+"zma_accessibility_message_received" = "Получено сообщение от %@";
 "zma_accessibility_postback_error_message" = "Ошибка, %@";
 "zma_action_label_cancel" = "Отмена";
 "zma_actions_attachments_label" = "Отправить прикрепленный файл";

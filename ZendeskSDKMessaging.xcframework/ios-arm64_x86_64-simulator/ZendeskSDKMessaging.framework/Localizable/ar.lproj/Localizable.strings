@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "جارٍ التحميل";
 "zma_accessibility_message_author_replied" = "تم الرد من جانب %@";
 "zma_accessibility_message_dismiss" = "تجاوز";
+"zma_accessibility_message_received" = "تم استلام رسالة من %@";
 "zma_accessibility_postback_error_message" = "خطأ، %@";
 "zma_action_label_cancel" = "إلغاء";
 "zma_actions_attachments_label" = "إرسال مرفق";

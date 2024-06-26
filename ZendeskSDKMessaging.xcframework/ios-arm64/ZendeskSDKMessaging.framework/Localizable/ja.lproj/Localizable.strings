@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "読み込み中";
 "zma_accessibility_message_author_replied" = "%@が返信";
 "zma_accessibility_message_dismiss" = "閉じる";
+"zma_accessibility_message_received" = "%@から受信したメッセージ";
 "zma_accessibility_postback_error_message" = "エラー、%@";
 "zma_action_label_cancel" = "キャンセル";
 "zma_actions_attachments_label" = "添付ファイルを送信する";

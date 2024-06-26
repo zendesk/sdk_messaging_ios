@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Γίνεται φόρτωση";
 "zma_accessibility_message_author_replied" = "Ο χρήστης %@ απάντησε";
 "zma_accessibility_message_dismiss" = "Απόρριψη";
+"zma_accessibility_message_received" = "Μήνυμα που ελήφθη από %@";
 "zma_accessibility_postback_error_message" = "Σφάλμα, %@";
 "zma_action_label_cancel" = "Ακύρωση";
 "zma_actions_attachments_label" = "Αποστολή συνημμένου";

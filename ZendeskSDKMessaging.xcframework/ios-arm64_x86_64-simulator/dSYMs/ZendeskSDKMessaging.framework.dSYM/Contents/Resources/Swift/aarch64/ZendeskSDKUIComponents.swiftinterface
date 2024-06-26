@@ -960,6 +960,7 @@ public typealias ConversationErrorRenderingUpdate = (ZendeskSDKUIComponents.Conv
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConversationErrorViewStyle = .default)
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.ConversationErrorViewStyle = .default, onRetryTap: (() -> Swift.Void)?)
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationErrorViewRendering) -> ZendeskSDKUIComponents.ConversationErrorViewRendering)
+  @_Concurrency.MainActor(unsafe) final public func setAccessibility()
   public typealias Rendering = ZendeskSDKUIComponents.ConversationErrorViewRendering
   public typealias Style = ZendeskSDKUIComponents.ConversationErrorViewStyle
   @objc deinit
@@ -1223,7 +1224,7 @@ public struct InsetsIterator : Swift.IteratorProtocol {
   public mutating func next() -> CoreFoundation.CGFloat?
 }
 public typealias OnURLTap = ((Foundation.URL, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)
-public typealias CarouselOnURLTap = (((Foundation.URL, ZendeskSDKUIComponents.CustomButtonType?), @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)
+public typealias CarouselOnURLTap = (((Swift.String, ZendeskSDKUIComponents.CustomButtonType?), @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)
 public func + (left: CoreFoundation.CGSize, right: CoreFoundation.CGSize) -> CoreFoundation.CGSize
 public struct LoadingSpinnerViewStyle : Swift.Equatable {
   public init(color: UIKit.UIColor?, indicatorStyle: UIKit.UIActivityIndicatorView.Style)

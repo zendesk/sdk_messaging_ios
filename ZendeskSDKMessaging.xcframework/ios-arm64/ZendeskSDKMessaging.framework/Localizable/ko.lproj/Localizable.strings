@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "로드 중";
 "zma_accessibility_message_author_replied" = "%@님이 답장함";
 "zma_accessibility_message_dismiss" = "해제";
+"zma_accessibility_message_received" = "%@님으로부터 받은 메시지";
 "zma_accessibility_postback_error_message" = "오류, %@";
 "zma_action_label_cancel" = "취소";
 "zma_actions_attachments_label" = "첨부 파일 보내기";

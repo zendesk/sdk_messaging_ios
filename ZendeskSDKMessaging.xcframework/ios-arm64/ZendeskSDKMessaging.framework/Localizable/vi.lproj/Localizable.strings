@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Đang tải";
 "zma_accessibility_message_author_replied" = "%@ đã trả lời";
 "zma_accessibility_message_dismiss" = "Đóng";
+"zma_accessibility_message_received" = "Đã nhận được tin nhắn từ %@";
 "zma_accessibility_postback_error_message" = "Lỗi, %@";
 "zma_action_label_cancel" = "Hủy bỏ";
 "zma_actions_attachments_label" = "Gửi tập tin đính kèm";

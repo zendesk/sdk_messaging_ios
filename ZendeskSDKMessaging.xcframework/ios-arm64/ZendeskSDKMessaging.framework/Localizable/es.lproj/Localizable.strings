@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Cargando";
 "zma_accessibility_message_author_replied" = "%@ respondió";
 "zma_accessibility_message_dismiss" = "Descartar";
+"zma_accessibility_message_received" = "Mensaje recibido de %@";
 "zma_accessibility_postback_error_message" = "Error, %@";
 "zma_action_label_cancel" = "Cancelar";
 "zma_actions_attachments_label" = "Enviar un archivo adjunto";

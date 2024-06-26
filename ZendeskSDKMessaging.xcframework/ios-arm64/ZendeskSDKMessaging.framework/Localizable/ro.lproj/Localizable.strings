@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Se încarcă";
 "zma_accessibility_message_author_replied" = "%@ a răspuns";
 "zma_accessibility_message_dismiss" = "Respingere";
+"zma_accessibility_message_received" = "Mesaj primit de la %@";
 "zma_accessibility_postback_error_message" = "Eroare, %@";
 "zma_action_label_cancel" = "Anulare";
 "zma_actions_attachments_label" = "Trimiteți un fișier atașat";

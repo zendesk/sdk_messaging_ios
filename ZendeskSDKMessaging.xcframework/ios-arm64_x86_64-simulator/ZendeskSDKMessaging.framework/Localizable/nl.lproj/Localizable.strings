@@ -1,6 +1,7 @@
 "zma_accessibility_loading_label" = "Laden";
 "zma_accessibility_message_author_replied" = "%@ heeft gereageerd";
 "zma_accessibility_message_dismiss" = "Negeren";
+"zma_accessibility_message_received" = "Bericht ontvangen van %@";
 "zma_accessibility_postback_error_message" = "Fout, %@";
 "zma_action_label_cancel" = "Annuleren";
 "zma_actions_attachments_label" = "Een bijlage sturen";
