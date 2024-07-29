@@ -1183,6 +1183,7 @@ public protocol ConversationExtensionProtocol : AnyObject {
   @objc deinit
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationExtensionRendering) -> ZendeskSDKUIComponents.ConversationExtensionRendering)
   @_Concurrency.MainActor(unsafe) final public func reloadWebView()
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.ConversationExtensionRendering
   public typealias Style = ZendeskSDKUIComponents.ConversationExtensionStyle
 }

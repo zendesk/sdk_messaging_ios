@@ -94,6 +94,11 @@ import _SwiftConcurrencyShims
   final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+extension ZendeskSDKConversationKit.Conversation {
+  final public var mostRecentUpdateTime: Foundation.Date {
+    get
+  }
+}
 @objc(ZDKConversationType) public enum ConversationType : Swift.Int, Swift.Codable {
   case personal
   case group
@@ -419,6 +424,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc var settings: ZendeskSDKConversationKit.ConversationKitSettings { get }
   @objc var featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager { get }
   @objc var currentUser: ZendeskSDKConversationKit.User? { get }
+  @objc var hasActiveConversationInLatestTen: Swift.Bool { get }
   @objc func removeEventObserver(_ observer: Swift.AnyObject)
   @objc func pause()
   @objc func resume()
@@ -430,6 +436,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc func setConversationTags(_ tags: [Swift.String])
   @objc func clearConversationFields()
   @objc func clearConversationTags()
+  @objc func cacheFirstTenMostRecentConversationsInMemory(_ conversations: [ZendeskSDKConversationKit.Conversation])
 }
 @objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitShared {
   @objc @available(swift, obsoleted: 1.0)

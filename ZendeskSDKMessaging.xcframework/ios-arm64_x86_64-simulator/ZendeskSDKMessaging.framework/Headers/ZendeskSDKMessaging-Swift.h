@@ -431,6 +431,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
 @class UIColor;
 
 /// Model that contains the colors provided by the user to be used in the SDK.
@@ -871,6 +872,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 /// Displays an image.
 - (void)nuke_displayWithImage:(UIImage * _Nullable)image;
 @end
+
 
 
 

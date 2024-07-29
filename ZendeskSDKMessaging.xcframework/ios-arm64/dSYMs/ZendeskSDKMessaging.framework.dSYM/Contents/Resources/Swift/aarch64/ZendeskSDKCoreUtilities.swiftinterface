@@ -46,16 +46,6 @@ extension Foundation.URLSessionConfiguration {
 public protocol Pasteboard {
   func setString(_ string: Swift.String?)
 }
-public enum ApplicationState {
-  case willEnterForeground
-  case didEnterBackground
-  case willTerminate
-  public static func == (a: ZendeskSDKCoreUtilities.ApplicationState, b: ZendeskSDKCoreUtilities.ApplicationState) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
 public protocol ApplicationStateObserver {
   var onApplicationStateEvent: ((ZendeskSDKCoreUtilities.ApplicationState) -> Swift.Void)? { get set }
   func registerForApplicationStateNotifications()
@@ -67,6 +57,16 @@ final public class DefaultApplicationStateObserver : ZendeskSDKCoreUtilities.App
   final public func registerForApplicationStateNotifications()
   final public func unregisterForApplicationStateNotifications()
   @objc deinit
+}
+public enum ApplicationState {
+  case willEnterForeground
+  case didEnterBackground
+  case willTerminate
+  public static func == (a: ZendeskSDKCoreUtilities.ApplicationState, b: ZendeskSDKCoreUtilities.ApplicationState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 public protocol Scheduler {
   @discardableResult
