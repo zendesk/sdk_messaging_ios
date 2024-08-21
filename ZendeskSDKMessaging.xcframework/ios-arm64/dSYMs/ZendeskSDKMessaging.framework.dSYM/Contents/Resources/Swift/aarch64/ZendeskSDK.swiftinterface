@@ -42,10 +42,16 @@ public enum InitializationPhase {
 public enum ZendeskEvent {
   case unreadMessageCountChanged(currentUnreadCount: Swift.Int)
   case authenticationFailed(error: any Swift.Error)
+  case conversationAdded(conversationId: Swift.String)
+  case connectionStatusChanged(connectionStatus: ZendeskSDK.ZendeskConnectionStatus)
+  case sendMessageFailed(error: any Swift.Error)
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
   case unreadMessageCountChanged
   case authenticationFailed
+  case conversationAdded
+  case connectionStatusChanged
+  case sendMessageFailed
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -207,6 +213,20 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   final public let event: (ZendeskSDK.ZendeskEvent) -> Swift.Void
   @objc deinit
 }
+@objc(ZDKZendeskConnectionStatus) public enum ZendeskConnectionStatus : Swift.Int {
+  case disconnected = 0
+  case connected = 1
+  case connectingRealtime = 2
+  case connectedRealtime = 3
+  public var stringValue: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc(ZDKMessaging) open class Messaging : ObjectiveC.NSObject {
   @objc open func messagingViewController() -> UIKit.UIViewController
   @objc open func getUnreadMessageCount() -> Swift.Int
@@ -234,3 +254,6 @@ extension ZendeskSDK.ZDKZendeskEvent : Swift.Hashable {}
 extension ZendeskSDK.ZDKZendeskEvent : Swift.RawRepresentable {}
 extension ZendeskSDK.URLSource : Swift.Equatable {}
 extension ZendeskSDK.URLSource : Swift.Hashable {}
+extension ZendeskSDK.ZendeskConnectionStatus : Swift.Equatable {}
+extension ZendeskSDK.ZendeskConnectionStatus : Swift.Hashable {}
+extension ZendeskSDK.ZendeskConnectionStatus : Swift.RawRepresentable {}

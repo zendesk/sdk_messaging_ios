@@ -685,9 +685,10 @@ public enum ConversationKitEvent {
   case userUpdated(ZendeskSDKConversationKit.User)
   case userAccessRevoked(error: ZendeskSDKConversationKit.ConversationKitError)
   case conversationUpdated(ZendeskSDKConversationKit.Conversation)
-  case messageReceived(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
   case activityReceived(activity: ZendeskSDKConversationKit.Activity, conversationId: Swift.String)
+  case messageReceived(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
   case messageUpdated(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
+  case sendMessageFailed(error: ZendeskSDKConversationKit.ConversationKitError)
   case pushTokenPrepared(Swift.String)
   case pushTokenUpdateResult(token: Swift.String, error: ZendeskSDKConversationKit.ConversationKitError?)
   case loginResult(result: Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>)
@@ -698,14 +699,18 @@ public enum ConversationKitEvent {
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
   case openWebViewMessageReceived(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String)
 }
+extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
+  public static func == (a: ZendeskSDKConversationKit.ConversationKitEvent, b: ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Bool
+}
 @objc public enum ZDKConversationKitEvent : Swift.Int {
   case connectionStatusChanged
   case userUpdated
   case userAccessRevoked
   case conversationUpdated
-  case newMessage
   case newActivity
+  case newMessage
   case messageUpdated
+  case sendMessageFailed
   case pushTokenPrepared
   case pushTokenUpdateResult
   case loginResult
@@ -832,10 +837,10 @@ extension ZendeskSDKConversationKit.Author {
   public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKConnectionStatus) public enum ConnectionStatus : Swift.Int {
-  case disconnected
-  case connected
-  case connectingRealtime
-  case connectedRealtime
+  case disconnected = 0
+  case connected = 1
+  case connectingRealtime = 2
+  case connectedRealtime = 3
   public var description: Swift.String {
     get
   }
