@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		IVYlWLyAVf7/A1ipQ+wwrlJkHZc=
+		M3e6Q5IgzJNQAkvDlnE5Dj4C54s=
 		</data>
 		<key>Localizable/Info.plist</key>
 		<data>
@@ -332,7 +332,7 @@
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		ll8VpErEeFOsy3cDiicawvAt9YM=
+		PW4XO7fzxMlbOHmC+/x1msUPP+U=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -348,11 +348,11 @@
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		r9YK/LvaI10+WrA3yXNZRGS4K14=
+		BdWF+RJyH8gcDtag+mmSgT66Tis=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		ll8VpErEeFOsy3cDiicawvAt9YM=
+		PW4XO7fzxMlbOHmC+/x1msUPP+U=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -368,7 +368,7 @@
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		8Sc9iwTyRGKZMgpUm+PPL+SG6K4=
+		QBUhFObOPdtuNSavDODOZhyK644=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -723,7 +723,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rTgViUcLMvvQ73VC/OedqUJgIVjZjizYD4W7DY47UzM=
+			v9ANk4bUspb5Vjv/fVIhKijuPKa5wIIfkg1RjUAGBbQ=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -751,14 +751,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aaIbYcgSFx+5Yuof15TyLAN7ljoOowqeS+5/vGmYa80=
+			bROzshf8OadfWvgaSB0ZJRStv2TvD4eOavJVtvH7Wn4=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			rTgViUcLMvvQ73VC/OedqUJgIVjZjizYD4W7DY47UzM=
+			v9ANk4bUspb5Vjv/fVIhKijuPKa5wIIfkg1RjUAGBbQ=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -786,7 +786,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			O0rDcbODjR32QS927dPSPLqMCfP3bSuOzUJP6r7M7w8=
+			ZCbDA7STVFkWZsOiqNS7YFT8rsg4VAv7vKOK/s58aOU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
