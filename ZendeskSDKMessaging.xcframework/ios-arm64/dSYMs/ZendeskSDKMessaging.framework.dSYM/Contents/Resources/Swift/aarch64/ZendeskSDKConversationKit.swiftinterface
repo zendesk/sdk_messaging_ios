@@ -84,8 +84,8 @@ import _SwiftConcurrencyShims
   @objc final public let myself: ZendeskSDKConversationKit.Participant?
   @objc final public let activity: ZendeskSDKConversationKit.Activity?
   @objc final public let status: ZendeskSDKConversationKit.ConversationStatus
-  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown)
-  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown)
+  final public let createdAt: Foundation.Date?
+  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown, createdAt: Foundation.Date? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -642,6 +642,9 @@ extension ZendeskSDKConversationKit.User {
   case conversationRead
   case typingStart
   case typingStop
+  case conversationRoutingQueued
+  case conversationRoutingAssigned
+  case conversationRoutingCleared
   public var stringValue: Swift.String {
     get
   }
@@ -770,6 +773,13 @@ extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
     get
   }
 }
+public struct ResponseTime : Swift.Codable, Swift.Equatable {
+  public let upper: Swift.Int?
+  public let lower: Swift.Int?
+  public static func == (a: ZendeskSDKConversationKit.ResponseTime, b: ZendeskSDKConversationKit.ResponseTime) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 @_hasMissingDesignatedInitializers @objc(ZDKSelectFormField) final public class SelectFormField : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Field {
   @objc final public var type: ZendeskSDKConversationKit.FieldType {
     @objc get
@@ -830,7 +840,11 @@ extension ZendeskSDKConversationKit.Author {
   @objc final public let avatarURL: Swift.String?
   @objc final public let appUserId: Swift.String?
   @objc final public let lastRead: Foundation.Date?
-  public init(id: Swift.String = UUID().uuidString, type: ZendeskSDKConversationKit.ActivityType, authorType: ZendeskSDKConversationKit.AuthorType, name: Swift.String?, avatarURL: Swift.String?, appUserId: Swift.String? = nil, lastRead: Foundation.Date? = nil)
+  final public let isInitialRouting: Swift.Bool
+  final public let queuePosition: Swift.Int?
+  final public let responseTime: ZendeskSDKConversationKit.ResponseTime?
+  final public let startAt: Swift.Int?
+  public init(id: Swift.String = UUID().uuidString, type: ZendeskSDKConversationKit.ActivityType, authorType: ZendeskSDKConversationKit.AuthorType, name: Swift.String?, avatarURL: Swift.String?, appUserId: Swift.String? = nil, lastRead: Foundation.Date? = nil, isInitialRouting: Swift.Bool = false, queuePosition: Swift.Int? = nil, responseTime: ZendeskSDKConversationKit.ResponseTime? = nil, startAt: Swift.Int? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
   final public func encode(to encoder: any Swift.Encoder) throws

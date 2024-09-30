@@ -56,6 +56,7 @@
 "zma_label_send_message" = "Kirim pesan";
 "zma_message_action_option_not_supported_label" = "Opsi tidak didukung";
 "zma_message_input_placeholder" = "Ketik pesan";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "Dimulai %@ pada %@";
 "zma_new_conversation_button" = "Percakapan baru";
 "zma_new_conversation_error_alert_dismiss_button" = "Ok";
 "zma_new_conversation_error_alert_message" = "Coba lagi nanti.";

@@ -56,6 +56,7 @@
 "zma_label_send_message" = "ส่งข้อความ";
 "zma_message_action_option_not_supported_label" = "ตัวเลือกที่ไม่รองรับ";
 "zma_message_input_placeholder" = "พิมพ์ข้อความ";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "เริ่มต้นใน %@ ที่เวลา %@";
 "zma_new_conversation_button" = "การสนทนาใหม่";
 "zma_new_conversation_error_alert_dismiss_button" = "ตกลง";
 "zma_new_conversation_error_alert_message" = "ลองอีกครั้งในภายหลัง";

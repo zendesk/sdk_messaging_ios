@@ -12,6 +12,7 @@ import _SwiftConcurrencyShims
   final public let hipaaAttachmentFlag: Swift.Bool
   final public let isMultiConvoEnabled: Swift.Bool
   final public let canUserCreateMoreConversations: Swift.Bool
+  final public let isWaitTimeBannerEnabled: Swift.Bool
   @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
   @objc public init(hipaaAttachmentFlag: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc deinit
@@ -19,7 +20,7 @@ import _SwiftConcurrencyShims
 public protocol Observable : AnyObject {
   associatedtype Observed
   var callbackQueue: Dispatch.DispatchQueue { get }
-  var observers: [Swift.ObjectIdentifier : (Self.Observed) -> Swift.Void] { get set }
+  var observers: [ZendeskSDKCoreUtilities.ObservableEntity : (Self.Observed) -> Swift.Void] { get set }
   func addObserver(_ observer: Swift.AnyObject, _ closure: @escaping (Self.Observed) -> Swift.Void)
   func removeObserver(_ observer: Swift.AnyObject)
 }
@@ -37,6 +38,14 @@ public struct JWT : Swift.Decodable {
 }
 public struct JWTDecoder {
   public static func decode<T>(jwt: Swift.String) -> T? where T : Swift.Decodable
+}
+public struct ObservableEntity : Swift.Hashable {
+  public init(value: Swift.AnyObject)
+  public static func == (lhs: ZendeskSDKCoreUtilities.ObservableEntity, rhs: ZendeskSDKCoreUtilities.ObservableEntity) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 extension Foundation.URLSessionConfiguration {
   public static var defaultRespectingServerCache: Foundation.URLSessionConfiguration {

@@ -58,6 +58,13 @@ extension ZendeskSDKUIComponents.TextAndMessageButtonViewStyle {
   public static let `default`: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle
 }
 public struct ResponseTimeConverter {
+  public static func queuedResponseTimeTitle(lower: Swift.Int, upper: Swift.Int) -> Swift.String
+  public static var assignedResponseTimeTitle: Swift.String {
+    get
+  }
+  public static var assignedResponseTimeSubtitle: Swift.String {
+    get
+  }
 }
 public struct ConversationExtensionHeaderRendering {
   public let displayBackButton: Swift.Bool
@@ -228,8 +235,10 @@ public struct ConversationHeaderRendering {
   public let description: Swift.String?
   public var logo: UIKit.UIImage?
   public var verticalSizeClass: UIKit.UIUserInterfaceSizeClass
-  public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular)
-  public func update(title: Swift.String? = nil, description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass? = nil) -> ZendeskSDKUIComponents.ConversationHeaderRendering
+  public var isMultiConvoHeader: Swift.Bool
+  public var isDefaultConversationHeader: Swift.Bool
+  public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular, isMultiConvoHeader: Swift.Bool = false, isDefaultConversationHeader: Swift.Bool = true)
+  public func update(title: Swift.String? = nil, description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass? = nil, isMultiConvoHeader: Swift.Bool = false, isDefaultConversationHeader: Swift.Bool) -> ZendeskSDKUIComponents.ConversationHeaderRendering
 }
 public struct ArticleViewerRendering {
   public init(state: ZendeskSDKUIComponents.ArticleViewerState, articleViewerHeaderRendering: ZendeskSDKUIComponents.ConversationExtensionHeaderRendering = .default, errorViewRendering: ZendeskSDKUIComponents.ConversationErrorViewRendering = .default, articleFeedbackBannerRendering: ZendeskSDKUIComponents.ArticleFeedbackBannerRendering = .default)
@@ -519,6 +528,9 @@ public struct ArticleAttachmentItemRendering : Swift.Equatable {
   @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @available(iOS 12.0, *)
   @_Concurrency.MainActor(unsafe) final public func userInterfaceStyleDidChange(style: UIKit.UIUserInterfaceStyle)
+  @_Concurrency.MainActor(unsafe) final public var composerHeight: CoreFoundation.CGFloat {
+    get
+  }
   @_Concurrency.MainActor(unsafe) @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
     @objc get
   }
@@ -674,6 +686,10 @@ extension ZendeskSDKUIComponents.CustomButtonRendering {
 public typealias WaitTimeBannerRenderingUpdate = (ZendeskSDKUIComponents.WaitTimeBannerViewRendering) -> ZendeskSDKUIComponents.WaitTimeBannerViewRendering
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class WaitTimeBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.WaitTimeBannerViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) final public var bannerHeight: CoreFoundation.CGFloat {
+    get
+  }
   @_Concurrency.MainActor(unsafe) final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.WaitTimeBannerViewRendering) -> ZendeskSDKUIComponents.WaitTimeBannerViewRendering)
   public typealias Rendering = ZendeskSDKUIComponents.WaitTimeBannerViewRendering
   public typealias Style = ZendeskSDKUIComponents.WaitTimeBannerViewStyle
@@ -1034,7 +1050,8 @@ public struct ConversationListItemRendering {
   public var style: ZendeskSDKUIComponents.ConversationListItemStyle?
   public var isSentBySelf: Swift.Bool
   public var authorName: Swift.String?
-  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil, isSentBySelf: Swift.Bool = true, authorName: Swift.String? = "")
+  public var isDefaultConversationTitle: Swift.Bool
+  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil, isSentBySelf: Swift.Bool = true, authorName: Swift.String? = "", isDefaultConversationTitle: Swift.Bool = true)
 }
 public struct ColorFactory {
   public static func hex(_ hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor?
@@ -1316,6 +1333,7 @@ extension ZendeskSDKUIComponents.FormFieldResponseViewStyle {
   @objc deinit
 }
 public struct WaitTimeBannerViewStyle {
+  public init(titleColor: UIKit.UIColor, subtitleColor: UIKit.UIColor, background: UIKit.UIColor)
 }
 extension ZendeskSDKUIComponents.WaitTimeBannerViewStyle {
   public static let `default`: ZendeskSDKUIComponents.WaitTimeBannerViewStyle

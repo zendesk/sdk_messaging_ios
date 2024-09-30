@@ -56,6 +56,7 @@
 "zma_label_send_message" = "Mesaj gönder";
 "zma_message_action_option_not_supported_label" = "Seçenek desteklenmiyor";
 "zma_message_input_placeholder" = "Mesaj yazın";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "Başlama: %@%@";
 "zma_new_conversation_button" = "Yeni görüşme";
 "zma_new_conversation_error_alert_dismiss_button" = "Tamam";
 "zma_new_conversation_error_alert_message" = "Daha sonra yeniden deneyin.";

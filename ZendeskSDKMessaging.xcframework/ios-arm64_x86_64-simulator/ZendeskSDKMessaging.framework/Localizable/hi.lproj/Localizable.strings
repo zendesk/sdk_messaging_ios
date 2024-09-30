@@ -56,6 +56,7 @@
 "zma_label_send_message" = "संदेश भेजें";
 "zma_message_action_option_not_supported_label" = "विकल्प समर्थित नहीं है";
 "zma_message_input_placeholder" = "एक संदेश टाइप करें";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "%@ बजे %@ शुरू हुआ";
 "zma_new_conversation_button" = "नई बातचीत";
 "zma_new_conversation_error_alert_dismiss_button" = "ठीक है";
 "zma_new_conversation_error_alert_message" = "बाद में दोबारा कोशिश करें।";

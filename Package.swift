@@ -17,27 +17,27 @@ let package = Package(
         .package(
             name: "ZendeskSDKConversationKit",
             url: "https://github.com/zendesk/sdk_conversation_kit_ios",
-            from: "6.1.1"
+            from: "7.0.0"
         ),
         .package(
             name: "ZendeskSDKUIComponents",
             url: "https://github.com/zendesk/sdk_ui_components_ios",
-            from: "9.2.0"
+            from: "9.3.0"
         ),
         .package(
             name: "ZendeskSDK",
             url: "https://github.com/zendesk/sdk_zendesk_ios",
-            from: "3.2.1"
+            from: "3.3.0"
         ),
         .package(
             name: "ZendeskSDKCoreUtilities",
             url: "https://github.com/zendesk/sdk_core_utilities_ios",
-            from: "2.4.0"
+            from: "3.0.0"
         ),
         .package(
             name: "ZendeskSDKGuideKit",
             url: "https://github.com/zendesk/sdk_guide_kit_ios",
-            from: "1.1.1"
+            from: "1.2.0"
         )
     ],
     targets: [

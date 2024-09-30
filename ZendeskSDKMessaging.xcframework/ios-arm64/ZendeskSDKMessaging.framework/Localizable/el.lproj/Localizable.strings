@@ -56,6 +56,7 @@
 "zma_label_send_message" = "Αποστολή μηνύματος";
 "zma_message_action_option_not_supported_label" = "Η επιλογή δεν υποστηρίζεται";
 "zma_message_input_placeholder" = "Πληκτρολογήστε ένα μήνυμα";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "Ξεκίνησε %@ στις %@";
 "zma_new_conversation_button" = "Νέα συζήτηση";
 "zma_new_conversation_error_alert_dismiss_button" = "ΟΚ";
 "zma_new_conversation_error_alert_message" = "Προσπαθήστε ξανά αργότερα.";

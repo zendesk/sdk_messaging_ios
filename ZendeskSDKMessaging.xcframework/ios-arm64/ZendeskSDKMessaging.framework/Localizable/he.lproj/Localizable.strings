@@ -56,6 +56,7 @@
 "zma_label_send_message" = "שליחת ההודעה";
 "zma_message_action_option_not_supported_label" = "האפשרות לא נתמכת";
 "zma_message_input_placeholder" = "כאן מקלידים את ההודעה";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "התחילה ב-%@ ב-%@";
 "zma_new_conversation_button" = "שיחה חדשה";
 "zma_new_conversation_error_alert_dismiss_button" = "אישור";
 "zma_new_conversation_error_alert_message" = "נסה שוב מאוחר יותר.";

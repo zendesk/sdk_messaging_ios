@@ -56,6 +56,7 @@
 "zma_label_send_message" = "Send melding";
 "zma_message_action_option_not_supported_label" = "Alternativet støttes ikke";
 "zma_message_input_placeholder" = "Skriv en melding";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "Startet %@ kl. %@";
 "zma_new_conversation_button" = "Ny samtale";
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Prøv igjen senere.";

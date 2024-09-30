@@ -56,6 +56,7 @@
 "zma_label_send_message" = "메시지 보내기";
 "zma_message_action_option_not_supported_label" = "옵션이 지원되지 않음";
 "zma_message_input_placeholder" = "메시지 입력";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "%@ %@에 시작함";
 "zma_new_conversation_button" = "새 대화";
 "zma_new_conversation_error_alert_dismiss_button" = "확인";
 "zma_new_conversation_error_alert_message" = "나중에 다시 시도하세요.";

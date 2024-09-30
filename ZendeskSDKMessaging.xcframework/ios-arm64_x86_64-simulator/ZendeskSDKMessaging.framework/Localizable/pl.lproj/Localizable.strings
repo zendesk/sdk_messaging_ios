@@ -56,6 +56,7 @@
 "zma_label_send_message" = "Wyślij wiadomość";
 "zma_message_action_option_not_supported_label" = "Opcja nieobsługiwana";
 "zma_message_input_placeholder" = "Napisz wiadomość";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "Rozpoczęcie: %@ o godz. %@";
 "zma_new_conversation_button" = "Nowa konwersacja";
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Spróbuj ponownie później.";
