@@ -238,7 +238,8 @@ public struct ConversationHeaderRendering {
   public var isMultiConvoHeader: Swift.Bool
   public var isDefaultConversationHeader: Swift.Bool
   public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular, isMultiConvoHeader: Swift.Bool = false, isDefaultConversationHeader: Swift.Bool = true)
-  public func update(title: Swift.String? = nil, description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass? = nil, isMultiConvoHeader: Swift.Bool = false, isDefaultConversationHeader: Swift.Bool) -> ZendeskSDKUIComponents.ConversationHeaderRendering
+  public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular)
+  public func update(title: Swift.String? = nil, description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass? = nil, isMultiConvoHeader: Swift.Bool = false, isDefaultConversationHeader: Swift.Bool = true) -> ZendeskSDKUIComponents.ConversationHeaderRendering
 }
 public struct ArticleViewerRendering {
   public init(state: ZendeskSDKUIComponents.ArticleViewerState, articleViewerHeaderRendering: ZendeskSDKUIComponents.ConversationExtensionHeaderRendering = .default, errorViewRendering: ZendeskSDKUIComponents.ConversationErrorViewRendering = .default, articleFeedbackBannerRendering: ZendeskSDKUIComponents.ArticleFeedbackBannerRendering = .default)

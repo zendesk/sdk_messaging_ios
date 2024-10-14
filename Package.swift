@@ -22,7 +22,7 @@ let package = Package(
         .package(
             name: "ZendeskSDKUIComponents",
             url: "https://github.com/zendesk/sdk_ui_components_ios",
-            from: "9.3.0"
+            from: "9.3.1"
         ),
         .package(
             name: "ZendeskSDK",
