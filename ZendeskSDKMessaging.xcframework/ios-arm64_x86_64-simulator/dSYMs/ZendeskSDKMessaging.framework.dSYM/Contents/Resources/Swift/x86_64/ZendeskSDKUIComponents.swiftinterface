@@ -1044,15 +1044,16 @@ public struct FormResponseViewRendering {
 }
 public struct ConversationListItemRendering {
   public let title: Swift.String
-  public let message: Swift.String
+  public let subtitle: Swift.String
   public let timestamp: Swift.String?
   public let unreadCount: Swift.String?
   public let icon: UIKit.UIImage?
   public var style: ZendeskSDKUIComponents.ConversationListItemStyle?
   public var isSentBySelf: Swift.Bool
-  public var authorName: Swift.String?
+  public let authorName: Swift.String?
+  public let message: Swift.String
   public var isDefaultConversationTitle: Swift.Bool
-  public init(title: Swift.String = "", message: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil, isSentBySelf: Swift.Bool = true, authorName: Swift.String? = "", isDefaultConversationTitle: Swift.Bool = true)
+  public init(title: Swift.String = "", subtitle: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil, isSentBySelf: Swift.Bool = true, authorName: Swift.String? = "", message: Swift.String = "", isDefaultConversationTitle: Swift.Bool = true)
 }
 public struct ColorFactory {
   public static func hex(_ hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor?

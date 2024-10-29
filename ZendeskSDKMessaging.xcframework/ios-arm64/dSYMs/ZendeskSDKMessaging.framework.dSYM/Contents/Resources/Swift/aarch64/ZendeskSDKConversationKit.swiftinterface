@@ -85,7 +85,8 @@ import _SwiftConcurrencyShims
   @objc final public let activity: ZendeskSDKConversationKit.Activity?
   @objc final public let status: ZendeskSDKConversationKit.ConversationStatus
   final public let createdAt: Foundation.Date?
-  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown, createdAt: Foundation.Date? = nil)
+  @objc final public let routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus
+  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown, createdAt: Foundation.Date? = nil, routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus = .cleared)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -664,6 +665,17 @@ extension ZendeskSDKConversationKit.User {
   }
   @objc deinit
 }
+@objc(ZDKConversationRoutingStatus) public enum ConversationRoutingStatus : Swift.Int, Swift.Codable {
+  case queued
+  case assigned
+  case cleared
+  public init?(stringValue: Swift.String)
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @objc(ZDKMessageType) public enum MessageType : Swift.Int, Swift.Codable {
   case text
   case file
@@ -1024,6 +1036,9 @@ extension ZendeskSDKConversationKit.Message {
   final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct DefaultRESTClientBuilder {
+  public static func resolveAuthorizationHeader(authentication: ZendeskSDKConversationKit.Authentication, userId: Swift.String) -> Swift.String?
+}
 public typealias PostbackActionID = Swift.String
 @objc(ZDKConversationStatus) public enum ConversationStatus : Swift.Int, Swift.Codable {
   case active
@@ -1299,6 +1314,9 @@ extension ZendeskSDKConversationKit.AuthorType : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ActivityType : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ActivityType : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ActivityType : Swift.RawRepresentable {}
+extension ZendeskSDKConversationKit.ConversationRoutingStatus : Swift.Equatable {}
+extension ZendeskSDKConversationKit.ConversationRoutingStatus : Swift.Hashable {}
+extension ZendeskSDKConversationKit.ConversationRoutingStatus : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.MessageType : Swift.Equatable {}
 extension ZendeskSDKConversationKit.MessageType : Swift.Hashable {}
 extension ZendeskSDKConversationKit.MessageType : Swift.RawRepresentable {}
