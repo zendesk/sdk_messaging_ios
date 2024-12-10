@@ -17,20 +17,13 @@ import _SwiftConcurrencyShims
   @objc public init(hipaaAttachmentFlag: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc deinit
 }
-public protocol Observable : AnyObject {
-  associatedtype Observed
-  var callbackQueue: Dispatch.DispatchQueue { get }
-  var observers: [ZendeskSDKCoreUtilities.ObservableEntity : (Self.Observed) -> Swift.Void] { get set }
-  func addObserver(_ observer: Swift.AnyObject, _ closure: @escaping (Self.Observed) -> Swift.Void)
-  func removeObserver(_ observer: Swift.AnyObject)
-}
-extension ZendeskSDKCoreUtilities.Observable {
-  public var callbackQueue: Dispatch.DispatchQueue {
-    get
-  }
-  public func addObserver(_ observer: Swift.AnyObject, _ closure: @escaping (Self.Observed) -> Swift.Void)
+open class ZendeskObservable<Observed> {
+  final public let callbackQueue: Dispatch.DispatchQueue
+  public init(callbackQueue: Dispatch.DispatchQueue = .main)
+  public func addObserver(_ observer: Swift.AnyObject, _ closure: @escaping (Observed) -> Swift.Void)
   public func removeObserver(_ observer: Swift.AnyObject)
-  public func notifyObservers(_ observed: Self.Observed)
+  public func notifyObservers(_ observed: Observed)
+  @objc deinit
 }
 public struct JWT : Swift.Decodable {
   public let externalId: Swift.String
@@ -44,6 +37,11 @@ public struct ObservableEntity : Swift.Hashable {
   public static func == (lhs: ZendeskSDKCoreUtilities.ObservableEntity, rhs: ZendeskSDKCoreUtilities.ObservableEntity) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
+    get
+  }
+}
+extension Swift.String {
+  public var getBaseUrl: Swift.String? {
     get
   }
 }
@@ -66,6 +64,16 @@ final public class DefaultApplicationStateObserver : ZendeskSDKCoreUtilities.App
   final public func registerForApplicationStateNotifications()
   final public func unregisterForApplicationStateNotifications()
   @objc deinit
+}
+extension Swift.Optional where Wrapped == Swift.Int {
+  public var toNSNumber: Foundation.NSNumber? {
+    get
+  }
+}
+extension Swift.Optional where Wrapped == Swift.Double {
+  public var toNSNumber: Foundation.NSNumber? {
+    get
+  }
 }
 public enum ApplicationState {
   case willEnterForeground

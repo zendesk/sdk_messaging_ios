@@ -224,7 +224,7 @@ public protocol ConversationKitBuilder {
 }
 extension ZendeskSDKConversationKit.DefaultConversationKitBuilder {
   @available(swift, obsoleted: 1.0)
-  @objc final public func build(with settings: ZendeskSDKConversationKit.ConversationKitSettings, config: ZendeskSDKConversationKit.Config, featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager, callbackQueue: Dispatch.DispatchQueue = .main) -> any ZendeskSDKConversationKit.ConversationKitObjC
+  @objc final public func build(config: ZendeskSDKConversationKit.Config, featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager, callbackQueue: Dispatch.DispatchQueue = .main) -> any ZendeskSDKConversationKit.ConversationKitObjC
 }
 public enum Subrole : Swift.Int, Swift.Codable {
   public typealias RawValue = Swift.String
@@ -345,6 +345,11 @@ public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShare
   func setConversationTags(_ tags: [Swift.String])
   func clearConversationFields()
   func clearConversationTags()
+  func getWaitTimeForConversation(conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, *)
+  func getWaitTimeForConversation(conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.WaitTimeData
+  #endif
 }
 extension ZendeskSDKConversationKit.ConversationKit {
   public func createAnonymousUser(with givenName: Swift.String? = nil, surname: Swift.String? = nil, proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
@@ -418,11 +423,14 @@ extension ZendeskSDKConversationKit.ConversationKit {
   public func setConversationTags(_ tags: [Swift.String])
   public func clearConversationFields()
   public func clearConversationTags()
+  #if compiler(>=5.3) && $AsyncAwait
+  @available(iOS 13.0.0, *)
+  public func getWaitTimeForConversation(conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.WaitTimeData
+  #endif
 }
 @objc public protocol ConversationKitShared {
   @objc var clientId: Swift.String { get }
   @objc var config: ZendeskSDKConversationKit.Config { get }
-  @objc var settings: ZendeskSDKConversationKit.ConversationKitSettings { get }
   @objc var featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager { get }
   @objc var currentUser: ZendeskSDKConversationKit.User? { get }
   @objc var hasActiveConversationInLatestTen: Swift.Bool { get }
@@ -464,6 +472,8 @@ extension ZendeskSDKConversationKit.ConversationKit {
   func getVisitType(completion: ((ZendeskSDKConversationKit.VisitType, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
   func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, (any Swift.Error)?) -> Swift.Void)?)
+  @objc @available(swift, obsoleted: 1.0)
+  func getWaitTimeForConversation(conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.WaitTimeData?, (any Swift.Error)?) -> Swift.Void)?)
 }
 public typealias MessageActionTitle = Swift.String
 @objc(ZDKMessageContent) public protocol Content : ObjectiveC.NSObjectProtocol {
@@ -505,6 +515,19 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   }
   public static func == (a: ZendeskSDKConversationKit.ConversationKitError, b: ZendeskSDKConversationKit.ConversationKitError) -> Swift.Bool
 }
+@_hasMissingDesignatedInitializers @objc(ZDKWaitTimeData) final public class WaitTimeData : ObjectiveC.NSObject {
+  @objc final public let queuePositionNumber: Foundation.NSNumber
+  @objc final public let lowestQueuePositionNumber: Foundation.NSNumber?
+  @objc final public let responseTime: ZendeskSDKConversationKit.ResponseTime?
+  @objc final public let isInitialRouting: Swift.Bool
+  final public var lowestQueuePosition: Swift.Int? {
+    get
+  }
+  final public var queuePosition: Swift.Int {
+    get
+  }
+  @objc deinit
+}
 @objc(ZDKProactiveMessage) public class ProactiveMessage : ObjectiveC.NSObject {
   @objc final public let id: Swift.String
   @objc final public let title: Swift.String
@@ -518,13 +541,14 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   @objc final public var title: Swift.String
   @objc final public var itemDescription: Swift.String
   @objc final public var mediaURL: Swift.String
+  @objc final public var attachmentId: Swift.String?
   @objc final public var mediaType: Swift.String
   @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction] {
     @objc get
   }
   @objc final public let size: ZendeskSDKConversationKit.ActionItemSize
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]
-  public init(title: Swift.String, itemDescription: Swift.String, mediaURL: Swift.String, size: ZendeskSDKConversationKit.ActionItemSize, mediaType: Swift.String, actions: [ZendeskSDKConversationKit.MessageActionModel])
+  public init(title: Swift.String, itemDescription: Swift.String, mediaURL: Swift.String, attachmentId: Swift.String? = nil, size: ZendeskSDKConversationKit.ActionItemSize, mediaType: Swift.String, actions: [ZendeskSDKConversationKit.MessageActionModel])
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -547,8 +571,8 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   }
 }
 public struct SettingsParameters : Swift.Equatable {
-  public let settings: ZendeskSDKConversationKit.ConversationKitSettings
-  public init(settings: ZendeskSDKConversationKit.ConversationKitSettings, config: ZendeskSDKConversationKit.Config, featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager)
+  public let config: ZendeskSDKConversationKit.Config
+  public init(config: ZendeskSDKConversationKit.Config, featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager)
   public static func == (a: ZendeskSDKConversationKit.SettingsParameters, b: ZendeskSDKConversationKit.SettingsParameters) -> Swift.Bool
 }
 @objc(ZDKAuthorType) public enum AuthorType : Swift.Int, Swift.Codable, Swift.Equatable {
@@ -587,6 +611,7 @@ extension ZendeskSDKConversationKit.User {
     @objc get
   }
   @objc final public let mediaURL: Swift.String
+  @objc final public let attachmentId: Swift.String?
   @objc final public let text: Swift.String
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
   @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
@@ -595,7 +620,7 @@ extension ZendeskSDKConversationKit.User {
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
-  public init(mediaURL: Swift.String, text: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  public init(mediaURL: Swift.String, attachmentId: Swift.String? = nil, text: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -658,7 +683,20 @@ extension ZendeskSDKConversationKit.User {
 @objc(ZDKConfig) final public class Config : ObjectiveC.NSObject {
   @objc final public var appId: Swift.String
   @objc final public var baseURL: Swift.String
-  @objc public init(appId: Swift.String, baseURL: Swift.String)
+  @objc final public let integrationId: Swift.String
+  @objc final public let restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy
+  @objc final public let waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig
+  final public let region: ZendeskSDKConversationKit.Config.Region
+  @objc(ZDKRegion) public enum Region : Swift.Int {
+    case us
+    case eu
+    public init?(rawValue: Swift.Int)
+    public typealias RawValue = Swift.Int
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public init(appId: Swift.String, baseURL: Swift.String, integrationId: Swift.String, region: ZendeskSDKConversationKit.Config.Region = .us, restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy, waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -675,6 +713,15 @@ extension ZendeskSDKConversationKit.User {
   public var rawValue: Swift.Int {
     get
   }
+}
+@objc(ZDKWaitTimeConfig) public class WaitTimeConfig : ObjectiveC.NSObject {
+  @objc final public let waitTimeEnabled: Swift.Bool
+  @objc final public let queuePositionEnabled: Swift.Bool
+  @objc final public let onlyDecreasingQueue: Swift.Bool
+  @objc final public let waitTimeOverride: Foundation.NSNumber?
+  @objc final public let pollingInterval: Swift.Int
+  @objc public init(waitTimeEnabled: Swift.Bool, queuePositionEnabled: Swift.Bool, onlyDecreasingQueue: Swift.Bool, waitTimeOverride: Foundation.NSNumber?, pollingInterval: Swift.Int)
+  @objc deinit
 }
 @objc(ZDKMessageType) public enum MessageType : Swift.Int, Swift.Codable {
   case text
@@ -713,6 +760,7 @@ public enum ConversationKitEvent {
   case conversationRemoved(conversationId: Swift.String)
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
   case openWebViewMessageReceived(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String)
+  case getWaitTimeDataResult(conversationId: Swift.String, result: Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>)
 }
 extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
   public static func == (a: ZendeskSDKConversationKit.ConversationKitEvent, b: ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Bool
@@ -735,6 +783,7 @@ extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
   case conversationRemoved
   case proactiveMessageStatusChanged
   case openWebViewMessageReceived
+  case getWaitTimeDataResult
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -772,6 +821,12 @@ extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
   @objc final public let size: ZendeskSDKConversationKit.WebViewActionSize
   @objc deinit
 }
+@_hasMissingDesignatedInitializers @objc final public class ZDKWaitTimeDataResult : ObjectiveC.NSObject {
+  @objc final public let conversationId: Swift.String
+  @objc final public let waitTimeData: ZendeskSDKConversationKit.WaitTimeData?
+  @objc final public let error: (any Swift.Error)?
+  @objc deinit
+}
 @objc(ZDKFieldType) public enum FieldType : Swift.Int, Swift.Codable {
   case text
   case email
@@ -785,12 +840,23 @@ extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
     get
   }
 }
-public struct ResponseTime : Swift.Codable, Swift.Equatable {
-  public let upper: Swift.Int?
-  public let lower: Swift.Int?
-  public static func == (a: ZendeskSDKConversationKit.ResponseTime, b: ZendeskSDKConversationKit.ResponseTime) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
+@_hasMissingDesignatedInitializers @objc(ZDKResponseTime) final public class ResponseTime : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let upperNumber: Foundation.NSNumber?
+  @objc final public let lowerNumber: Foundation.NSNumber?
+  @objc final public let valueNumber: Foundation.NSNumber?
+  final public var upper: Swift.Int? {
+    get
+  }
+  final public var lower: Swift.Int? {
+    get
+  }
+  final public var value: Swift.Double? {
+    get
+  }
+  required public init(from decoder: any Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ZDKSelectFormField) final public class SelectFormField : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Field {
   @objc final public var type: ZendeskSDKConversationKit.FieldType {
@@ -854,9 +920,10 @@ extension ZendeskSDKConversationKit.Author {
   @objc final public let lastRead: Foundation.Date?
   final public let isInitialRouting: Swift.Bool
   final public let queuePosition: Swift.Int?
+  final public let lowestQueuePosition: Swift.Int?
   final public let responseTime: ZendeskSDKConversationKit.ResponseTime?
   final public let startAt: Swift.Int?
-  public init(id: Swift.String = UUID().uuidString, type: ZendeskSDKConversationKit.ActivityType, authorType: ZendeskSDKConversationKit.AuthorType, name: Swift.String?, avatarURL: Swift.String?, appUserId: Swift.String? = nil, lastRead: Foundation.Date? = nil, isInitialRouting: Swift.Bool = false, queuePosition: Swift.Int? = nil, responseTime: ZendeskSDKConversationKit.ResponseTime? = nil, startAt: Swift.Int? = nil)
+  public init(id: Swift.String = UUID().uuidString, type: ZendeskSDKConversationKit.ActivityType, authorType: ZendeskSDKConversationKit.AuthorType, name: Swift.String?, avatarURL: Swift.String?, appUserId: Swift.String? = nil, lastRead: Foundation.Date? = nil, isInitialRouting: Swift.Bool = false, queuePosition: Swift.Int? = nil, lowestQueuePosition: Swift.Int? = nil, responseTime: ZendeskSDKConversationKit.ResponseTime? = nil, startAt: Swift.Int? = nil)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
   final public func encode(to encoder: any Swift.Encoder) throws
@@ -937,26 +1004,19 @@ extension ZendeskSDKConversationKit.Author {
     get
   }
 }
-@objc(ZDKConversationKitSettings) final public class ConversationKitSettings : ObjectiveC.NSObject {
-  @objc(ZDKRegion) public enum Region : Swift.Int {
-    case us
-    case eu
-    public init?(rawValue: Swift.Int)
-    public typealias RawValue = Swift.Int
-    public var rawValue: Swift.Int {
-      get
-    }
-  }
-  @objc final public let integrationId: Swift.String
-  final public let region: ZendeskSDKConversationKit.ConversationKitSettings.Region
-  final public var baseURL: Swift.String?
-  @objc public init(integrationId: Swift.String, region: ZendeskSDKConversationKit.ConversationKitSettings.Region = .us, baseURL: Swift.String? = nil)
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+@objc(ZDKRestRetryPolicy) final public class RestRetryPolicy : ObjectiveC.NSObject {
+  @objc final public let regular: Swift.Int
+  @objc final public let aggressive: Swift.Int
+  @objc final public let timeUnit: Foundation.UnitDuration
+  @objc final public let backOffMultiplier: Swift.Int
+  @objc final public let maxRetries: Swift.Int
+  public init(regular: Swift.Int, aggressive: Swift.Int, timeUnit: Foundation.UnitDuration, backOffMultiplier: Swift.Int, maxRetries: Swift.Int)
   @objc deinit
 }
-extension ZendeskSDKConversationKit.ConversationKitSettings {
-  @available(swift, obsoleted: 1.0)
-  @objc convenience dynamic public init(integrationId: Swift.String)
+extension ZendeskSDKConversationKit.RestRetryPolicy {
+  public static var `default`: ZendeskSDKConversationKit.RestRetryPolicy {
+    get
+  }
 }
 @objc(ZDKVisitType) public enum VisitType : Swift.Int, Swift.Codable {
   case new
@@ -1150,12 +1210,13 @@ extension ZendeskSDKConversationKit.MessageActionModel {
   @objc final public let text: Swift.String
   @objc final public let altText: Swift.String
   @objc final public let mediaURL: Swift.String
+  @objc final public let attachmentId: Swift.String?
   @objc final public let mediaType: Swift.String
   @objc final public let mediaSize: Swift.Int64
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
-  public init(text: Swift.String, altText: Swift.String, mediaURL: Swift.String, mediaType: Swift.String, mediaSize: Swift.Int64, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  public init(text: Swift.String, altText: Swift.String, mediaURL: Swift.String, attachmentId: Swift.String? = nil, mediaType: Swift.String, mediaSize: Swift.Int64, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -1314,6 +1375,9 @@ extension ZendeskSDKConversationKit.AuthorType : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ActivityType : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ActivityType : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ActivityType : Swift.RawRepresentable {}
+extension ZendeskSDKConversationKit.Config.Region : Swift.Equatable {}
+extension ZendeskSDKConversationKit.Config.Region : Swift.Hashable {}
+extension ZendeskSDKConversationKit.Config.Region : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.ConversationRoutingStatus : Swift.Equatable {}
 extension ZendeskSDKConversationKit.ConversationRoutingStatus : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ConversationRoutingStatus : Swift.RawRepresentable {}
@@ -1331,9 +1395,6 @@ extension ZendeskSDKConversationKit.ConnectionStatus : Swift.Hashable {}
 extension ZendeskSDKConversationKit.ConnectionStatus : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.WebViewActionSize : Swift.Hashable {}
 extension ZendeskSDKConversationKit.WebViewActionSize : Swift.RawRepresentable {}
-extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.Equatable {}
-extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.Hashable {}
-extension ZendeskSDKConversationKit.ConversationKitSettings.Region : Swift.RawRepresentable {}
 extension ZendeskSDKConversationKit.VisitType : Swift.Equatable {}
 extension ZendeskSDKConversationKit.VisitType : Swift.Hashable {}
 extension ZendeskSDKConversationKit.VisitType : Swift.RawRepresentable {}

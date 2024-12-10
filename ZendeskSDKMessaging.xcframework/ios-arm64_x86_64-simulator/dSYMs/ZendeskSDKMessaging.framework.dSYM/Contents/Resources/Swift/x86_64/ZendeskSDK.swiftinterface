@@ -116,6 +116,7 @@ extension ZendeskSDK.MessagingDelegate {
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ZDKMessagingSettings) final public class MessagingSettings : ObjectiveC.NSObject {
+  final public let identifier: Swift.String
   final public let integrationId: Swift.String
   final public let enabled: Swift.Bool
   final public let settingsURL: Swift.String

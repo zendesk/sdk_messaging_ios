@@ -13,30 +13,31 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 @objc(ZDKGuideKitSettings) final public class GuideKitSettings : ObjectiveC.NSObject {
   @objc final public let baseURL: Swift.String
-  @objc public init(baseURL: Swift.String)
+  @objc final public let channelId: Swift.String
+  @objc public init(baseURL: Swift.String, channelId: Swift.String)
   @objc deinit
 }
 public protocol GuideKit : ZendeskSDKGuideKit.GuideKitShared {
-  func getArticle(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale, result: @escaping ((Swift.Result<ZendeskSDKGuideKit.GuideArticle, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void))
-  func sendArticleStatsView(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale, result: ((Swift.Result<Swift.Void, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void)?)
+  func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: @escaping ((Swift.Result<ZendeskSDKGuideKit.GuideArticle, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void))
+  func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: ((Swift.Result<Swift.Void, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void)?)
   #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
-  func getArticle(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws -> ZendeskSDKGuideKit.GuideArticle
+  func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws -> ZendeskSDKGuideKit.GuideArticle
   #endif
-  func getGuideArticleLink(for url: Swift.String) -> Swift.Result<ZendeskSDKGuideKit.GuideArticleUrl, ZendeskSDKGuideKit.GuideKitError>
+  func getGuideArticleUrl(for url: Swift.String) -> Swift.Result<ZendeskSDKGuideKit.GuideArticleUrl, ZendeskSDKGuideKit.GuideKitError>
   #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
-  func sendArticleStatsView(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws
+  func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws
   #endif
 }
 extension ZendeskSDKGuideKit.GuideKit {
   #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
-  public func getArticle(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws -> ZendeskSDKGuideKit.GuideArticle
+  public func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws -> ZendeskSDKGuideKit.GuideArticle
   #endif
   #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
-  public func sendArticleStatsView(for articleId: Swift.String, guideLocale: ZendeskSDKGuideKit.GuideLocale) async throws
+  public func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws
   #endif
 }
 @objc public protocol GuideKitShared {
@@ -65,7 +66,7 @@ extension ZendeskSDKGuideKit.DefaultGuideKitBuilder {
 }
 @_hasMissingDesignatedInitializers @objc(ZDKGuideArticleUrl) final public class GuideArticleUrl : ObjectiveC.NSObject {
   @objc final public let url: Swift.String
-  @objc final public let articleId: Swift.UInt64
+  @objc final public let articleId: Swift.String
   @objc final public let locale: ZendeskSDKGuideKit.GuideLocale
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc deinit
