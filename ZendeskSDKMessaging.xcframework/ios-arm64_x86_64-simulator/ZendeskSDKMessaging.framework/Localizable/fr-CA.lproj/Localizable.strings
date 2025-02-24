@@ -56,7 +56,7 @@
 "zma_label_send_message" = "Envoyer le message";
 "zma_message_action_option_not_supported_label" = "Option non prise en charge";
 "zma_message_input_placeholder" = "Tapez un message";
-"zma_multiconvo_setting_conversation_titles_and_avatars" = "Commencé(e) le %@ à %@";
+"zma_multiconvo_setting_conversation_titles_and_avatars" = "Commencée le %@ à %@";
 "zma_new_conversation_button" = "Nouvelle conversation";
 "zma_new_conversation_error_alert_dismiss_button" = "OK";
 "zma_new_conversation_error_alert_message" = "Réessayez ultérieurement.";

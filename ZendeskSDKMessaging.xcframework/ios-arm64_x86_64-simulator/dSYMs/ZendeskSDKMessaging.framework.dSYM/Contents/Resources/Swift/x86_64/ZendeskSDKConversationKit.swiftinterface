@@ -2,6 +2,7 @@
 // swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
 // swift-module-flags-ignorable: -enable-bare-slash-regex
+import Combine
 import CoreTelephony
 import Foundation
 import MobileCoreServices
@@ -86,7 +87,7 @@ import _SwiftConcurrencyShims
   @objc final public let status: ZendeskSDKConversationKit.ConversationStatus
   final public let createdAt: Foundation.Date?
   @objc final public let routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus
-  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown, createdAt: Foundation.Date? = nil, routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus = .cleared)
+  @objc public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown, createdAt: Foundation.Date? = nil, routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus = .unknown)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -345,11 +346,10 @@ public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShare
   func setConversationTags(_ tags: [Swift.String])
   func clearConversationFields()
   func clearConversationTags()
-  func getWaitTimeForConversation(conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
+  func fetchWaitTimeForConversation(conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   @available(iOS 13.0.0, *)
-  func getWaitTimeForConversation(conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.WaitTimeData
-  #endif
+  func fetchWaitTimeForConversation(conversationId: Swift.String) -> Combine.AnyPublisher<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>
+  func stopFetchingWaitTime()
 }
 extension ZendeskSDKConversationKit.ConversationKit {
   public func createAnonymousUser(with givenName: Swift.String? = nil, surname: Swift.String? = nil, proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
@@ -423,10 +423,10 @@ extension ZendeskSDKConversationKit.ConversationKit {
   public func setConversationTags(_ tags: [Swift.String])
   public func clearConversationFields()
   public func clearConversationTags()
-  #if compiler(>=5.3) && $AsyncAwait
+  public func fetchWaitTimeForConversation(conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   @available(iOS 13.0.0, *)
-  public func getWaitTimeForConversation(conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.WaitTimeData
-  #endif
+  public func fetchWaitTimeForConversation(conversationId: Swift.String) -> Combine.AnyPublisher<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>
+  public func stopFetchingWaitTime()
 }
 @objc public protocol ConversationKitShared {
   @objc var clientId: Swift.String { get }
@@ -446,6 +446,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc func clearConversationFields()
   @objc func clearConversationTags()
   @objc func cacheFirstTenMostRecentConversationsInMemory(_ conversations: [ZendeskSDKConversationKit.Conversation])
+  @objc func stopFetchingWaitTime()
 }
 @objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitShared {
   @objc @available(swift, obsoleted: 1.0)
@@ -473,7 +474,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc @available(swift, obsoleted: 1.0)
   func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.Conversation?, (any Swift.Error)?) -> Swift.Void)?)
   @objc @available(swift, obsoleted: 1.0)
-  func getWaitTimeForConversation(conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.WaitTimeData?, (any Swift.Error)?) -> Swift.Void)?)
+  func fetchWaitTimeForConversation(conversationId: Swift.String, completion: ((ZendeskSDKConversationKit.WaitTimeData?, (any Swift.Error)?) -> Swift.Void)?)
 }
 public typealias MessageActionTitle = Swift.String
 @objc(ZDKMessageContent) public protocol Content : ObjectiveC.NSObjectProtocol {
@@ -504,6 +505,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   case httpError(description: Swift.String, httpError: ZendeskSDKHTTPClient.HTTPError)
   case userExists
   case failedToDecodeJWT
+  case expiredJWT
   public static var errorDomain: Swift.String {
     get
   }
@@ -525,6 +527,9 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   }
   final public var queuePosition: Swift.Int {
     get
+  }
+  @objc override final public var description: Swift.String {
+    @objc get
   }
   @objc deinit
 }
@@ -613,6 +618,7 @@ extension ZendeskSDKConversationKit.User {
   @objc final public let mediaURL: Swift.String
   @objc final public let attachmentId: Swift.String?
   @objc final public let text: Swift.String
+  @objc final public let htmlText: Swift.String?
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
   @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     @objc get
@@ -620,7 +626,7 @@ extension ZendeskSDKConversationKit.User {
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
-  public init(mediaURL: Swift.String, attachmentId: Swift.String? = nil, text: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  public init(mediaURL: Swift.String, attachmentId: Swift.String? = nil, text: Swift.String? = nil, htmlText: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }
@@ -706,7 +712,7 @@ extension ZendeskSDKConversationKit.User {
 @objc(ZDKConversationRoutingStatus) public enum ConversationRoutingStatus : Swift.Int, Swift.Codable {
   case queued
   case assigned
-  case cleared
+  case unknown
   public init?(stringValue: Swift.String)
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
@@ -719,8 +725,8 @@ extension ZendeskSDKConversationKit.User {
   @objc final public let queuePositionEnabled: Swift.Bool
   @objc final public let onlyDecreasingQueue: Swift.Bool
   @objc final public let waitTimeOverride: Foundation.NSNumber?
-  @objc final public let pollingInterval: Swift.Int
-  @objc public init(waitTimeEnabled: Swift.Bool, queuePositionEnabled: Swift.Bool, onlyDecreasingQueue: Swift.Bool, waitTimeOverride: Foundation.NSNumber?, pollingInterval: Swift.Int)
+  @objc final public let queuePollingInterval: Swift.Int
+  @objc public init(waitTimeEnabled: Swift.Bool, queuePositionEnabled: Swift.Bool, onlyDecreasingQueue: Swift.Bool, waitTimeOverride: Foundation.NSNumber?, queuePollingInterval: Swift.Int)
   @objc deinit
 }
 @objc(ZDKMessageType) public enum MessageType : Swift.Int, Swift.Codable {
@@ -760,7 +766,7 @@ public enum ConversationKitEvent {
   case conversationRemoved(conversationId: Swift.String)
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
   case openWebViewMessageReceived(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String)
-  case getWaitTimeDataResult(conversationId: Swift.String, result: Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>)
+  case fetchWaitTimeDataResult(conversationId: Swift.String, result: Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>)
 }
 extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
   public static func == (a: ZendeskSDKConversationKit.ConversationKitEvent, b: ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Bool
@@ -856,6 +862,9 @@ extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
   required public init(from decoder: any Swift.Decoder) throws
   final public func encode(to encoder: any Swift.Encoder) throws
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override final public var description: Swift.String {
+    @objc get
+  }
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc(ZDKSelectFormField) final public class SelectFormField : ObjectiveC.NSObject, Swift.Codable, ZendeskSDKConversationKit.Field {
@@ -948,6 +957,7 @@ extension ZendeskSDKConversationKit.Author {
     @objc get
   }
   @objc final public let text: Swift.String
+  @objc final public let htmlText: Swift.String?
   @objc final public let payload: Swift.String?
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
   @objc final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
@@ -956,7 +966,7 @@ extension ZendeskSDKConversationKit.Author {
   @objc final public var metadata: [Swift.String : Swift.AnyHashable]? {
     @objc get
   }
-  public init(text: Swift.String, payload: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  public init(text: Swift.String, htmlText: Swift.String? = nil, payload: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   @objc override final public var description: Swift.String {
     @objc get
   }

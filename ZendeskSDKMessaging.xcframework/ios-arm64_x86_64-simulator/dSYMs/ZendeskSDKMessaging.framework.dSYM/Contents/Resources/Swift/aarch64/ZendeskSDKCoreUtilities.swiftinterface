@@ -13,8 +13,10 @@ import _SwiftConcurrencyShims
   final public let isMultiConvoEnabled: Swift.Bool
   final public let canUserCreateMoreConversations: Swift.Bool
   final public let isWaitTimeBannerEnabled: Swift.Bool
+  final public let canUserSeeConversationList: Swift.Bool
+  final public let richTextMessageEnabled: Swift.Bool
   @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
-  @objc public init(hipaaAttachmentFlag: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
+  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc deinit
 }
 open class ZendeskObservable<Observed> {
@@ -27,10 +29,17 @@ open class ZendeskObservable<Observed> {
 }
 public struct JWT : Swift.Decodable {
   public let externalId: Swift.String
+  public let exp: Foundation.TimeInterval?
+  public var isJWTExpired: Swift.Bool {
+    get
+  }
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct JWTDecoder {
   public static func decode<T>(jwt: Swift.String) -> T? where T : Swift.Decodable
+}
+extension Swift.String {
+  public func htmlToAttributedString(with font: UIKit.UIFont, textColor: UIKit.UIColor) -> Foundation.NSAttributedString?
 }
 public struct ObservableEntity : Swift.Hashable {
   public init(value: Swift.AnyObject)

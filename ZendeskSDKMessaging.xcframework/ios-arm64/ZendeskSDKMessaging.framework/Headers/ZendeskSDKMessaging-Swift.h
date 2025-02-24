@@ -432,6 +432,7 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
+
 @class UIColor;
 
 /// Model that contains the colors provided by the user to be used in the SDK.
