@@ -39,7 +39,7 @@ public struct JWTDecoder {
   public static func decode<T>(jwt: Swift.String) -> T? where T : Swift.Decodable
 }
 extension Swift.String {
-  public func htmlToAttributedString(with font: UIKit.UIFont, textColor: UIKit.UIColor) -> Foundation.NSAttributedString?
+  public func htmlToAttributedString(with font: UIKit.UIFont, textColor: UIKit.UIColor, codeBlocksFont: UIKit.UIFont, codeBlocksTextColor: UIKit.UIColor, codeBlocksBackgroundColor: UIKit.UIColor) -> Foundation.NSAttributedString?
 }
 public struct ObservableEntity : Swift.Hashable {
   public init(value: Swift.AnyObject)

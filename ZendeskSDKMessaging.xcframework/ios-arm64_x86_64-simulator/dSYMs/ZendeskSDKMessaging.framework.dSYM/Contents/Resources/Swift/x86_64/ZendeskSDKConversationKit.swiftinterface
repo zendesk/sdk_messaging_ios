@@ -445,7 +445,7 @@ extension ZendeskSDKConversationKit.ConversationKit {
   @objc func setConversationTags(_ tags: [Swift.String])
   @objc func clearConversationFields()
   @objc func clearConversationTags()
-  @objc func cacheFirstTenMostRecentConversationsInMemory(_ conversations: [ZendeskSDKConversationKit.Conversation])
+  @objc func updateUserConversations(_ conversations: [ZendeskSDKConversationKit.Conversation])
   @objc func stopFetchingWaitTime()
 }
 @objc(ZDKConversationKit) public protocol ConversationKitObjC : ZendeskSDKConversationKit.ConversationKitShared {
@@ -689,6 +689,7 @@ extension ZendeskSDKConversationKit.User {
 @objc(ZDKConfig) final public class Config : ObjectiveC.NSObject {
   @objc final public var appId: Swift.String
   @objc final public var baseURL: Swift.String
+  @objc final public var settingsBaseURL: Swift.String
   @objc final public let integrationId: Swift.String
   @objc final public let restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy
   @objc final public let waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig
@@ -702,7 +703,7 @@ extension ZendeskSDKConversationKit.User {
       get
     }
   }
-  @objc public init(appId: Swift.String, baseURL: Swift.String, integrationId: Swift.String, region: ZendeskSDKConversationKit.Config.Region = .us, restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy, waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig)
+  @objc public init(appId: Swift.String, baseURL: Swift.String, settingsBaseURL: Swift.String, integrationId: Swift.String, region: ZendeskSDKConversationKit.Config.Region = .us, restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy, waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
   @objc override final public var description: Swift.String {
     @objc get
@@ -762,6 +763,7 @@ public enum ConversationKitEvent {
   case loginResult(result: Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>)
   case logoutResult(error: ZendeskSDKConversationKit.ConversationKitError?)
   case persistedUserRetrieved(ZendeskSDKConversationKit.User)
+  case conversationStarted(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationRemoved(conversationId: Swift.String)
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
@@ -785,6 +787,7 @@ extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
   case loginResult
   case logoutResult
   case persistedUserRetrieved
+  case conversationStarted
   case conversationAdded
   case conversationRemoved
   case proactiveMessageStatusChanged

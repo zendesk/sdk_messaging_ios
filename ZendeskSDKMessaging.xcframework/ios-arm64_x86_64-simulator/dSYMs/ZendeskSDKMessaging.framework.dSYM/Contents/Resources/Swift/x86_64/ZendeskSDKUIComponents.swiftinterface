@@ -84,7 +84,7 @@ extension ZendeskSDKUIComponents.ConversationListItemStyle {
   }
 }
 public struct TextMessageStyle : Swift.Sendable, Swift.Equatable {
-  public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor)
+  public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor, codeBlocksStyle: ZendeskSDKUIComponents.TextMessageCodeBlocksStyle? = nil)
   public static func == (a: ZendeskSDKUIComponents.TextMessageStyle, b: ZendeskSDKUIComponents.TextMessageStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.TextMessageStyle {
@@ -596,6 +596,7 @@ extension ZendeskSDKUIComponents.ConversationExtensionWebView : WebKit.WKScriptM
     set
   }
   @_Concurrency.MainActor(unsafe) public init(style: ZendeskSDKUIComponents.CardViewStyle = .default)
+  @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.CarouselViewRendering
   public typealias Style = ZendeskSDKUIComponents.CardViewStyle
   @objc deinit
@@ -817,6 +818,10 @@ extension ZendeskSDKUIComponents.ActionButtonRendering {
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class ArticleAttachmentCell : UIKit.UITableViewCell {
   @objc deinit
+}
+public struct TextMessageCodeBlocksStyle : Swift.Sendable, Swift.Equatable {
+  public init(textColor: UIKit.UIColor, backgroundColor: UIKit.UIColor)
+  public static func == (a: ZendeskSDKUIComponents.TextMessageCodeBlocksStyle, b: ZendeskSDKUIComponents.TextMessageCodeBlocksStyle) -> Swift.Bool
 }
 @objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class InputFieldView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor(unsafe) final public var rendering: ZendeskSDKUIComponents.InputFieldRendering {

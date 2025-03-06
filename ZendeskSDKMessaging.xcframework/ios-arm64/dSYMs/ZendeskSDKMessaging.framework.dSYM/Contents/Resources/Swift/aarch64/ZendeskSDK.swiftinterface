@@ -45,6 +45,9 @@ public enum ZendeskEvent {
   case conversationAdded(conversationId: Swift.String)
   case connectionStatusChanged(connectionStatus: ZendeskSDK.ZendeskConnectionStatus)
   case sendMessageFailed(error: any Swift.Error)
+  case conversationOpened(id: Foundation.UUID, timestamp: Foundation.Date, conversationId: Swift.String?)
+  case conversationStarted(id: Foundation.UUID, timestamp: Foundation.Date, conversationId: Swift.String)
+  case messagesShown(id: Foundation.UUID, timestamp: Foundation.Date, conversationId: Swift.String, messages: [ZendeskSDK.ZendeskMessage])
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
   case unreadMessageCountChanged
@@ -52,6 +55,9 @@ public enum ZendeskEvent {
   case conversationAdded
   case connectionStatusChanged
   case sendMessageFailed
+  case conversationOpened
+  case conversationStarted
+  case messagesShown
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -60,6 +66,25 @@ public enum ZendeskEvent {
 }
 extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public static func == (lhs: ZendeskSDK.ZendeskEvent, rhs: ZendeskSDK.ZendeskEvent) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKConversationOpened : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let conversationId: Swift.String?
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKConversationStarted : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let conversationId: Swift.String
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKMessagesShown : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let conversationId: Swift.String
+  @objc final public let messages: [ZendeskSDK.ZendeskMessage]
+  @objc deinit
 }
 @objc public protocol MessagingFactory {
   @objc func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
@@ -138,6 +163,16 @@ extension ZendeskSDK.MessagingSettings {
     get
   }
 }
+@objc(ZDKZendeskMessage) final public class ZendeskMessage : ObjectiveC.NSObject, Swift.Codable {
+  @objc final public let id: Swift.String
+  @objc final public let role: ZendeskSDK.ZendeskRole
+  @objc final public let timestamp: Foundation.Date
+  @objc public init(id: Swift.String, role: ZendeskSDK.ZendeskRole, timestamp: Foundation.Date)
+  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public protocol MessagingSwiftUIDelegate : AnyObject {
   func messaging(_ messaging: ZendeskSDK.MessagingSwiftUI, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
 }
@@ -187,6 +222,15 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
     get
   }
   public static var logCategory: Swift.String {
+    get
+  }
+}
+@objc(ZDKZendeskRole) public enum ZendeskRole : Swift.Int, Swift.Codable {
+  case user
+  case business
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
     get
   }
 }
@@ -253,6 +297,9 @@ extension ZendeskSDK.InitializationPhase : Swift.Hashable {}
 extension ZendeskSDK.ZDKZendeskEvent : Swift.Equatable {}
 extension ZendeskSDK.ZDKZendeskEvent : Swift.Hashable {}
 extension ZendeskSDK.ZDKZendeskEvent : Swift.RawRepresentable {}
+extension ZendeskSDK.ZendeskRole : Swift.Equatable {}
+extension ZendeskSDK.ZendeskRole : Swift.Hashable {}
+extension ZendeskSDK.ZendeskRole : Swift.RawRepresentable {}
 extension ZendeskSDK.URLSource : Swift.Equatable {}
 extension ZendeskSDK.URLSource : Swift.Hashable {}
 extension ZendeskSDK.ZendeskConnectionStatus : Swift.Equatable {}
