@@ -12,9 +12,7 @@ import _SwiftConcurrencyShims
   final public let hipaaAttachmentFlag: Swift.Bool
   final public let isMultiConvoEnabled: Swift.Bool
   final public let canUserCreateMoreConversations: Swift.Bool
-  final public let isWaitTimeBannerEnabled: Swift.Bool
   final public let canUserSeeConversationList: Swift.Bool
-  final public let richTextMessageEnabled: Swift.Bool
   @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
   @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
   @objc deinit

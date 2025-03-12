@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		2NtNsVOZLsYq41kN5g0wc/jSmKU=
+		TMm8n1dOuZ0ILbHhdDkOKv5qYDk=
 		</data>
 		<key>Headers/ZendeskSDKMessaging-Swift.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		see1dKyc9YdhMOHu7a16srki8/c=
+		R2/PcTDejiBmT5Cwh3R2uZNqv3o=
 		</data>
 		<key>Localizable/Info.plist</key>
 		<data>
@@ -341,7 +341,7 @@
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		s3F1o5RlmurhQWVCUGHLEs+ySeo=
+		eZPCkecDUqKusfjUb8ToHlDG+tQ=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -357,11 +357,11 @@
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		BwA9Deof1o7zIjHUc7X0gh40fpE=
+		gIFQqzGM28kban2C6Bbo3fwhI1M=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		s3F1o5RlmurhQWVCUGHLEs+ySeo=
+		eZPCkecDUqKusfjUb8ToHlDG+tQ=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -377,7 +377,7 @@
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ZROui5VyC9CNQo3jVvjw0H/Raeo=
+		WMsSM4IDBRXtJoMrkd8inEc6MMc=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -398,7 +398,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rVjqbMac80kQGq3wVEFbh9qx6CN2SwEg0hfapuvoNFY=
+			80Gh7Pn+TO0F4QyFeTIW188VFsHDnxH4o5Hd2b7BPK0=
 			</data>
 		</dict>
 		<key>Headers/ZendeskSDKMessaging-Swift.h</key>
@@ -741,7 +741,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VPgOVqeCEhQQurd0JjS+ogWL5gUYSnY+D9r/4x5/fxk=
+			FGQP+Wl389wyjyX0YkOFtaDRIWEQYokGL3pElxfc4Iw=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -769,14 +769,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			TeEid5XRw6yCULTZTHTnmsQ5KFdyhy8UkOsY0WMGJpk=
+			tP/j/wjw9T9KLZk7L+Jx4d9LuCPV0LogUrgG1XdCJ1U=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VPgOVqeCEhQQurd0JjS+ogWL5gUYSnY+D9r/4x5/fxk=
+			FGQP+Wl389wyjyX0YkOFtaDRIWEQYokGL3pElxfc4Iw=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -804,7 +804,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			iOi/nhJbKmJ729YCXNbt9F27t9Zy61Ij8l+S/r0u4o4=
+			+DS0QCaftZPU2gaSI4Lin9/LKNnxVgjjEcx7LQL921U=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
