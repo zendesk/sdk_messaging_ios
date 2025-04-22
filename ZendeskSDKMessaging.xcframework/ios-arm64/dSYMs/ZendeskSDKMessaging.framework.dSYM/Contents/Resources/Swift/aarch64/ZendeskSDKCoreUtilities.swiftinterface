@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKCoreUtilities
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKCoreUtilities
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 import Swift
 import UIKit
@@ -13,8 +13,9 @@ import _SwiftConcurrencyShims
   final public let isMultiConvoEnabled: Swift.Bool
   final public let canUserCreateMoreConversations: Swift.Bool
   final public let canUserSeeConversationList: Swift.Bool
+  final public let isMultiAttachmentsEnabled: Swift.Bool
   @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
-  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false)
+  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false, isMultiAttachmentsEnabled: Swift.Bool = false)
   @objc deinit
 }
 open class ZendeskObservable<Observed> {
@@ -72,16 +73,32 @@ final public class DefaultApplicationStateObserver : ZendeskSDKCoreUtilities.App
   final public func unregisterForApplicationStateNotifications()
   @objc deinit
 }
+#if compiler(>=5.3) && $NoncopyableGenerics
 extension Swift.Optional where Wrapped == Swift.Int {
   public var toNSNumber: Foundation.NSNumber? {
     get
   }
 }
+#else
+extension Swift.Optional where Wrapped == Swift.Int {
+  public var toNSNumber: Foundation.NSNumber? {
+    get
+  }
+}
+#endif
+#if compiler(>=5.3) && $NoncopyableGenerics
 extension Swift.Optional where Wrapped == Swift.Double {
   public var toNSNumber: Foundation.NSNumber? {
     get
   }
 }
+#else
+extension Swift.Optional where Wrapped == Swift.Double {
+  public var toNSNumber: Foundation.NSNumber? {
+    get
+  }
+}
+#endif
 public enum ApplicationState {
   case willEnterForeground
   case didEnterBackground

@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKConversationKit
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKConversationKit
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Combine
 import CoreTelephony
 import Foundation
@@ -278,70 +278,44 @@ public enum Subrole : Swift.Int, Swift.Codable {
 public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShared {
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
   func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?) async throws -> ZendeskSDKConversationKit.User
-  #endif
   func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func getConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   func getConversations(offset: Swift.Int, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func getConversations(offset: Swift.Int) async throws -> ZendeskSDKConversationKit.ConversationList
-  #endif
   func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func refreshConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Message
-  #endif
   func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, conversationId: Swift.String) async throws
-  #endif
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String) async throws
-  #endif
   func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func loginUser(with jwt: Swift.String) async throws -> ZendeskSDKConversationKit.User
-  #endif
   func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func logoutUser() async throws
-  #endif
   func createConversation(proactiveMessageId: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func createConversation(proactiveMessageId: Swift.String?) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   func getVisitType(result: ((Swift.Result<ZendeskSDKConversationKit.VisitType, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func getVisitType() async throws -> ZendeskSDKConversationKit.VisitType
-  #endif
   func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
   func setConversationTags(_ tags: [Swift.String])
   func clearConversationFields()
@@ -353,72 +327,46 @@ public protocol ConversationKit : ZendeskSDKConversationKit.ConversationKitShare
 }
 extension ZendeskSDKConversationKit.ConversationKit {
   public func createAnonymousUser(with givenName: Swift.String? = nil, surname: Swift.String? = nil, proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String? = nil) async throws -> ZendeskSDKConversationKit.User
-  #endif
   public func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func getConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   public func getConversations(offset: Swift.Int, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func getConversations(offset: Swift.Int) async throws -> ZendeskSDKConversationKit.ConversationList
-  #endif
   public func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func refreshConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   public func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Message
-  #endif
   public func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, conversationId: Swift.String, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, conversationId: Swift.String) async throws
-  #endif
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String) async throws
-  #endif
   public func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func loginUser(with jwt: Swift.String) async throws -> ZendeskSDKConversationKit.User
-  #endif
   public func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func logoutUser() async throws
-  #endif
   public func createConversation(proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func createConversation(proactiveMessageId: Swift.String? = nil) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   public func proactiveMessageStatusChanged(_ status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage, jwt: Swift.String? = nil)
   public func clearProactiveMessages(proactiveMessageIds: [Swift.String])
   public func getVisitType(result: ((Swift.Result<ZendeskSDKConversationKit.VisitType, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func getVisitType() async throws -> ZendeskSDKConversationKit.VisitType
-  #endif
   public func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  #endif
   public func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
   public func setConversationTags(_ tags: [Swift.String])
   public func clearConversationFields()

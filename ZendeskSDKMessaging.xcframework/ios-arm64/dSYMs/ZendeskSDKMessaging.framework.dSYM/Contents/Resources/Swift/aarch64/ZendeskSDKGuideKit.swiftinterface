@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDKGuideKit
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKGuideKit
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 import Swift
 import UIKit
@@ -20,25 +20,17 @@ import _SwiftConcurrencyShims
 public protocol GuideKit : ZendeskSDKGuideKit.GuideKitShared {
   func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: @escaping ((Swift.Result<ZendeskSDKGuideKit.GuideArticle, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void))
   func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: ((Swift.Result<Swift.Void, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void)?)
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws -> ZendeskSDKGuideKit.GuideArticle
-  #endif
   func getGuideArticleUrl(for url: Swift.String) -> Swift.Result<ZendeskSDKGuideKit.GuideArticleUrl, ZendeskSDKGuideKit.GuideKitError>
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws
-  #endif
 }
 extension ZendeskSDKGuideKit.GuideKit {
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws -> ZendeskSDKGuideKit.GuideArticle
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
   @available(iOS 13.0.0, *)
   public func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws
-  #endif
 }
 @objc public protocol GuideKitShared {
   @objc func isValidGuideUrl(url: Swift.String) -> Swift.Bool

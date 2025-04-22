@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
-// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name ZendeskSDK
-// swift-module-flags-ignorable: -enable-bare-slash-regex
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import CoreTelephony
 import Foundation
 import Swift
@@ -18,18 +18,10 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 @available(iOS 13.0.0, *)
 extension ZendeskSDK.Zendesk {
-  #if compiler(>=5.3) && $AsyncAwait
   final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil) async throws -> ZendeskSDK.Zendesk
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView) async throws
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
   final public func loginUser(with jwt: Swift.String) async throws -> ZendeskSDK.ZendeskUser
-  #endif
-  #if compiler(>=5.3) && $AsyncAwait
   final public func logoutUser() async throws
-  #endif
 }
 public enum InitializationPhase {
   case notProcessing, processing
@@ -118,7 +110,7 @@ public struct ColorTheme : Swift.Equatable, Swift.Hashable {
 open class MessagingSwiftUI {
   public init()
   @available(iOS 14, *)
-  open func messagingView() -> SwiftUI.AnyView
+  open func messagingView() -> SwiftUICore.AnyView
   open func getUnreadMessageCount() -> Swift.Int
   open func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
   open func setConversationTags(_ tags: [Swift.String])
