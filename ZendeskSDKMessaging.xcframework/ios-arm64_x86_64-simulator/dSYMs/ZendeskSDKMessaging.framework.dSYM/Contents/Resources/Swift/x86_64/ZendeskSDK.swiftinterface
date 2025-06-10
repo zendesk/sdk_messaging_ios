@@ -32,7 +32,9 @@ public enum InitializationPhase {
   }
 }
 public enum ZendeskEvent {
+  @available(*, deprecated, message: "Use `сonversationUnreadCountChanged` instead.")
   case unreadMessageCountChanged(currentUnreadCount: Swift.Int)
+  case сonversationUnreadCountChanged(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationUnreadCountChange)
   case authenticationFailed(error: any Swift.Error)
   case conversationAdded(conversationId: Swift.String)
   case connectionStatusChanged(connectionStatus: ZendeskSDK.ZendeskConnectionStatus)
@@ -42,7 +44,9 @@ public enum ZendeskEvent {
   case messagesShown(id: Foundation.UUID, timestamp: Foundation.Date, conversationId: Swift.String, messages: [ZendeskSDK.ZendeskMessage])
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
+  @available(*, deprecated, message: "Use `сonversationUnreadMessageCountChanged` instead.")
   case unreadMessageCountChanged
+  case сonversationUnreadMessageCountChanged
   case authenticationFailed
   case conversationAdded
   case connectionStatusChanged
@@ -58,6 +62,13 @@ public enum ZendeskEvent {
 }
 extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public static func == (lhs: ZendeskSDK.ZendeskEvent, rhs: ZendeskSDK.ZendeskEvent) -> Swift.Bool
+}
+@objc(ZDKConversationUnreadCountChanged) final public class ConversationUnreadCountChange : ObjectiveC.NSObject {
+  @objc final public let totalUnreadMessagesCount: Swift.Int
+  @objc final public let conversationId: Swift.String?
+  @objc final public let unreadCountInConversation: Swift.Int
+  public init(totalUnreadMessagesCount: Swift.Int, conversationId: Swift.String?, unreadCountInConversation: Swift.Int)
+  @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKConversationOpened : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
@@ -267,6 +278,7 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
 @_inheritsConvenienceInitializers @objc(ZDKMessaging) open class Messaging : ObjectiveC.NSObject {
   @objc open func messagingViewController() -> UIKit.UIViewController
   @objc open func getUnreadMessageCount() -> Swift.Int
+  @objc open func getUnreadMessageCount(conversationId: Swift.String) -> Swift.Int
   @objc open func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
   @objc open func setConversationTags(_ tags: [Swift.String])
   @objc open func clearConversationFields()

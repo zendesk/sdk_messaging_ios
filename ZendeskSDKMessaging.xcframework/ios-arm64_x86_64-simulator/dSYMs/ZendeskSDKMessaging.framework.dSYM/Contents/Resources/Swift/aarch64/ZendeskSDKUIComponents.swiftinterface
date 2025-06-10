@@ -1351,7 +1351,8 @@ public struct ConversationExtensionRendering {
   public let state: ZendeskSDKUIComponents.ConversationExtensionState
   public let conversationExtensionHeaderRendering: ZendeskSDKUIComponents.ConversationExtensionHeaderRendering
   public let errorViewRendering: ZendeskSDKUIComponents.ConversationErrorViewRendering
-  public init(state: ZendeskSDKUIComponents.ConversationExtensionState, conversationExtensionHeaderRendering: ZendeskSDKUIComponents.ConversationExtensionHeaderRendering = .default, errorViewRendering: ZendeskSDKUIComponents.ConversationErrorViewRendering = .default)
+  public let extentionURL: Swift.String
+  public init(state: ZendeskSDKUIComponents.ConversationExtensionState, conversationExtensionHeaderRendering: ZendeskSDKUIComponents.ConversationExtensionHeaderRendering = .default, errorViewRendering: ZendeskSDKUIComponents.ConversationErrorViewRendering = .default, extentionURL: Swift.String = "")
 }
 public enum ConversationExtensionState : Swift.Equatable {
   case loading
