@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKUIComponents
+// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKUIComponents
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import CoreGraphics
 import DeveloperToolsSupport
@@ -205,9 +205,15 @@ extension UIKit.UIStackView {
 extension ZendeskSDKUIComponents.TextMessageView : UIKit.UITextViewDelegate {
   @_Concurrency.MainActor @preconcurrency @objc final public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
 }
+#if compiler(>=5.3) && $RetroactiveAttribute
+extension UIKit.UIPasteboard : @retroactive ZendeskSDKCoreUtilities.Pasteboard {
+  public func setString(_ string: Swift.String?)
+}
+#else
 extension UIKit.UIPasteboard : ZendeskSDKCoreUtilities.Pasteboard {
   public func setString(_ string: Swift.String?)
 }
+#endif
 public struct MessagesDividerRendering {
   public let text: Swift.String
   public let style: ZendeskSDKUIComponents.MessagesDividerStyle
@@ -1260,11 +1266,19 @@ public typealias BannerRenderingUpdate = (ZendeskSDKUIComponents.ConnectionBanne
   public typealias Style = ZendeskSDKUIComponents.ConnectionBannerViewStyle
   @objc deinit
 }
+#if compiler(>=5.3) && $RetroactiveAttribute
+extension UIKit.UIEdgeInsets : @retroactive Swift.Sequence {
+  public typealias Iterator = ZendeskSDKUIComponents.InsetsIterator
+  public typealias Element = CoreFoundation.CGFloat
+  public func makeIterator() -> UIKit.UIEdgeInsets.Iterator
+}
+#else
 extension UIKit.UIEdgeInsets : Swift.Sequence {
   public typealias Iterator = ZendeskSDKUIComponents.InsetsIterator
   public typealias Element = CoreFoundation.CGFloat
   public func makeIterator() -> UIKit.UIEdgeInsets.Iterator
 }
+#endif
 public struct InsetsIterator : Swift.IteratorProtocol {
   public typealias Element = CoreFoundation.CGFloat
   public mutating func next() -> CoreFoundation.CGFloat?

@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKGuideKit
+// swift-module-flags: -target x86_64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKGuideKit
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 import Swift
@@ -11,13 +11,14 @@ import ZendeskSDKStorage
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@objc(ZDKGuideKitSettings) final public class GuideKitSettings : ObjectiveC.NSObject {
-  @objc final public let baseURL: Swift.String
-  @objc final public let channelId: Swift.String
-  @objc public init(baseURL: Swift.String, channelId: Swift.String)
+final public class GuideKitSettings {
+  final public let baseURL: Swift.String
+  final public let channelId: Swift.String
+  public init(baseURL: Swift.String, channelId: Swift.String)
   @objc deinit
 }
-public protocol GuideKit : ZendeskSDKGuideKit.GuideKitShared {
+public protocol GuideKit {
+  func isValidGuideUrl(url: Swift.String) -> Swift.Bool
   func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: @escaping ((Swift.Result<ZendeskSDKGuideKit.GuideArticle, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void))
   func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: ((Swift.Result<Swift.Void, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void)?)
   @available(iOS 13.0.0, *)
@@ -32,38 +33,35 @@ extension ZendeskSDKGuideKit.GuideKit {
   @available(iOS 13.0.0, *)
   public func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws
 }
-@objc public protocol GuideKitShared {
-  @objc func isValidGuideUrl(url: Swift.String) -> Swift.Bool
-}
 public protocol GuideKitBuilder {
   func build(with settings: ZendeskSDKGuideKit.GuideKitSettings, and integrationId: Swift.String) -> any ZendeskSDKGuideKit.GuideKit
 }
-@_inheritsConvenienceInitializers @objc(ZDKDefaultGuideKitBuilder) final public class DefaultGuideKitBuilder : ObjectiveC.NSObject, ZendeskSDKGuideKit.GuideKitBuilder {
-  @objc override dynamic public init()
+final public class DefaultGuideKitBuilder : ZendeskSDKGuideKit.GuideKitBuilder {
+  public init()
   @objc deinit
 }
 extension ZendeskSDKGuideKit.DefaultGuideKitBuilder {
   final public func build(with settings: ZendeskSDKGuideKit.GuideKitSettings, and integrationId: Swift.String) -> any ZendeskSDKGuideKit.GuideKit
 }
-@objc(ZDKGuideArticle) final public class GuideArticle : ObjectiveC.NSObject {
-  @objc final public let id: Swift.UInt64
-  @objc final public let locale: Swift.String?
-  @objc final public let url: Swift.String
-  @objc final public let title: Swift.String?
-  @objc final public let body: Swift.String
-  @objc final public let attachments: [ZendeskSDKGuideKit.GuideArticleAttachment]
-  @objc public init(id: Swift.UInt64, locale: Swift.String?, url: Swift.String, title: Swift.String?, body: Swift.String, attachments: [ZendeskSDKGuideKit.GuideArticleAttachment])
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+final public class GuideArticle : Swift.Equatable {
+  final public let id: Swift.UInt64
+  final public let locale: Swift.String?
+  final public let url: Swift.String
+  final public let title: Swift.String?
+  final public let body: Swift.String
+  final public let attachments: [ZendeskSDKGuideKit.GuideArticleAttachment]
+  public init(id: Swift.UInt64, locale: Swift.String?, url: Swift.String, title: Swift.String?, body: Swift.String, attachments: [ZendeskSDKGuideKit.GuideArticleAttachment])
+  public static func == (lhs: ZendeskSDKGuideKit.GuideArticle, rhs: ZendeskSDKGuideKit.GuideArticle) -> Swift.Bool
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(ZDKGuideArticleUrl) final public class GuideArticleUrl : ObjectiveC.NSObject {
-  @objc final public let url: Swift.String
-  @objc final public let articleId: Swift.String
-  @objc final public let locale: ZendeskSDKGuideKit.GuideLocale
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+@_hasMissingDesignatedInitializers final public class GuideArticleUrl : Swift.Equatable {
+  final public let url: Swift.String
+  final public let articleId: Swift.String
+  final public let locale: ZendeskSDKGuideKit.GuideLocale
+  public static func == (lhs: ZendeskSDKGuideKit.GuideArticleUrl, rhs: ZendeskSDKGuideKit.GuideArticleUrl) -> Swift.Bool
   @objc deinit
 }
-@objc(ZDKGuideArticleVote) public enum GuideArticleVote : Swift.Int, Swift.Codable, Swift.Equatable {
+public enum GuideArticleVote : Swift.Int, Swift.Codable, Swift.Equatable {
   case upVoted
   case downVoted
   case notVoted
@@ -73,19 +71,19 @@ extension ZendeskSDKGuideKit.DefaultGuideKitBuilder {
     get
   }
 }
-@objc(ZDKGuideLocale) final public class GuideLocale : ObjectiveC.NSObject {
-  @objc public init(locale: Swift.String)
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+final public class GuideLocale : Swift.Equatable {
+  public init(locale: Swift.String)
+  public static func == (lhs: ZendeskSDKGuideKit.GuideLocale, rhs: ZendeskSDKGuideKit.GuideLocale) -> Swift.Bool
   @objc deinit
 }
-@objc(ZDKGuideArticleAttachment) final public class GuideArticleAttachment : ObjectiveC.NSObject {
-  @objc final public let id: Swift.UInt64
-  @objc final public let title: Swift.String
-  @objc final public let type: Swift.String
+final public class GuideArticleAttachment : Swift.Equatable {
+  final public let id: Swift.UInt64
+  final public let title: Swift.String
+  final public let type: Swift.String
   final public let size: Swift.Int64?
-  @objc final public let url: Swift.String
+  final public let url: Swift.String
   public init(id: Swift.UInt64, title: Swift.String, type: Swift.String, size: Swift.Int64?, url: Swift.String)
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
+  public static func == (lhs: ZendeskSDKGuideKit.GuideArticleAttachment, rhs: ZendeskSDKGuideKit.GuideArticleAttachment) -> Swift.Bool
   @objc deinit
 }
 public enum GuideKitError : Foundation.LocalizedError, Foundation.CustomNSError, Swift.Equatable {

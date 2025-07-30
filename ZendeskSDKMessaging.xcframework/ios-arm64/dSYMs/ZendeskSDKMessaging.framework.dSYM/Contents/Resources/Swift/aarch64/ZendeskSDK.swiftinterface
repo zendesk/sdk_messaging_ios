@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDK
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import CoreTelephony
 import Foundation
@@ -120,7 +120,6 @@ public struct ColorTheme : Swift.Equatable, Swift.Hashable {
 }
 open class MessagingSwiftUI {
   public init()
-  @available(iOS 14, *)
   open func messagingView() -> SwiftUICore.AnyView
   open func getUnreadMessageCount() -> Swift.Int
   open func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
@@ -202,6 +201,7 @@ extension ZendeskSDK.MessagingSwiftUIDelegate {
   @objc public static func invalidate(clearStorage: Swift.Bool)
   final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: @escaping (ZendeskSDK.ZendeskEvent) -> Swift.Void)
   @objc final public func removeEventObserver(_ observer: Swift.AnyObject)
+  final public func getCurrentUser() -> ZendeskSDK.ZendeskUser?
   @objc deinit
 }
 extension ZendeskSDK.Zendesk {
@@ -238,8 +238,9 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   }
 }
 @_hasMissingDesignatedInitializers @objc(ZDKZendeskUser) final public class ZendeskUser : ObjectiveC.NSObject, Swift.Codable {
-  @objc final public let id: Swift.String
-  @objc final public let externalId: Swift.String
+  final public let id: Swift.String
+  final public let externalId: Swift.String
+  final public let authenticationType: ZendeskSDKConversationKit.AuthenticationType
   @objc deinit
   final public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -293,7 +294,6 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   @objc deinit
 }
 public protocol MessagingSwiftUIFactory {
-  @available(iOS 14, *)
   func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.MessagingSwiftUI
 }
 extension ZendeskSDK.InitializationPhase : Swift.Equatable {}

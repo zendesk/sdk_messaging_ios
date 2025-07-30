@@ -306,8 +306,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
-
-
 @class ZDKMessagingFactoryParameters;
 @class ZDKMessaging;
 @class ZDKUserColors;
@@ -327,15 +325,6 @@ SWIFT_CLASS_NAMED("DefaultMessagingFactory")
 ///
 - (nonnull instancetype)initWithUserLightColors:(ZDKUserColors * _Nonnull)userLightColors userDarkColors:(ZDKUserColors * _Nonnull)userDarkColors OBJC_DESIGNATED_INITIALIZER;
 @end
-
-
-
-
-
-
-
-
-
 
 
 
@@ -415,16 +404,12 @@ typedef SWIFT_ENUM_NAMED(NSInteger, ZDKPushResponsibility, "PushResponsibility",
 
 
 
-
-
-
 @class UIImage;
 
 @interface UIImageView (SWIFT_EXTENSION(ZendeskSDKMessaging))
 /// Displays an image.
 - (void)nuke_displayWithImage:(UIImage * _Nullable)image;
 @end
-
 
 
 
@@ -446,7 +431,6 @@ SWIFT_CLASS_NAMED("UserColors")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
 
 #endif
 #if __has_attribute(external_source_symbol)
