@@ -218,10 +218,12 @@ final public class CarouselMessageContent : Swift.Codable, ZendeskSDKConversatio
 }
 public protocol ConversationKitBuilder {
   func build(with settingsParameters: ZendeskSDKConversationKit.SettingsParameters, callbackQueue: Dispatch.DispatchQueue) -> any ZendeskSDKConversationKit.ConversationKit
+  func setup(authDelegate: any ZendeskSDKConversationKit.AuthenticationDelegate)
 }
 final public class DefaultConversationKitBuilder : ZendeskSDKConversationKit.ConversationKitBuilder {
   public init()
   final public func build(with settingsParameters: ZendeskSDKConversationKit.SettingsParameters, callbackQueue: Dispatch.DispatchQueue = .main) -> any ZendeskSDKConversationKit.ConversationKit
+  final public func setup(authDelegate: any ZendeskSDKConversationKit.AuthenticationDelegate)
   @objc deinit
 }
 public enum Subrole : Swift.Int, Swift.Codable {
@@ -280,6 +282,7 @@ public protocol ConversationKit {
   var featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager { get }
   var currentUser: ZendeskSDKConversationKit.User? { get }
   var hasActiveConversationInLatestTen: Swift.Bool { get }
+  static var authenticationDelegate: (any ZendeskSDKConversationKit.AuthenticationDelegate)? { get set }
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
   func removeEventObserver(_ observer: Swift.AnyObject)
   func pause()
@@ -289,8 +292,8 @@ public protocol ConversationKit {
   func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?) async throws -> ZendeskSDKConversationKit.User
   func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func getConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  func getConversations(offset: Swift.Int, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  func getConversations(offset: Swift.Int) async throws -> ZendeskSDKConversationKit.ConversationList
+  func getConversations(offset: Swift.Int, fromCache: Swift.Bool, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  func getConversations(offset: Swift.Int, fromCache: Swift.Bool) async throws -> ZendeskSDKConversationKit.ConversationList
   func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   func refreshConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
@@ -328,8 +331,8 @@ extension ZendeskSDKConversationKit.ConversationKit {
   public func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String? = nil) async throws -> ZendeskSDKConversationKit.User
   public func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
   public func getConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
-  public func getConversations(offset: Swift.Int, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
-  public func getConversations(offset: Swift.Int) async throws -> ZendeskSDKConversationKit.ConversationList
+  public func getConversations(offset: Swift.Int, fromCache: Swift.Bool = false, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  public func getConversations(offset: Swift.Int, fromCache: Swift.Bool = false) async throws -> ZendeskSDKConversationKit.ConversationList
   public func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
   public func refreshConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
   public func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
@@ -499,6 +502,8 @@ extension ZendeskSDKConversationKit.User {
   final public var isLatestConversationActive: Swift.Bool {
     get
   }
+  final public func getJWT() -> Swift.String?
+  final public func getAuthorizationHeaderValue() -> Swift.String
 }
 final public class ImageMessageContent : Swift.Codable, ZendeskSDKConversationKit.Content, Swift.Equatable, Swift.Hashable {
   final public var type: ZendeskSDKConversationKit.MessageType {
@@ -785,6 +790,9 @@ public enum ConnectionStatus : Swift.Int {
   public var rawValue: Swift.Int {
     get
   }
+}
+public protocol AuthenticationDelegate : AnyObject {
+  func onInvalidAuth(_ completion: @escaping (Swift.String) -> Swift.Void)
 }
 final public class TextMessageContent : Swift.Codable, ZendeskSDKConversationKit.Content, Swift.Equatable, Swift.Hashable {
   final public var type: ZendeskSDKConversationKit.MessageType {

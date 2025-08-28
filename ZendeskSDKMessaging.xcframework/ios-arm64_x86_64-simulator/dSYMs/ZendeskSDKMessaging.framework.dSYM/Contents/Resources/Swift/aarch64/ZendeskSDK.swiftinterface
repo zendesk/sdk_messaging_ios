@@ -191,6 +191,10 @@ extension ZendeskSDK.MessagingSwiftUIDelegate {
   public static var initializationPhase: ZendeskSDK.InitializationPhase {
     get
   }
+  weak public static var authenticationDelegate: (any ZendeskSDKConversationKit.AuthenticationDelegate)? {
+    get
+    set
+  }
   final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, any Swift.Error>) -> Swift.Void)
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
   @available(*, deprecated, message: "Use invalidate(_ :) instead. This function will be removed in a future Zendesk version.")

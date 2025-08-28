@@ -17,7 +17,7 @@ let package = Package(
         .package(
             name: "ZendeskSDKConversationKit",
             url: "https://github.com/zendesk/sdk_conversation_kit_ios",
-            from: "11.4.0"
+            from: "12.0.0"
         ),
         .package(
             name: "ZendeskSDKUIComponents",
@@ -27,7 +27,7 @@ let package = Package(
         .package(
             name: "ZendeskSDK",
             url: "https://github.com/zendesk/sdk_zendesk_ios",
-            from: "3.11.0"
+            from: "3.12.0"
         ),
         .package(
             name: "ZendeskSDKCoreUtilities",
