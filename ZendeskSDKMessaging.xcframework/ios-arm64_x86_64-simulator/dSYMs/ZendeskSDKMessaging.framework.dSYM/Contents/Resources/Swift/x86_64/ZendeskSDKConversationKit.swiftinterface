@@ -192,7 +192,8 @@ final public class CarouselMessageContent : Swift.Codable, ZendeskSDKConversatio
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
-  public init(messageItems: [ZendeskSDKConversationKit.MessageActionItem], metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  final public let blockChatInput: Swift.Bool
+  public init(messageItems: [ZendeskSDKConversationKit.MessageActionItem], metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
   final public var description: Swift.String {
     get
   }
@@ -520,7 +521,8 @@ final public class ImageMessageContent : Swift.Codable, ZendeskSDKConversationKi
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
-  public init(mediaURL: Swift.String, attachmentId: Swift.String? = nil, text: Swift.String? = nil, htmlText: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  final public let blockChatInput: Swift.Bool
+  public init(mediaURL: Swift.String, attachmentId: Swift.String? = nil, text: Swift.String? = nil, htmlText: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
   final public var description: Swift.String {
     get
   }
@@ -808,7 +810,8 @@ final public class TextMessageContent : Swift.Codable, ZendeskSDKConversationKit
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
-  public init(text: Swift.String, htmlText: Swift.String? = nil, payload: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  final public let blockChatInput: Swift.Bool
+  public init(text: Swift.String, htmlText: Swift.String? = nil, payload: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
   final public var description: Swift.String {
     get
   }
@@ -913,9 +916,10 @@ final public class Message : Swift.Codable, Swift.Equatable, Swift.Hashable {
   final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     get
   }
-  public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(id: UUID().uuidString, type: .user), sourceId: Swift.String? = nil, localId: Swift.String? = nil)
-  convenience public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil)
-  convenience public init?(mediaURL: Foundation.URL, text: Swift.String?, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  final public let blockChatInput: Swift.Bool
+  public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(id: UUID().uuidString, type: .user), sourceId: Swift.String? = nil, localId: Swift.String? = nil, blockChatInput: Swift.Bool = false)
+  convenience public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
+  convenience public init?(mediaURL: Foundation.URL, text: Swift.String?, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
   public static func == (lhs: ZendeskSDKConversationKit.Message, rhs: ZendeskSDKConversationKit.Message) -> Swift.Bool
   final public func hash(into hasher: inout Swift.Hasher)
   final public var description: Swift.String {
@@ -944,7 +948,7 @@ final public class FormMessageContent : Swift.Codable, ZendeskSDKConversationKit
     get
   }
   final public let formFields: [ZendeskSDKConversationKit.FormField]
-  public init(id: Swift.String, formFields: [ZendeskSDKConversationKit.FormField], blockChatInput: Swift.Bool, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  public init(id: Swift.String, formFields: [ZendeskSDKConversationKit.FormField], blockChatInput: Swift.Bool = false, metadata: [Swift.String : Swift.AnyHashable]? = nil)
   final public var description: Swift.String {
     get
   }
@@ -1079,7 +1083,8 @@ final public class FileMessageContent : Swift.Codable, ZendeskSDKConversationKit
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
-  public init(text: Swift.String, altText: Swift.String, mediaURL: Swift.String, attachmentId: Swift.String? = nil, mediaType: Swift.String, mediaSize: Swift.Int64, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  final public let blockChatInput: Swift.Bool
+  public init(text: Swift.String, altText: Swift.String, mediaURL: Swift.String, attachmentId: Swift.String? = nil, mediaType: Swift.String, mediaSize: Swift.Int64, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
   final public var description: Swift.String {
     get
   }

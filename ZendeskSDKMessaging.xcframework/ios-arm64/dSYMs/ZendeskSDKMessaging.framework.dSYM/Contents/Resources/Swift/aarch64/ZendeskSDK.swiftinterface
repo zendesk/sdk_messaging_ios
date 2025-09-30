@@ -281,6 +281,7 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   }
 }
 @_inheritsConvenienceInitializers @objc(ZDKMessaging) open class Messaging : ObjectiveC.NSObject {
+  open func messagingViewController(_ messagingScreen: ZendeskSDK.MessagingScreen) -> UIKit.UIViewController
   @objc open func messagingViewController() -> UIKit.UIViewController
   @objc open func getUnreadMessageCount() -> Swift.Int
   @objc open func getUnreadMessageCount(conversationId: Swift.String) -> Swift.Int
@@ -291,6 +292,21 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   @objc weak public static var delegate: (any ZendeskSDK.MessagingDelegate)?
   @objc override dynamic public init()
   @objc deinit
+}
+public enum MessagingScreen {
+  case showConversationList
+  case showMostRecentConversation(exitAction: ZendeskSDK.ExitAction)
+  case showNewConversation(exitAction: ZendeskSDK.ExitAction)
+  case showConversation(conversationId: Swift.String?, exitAction: ZendeskSDK.ExitAction)
+}
+public enum ExitAction {
+  case close
+  case returnToConversationList
+  public static func == (a: ZendeskSDK.ExitAction, b: ZendeskSDK.ExitAction) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
 }
 @objc(ZDKPageView) final public class PageView : ObjectiveC.NSObject {
   @objc public init(pageTitle: Swift.String, url: Swift.String)
@@ -313,3 +329,5 @@ extension ZendeskSDK.URLSource : Swift.Hashable {}
 extension ZendeskSDK.ZendeskConnectionStatus : Swift.Equatable {}
 extension ZendeskSDK.ZendeskConnectionStatus : Swift.Hashable {}
 extension ZendeskSDK.ZendeskConnectionStatus : Swift.RawRepresentable {}
+extension ZendeskSDK.ExitAction : Swift.Equatable {}
+extension ZendeskSDK.ExitAction : Swift.Hashable {}

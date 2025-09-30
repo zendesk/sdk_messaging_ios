@@ -15,12 +15,12 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public struct MessageComposerRendering {
-  public let enabled: Swift.Bool
+  public let disabled: Swift.Bool
   public let attachmentsEnabled: Swift.Bool
   public var text: Swift.String
   public var keyboardType: UIKit.UIKeyboardType
   public let style: ZendeskSDKUIComponents.MessageComposerStyle
-  public init(enabled: Swift.Bool = true, attachmentsEnabled: Swift.Bool = true, text: Swift.String = "", keyboardType: UIKit.UIKeyboardType = .default, style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
+  public init(disabled: Swift.Bool = true, attachmentsEnabled: Swift.Bool = true, text: Swift.String = "", keyboardType: UIKit.UIKeyboardType = .default, style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
 }
 @_hasMissingDesignatedInitializers @objc(ZDKTextAndMessageButtonView) @_Concurrency.MainActor @preconcurrency final public class TextAndMessageButtonView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public let buttonView: ZendeskSDKUIComponents.ButtonsView
