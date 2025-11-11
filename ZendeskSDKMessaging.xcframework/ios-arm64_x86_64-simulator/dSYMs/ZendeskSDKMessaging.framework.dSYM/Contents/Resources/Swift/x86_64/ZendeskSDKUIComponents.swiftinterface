@@ -35,6 +35,7 @@ public struct MessageComposerRendering {
   public typealias Rendering = ZendeskSDKUIComponents.TextAndMessageButtonViewRendering
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency final public func updateActionButton(to state: ZendeskSDKUIComponents.CustomButtonState, actionId: Swift.String)
+  @_Concurrency.MainActor @preconcurrency final public func prepareForReuse()
   @objc deinit
 }
 extension ZendeskSDKUIComponents.ArticleViewerView : UIKit.UITableViewDataSource {
@@ -198,10 +199,16 @@ extension UIKit.UIStackView {
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.TextMessageRendering) -> ZendeskSDKUIComponents.TextMessageRendering)
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency final public func prepareForReuse()
   public typealias Rendering = ZendeskSDKUIComponents.TextMessageRendering
   public typealias Style = ZendeskSDKUIComponents.TextMessageStyle
   @objc deinit
 }
+@available(iOS 17.0, *)
+extension ZendeskSDKUIComponents.TextMessageView : UIKit.UITextViewDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc final public func textView(_ textView: UIKit.UITextView, primaryActionFor textItem: UIKit.UITextItem, defaultAction: UIKit.UIAction) -> UIKit.UIAction?
+}
+@available(iOS, deprecated: 17.0)
 extension ZendeskSDKUIComponents.TextMessageView : UIKit.UITextViewDelegate {
   @_Concurrency.MainActor @preconcurrency @objc final public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
 }

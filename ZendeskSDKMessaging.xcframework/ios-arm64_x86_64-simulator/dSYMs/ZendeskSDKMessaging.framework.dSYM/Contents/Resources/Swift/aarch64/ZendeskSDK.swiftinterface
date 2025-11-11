@@ -290,6 +290,7 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   @objc open func clearConversationFields()
   @objc open func clearConversationTags()
   @objc weak public static var delegate: (any ZendeskSDK.MessagingDelegate)?
+  @objc open func enableInternalAnalytics(enabled: Swift.Bool = true)
   @objc override dynamic public init()
   @objc deinit
 }
