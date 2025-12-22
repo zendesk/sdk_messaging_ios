@@ -18,7 +18,6 @@ import UniformTypeIdentifiers
 import UserNotifications
 import WebKit
 import ZendeskSDK
-import ZendeskSDKAnalyticsKit
 import ZendeskSDKConversationKit
 import ZendeskSDKCoreUtilities
 import ZendeskSDKGuideKit

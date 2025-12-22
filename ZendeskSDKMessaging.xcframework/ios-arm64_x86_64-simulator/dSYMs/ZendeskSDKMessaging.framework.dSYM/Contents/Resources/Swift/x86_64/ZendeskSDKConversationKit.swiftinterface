@@ -99,9 +99,6 @@ final public class Conversation : Swift.Codable, Swift.Equatable {
   public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.Conversation {
-  final public func copyAndUpdate(displayName: Swift.String? = nil, messages: [ZendeskSDKConversationKit.Message]? = nil, hasPrevious: Swift.Bool? = nil, participants: [ZendeskSDKConversationKit.Participant]? = nil, businessLastRead: Foundation.Date? = nil, myself: ZendeskSDKConversationKit.Participant? = nil, activity: ZendeskSDKConversationKit.Activity?? = nil, status: ZendeskSDKConversationKit.ConversationStatus? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus? = nil) -> ZendeskSDKConversationKit.Conversation
-}
-extension ZendeskSDKConversationKit.Conversation {
   final public var mostRecentUpdateTime: Foundation.Date {
     get
   }

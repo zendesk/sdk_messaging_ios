@@ -40,7 +40,7 @@
 "zma_conversation_message_menu_delete_button_label" = "Odstrániť";
 "zma_conversation_messages_failed_to_load" = "Načítanie správ zlyhalo";
 "zma_conversation_new_messages_banner" = "Nové správy: %@";
-"zma_conversation_new_messages_divider" = "Nový";
+"zma_conversation_new_messages_divider" = "Nová";
 "zma_conversation_see_latest" = "Zobraziť posledné";
 "zma_exceeds_max_file_size" = "Prekračuje maximálnu veľkosť súboru (%@ MB)";
 "zma_form_field_counter_label" = "%@ z %@";
