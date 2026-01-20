@@ -51,7 +51,7 @@
 "zma_form_next_button" = "Далі";
 "zma_form_send_button" = "Надіслати";
 "zma_form_submission_error" = "Не вдалося надіслати подробиці. Спробуйте ще раз.";
-"zma_generated_by_ai" = "Створено ШІ";
+"zma_generated_by_ai" = "Створено за допомогою ШІ";
 "zma_label_add_attachments" = "Додати вкладення";
 "zma_label_send_message" = "Надіслати повідомлення";
 "zma_message_action_option_not_supported_label" = "Опція не підтримується";
