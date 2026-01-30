@@ -489,6 +489,7 @@ public enum AuthorType : Swift.Int, Swift.Codable, Swift.Equatable {
   final public let id: Swift.String
   final public let givenName: Swift.String
   final public let surname: Swift.String
+  final public let email: Swift.String
   final public let locale: Swift.String
   final public let externalId: Swift.String
   final public let conversations: [ZendeskSDKConversationKit.Conversation]
@@ -797,7 +798,7 @@ public enum ConnectionStatus : Swift.Int {
   }
 }
 public protocol AuthenticationDelegate : AnyObject {
-  func onInvalidAuth(_ completion: @escaping (Swift.String) -> Swift.Void)
+  func onInvalidAuth(error: (any Swift.Error)?, completion: @escaping (Swift.String) -> Swift.Void)
 }
 final public class TextMessageContent : Swift.Codable, ZendeskSDKConversationKit.Content, Swift.Equatable, Swift.Hashable {
   final public var type: ZendeskSDKConversationKit.MessageType {

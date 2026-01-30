@@ -328,6 +328,7 @@ SWIFT_CLASS_NAMED("DefaultMessagingFactory")
 
 
 
+
 @class NSData;
 enum ZDKPushResponsibility : NSInteger;
 @class UIViewController;
@@ -767,6 +768,7 @@ SWIFT_CLASS_NAMED("DefaultMessagingFactory")
 ///
 - (nonnull instancetype)initWithUserLightColors:(ZDKUserColors * _Nonnull)userLightColors userDarkColors:(ZDKUserColors * _Nonnull)userDarkColors OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 

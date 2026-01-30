@@ -35,6 +35,7 @@ public enum ZendeskEvent {
   @available(*, deprecated, message: "Use `сonversationUnreadCountChanged` instead.")
   case unreadMessageCountChanged(currentUnreadCount: Swift.Int)
   case сonversationUnreadCountChanged(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationUnreadCountChange)
+  case notificationOpened(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.NotificationOpenedDetails)
   case authenticationFailed(error: any Swift.Error)
   case conversationAdded(conversationId: Swift.String)
   case connectionStatusChanged(connectionStatus: ZendeskSDK.ZendeskConnectionStatus)
@@ -42,11 +43,17 @@ public enum ZendeskEvent {
   case conversationOpened(id: Foundation.UUID, timestamp: Foundation.Date, conversationId: Swift.String?)
   case conversationStarted(id: Foundation.UUID, timestamp: Foundation.Date, conversationId: Swift.String)
   case messagesShown(id: Foundation.UUID, timestamp: Foundation.Date, conversationId: Swift.String, messages: [ZendeskSDK.ZendeskMessage])
+  case conversationWithAgentRequested(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationWithAgentRequestedDetails)
+  case proactiveMessageDisplayed(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ProactiveMessageDisplayedDetails)
+  case newConversationButtonClicked(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.NewConversationButtonClickedDetails)
+  case proactiveMessageClicked(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ProactiveMessageClickedDetails)
+  case notificationDisplayed(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.NotificationDisplayedDetails)
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
   @available(*, deprecated, message: "Use `сonversationUnreadMessageCountChanged` instead.")
   case unreadMessageCountChanged
   case сonversationUnreadMessageCountChanged
+  case notificationOpened
   case authenticationFailed
   case conversationAdded
   case connectionStatusChanged
@@ -54,6 +61,11 @@ public enum ZendeskEvent {
   case conversationOpened
   case conversationStarted
   case messagesShown
+  case conversationWithAgentRequested
+  case proactiveMessageDisplayed
+  case newConversationButtonClicked
+  case proactiveMessageClicked
+  case notificationDisplayed
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -68,6 +80,17 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc final public let conversationId: Swift.String?
   @objc final public let unreadCountInConversation: Swift.Int
   public init(totalUnreadMessagesCount: Swift.Int, conversationId: Swift.String?, unreadCountInConversation: Swift.Int)
+  @objc deinit
+}
+@objc(ZDKNotificationOpenedDetails) final public class NotificationOpenedDetails : ObjectiveC.NSObject {
+  @objc final public let conversationId: Swift.String
+  @objc public init(conversationId: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKNotificationOpened : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.NotificationOpenedDetails
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKConversationOpened : ObjectiveC.NSObject {
@@ -87,6 +110,75 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc final public let timestamp: Foundation.Date
   @objc final public let conversationId: Swift.String
   @objc final public let messages: [ZendeskSDK.ZendeskMessage]
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKConversationWithAgentRequested : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.ConversationWithAgentRequestedDetails
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageDisplayed : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.ProactiveMessageDisplayedDetails
+  @objc deinit
+}
+@objc final public class ConversationWithAgentRequestedDetails : ObjectiveC.NSObject {
+  @objc final public let conversationId: Swift.String
+  public init(conversationId: Swift.String)
+  @objc deinit
+}
+@objc(ZDKProactiveMessageDisplayedDetails) final public class ProactiveMessageDisplayedDetails : ObjectiveC.NSObject {
+  @objc final public let proactiveMessageId: Swift.String
+  @objc final public let campaignId: Swift.String
+  @objc public init(proactiveMessageId: Swift.String, campaignId: Swift.String)
+  @objc deinit
+}
+@objc(ZDKNewConversationButtonClickedDetails) final public class NewConversationButtonClickedDetails : ObjectiveC.NSObject {
+  @objc final public let newConversationSource: ZendeskSDK.NewConversationSource
+  public init(newConversationSource: ZendeskSDK.NewConversationSource)
+  @objc deinit
+}
+@objc public enum NewConversationSource : Swift.Int {
+  case conversationList
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers @objc final public class NewConversationButtonClicked : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.NewConversationButtonClickedDetails
+  @objc deinit
+}
+@objc(ZDKProactiveMessageClickedDetails) final public class ProactiveMessageClickedDetails : ObjectiveC.NSObject {
+  @objc final public let proactiveMessageId: Swift.String
+  @objc final public let campaignId: Swift.String
+  @objc public init(proactiveMessageId: Swift.String, campaignId: Swift.String)
+  @objc deinit
+}
+@objc(ZDKNotificationDisplayedDetails) final public class NotificationDisplayedDetails : ObjectiveC.NSObject {
+  @objc final public let conversationId: Swift.String
+  @objc final public let messageReceivedTimestamp: Swift.Double
+  public init(conversationId: Swift.String, messageReceivedTimestamp: Swift.Double)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageClicked : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.ProactiveMessageClickedDetails
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKNotificationDisplayed : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.NotificationDisplayedDetails
   @objc deinit
 }
 @objc public protocol MessagingFactory {
@@ -322,6 +414,9 @@ extension ZendeskSDK.InitializationPhase : Swift.Hashable {}
 extension ZendeskSDK.ZDKZendeskEvent : Swift.Equatable {}
 extension ZendeskSDK.ZDKZendeskEvent : Swift.Hashable {}
 extension ZendeskSDK.ZDKZendeskEvent : Swift.RawRepresentable {}
+extension ZendeskSDK.NewConversationSource : Swift.Equatable {}
+extension ZendeskSDK.NewConversationSource : Swift.Hashable {}
+extension ZendeskSDK.NewConversationSource : Swift.RawRepresentable {}
 extension ZendeskSDK.ZendeskRole : Swift.Equatable {}
 extension ZendeskSDK.ZendeskRole : Swift.Hashable {}
 extension ZendeskSDK.ZendeskRole : Swift.RawRepresentable {}

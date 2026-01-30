@@ -13,7 +13,7 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public struct EventParameters {
-  public init(clientId: Swift.String, sdkVersion: Swift.String, isMultiConvoEnabled: Swift.Bool, isUserAuthenticated: Swift.Bool)
+  public init(clientId: Swift.String, sdkVersion: Swift.String, isMultiConvoEnabled: Swift.Bool, isUserAuthenticated: Swift.Bool, suid: Swift.String, canUserSeeConversationList: Swift.Bool, canUserCreateMoreConversations: Swift.Bool)
 }
 public struct AnalyticsEvents : Swift.Codable, Swift.Equatable {
   public var events: [ZendeskSDKAnalyticsKit.AnalyticsEventDTO]
@@ -24,6 +24,7 @@ public struct AnalyticsEvents : Swift.Codable, Swift.Equatable {
 public struct AnalyticsEventDTO : Swift.Codable, Swift.Equatable {
   public let buid: Swift.String
   public let uuid: Swift.String
+  public let suid: Swift.String
   public var channel: Swift.String
   public let version: Swift.String
   public let timestamp: Swift.String
@@ -45,7 +46,7 @@ public struct UserAction : Swift.Codable, Swift.Equatable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct UserMessagingDeviceData : Swift.Codable, Swift.Equatable {
-  public static func create(with parameters: ZendeskSDKAnalyticsKit.EventParameters, source: Swift.String, valueType: Swift.String) -> ZendeskSDKAnalyticsKit.UserMessagingDeviceData
+  public static func create(with parameters: ZendeskSDKAnalyticsKit.EventParameters, source: Swift.String, valueType: Swift.String, exitAction: Swift.String = "") -> ZendeskSDKAnalyticsKit.UserMessagingDeviceData
   public static func == (a: ZendeskSDKAnalyticsKit.UserMessagingDeviceData, b: ZendeskSDKAnalyticsKit.UserMessagingDeviceData) -> Swift.Bool
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
@@ -54,16 +55,15 @@ public enum EventType {
   case openMessenger
   case newConversationButtonTapped
   case conversationOpened
-  public static func == (a: ZendeskSDKAnalyticsKit.EventType, b: ZendeskSDKAnalyticsKit.EventType) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
+  case firstUserMessageSentInputField
+  case firstUserMessageSentQuickReply
+  case showMessagingAPI(showMessagingAction: Swift.String, showMessagingLabel: Swift.String, showMessagingExitAction: Swift.String)
 }
 public enum AnalyticsSampling {
   public static func shouldTrackAnalyticEvents() -> Swift.Bool
 }
 public protocol AnalyticsKit {
+  var sessionId: Swift.String { get }
   func proceedEvent(eventType: ZendeskSDKAnalyticsKit.EventType, eventParameters: ZendeskSDKAnalyticsKit.EventParameters) async throws
   func enableInternalAnalytics(enabled: Swift.Bool) async
   func isInternalAnalyticsEnabled() async -> Swift.Bool
@@ -93,6 +93,4 @@ public struct AnalyticsSettings {
   public let threshold: Swift.Int
   public let shouldTrackAnalyticEvents: Swift.Bool
 }
-extension ZendeskSDKAnalyticsKit.EventType : Swift.Equatable {}
-extension ZendeskSDKAnalyticsKit.EventType : Swift.Hashable {}
 extension ZendeskSDKAnalyticsKit.AnalyticsKitError : Swift.Hashable {}
