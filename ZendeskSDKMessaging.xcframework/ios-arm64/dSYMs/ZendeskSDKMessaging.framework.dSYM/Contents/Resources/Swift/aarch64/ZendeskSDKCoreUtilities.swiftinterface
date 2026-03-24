@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKCoreUtilities
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKCoreUtilities
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 import Swift
@@ -14,9 +14,8 @@ import _SwiftConcurrencyShims
   final public let canUserCreateMoreConversations: Swift.Bool
   final public let canUserSeeConversationList: Swift.Bool
   final public let isMultiAttachmentsEnabled: Swift.Bool
-  final public let endSessionEnabled: Swift.Bool
   @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
-  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false, isMultiAttachmentsEnabled: Swift.Bool = false, endSessionEnabled: Swift.Bool = false)
+  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false, isMultiAttachmentsEnabled: Swift.Bool = false)
   @objc deinit
 }
 open class ZendeskObservable<Observed> {
