@@ -48,10 +48,6 @@ public enum ZendeskEvent {
   case newConversationButtonClicked(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.NewConversationButtonClickedDetails)
   case proactiveMessageClicked(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ProactiveMessageClickedDetails)
   case notificationDisplayed(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.NotificationDisplayedDetails)
-  case postbackButtonClicked(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.PostbackButtonClickedDetails)
-  case conversationAgentAssigned(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationAgentAssignedDetails)
-  case messagingClosed(id: Foundation.UUID, timestamp: Foundation.Date)
-  case conversationExtensionDisplayed(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationExtensionDisplayedDetails)
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
   @available(*, deprecated, message: "Use `сonversationUnreadMessageCountChanged` instead.")
@@ -70,10 +66,6 @@ public enum ZendeskEvent {
   case newConversationButtonClicked
   case proactiveMessageClicked
   case notificationDisplayed
-  case postbackButtonClicked
-  case conversationAgentAssigned
-  case messagingClosed
-  case conversationExtensionDisplayed
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -177,12 +169,6 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public init(conversationId: Swift.String, messageReceivedTimestamp: Swift.Double)
   @objc deinit
 }
-@objc(ZDKPostbackButtonClickedDetails) final public class PostbackButtonClickedDetails : ObjectiveC.NSObject {
-  @objc final public let actionName: Swift.String
-  @objc final public let conversationId: Swift.String
-  @objc public init(actionName: Swift.String, conversationId: Swift.String)
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageClicked : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
@@ -193,40 +179,6 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.NotificationDisplayedDetails
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers @objc final public class ZDKPostbackButtonClicked : ObjectiveC.NSObject {
-  @objc final public let id: Foundation.UUID
-  @objc final public let timestamp: Foundation.Date
-  @objc final public let data: ZendeskSDK.PostbackButtonClickedDetails
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationAgentAssigned : ObjectiveC.NSObject {
-  @objc final public let id: Foundation.UUID
-  @objc final public let timestamp: Foundation.Date
-  @objc final public let data: ZendeskSDK.ConversationAgentAssignedDetails
-  @objc deinit
-}
-@objc(ZDKConversationAgentAssignedDetails) final public class ConversationAgentAssignedDetails : ObjectiveC.NSObject {
-  @objc final public let conversationId: Swift.String
-  public init(conversationId: Swift.String)
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers @objc final public class ZDKMessagingClosed : ObjectiveC.NSObject {
-  @objc final public let id: Foundation.UUID
-  @objc final public let timestamp: Foundation.Date
-  @objc deinit
-}
-@objc(ZDKConversationExtensionDisplayedDetails) final public class ConversationExtensionDisplayedDetails : ObjectiveC.NSObject {
-  @objc final public let conversationId: Swift.String
-  @objc final public let url: Swift.String
-  @objc public init(conversationId: Swift.String, url: Swift.String)
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationExtensionDisplayed : ObjectiveC.NSObject {
-  @objc final public let id: Foundation.UUID
-  @objc final public let timestamp: Foundation.Date
-  @objc final public let data: ZendeskSDK.ConversationExtensionDisplayedDetails
   @objc deinit
 }
 @objc public protocol MessagingFactory {
