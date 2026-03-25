@@ -589,6 +589,7 @@ final public class Config {
   final public let restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy
   final public let waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig
   final public let region: ZendeskSDKConversationKit.Config.Region
+  final public let sdkVersion: Swift.String
   public enum Region : Swift.Int {
     case us
     case eu
@@ -598,7 +599,7 @@ final public class Config {
       get
     }
   }
-  public init(appId: Swift.String, baseURL: Swift.String, settingsBaseURL: Swift.String, integrationId: Swift.String, region: ZendeskSDKConversationKit.Config.Region = .us, restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy, waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig)
+  public init(appId: Swift.String, baseURL: Swift.String, settingsBaseURL: Swift.String, integrationId: Swift.String, region: ZendeskSDKConversationKit.Config.Region = .us, restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy, waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig, sdkVersion: Swift.String)
   public static func == (lhs: ZendeskSDKConversationKit.Config, rhs: ZendeskSDKConversationKit.Config) -> Swift.Bool
   final public var description: Swift.String {
     get
@@ -667,7 +668,7 @@ public enum ConversationKitEvent {
   case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationRemoved(conversationId: Swift.String)
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
-  case openWebViewMessageReceived(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String)
+  case openWebViewMessageReceived(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String, isSurvey: Swift.Bool)
   case fetchWaitTimeDataResult(conversationId: Swift.String, result: Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>)
 }
 extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
