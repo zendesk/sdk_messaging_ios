@@ -50,8 +50,11 @@ public enum ZendeskEvent {
   case notificationDisplayed(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.NotificationDisplayedDetails)
   case postbackButtonClicked(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.PostbackButtonClickedDetails)
   case conversationAgentAssigned(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationAgentAssignedDetails)
+  case conversationServedByAgent(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationServedByAgentDetails)
   case messagingClosed(id: Foundation.UUID, timestamp: Foundation.Date)
   case conversationExtensionDisplayed(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationExtensionDisplayedDetails)
+  case conversationExtensionOpened(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ConversationExtensionOpenedDetails)
+  case articleClicked(id: Foundation.UUID, timestamp: Foundation.Date, data: ZendeskSDK.ArticleClickedDetails)
 }
 @objc public enum ZDKZendeskEvent : Swift.Int {
   @available(*, deprecated, message: "Use `сonversationUnreadMessageCountChanged` instead.")
@@ -72,8 +75,11 @@ public enum ZendeskEvent {
   case notificationDisplayed
   case postbackButtonClicked
   case conversationAgentAssigned
+  case conversationServedByAgent
   case messagingClosed
   case conversationExtensionDisplayed
+  case conversationExtensionOpened
+  case articleClicked
   public init?(rawValue: Swift.Int)
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
@@ -212,6 +218,26 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public init(conversationId: Swift.String)
   @objc deinit
 }
+@objc(ZDKConversationServedByAgentDetails) final public class ConversationServedByAgentDetails : ObjectiveC.NSObject {
+  @objc final public let agentDisplayName: Swift.String
+  @objc final public let agentId: Swift.String
+  @objc final public let agentMessageSource: ZendeskSDK.AgentMessageSource
+  @objc final public let conversationId: Swift.String
+  public init(agentDisplayName: Swift.String, agentId: Swift.String, agentMessageSource: ZendeskSDK.AgentMessageSource, conversationId: Swift.String)
+  @objc deinit
+}
+@objc public enum AgentMessageSource : Swift.Int, Swift.CustomStringConvertible {
+  case agentWorkspace
+  case agentCopilot
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_hasMissingDesignatedInitializers @objc final public class ZDKMessagingClosed : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
@@ -227,6 +253,30 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ConversationExtensionDisplayedDetails
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKConversationExtensionOpened : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.ConversationExtensionOpenedDetails
+  @objc deinit
+}
+@objc final public class ConversationExtensionOpenedDetails : ObjectiveC.NSObject {
+  @objc final public let conversationId: Swift.String
+  @objc final public let url: Swift.String
+  public init(conversationId: Swift.String, url: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc final public class ZDKArticleClicked : ObjectiveC.NSObject {
+  @objc final public let id: Foundation.UUID
+  @objc final public let timestamp: Foundation.Date
+  @objc final public let data: ZendeskSDK.ArticleClickedDetails
+  @objc deinit
+}
+@objc(ZDKArticleClickedDetails) final public class ArticleClickedDetails : ObjectiveC.NSObject {
+  @objc final public let articleId: Swift.String
+  @objc final public let articleTitle: Swift.String?
+  public init(articleId: Swift.String, articleTitle: Swift.String?)
   @objc deinit
 }
 @objc public protocol MessagingFactory {
@@ -465,6 +515,9 @@ extension ZendeskSDK.ZDKZendeskEvent : Swift.RawRepresentable {}
 extension ZendeskSDK.NewConversationSource : Swift.Equatable {}
 extension ZendeskSDK.NewConversationSource : Swift.Hashable {}
 extension ZendeskSDK.NewConversationSource : Swift.RawRepresentable {}
+extension ZendeskSDK.AgentMessageSource : Swift.Equatable {}
+extension ZendeskSDK.AgentMessageSource : Swift.Hashable {}
+extension ZendeskSDK.AgentMessageSource : Swift.RawRepresentable {}
 extension ZendeskSDK.ZendeskRole : Swift.Equatable {}
 extension ZendeskSDK.ZendeskRole : Swift.Hashable {}
 extension ZendeskSDK.ZendeskRole : Swift.RawRepresentable {}

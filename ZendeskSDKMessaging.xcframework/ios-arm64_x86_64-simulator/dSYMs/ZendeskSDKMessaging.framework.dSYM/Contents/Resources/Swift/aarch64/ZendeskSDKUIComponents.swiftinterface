@@ -537,6 +537,7 @@ public struct ArticleAttachmentItemRendering : Swift.Equatable {
 }
 @objc(ZDKMessageComposerView) @_Concurrency.MainActor @preconcurrency final public class MessageComposerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var actions: ZendeskSDKUIComponents.MessageComposerActions?
+  @_Concurrency.MainActor @preconcurrency final public var onHeightChanged: (() -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency convenience public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default, actions: ZendeskSDKUIComponents.MessageComposerActions? = nil)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageComposerRendering) -> ZendeskSDKUIComponents.MessageComposerRendering)

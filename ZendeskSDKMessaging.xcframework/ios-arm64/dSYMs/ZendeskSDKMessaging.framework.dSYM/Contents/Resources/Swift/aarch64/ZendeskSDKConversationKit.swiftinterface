@@ -656,7 +656,7 @@ public enum ConversationKitEvent {
   case userAccessRevoked(error: ZendeskSDKConversationKit.ConversationKitError)
   case conversationUpdated(ZendeskSDKConversationKit.Conversation)
   case activityReceived(activity: ZendeskSDKConversationKit.Activity, conversationId: Swift.String)
-  case messageReceived(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
+  case messageReceived(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, sourceType: Swift.String?)
   case messageUpdated(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
   case sendMessageFailed(error: ZendeskSDKConversationKit.ConversationKitError)
   case pushTokenPrepared(Swift.String)
