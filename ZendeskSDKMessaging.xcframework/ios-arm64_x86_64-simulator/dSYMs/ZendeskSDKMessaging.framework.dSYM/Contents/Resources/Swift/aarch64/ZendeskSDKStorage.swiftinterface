@@ -30,8 +30,11 @@ public enum StorageType : Swift.String {
     get
   }
 }
-public enum StorageError : Swift.Error {
+public enum StorageError : Foundation.LocalizedError {
   case cannotInitialize
+  public var errorDescription: Swift.String? {
+    get
+  }
   public static func == (a: ZendeskSDKStorage.StorageError, b: ZendeskSDKStorage.StorageError) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {

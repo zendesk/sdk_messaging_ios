@@ -24,7 +24,6 @@ public struct MessageComposerRendering {
 }
 @_hasMissingDesignatedInitializers @objc(ZDKTextAndMessageButtonView) @_Concurrency.MainActor @preconcurrency final public class TextAndMessageButtonView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public let buttonView: ZendeskSDKUIComponents.ButtonsView
-  @_Concurrency.MainActor @preconcurrency final public let messageFooter: ZendeskSDKUIComponents.MessageFooterView
   @_Concurrency.MainActor @preconcurrency final public let textMessageView: ZendeskSDKUIComponents.TextMessageView
   @_Concurrency.MainActor @preconcurrency final public var rendering: ZendeskSDKUIComponents.TextAndMessageButtonViewRendering {
     get
@@ -129,15 +128,8 @@ public struct TextMessageRendering : Swift.Sendable, Swift.Equatable {
   public let isAnimated: Swift.Bool
   public let messageStatus: ZendeskSDKUIComponents.TextMessageRendering.MessageStatus
   public let messageDirection: ZendeskSDKUIComponents.TextMessageRendering.MessageDirection
-  public let messageFooterString: Swift.String?
-  public init(message: Swift.String = "", richTextMessage: Swift.String? = nil, corners: UIKit.UIRectCorner? = nil, style: ZendeskSDKUIComponents.TextMessageStyle = .default, isAnimated: Swift.Bool = true, messageStatus: ZendeskSDKUIComponents.TextMessageRendering.MessageStatus = .pending, messageDirection: ZendeskSDKUIComponents.TextMessageRendering.MessageDirection = .outbound, messageFooterString: Swift.String? = nil)
+  public init(message: Swift.String = "", richTextMessage: Swift.String? = nil, corners: UIKit.UIRectCorner? = nil, style: ZendeskSDKUIComponents.TextMessageStyle = .default, isAnimated: Swift.Bool = true, messageStatus: ZendeskSDKUIComponents.TextMessageRendering.MessageStatus = .pending, messageDirection: ZendeskSDKUIComponents.TextMessageRendering.MessageDirection = .outbound)
   public static func == (a: ZendeskSDKUIComponents.TextMessageRendering, b: ZendeskSDKUIComponents.TextMessageRendering) -> Swift.Bool
-}
-public struct MessageFooterStyle {
-  public init(foregroundColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, dividerColor: UIKit.UIColor)
-  public static var `default`: ZendeskSDKUIComponents.MessageFooterStyle {
-    get
-  }
 }
 public struct ArticleAttachmentButtonStyle : Swift.Sendable, Swift.Equatable, Swift.Hashable {
   public let backgroundColor: UIKit.UIColor
@@ -172,6 +164,7 @@ public struct ArticleAttachmentCarouselViewStyle : Swift.Sendable, Swift.Equatab
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   @_Concurrency.MainActor @preconcurrency final public func restartImageAnimation()
+  @_Concurrency.MainActor @preconcurrency final public func cancelAnimation()
   public typealias Rendering = ZendeskSDKUIComponents.ImageMessageViewRendering
   public typealias Style = ZendeskSDKUIComponents.ImageMessageViewStyle
   @objc deinit
@@ -907,6 +900,7 @@ public struct FormViewStrings : Swift.Sendable {
 @_hasMissingDesignatedInitializers @objc(ZDKAvatarView) @_Concurrency.MainActor @preconcurrency final public class AvatarView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.AvatarViewStyle = .default)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.AvatarViewRendering) -> ZendeskSDKUIComponents.AvatarViewRendering)
+  @_Concurrency.MainActor @preconcurrency final public func cancelAnimation()
   public typealias Rendering = ZendeskSDKUIComponents.AvatarViewRendering
   public typealias Style = ZendeskSDKUIComponents.AvatarViewStyle
   @objc deinit
@@ -1107,14 +1101,6 @@ public struct MessageComposerActions {
   public let onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?
   public let onSend: ((Swift.String) -> Swift.Void)?
   public init(onAttachmentTap: (() -> Swift.Void)?, onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?, onSend: ((Swift.String) -> Swift.Void)?)
-}
-public struct MessageFooterRendering : Swift.Sendable, Swift.Equatable {
-  public let messageFooterString: Swift.String
-  public let iconImage: UIKit.UIImage?
-  public let accessibilityLabel: Swift.String?
-  public init(icon: UIKit.UIImage? = nil, messageFooterString: Swift.String, accessibilityLabel: Swift.String? = nil)
-  public static let empty: ZendeskSDKUIComponents.MessageFooterRendering
-  public static func == (a: ZendeskSDKUIComponents.MessageFooterRendering, b: ZendeskSDKUIComponents.MessageFooterRendering) -> Swift.Bool
 }
 public struct ButtonBannerRendering {
   public static let empty: ZendeskSDKUIComponents.ButtonBannerRendering
@@ -1390,14 +1376,6 @@ public enum ConversationExtensionState : Swift.Equatable {
   public typealias Style = ZendeskSDKUIComponents.FormResponseViewStyle
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(ZDKMessageFooterView) @_Concurrency.MainActor @preconcurrency final public class MessageFooterView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
-  @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.MessageFooterStyle = .default)
-  @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageFooterRendering) -> ZendeskSDKUIComponents.MessageFooterRendering)
-  @_Concurrency.MainActor @preconcurrency final public func setAccessibility(accessibilityLabel: Swift.String?)
-  public typealias Rendering = ZendeskSDKUIComponents.MessageFooterRendering
-  public typealias Style = ZendeskSDKUIComponents.MessageFooterStyle
-  @objc deinit
-}
 public struct AnimatableImage : Swift.Sendable, Swift.Equatable {
   public let images: [UIKit.UIImage]
   public let duration: Foundation.TimeInterval
@@ -1491,10 +1469,9 @@ final public class BundleUtils {
 public struct TextAndMessageButtonViewRendering : Swift.Sendable, Swift.Equatable {
   public let buttonsViewRendering: ZendeskSDKUIComponents.ButtonsViewRendering
   public let textMessageRendering: ZendeskSDKUIComponents.TextMessageRendering
-  public let messageFooterRendering: ZendeskSDKUIComponents.MessageFooterRendering?
   public let style: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle
   public let corners: UIKit.UIRectCorner?
-  public init(buttonsViewRendering: ZendeskSDKUIComponents.ButtonsViewRendering, textMessageRendering: ZendeskSDKUIComponents.TextMessageRendering, messageFooterRendering: ZendeskSDKUIComponents.MessageFooterRendering? = nil, style: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle, corners: UIKit.UIRectCorner?)
+  public init(buttonsViewRendering: ZendeskSDKUIComponents.ButtonsViewRendering, textMessageRendering: ZendeskSDKUIComponents.TextMessageRendering, style: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle, corners: UIKit.UIRectCorner?)
   public static func == (a: ZendeskSDKUIComponents.TextAndMessageButtonViewRendering, b: ZendeskSDKUIComponents.TextAndMessageButtonViewRendering) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.TextAndMessageButtonViewRendering {

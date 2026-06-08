@@ -5,11 +5,13 @@
 "zma_accessibility_postback_error_message" = "त्रुटि, %@";
 "zma_action_label_cancel" = "रद्द करें";
 "zma_actions_attachments_label" = "एक अटैचमेंट भेजें";
+"zma_ai_label" = "AI";
 "zma_alert_message_label_camera" = "कैमरा";
 "zma_alert_message_label_discard" = "बदलाव छोड़ें";
 "zma_alert_message_label_document" = "दस्तावेज़";
 "zma_alert_message_label_photoLibrary" = "फ़ोटो लाइब्रेरी";
 "zma_attachment_type_not_supported" = "इस प्रकार का अनुलग्नक नहीं भेजा जा सकता";
+"zma_author_ai_label" = "%@ • AI";
 "zma_back_button_accessibility_label" = "पीछे जाएं";
 "zma_carousel_action_not_supported" = "विकल्प सहायता नहीं";
 "zma_connection_banner_label_disconnected" = "ऑफ़लाइन। आपको संदेश नहीं मिलेंगे।";

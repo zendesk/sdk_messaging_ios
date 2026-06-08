@@ -5,11 +5,13 @@
 "zma_accessibility_postback_error_message" = "Lỗi, %@";
 "zma_action_label_cancel" = "Hủy bỏ";
 "zma_actions_attachments_label" = "Gửi tập tin đính kèm";
+"zma_ai_label" = "AI";
 "zma_alert_message_label_camera" = "Camera";
 "zma_alert_message_label_discard" = "Loại bỏ các thay đổi";
 "zma_alert_message_label_document" = "Tài liệu";
 "zma_alert_message_label_photoLibrary" = "Thư viện ảnh";
 "zma_attachment_type_not_supported" = "Loại tập tin đính kèm không được hỗ trợ";
+"zma_author_ai_label" = "%@ • AI";
 "zma_back_button_accessibility_label" = "Quay lại";
 "zma_carousel_action_not_supported" = "Tùy chọn không được hỗ trợ";
 "zma_connection_banner_label_disconnected" = "Ngoại tuyến. Bạn sẽ không nhận được tin nhắn.";

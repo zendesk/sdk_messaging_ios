@@ -5,11 +5,13 @@
 "zma_accessibility_postback_error_message" = "エラー、%@";
 "zma_action_label_cancel" = "キャンセル";
 "zma_actions_attachments_label" = "添付ファイルを送信する";
+"zma_ai_label" = "AI";
 "zma_alert_message_label_camera" = "カメラ";
 "zma_alert_message_label_discard" = "変更を破棄";
 "zma_alert_message_label_document" = "ドキュメント";
 "zma_alert_message_label_photoLibrary" = "写真ライブラリ";
 "zma_attachment_type_not_supported" = "添付ファイルの種類はサポートされていません";
+"zma_author_ai_label" = "%@ • AI";
 "zma_back_button_accessibility_label" = "戻る";
 "zma_carousel_action_not_supported" = "このオプションはサポートされていません";
 "zma_connection_banner_label_disconnected" = "オフラインです。メッセージの受信は行われません。";

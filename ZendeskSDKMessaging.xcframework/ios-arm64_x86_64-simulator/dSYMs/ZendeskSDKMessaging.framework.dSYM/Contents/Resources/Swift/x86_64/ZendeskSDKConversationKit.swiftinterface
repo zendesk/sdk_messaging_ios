@@ -658,7 +658,7 @@ public enum ConversationKitEvent {
   case activityReceived(activity: ZendeskSDKConversationKit.Activity, conversationId: Swift.String)
   case messageReceived(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, sourceType: Swift.String?)
   case messageUpdated(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String)
-  case sendMessageFailed(error: ZendeskSDKConversationKit.ConversationKitError)
+  case sendMessageFailed(error: ZendeskSDKConversationKit.ConversationKitError, conversationId: Swift.String, isMetaDataUpdated: Swift.Bool)
   case pushTokenPrepared(Swift.String)
   case pushTokenUpdateResult(token: Swift.String, error: ZendeskSDKConversationKit.ConversationKitError?)
   case loginResult(result: Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>)
@@ -670,6 +670,7 @@ public enum ConversationKitEvent {
   case proactiveMessageStatusChanged(status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage)
   case openWebViewMessageReceived(url: Swift.String, size: ZendeskSDKConversationKit.WebViewActionSize, conversationId: Swift.String, isSurvey: Swift.Bool)
   case fetchWaitTimeDataResult(conversationId: Swift.String, result: Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>)
+  case sentMetadataSuccessfully(conversationId: Swift.String)
 }
 extension ZendeskSDKConversationKit.ConversationKitEvent : Swift.Equatable {
   public static func == (a: ZendeskSDKConversationKit.ConversationKitEvent, b: ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Bool

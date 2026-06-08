@@ -5,11 +5,13 @@
 "zma_accessibility_postback_error_message" = "Chyba, %@";
 "zma_action_label_cancel" = "Zrušit";
 "zma_actions_attachments_label" = "Odeslat přílohu";
+"zma_ai_label" = "AI";
 "zma_alert_message_label_camera" = "Fotoaparát";
 "zma_alert_message_label_discard" = "Vypustit změny";
 "zma_alert_message_label_document" = "Dokument";
 "zma_alert_message_label_photoLibrary" = "Knihovna fotek";
 "zma_attachment_type_not_supported" = "Nepodporovaný typ přílohy";
+"zma_author_ai_label" = "%@ • AI";
 "zma_back_button_accessibility_label" = "Vrátit se zpět";
 "zma_carousel_action_not_supported" = "Možnost není podporována";
 "zma_connection_banner_label_disconnected" = "Jste offline. Nebudete dostávat zprávy.";

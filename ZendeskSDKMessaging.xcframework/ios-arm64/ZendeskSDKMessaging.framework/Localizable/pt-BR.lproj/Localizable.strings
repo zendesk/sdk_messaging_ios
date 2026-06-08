@@ -5,11 +5,13 @@
 "zma_accessibility_postback_error_message" = "Erro, %@";
 "zma_action_label_cancel" = "Cancelar";
 "zma_actions_attachments_label" = "Enviar um anexo";
+"zma_ai_label" = "IA";
 "zma_alert_message_label_camera" = "Câmera";
 "zma_alert_message_label_discard" = "Descartar alterações";
 "zma_alert_message_label_document" = "Documento";
 "zma_alert_message_label_photoLibrary" = "Biblioteca de fotos";
 "zma_attachment_type_not_supported" = "Tipo de anexo sem suporte";
+"zma_author_ai_label" = "%@ • IA";
 "zma_back_button_accessibility_label" = "Voltar";
 "zma_carousel_action_not_supported" = "Opção indisponível";
 "zma_connection_banner_label_disconnected" = "Offline. Você não receberá mensagens.";

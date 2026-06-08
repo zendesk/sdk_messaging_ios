@@ -15,8 +15,9 @@ import _SwiftConcurrencyShims
   final public let canUserSeeConversationList: Swift.Bool
   final public let isMultiAttachmentsEnabled: Swift.Bool
   final public let endSessionEnabled: Swift.Bool
+  final public let showAIDisclaimer: Swift.Bool
   @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
-  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false, isMultiAttachmentsEnabled: Swift.Bool = false, endSessionEnabled: Swift.Bool = false)
+  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false, isMultiAttachmentsEnabled: Swift.Bool = false, endSessionEnabled: Swift.Bool = false, showAIDisclaimer: Swift.Bool = true)
   @objc deinit
 }
 open class ZendeskObservable<Observed> {

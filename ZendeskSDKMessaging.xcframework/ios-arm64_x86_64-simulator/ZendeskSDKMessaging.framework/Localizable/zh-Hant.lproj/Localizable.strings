@@ -5,11 +5,13 @@
 "zma_accessibility_postback_error_message" = "錯誤，%@";
 "zma_action_label_cancel" = "取消";
 "zma_actions_attachments_label" = "傳送一個附件";
+"zma_ai_label" = "人工智慧";
 "zma_alert_message_label_camera" = "相機";
 "zma_alert_message_label_discard" = "捨棄變更";
 "zma_alert_message_label_document" = "文件";
 "zma_alert_message_label_photoLibrary" = "相片媒體櫃";
 "zma_attachment_type_not_supported" = "附件類型不受支援";
+"zma_author_ai_label" = "%@ • 人工智慧";
 "zma_back_button_accessibility_label" = "返回";
 "zma_carousel_action_not_supported" = "選項不支援";
 "zma_connection_banner_label_disconnected" = "已離線。您將不會收到訊息。";
