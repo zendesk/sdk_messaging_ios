@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKConversationKit
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKConversationKit
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Combine
 import CoreTelephony
@@ -844,18 +844,21 @@ final public class TextMessageContent : Swift.Codable, ZendeskSDKConversationKit
   }
   final public let openOnReceive: Swift.Bool
   final public let size: ZendeskSDKConversationKit.WebViewActionSize
-  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, fallback: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil, openOnReceive: Swift.Bool, size: ZendeskSDKConversationKit.WebViewActionSize)
+  final public var isSurvey: Swift.Bool {
+    get
+  }
+  public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, fallback: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil, openOnReceive: Swift.Bool, size: ZendeskSDKConversationKit.WebViewActionSize, isSurvey: Swift.Bool = false)
   final public var description: Swift.String {
     get
   }
+  required public init(from decoder: any Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
   public static func == (lhs: ZendeskSDKConversationKit.WebViewAction, rhs: ZendeskSDKConversationKit.WebViewAction) -> Swift.Bool
   final public func hash(into hasher: inout Swift.Hasher)
   @objc deinit
-  final public func encode(to encoder: any Swift.Encoder) throws
   final public var hashValue: Swift.Int {
     get
   }
-  public init(from decoder: any Swift.Decoder) throws
 }
 public enum WebViewActionSize : Swift.Int, Swift.Codable, Swift.Equatable {
   case full
@@ -912,6 +915,9 @@ final public class Message : Swift.Codable, Swift.Equatable, Swift.Hashable {
   final public let status: ZendeskSDKConversationKit.MessageStatus
   final public let author: ZendeskSDKConversationKit.Author
   final public let sourceId: Swift.String?
+  final public var sourceType: Swift.String? {
+    get
+  }
   final public let localId: Swift.String
   final public var timestamp: Foundation.Date {
     get

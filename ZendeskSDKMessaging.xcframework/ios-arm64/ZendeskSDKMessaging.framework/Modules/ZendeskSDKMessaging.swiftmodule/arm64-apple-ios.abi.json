@@ -2673,6 +2673,16 @@
       },
       {
         "kind": "Import",
+        "name": "ZendeskSDKConversationKit",
+        "printedName": "ZendeskSDKConversationKit",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKMessaging",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -3621,6 +3631,16 @@
         "printedName": "ZendeskSDK",
         "declKind": "Import",
         "moduleName": "ZendeskSDKMessaging"
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "ZendeskSDKMessaging",
+        "declAttributes": [
+          "RawDocComment"
+        ]
       },
       {
         "kind": "Import",
@@ -7311,134 +7331,127 @@
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6971,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7515,
+      "offset": 7121,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7520,
+      "offset": 7126,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7589,
+      "offset": 7195,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7594,
+      "offset": 7200,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7662,
+      "offset": 7268,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7667,
+      "offset": 7273,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7743,
+      "offset": 7349,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7748,
+      "offset": 7354,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7810,
+      "offset": 7416,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7815,
+      "offset": 7421,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7987,
+      "offset": 7593,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "IntegerLiteral",
-      "offset": 7992,
+      "offset": 7598,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "Array",
-      "offset": 8181,
+      "offset": 7787,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "Array",
-      "offset": 8244,
+      "offset": 7850,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "BooleanLiteral",
-      "offset": 8871,
+      "offset": 8477,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "Array",
-      "offset": 9072,
+      "offset": 8678,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "BooleanLiteral",
-      "offset": 9131,
+      "offset": 8737,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/ChatLayout\/Core\/CollectionViewChatLayout.swift",
       "kind": "BooleanLiteral",
-      "offset": 9908,
+      "offset": 9119,
       "length": 4,
       "value": "true"
     },
@@ -7508,16 +7521,23 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/MessagingEventDispatcher.swift",
       "kind": "StringLiteral",
-      "offset": 1934,
+      "offset": 2929,
       "length": 23,
       "value": "\"com.zendesk.messaging\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/MessagingEventDispatcher.swift",
       "kind": "StringLiteral",
-      "offset": 1995,
+      "offset": 2990,
       "length": 11,
       "value": "\"ANALYTICS\""
+    },
+    {
+      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/MessagingEventDispatcher.swift",
+      "kind": "StringLiteral",
+      "offset": 8375,
+      "length": 7,
+      "value": "\"click\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/ImageFetching\/ImageFetcher.swift",
@@ -7532,13 +7552,6 @@
       "offset": 3177,
       "length": 45,
       "value": "\"com.zendesk.nativeMessaging.processingQueue\""
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/MessageCells\/OutboundFileMessageCollectionViewCell.swift",
-      "kind": "IntegerLiteral",
-      "offset": 811,
-      "length": 2,
-      "value": "60"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/Nuke\/ImageViewExtensions.swift",
@@ -7840,13 +7853,6 @@
       "offset": 10106,
       "length": 3,
       "value": "100"
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/MessageCells\/InboundFileMessageCollectionViewCell.swift",
-      "kind": "IntegerLiteral",
-      "offset": 809,
-      "length": 2,
-      "value": "60"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/ThirdParty\/Nuke\/Task.swift",
@@ -8201,7 +8207,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/Coordinator\/ConversationViewCoordinator.swift",
       "kind": "StringLiteral",
-      "offset": 32485,
+      "offset": 32533,
       "length": 2,
       "value": "\"\""
     },
@@ -8425,35 +8431,35 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/Repository\/DefaultConversationRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 3031,
+      "offset": 3095,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/Repository\/DefaultConversationRepository.swift",
       "kind": "BooleanLiteral",
-      "offset": 3071,
+      "offset": 3135,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/Repository\/DefaultConversationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 37970,
+      "offset": 38590,
       "length": 24,
       "value": "\"__zendesk_msg.agent.id\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/Repository\/DefaultConversationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 38072,
+      "offset": 38692,
       "length": 19,
       "value": "\"zd:agentWorkspace\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/Repository\/DefaultConversationRepository.swift",
       "kind": "StringLiteral",
-      "offset": 38126,
+      "offset": 38746,
       "length": 17,
       "value": "\"zd:agentCopilot\""
     },
@@ -8467,7 +8473,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Public\/Push\/PushNotifications.swift",
       "kind": "StringLiteral",
-      "offset": 2062,
+      "offset": 2132,
       "length": 47,
       "value": "\"com.zendesk.nativeMessaging.pushNotifications\""
     },
@@ -8481,14 +8487,14 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/DefaultMessaging.swift",
       "kind": "BooleanLiteral",
-      "offset": 8626,
+      "offset": 8720,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/DefaultMessaging.swift",
       "kind": "StringLiteral",
-      "offset": 9837,
+      "offset": 9931,
       "length": 19,
       "value": "\"DEFAULT_MESSAGING\""
     },
@@ -8551,7 +8557,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Conversation\/ViewStore\/UIKit\/ConversationViewStore.swift",
       "kind": "BooleanLiteral",
-      "offset": 20393,
+      "offset": 20722,
       "length": 5,
       "value": "false"
     },
@@ -8579,21 +8585,21 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/DefaultMessagingCoordinator.swift",
       "kind": "BooleanLiteral",
-      "offset": 3294,
+      "offset": 3357,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/DefaultMessagingCoordinator.swift",
       "kind": "Array",
-      "offset": 10347,
+      "offset": 10410,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/Messaging\/DefaultMessagingCoordinator.swift",
       "kind": "StringLiteral",
-      "offset": 21011,
+      "offset": 22256,
       "length": 31,
       "value": "\"DEFAULT_MESSAGING_COORDINATOR\""
     },
@@ -8726,119 +8732,112 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 3530,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 3572,
+      "offset": 3489,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3718,
+      "offset": 3625,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3776,
+      "offset": 3683,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3785,
+      "offset": 3692,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3796,
+      "offset": 3703,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "IntegerLiteral",
-      "offset": 3806,
+      "offset": 3713,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "StringLiteral",
-      "offset": 3896,
+      "offset": 3803,
       "length": 28,
       "value": "\"conversationCollectionView\""
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 3983,
+      "offset": 3890,
       "length": 4,
       "value": "16.0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "FloatLiteral",
-      "offset": 4292,
+      "offset": 4199,
       "length": 5,
       "value": "500.0"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 5134,
+      "offset": 5041,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6322,
+      "offset": 6229,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6468,
+      "offset": 6375,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6603,
+      "offset": 6510,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6713,
+      "offset": 6620,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 6987,
+      "offset": 6853,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 7952,
+      "offset": 7808,
       "length": 4,
       "value": "true"
     },
@@ -8936,7 +8935,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/ConversationList\/View\/LoadingIndicatorTableViewCell.swift",
       "kind": "StringLiteral",
-      "offset": 1516,
+      "offset": 1433,
       "length": 22,
       "value": "\"loadingIndicatorView\""
     },
@@ -9482,7 +9481,7 @@
     {
       "filePath": "\/Users\/admin\/actions-runner\/_work\/native_messaging_sdk_ios\/native_messaging_sdk_ios\/NativeMessagingSDK\/NativeMessagingSDK\/Source\/Internal\/UI\/UIKit\/MessageCells\/LoadingIndicatorCollectionViewCell.swift",
       "kind": "StringLiteral",
-      "offset": 973,
+      "offset": 890,
       "length": 22,
       "value": "\"loadingIndicatorView\""
     },

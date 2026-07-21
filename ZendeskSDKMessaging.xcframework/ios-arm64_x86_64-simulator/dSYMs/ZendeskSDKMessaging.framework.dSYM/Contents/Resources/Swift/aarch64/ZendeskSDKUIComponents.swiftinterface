@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKUIComponents
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKUIComponents
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import CoreGraphics
 import DeveloperToolsSupport
@@ -536,7 +536,7 @@ public struct ArticleAttachmentItemRendering : Swift.Equatable {
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageComposerRendering) -> ZendeskSDKUIComponents.MessageComposerRendering)
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
-  @available(iOS 12.0, *)
+  @available(*, unavailable, message: "No longer needed on iOS 16+")
   @_Concurrency.MainActor @preconcurrency final public func userInterfaceStyleDidChange(style: UIKit.UIUserInterfaceStyle)
   @_Concurrency.MainActor @preconcurrency final public var composerHeight: CoreFoundation.CGFloat {
     get
@@ -1394,6 +1394,7 @@ extension ZendeskSDKUIComponents.AnimatableImage {
   @_Concurrency.MainActor @preconcurrency final public var onURLTap: ZendeskSDKUIComponents.OnURLTap?
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FileMessageRendering) -> ZendeskSDKUIComponents.FileMessageRendering)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
+  @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
   public typealias Rendering = ZendeskSDKUIComponents.FileMessageRendering
   public typealias Style = ZendeskSDKUIComponents.FileMessageStyle
   @objc deinit
