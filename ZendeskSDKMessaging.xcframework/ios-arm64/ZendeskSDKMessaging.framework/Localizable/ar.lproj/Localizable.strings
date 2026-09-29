@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "الوكيل يكتب...";
 "zma_accessibility_loading_label" = "جارٍ التحميل";
 "zma_accessibility_message_author_replied" = "تم الرد من جانب %@";
 "zma_accessibility_message_dismiss" = "تجاوز";
 "zma_accessibility_message_received" = "تم استلام رسالة من %@";
+"zma_accessibility_message_sending" = "جارٍ الإرسال...";
+"zma_accessibility_message_sent_just_now" = "تم إرسال الرسالة للتو";
 "zma_accessibility_postback_error_message" = "خطأ، %@";
 "zma_action_label_cancel" = "إلغاء";
 "zma_actions_attachments_label" = "إرسال مرفق";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "التالي";
 "zma_form_send_button" = "إرسال";
 "zma_form_submission_error" = "تعذر إرسال التفاصيل أعِد المحاولة.";
-"zma_generated_by_ai" = "تم إنشاؤه بواسطة الذكاء الاصطناعي";
 "zma_label_add_attachments" = "إضافة مرفقات";
 "zma_label_send_message" = "إرسال رسالة";
 "zma_message_action_option_not_supported_label" = "الخيار غير مدعوم";

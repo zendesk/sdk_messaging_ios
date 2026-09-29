@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "Консултантът въвежда";
 "zma_accessibility_loading_label" = "Зареждане";
 "zma_accessibility_message_author_replied" = "%@ отговори";
 "zma_accessibility_message_dismiss" = "Отхвърляне";
 "zma_accessibility_message_received" = "Получено е съобщение от %@";
+"zma_accessibility_message_sending" = "Изпраща се";
+"zma_accessibility_message_sent_just_now" = "Съобщението беше току-що изпратено";
 "zma_accessibility_postback_error_message" = "Грешка, %@";
 "zma_action_label_cancel" = "Отмяна";
 "zma_actions_attachments_label" = "Изпращане на прикачен файл";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Напред";
 "zma_form_send_button" = "Изпращане";
 "zma_form_submission_error" = "Подробните данни не бяха изпратени. Опитайте отново.";
-"zma_generated_by_ai" = "Генерирано от ИИ";
 "zma_label_add_attachments" = "Прикачване на файлове";
 "zma_label_send_message" = "Изпращане на SMS";
 "zma_message_action_option_not_supported_label" = "Опцията не се поддържа";

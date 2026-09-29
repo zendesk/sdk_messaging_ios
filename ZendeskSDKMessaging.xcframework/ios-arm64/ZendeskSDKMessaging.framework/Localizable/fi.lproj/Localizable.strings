@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "Tukihenkilö kirjoittaa";
 "zma_accessibility_loading_label" = "Ladataan";
 "zma_accessibility_message_author_replied" = "%@ vastasi";
 "zma_accessibility_message_dismiss" = "Hylkää";
 "zma_accessibility_message_received" = "Viesti saatu, lähettäjä: %@";
+"zma_accessibility_message_sending" = "Lähetetään";
+"zma_accessibility_message_sent_just_now" = "Viesti lähetettiin juuri nyt";
 "zma_accessibility_postback_error_message" = "Virhe, %@";
 "zma_action_label_cancel" = "Peruuta";
 "zma_actions_attachments_label" = "Lähetä liitetiedosto";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Seuraava";
 "zma_form_send_button" = "Lähetä";
 "zma_form_submission_error" = "Tietoja ei voitu lähettää. Yritä uudelleen.";
-"zma_generated_by_ai" = "Tekoälyn luoma";
 "zma_label_add_attachments" = "Lisää liitteet";
 "zma_label_send_message" = "Lähetä viesti";
 "zma_message_action_option_not_supported_label" = "Vaihtoehtoa ei tueta";

@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "Agent is typing";
 "zma_accessibility_loading_label" = "Memuatkan";
 "zma_accessibility_message_author_replied" = "%@ menjawab";
 "zma_accessibility_message_dismiss" = "Singkir";
 "zma_accessibility_message_received" = "Mesej diterima daripada %@";
+"zma_accessibility_message_sending" = "Sending";
+"zma_accessibility_message_sent_just_now" = "Message sent just now";
 "zma_accessibility_postback_error_message" = "Ralat, %@";
 "zma_action_label_cancel" = "Batal";
 "zma_actions_attachments_label" = "Hantar lampiran";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Seterusnya";
 "zma_form_send_button" = "Hantar";
 "zma_form_submission_error" = "Butiran tidak dapat dihantar. Cuba lagi.";
-"zma_generated_by_ai" = "Dijana oleh AI";
 "zma_label_add_attachments" = "Tambah lampiran";
 "zma_label_send_message" = "Hantar mesej";
 "zma_message_action_option_not_supported_label" = "Pilihan tidak disokong";
