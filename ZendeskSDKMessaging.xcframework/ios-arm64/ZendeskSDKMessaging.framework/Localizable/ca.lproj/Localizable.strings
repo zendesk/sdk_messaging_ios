@@ -1,10 +1,7 @@
-"zma_accessibility_agent_is_typing" = "L'agent està escrivint";
 "zma_accessibility_loading_label" = "S'està carregant";
 "zma_accessibility_message_author_replied" = "%@ ha respost";
 "zma_accessibility_message_dismiss" = "Descarta";
 "zma_accessibility_message_received" = "Missatge rebut de %@";
-"zma_accessibility_message_sending" = "S'està enviant";
-"zma_accessibility_message_sent_just_now" = "Missatge enviat ara mateix";
 "zma_accessibility_postback_error_message" = "Error, %@";
 "zma_action_label_cancel" = "Cancel·la";
 "zma_actions_attachments_label" = "Envieu un fitxer adjunt";
@@ -56,6 +53,7 @@
 "zma_form_next_button" = "Següent";
 "zma_form_send_button" = "Envia";
 "zma_form_submission_error" = "No s’han pogut enviar els detalls. Torneu-ho a provar.";
+"zma_generated_by_ai" = "Generat per IA";
 "zma_label_add_attachments" = "Afegeix fitxers adjunts";
 "zma_label_send_message" = "Envia el missatge";
 "zma_message_action_option_not_supported_label" = "Opció no compatible";

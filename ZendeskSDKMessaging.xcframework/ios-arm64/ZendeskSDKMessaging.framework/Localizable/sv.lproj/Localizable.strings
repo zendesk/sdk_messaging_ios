@@ -1,10 +1,7 @@
-"zma_accessibility_agent_is_typing" = "Agent skriver";
 "zma_accessibility_loading_label" = "Läser in";
 "zma_accessibility_message_author_replied" = "%@ svarade";
 "zma_accessibility_message_dismiss" = "Stäng";
 "zma_accessibility_message_received" = "Meddelande mottaget från %@";
-"zma_accessibility_message_sending" = "Skickar";
-"zma_accessibility_message_sent_just_now" = "Meddelandet skickades just nu";
 "zma_accessibility_postback_error_message" = "Fel, %@";
 "zma_action_label_cancel" = "Avbryt";
 "zma_actions_attachments_label" = "Skicka en bilaga";
@@ -56,6 +53,7 @@
 "zma_form_next_button" = "Nästa";
 "zma_form_send_button" = "Skicka";
 "zma_form_submission_error" = "Det gick inte att skicka uppgifterna. Försök igen.";
+"zma_generated_by_ai" = "Genererad av AI";
 "zma_label_add_attachments" = "Lägg till bilagor";
 "zma_label_send_message" = "Skicka meddelande";
 "zma_message_action_option_not_supported_label" = "Alternativet stöds inte";

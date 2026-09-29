@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDK
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import CoreTelephony
 import Foundation
 import Swift
@@ -17,9 +17,7 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 extension ZendeskSDK.Zendesk {
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil, locale: Swift.String? = nil) async throws -> ZendeskSDK.Zendesk
-  #endif
+  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil) async throws -> ZendeskSDK.Zendesk
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView) async throws
   final public func loginUser(with jwt: Swift.String) async throws -> ZendeskSDK.ZendeskUser
   final public func logoutUser() async throws
@@ -89,9 +87,7 @@ public enum ZendeskEvent {
   case articleBrowserClicked
   case metadataSuccess
   case metadataFailure
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -104,9 +100,7 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc final public let totalUnreadMessagesCount: Swift.Int
   @objc final public let conversationId: Swift.String?
   @objc final public let unreadCountInConversation: Swift.Int
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(totalUnreadMessagesCount: Swift.Int, conversationId: Swift.String?, unreadCountInConversation: Swift.Int)
-  #endif
   @objc deinit
 }
 @objc(ZDKNotificationOpenedDetails) final public class NotificationOpenedDetails : ObjectiveC.NSObject {
@@ -136,7 +130,7 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let conversationId: Swift.String
-  @objc final public let messages: [ZendeskSDK.ZDKZendeskMessage]
+  @objc final public let messages: [ZendeskSDK.ZendeskMessage]
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKConversationWithAgentRequested : ObjectiveC.NSObject {
@@ -172,9 +166,7 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -247,9 +239,7 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public var description: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -298,9 +288,7 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
 @objc(ZDKArticleClickedDetails) final public class ArticleClickedDetails : ObjectiveC.NSObject {
   @objc final public let articleId: Swift.String
   @objc final public let articleTitle: Swift.String?
-  #if compiler(>=5.3) && $NonescapableTypes
   public init(articleId: Swift.String, articleTitle: Swift.String?)
-  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc final public class ZDKArticleBrowserClicked : ObjectiveC.NSObject {
@@ -390,35 +378,7 @@ extension ZendeskSDK.MessagingDelegate {
   final public let dispatchEvent: ZendeskSDK.DispatchEvent
   @objc deinit
 }
-extension ZendeskSDK.MessagingFactoryParameters {
-  @objc(messagingSettings) final public var messagingSettingsForObjectiveC: ZendeskSDK.ZDKMessagingSettings {
-    @objc get
-  }
-}
-public struct MessagingSettings : Swift.Hashable, Swift.CustomStringConvertible {
-  public let identifier: Swift.String
-  public let integrationId: Swift.String
-  public let enabled: Swift.Bool
-  public let settingsURL: Swift.String
-  public let brand: Swift.String?
-  public let title: Swift.String
-  public let accountDescription: Swift.String?
-  public let logoURL: Swift.String?
-  public static func == (lhs: ZendeskSDK.MessagingSettings, rhs: ZendeskSDK.MessagingSettings) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var description: Swift.String {
-    get
-  }
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-extension ZendeskSDK.MessagingSettings {
-  public var baseURL: Swift.String {
-    get
-  }
-}
-@_hasMissingDesignatedInitializers @objc(ZDKMessagingSettings) final public class ZDKMessagingSettings : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @objc(ZDKMessagingSettings) final public class MessagingSettings : ObjectiveC.NSObject {
   final public let identifier: Swift.String
   final public let integrationId: Swift.String
   final public let enabled: Swift.Bool
@@ -427,34 +387,29 @@ extension ZendeskSDK.MessagingSettings {
   final public let title: Swift.String
   final public let accountDescription: Swift.String?
   final public let logoURL: Swift.String?
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  #endif
   @objc override final public var hash: Swift.Int {
+    @objc get
+  }
+  @objc override final public var description: Swift.String {
     @objc get
   }
   @objc deinit
 }
-public struct ZendeskMessage : Swift.Codable, Swift.Equatable {
-  public let id: Swift.String
-  public let role: ZendeskSDK.ZendeskRole
-  public let timestamp: Foundation.Date
-  public init(id: Swift.String, role: ZendeskSDK.ZendeskRole, timestamp: Foundation.Date)
-  public static func == (a: ZendeskSDK.ZendeskMessage, b: ZendeskSDK.ZendeskMessage) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
+extension ZendeskSDK.MessagingSettings {
+  final public var baseURL: Swift.String {
+    get
+  }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKZendeskMessage) final public class ZDKZendeskMessage : ObjectiveC.NSObject {
+@objc(ZDKZendeskMessage) final public class ZendeskMessage : ObjectiveC.NSObject, Swift.Codable {
   @objc final public let id: Swift.String
   @objc final public let role: ZendeskSDK.ZendeskRole
   @objc final public let timestamp: Foundation.Date
-  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public init(id: Swift.String, role: ZendeskSDK.ZendeskRole, timestamp: Foundation.Date)
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  #endif
-  @objc override final public var hash: Swift.Int {
-    @objc get
-  }
   @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 public protocol MessagingSwiftUIDelegate : AnyObject {
   func messaging(_ messaging: ZendeskSDK.MessagingSwiftUI, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
@@ -463,16 +418,12 @@ extension ZendeskSDK.MessagingSwiftUIDelegate {
   public func messaging(_ messaging: ZendeskSDK.MessagingSwiftUI, shouldHandleURL url: Foundation.URL, from source: ZendeskSDK.URLSource) -> Swift.Bool
 }
 @_hasMissingDesignatedInitializers @objc final public class Zendesk : ObjectiveC.NSObject {
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public var messaging: ZendeskSDK.Messaging? {
     @objc get
   }
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc public static var instance: ZendeskSDK.Zendesk? {
     @objc get
   }
-  #endif
   public static var initializationPhase: ZendeskSDK.InitializationPhase {
     get
   }
@@ -480,12 +431,8 @@ extension ZendeskSDK.MessagingSwiftUIDelegate {
     get
     set
   }
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil, locale: Swift.String? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, any Swift.Error>) -> Swift.Void)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
+  final public class func initialize(withChannelKey channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)? = nil, completionHandler: @escaping (Swift.Result<ZendeskSDK.Zendesk, any Swift.Error>) -> Swift.Void)
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
-  #endif
   @available(*, deprecated, message: "Use invalidate(_ :) instead. This function will be removed in a future Zendesk version.")
   @available(swift, obsoleted: 1.0)
   @objc public static func invalidate()
@@ -494,40 +441,24 @@ extension ZendeskSDK.MessagingSwiftUIDelegate {
   @objc public static func invalidate(clearStorage: Swift.Bool)
   final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: @escaping (ZendeskSDK.ZendeskEvent) -> Swift.Void)
   @objc final public func removeEventObserver(_ observer: Swift.AnyObject)
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func getCurrentUser() -> ZendeskSDK.ZendeskUser?
-  #endif
   @objc deinit
 }
 extension ZendeskSDK.Zendesk {
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func loginUser(with jwt: Swift.String, completionHandler: ((Swift.Result<ZendeskSDK.ZendeskUser, any Swift.Error>) -> Swift.Void)? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   final public func logoutUser(completionHandler: ((Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
-  @objc final public func loginUser(with jwt: Swift.String, completionHandler: ((ZendeskSDK.ZDKZendeskUser?, (any Swift.Error)?) -> Swift.Void)? = nil)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
+  @objc final public func loginUser(with jwt: Swift.String, completionHandler: ((ZendeskSDK.ZendeskUser?, (any Swift.Error)?) -> Swift.Void)? = nil)
   @available(swift, obsoleted: 1.0)
   @objc final public func logoutUser(completionHandler: (((any Swift.Error)?) -> Swift.Void)? = nil)
-  #endif
 }
 extension ZendeskSDK.Zendesk {
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
   @objc public static func initialize(channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)?, completionHandler: ((ZendeskSDK.Zendesk?, (any Swift.Error)?) -> Swift.Void)?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
   @objc final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: ((ZendeskSDK.ZDKZendeskEvent, Swift.AnyObject?) -> Swift.Void)?)
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
   @available(swift, obsoleted: 1.0)
-  @objc final public func sendPageViewEvent(_ pageView: ZendeskSDK.ZDKPageView, completionHandler: (((any Swift.Error)?) -> Swift.Void)?)
-  #endif
+  @objc final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: (((any Swift.Error)?) -> Swift.Void)?)
 }
 extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
   public static var logNamespace: Swift.String {
@@ -540,32 +471,19 @@ extension ZendeskSDK.Zendesk : ZendeskSDKLogger.Loggable {
 @objc(ZDKZendeskRole) public enum ZendeskRole : Swift.Int, Swift.Codable {
   case user
   case business
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
-public struct ZendeskUser : Swift.Codable {
-  public let id: Swift.String
-  public let externalId: Swift.String
-  public let authenticationType: ZendeskSDKConversationKit.AuthenticationType
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-@_hasMissingDesignatedInitializers @objc(ZDKZendeskUser) final public class ZDKZendeskUser : ObjectiveC.NSObject {
-  @objc final public let id: Swift.String
-  @objc final public let externalId: Swift.String
+@_hasMissingDesignatedInitializers @objc(ZDKZendeskUser) final public class ZendeskUser : ObjectiveC.NSObject, Swift.Codable {
+  final public let id: Swift.String
+  final public let externalId: Swift.String
   final public let authenticationType: ZendeskSDKConversationKit.AuthenticationType
-  #if compiler(>=5.3) && $NonescapableTypes
-  @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  #endif
-  @objc override final public var hash: Swift.Int {
-    @objc get
-  }
   @objc deinit
+  final public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
 }
 @objc(ZDKURLSource) public enum URLSource : Swift.Int, Swift.RawRepresentable {
   case text
@@ -574,9 +492,7 @@ public struct ZendeskUser : Swift.Codable {
   case image
   case linkMessageAction
   case webViewMessageAction
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -594,9 +510,7 @@ public struct ZendeskUser : Swift.Codable {
   public var stringValue: Swift.String {
     get
   }
-  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
-  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -631,22 +545,9 @@ public enum ExitAction {
     get
   }
 }
-public struct PageView : Swift.Hashable {
-  public init(pageTitle: Swift.String, url: Swift.String)
-  public static func == (a: ZendeskSDK.PageView, b: ZendeskSDK.PageView) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-@objc(ZDKPageView) final public class ZDKPageView : ObjectiveC.NSObject {
+@objc(ZDKPageView) final public class PageView : ObjectiveC.NSObject {
   @objc public init(pageTitle: Swift.String, url: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
   @objc override final public func isEqual(_ object: Any?) -> Swift.Bool
-  #endif
-  @objc override final public var hash: Swift.Int {
-    @objc get
-  }
   @objc deinit
 }
 public protocol MessagingSwiftUIFactory {

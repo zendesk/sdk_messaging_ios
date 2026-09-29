@@ -1,10 +1,7 @@
-"zma_accessibility_agent_is_typing" = "เจ้าหน้าที่กำลังพิมพ์ข้อความ";
 "zma_accessibility_loading_label" = "กำลังโหลด";
 "zma_accessibility_message_author_replied" = "%@ ตอบกลับแล้ว";
 "zma_accessibility_message_dismiss" = "ยกเลิก";
 "zma_accessibility_message_received" = "ข้อความที่ได้รับจาก %@";
-"zma_accessibility_message_sending" = "กำลังส่ง";
-"zma_accessibility_message_sent_just_now" = "ส่งข้อความไปเมื่อสักครู่";
 "zma_accessibility_postback_error_message" = "ข้อผิดพลาด %@";
 "zma_action_label_cancel" = "ยกเลิก";
 "zma_actions_attachments_label" = "ส่งไฟล์แนบ";
@@ -56,6 +53,7 @@
 "zma_form_next_button" = "ถัดไป";
 "zma_form_send_button" = "ส่ง";
 "zma_form_submission_error" = "ไม่สามารถส่งรายละเอียดได้ ลองอีกครั้ง";
+"zma_generated_by_ai" = "สร้างโดย AI";
 "zma_label_add_attachments" = "เพิ่มไฟล์แนบ";
 "zma_label_send_message" = "ส่งข้อความ";
 "zma_message_action_option_not_supported_label" = "ตัวเลือกที่ไม่รองรับ";
