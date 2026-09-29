@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "A munkatárs éppen ír";
 "zma_accessibility_loading_label" = "Betöltés";
 "zma_accessibility_message_author_replied" = "%@ válaszolt";
 "zma_accessibility_message_dismiss" = "Bezárás";
 "zma_accessibility_message_received" = "%@ üzenetet küldött";
+"zma_accessibility_message_sending" = "Küldés folyamatban";
+"zma_accessibility_message_sent_just_now" = "Üzenet elküldve az imént";
 "zma_accessibility_postback_error_message" = "Hiba, %@";
 "zma_action_label_cancel" = "Mégse";
 "zma_actions_attachments_label" = "Melléklet küldése";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Tovább";
 "zma_form_send_button" = "Küldés";
 "zma_form_submission_error" = "A részletek elküldése nem sikerült. Próbálkozzon újra.";
-"zma_generated_by_ai" = "Mesterséges intelligencia által generált";
 "zma_label_add_attachments" = "Csatolmányok hozzáadása";
 "zma_label_send_message" = "Üzenet küldése";
 "zma_message_action_option_not_supported_label" = "Nem támogatott beállítás";

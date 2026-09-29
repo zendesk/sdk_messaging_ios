@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKGuideKit
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKGuideKit
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Foundation
 import Swift
 import UIKit
@@ -19,10 +19,16 @@ final public class GuideKitSettings {
 }
 public protocol GuideKit {
   func isValidGuideUrl(url: Swift.String) -> Swift.Bool
-  func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: @escaping ((Swift.Result<ZendeskSDKGuideKit.GuideArticle, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void))
+  #if compiler(>=5.3) && $NonescapableTypes
+  func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: @escaping (Swift.Result<ZendeskSDKGuideKit.GuideArticle, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl, result: ((Swift.Result<Swift.Void, ZendeskSDKGuideKit.GuideKitError>) -> Swift.Void)?)
+  #endif
   func getArticle(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws -> ZendeskSDKGuideKit.GuideArticle
+  #if compiler(>=5.3) && $NonescapableTypes
   func getGuideArticleUrl(for url: Swift.String) -> Swift.Result<ZendeskSDKGuideKit.GuideArticleUrl, ZendeskSDKGuideKit.GuideKitError>
+  #endif
   func sendArticleStatsView(for articleUrl: ZendeskSDKGuideKit.GuideArticleUrl) async throws
 }
 extension ZendeskSDKGuideKit.GuideKit {
@@ -46,7 +52,9 @@ final public class GuideArticle : Swift.Equatable {
   final public let title: Swift.String?
   final public let body: Swift.String
   final public let attachments: [ZendeskSDKGuideKit.GuideArticleAttachment]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.UInt64, locale: Swift.String?, url: Swift.String, title: Swift.String?, body: Swift.String, attachments: [ZendeskSDKGuideKit.GuideArticleAttachment])
+  #endif
   public static func == (lhs: ZendeskSDKGuideKit.GuideArticle, rhs: ZendeskSDKGuideKit.GuideArticle) -> Swift.Bool
   @objc deinit
 }
@@ -61,7 +69,9 @@ public enum GuideArticleVote : Swift.Int, Swift.Codable, Swift.Equatable {
   case upVoted
   case downVoted
   case notVoted
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -78,7 +88,9 @@ final public class GuideArticleAttachment : Swift.Equatable {
   final public let type: Swift.String
   final public let size: Swift.Int64?
   final public let url: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.UInt64, title: Swift.String, type: Swift.String, size: Swift.Int64?, url: Swift.String)
+  #endif
   public static func == (lhs: ZendeskSDKGuideKit.GuideArticleAttachment, rhs: ZendeskSDKGuideKit.GuideArticleAttachment) -> Swift.Bool
   @objc deinit
 }
@@ -90,8 +102,8 @@ public enum GuideKitError : Foundation.LocalizedError, Foundation.CustomNSError,
   public static var errorDomain: Swift.String {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: ZendeskSDKGuideKit.GuideKitError, b: ZendeskSDKGuideKit.GuideKitError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }

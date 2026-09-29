@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKUIComponents
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target x86_64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKUIComponents
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import CoreGraphics
 import DeveloperToolsSupport
 import Foundation
@@ -14,6 +14,7 @@ import ZendeskSDKCoreUtilities
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os
 public struct MessageComposerRendering {
   public let disabled: Swift.Bool
   public let attachmentsEnabled: Swift.Bool
@@ -22,7 +23,7 @@ public struct MessageComposerRendering {
   public let style: ZendeskSDKUIComponents.MessageComposerStyle
   public init(disabled: Swift.Bool = true, attachmentsEnabled: Swift.Bool = true, text: Swift.String = "", keyboardType: UIKit.UIKeyboardType = .default, style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
 }
-@_hasMissingDesignatedInitializers @objc(ZDKTextAndMessageButtonView) @_Concurrency.MainActor @preconcurrency final public class TextAndMessageButtonView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class TextAndMessageButtonView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public let buttonView: ZendeskSDKUIComponents.ButtonsView
   @_Concurrency.MainActor @preconcurrency final public let textMessageView: ZendeskSDKUIComponents.TextMessageView
   @_Concurrency.MainActor @preconcurrency final public var rendering: ZendeskSDKUIComponents.TextAndMessageButtonViewRendering {
@@ -43,7 +44,9 @@ extension ZendeskSDKUIComponents.ArticleViewerView : UIKit.UITableViewDataSource
   @_Concurrency.MainActor @preconcurrency @objc final public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
   @_Concurrency.MainActor @preconcurrency @objc final public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
   @_Concurrency.MainActor @preconcurrency @objc final public func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc final public func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+  #endif
 }
 extension ZendeskSDKUIComponents.ArticleViewerView : UIKit.UITableViewDelegate {
 }
@@ -70,7 +73,9 @@ public struct ConversationExtensionHeaderRendering {
   public let displayBackButton: Swift.Bool
   public let displayShareButton: Swift.Bool
   public let title: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(displayBackButton: Swift.Bool = false, displayShareButton: Swift.Bool = true, title: Swift.String? = nil)
+  #endif
 }
 extension ZendeskSDKUIComponents.ConversationExtensionHeaderRendering {
   public static var `default`: ZendeskSDKUIComponents.ConversationExtensionHeaderRendering
@@ -84,13 +89,15 @@ extension ZendeskSDKUIComponents.ConversationListItemStyle {
   }
 }
 public struct TextMessageStyle : Swift.Sendable, Swift.Equatable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor, codeBlocksStyle: ZendeskSDKUIComponents.TextMessageCodeBlocksStyle? = nil)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.TextMessageStyle, b: ZendeskSDKUIComponents.TextMessageStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.TextMessageStyle {
   public static let `default`: ZendeskSDKUIComponents.TextMessageStyle
 }
-@_hasMissingDesignatedInitializers @objc(ZDKConversationExtensionHeaderView) @_Concurrency.MainActor @preconcurrency final public class ConversationExtensionHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ConversationExtensionHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConversationExtensionHeaderStyle)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationExtensionHeaderRendering) -> ZendeskSDKUIComponents.ConversationExtensionHeaderRendering)
   public typealias Rendering = ZendeskSDKUIComponents.ConversationExtensionHeaderRendering
@@ -128,7 +135,9 @@ public struct TextMessageRendering : Swift.Sendable, Swift.Equatable {
   public let isAnimated: Swift.Bool
   public let messageStatus: ZendeskSDKUIComponents.TextMessageRendering.MessageStatus
   public let messageDirection: ZendeskSDKUIComponents.TextMessageRendering.MessageDirection
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(message: Swift.String = "", richTextMessage: Swift.String? = nil, corners: UIKit.UIRectCorner? = nil, style: ZendeskSDKUIComponents.TextMessageStyle = .default, isAnimated: Swift.Bool = true, messageStatus: ZendeskSDKUIComponents.TextMessageRendering.MessageStatus = .pending, messageDirection: ZendeskSDKUIComponents.TextMessageRendering.MessageDirection = .outbound)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.TextMessageRendering, b: ZendeskSDKUIComponents.TextMessageRendering) -> Swift.Bool
 }
 public struct ArticleAttachmentButtonStyle : Swift.Sendable, Swift.Equatable, Swift.Hashable {
@@ -155,14 +164,18 @@ public struct ArticleAttachmentCarouselViewStyle : Swift.Sendable, Swift.Equatab
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKImageMessageView) @_Concurrency.MainActor @preconcurrency final public class ImageMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ImageMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public let textAndButtonView: ZendeskSDKUIComponents.TextAndMessageButtonView
   @_Concurrency.MainActor @preconcurrency final public var onImageTap: (() -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default, onImageTap: (() -> Swift.Void)?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ImageMessageViewRendering) -> ZendeskSDKUIComponents.ImageMessageViewRendering)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func restartImageAnimation()
   @_Concurrency.MainActor @preconcurrency final public func cancelAnimation()
   public typealias Rendering = ZendeskSDKUIComponents.ImageMessageViewRendering
@@ -181,7 +194,7 @@ extension ZendeskSDKUIComponents.ButtonsViewStyle {
 extension UIKit.UIStackView {
   @_Concurrency.MainActor @preconcurrency public func removeAllArrangedSubViews()
 }
-@_hasMissingDesignatedInitializers @objc(ZDKTextMessageView) @_Concurrency.MainActor @preconcurrency final public class TextMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class TextMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var onURLTap: ZendeskSDKUIComponents.OnURLTap?
   @_Concurrency.MainActor @preconcurrency final public var onTap: (() -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency final public var onMessageAnimated: ((Swift.Bool) -> Swift.Void)?
@@ -190,7 +203,9 @@ extension UIKit.UIStackView {
   }
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.TextMessageStyle = .default)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.TextMessageRendering) -> ZendeskSDKUIComponents.TextMessageRendering)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency final public func prepareForReuse()
   public typealias Rendering = ZendeskSDKUIComponents.TextMessageRendering
@@ -199,21 +214,19 @@ extension UIKit.UIStackView {
 }
 @available(iOS 17.0, *)
 extension ZendeskSDKUIComponents.TextMessageView : UIKit.UITextViewDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc final public func textView(_ textView: UIKit.UITextView, primaryActionFor textItem: UIKit.UITextItem, defaultAction: UIKit.UIAction) -> UIKit.UIAction?
+  #endif
 }
 @available(iOS, deprecated: 17.0)
 extension ZendeskSDKUIComponents.TextMessageView : UIKit.UITextViewDelegate {
   @_Concurrency.MainActor @preconcurrency @objc final public func textView(_ textView: UIKit.UITextView, shouldInteractWith URL: Foundation.URL, in characterRange: Foundation.NSRange, interaction: UIKit.UITextItemInteraction) -> Swift.Bool
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension UIKit.UIPasteboard : @retroactive ZendeskSDKCoreUtilities.Pasteboard {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func setString(_ string: Swift.String?)
+  #endif
 }
-#else
-extension UIKit.UIPasteboard : ZendeskSDKCoreUtilities.Pasteboard {
-  public func setString(_ string: Swift.String?)
-}
-#endif
 public struct MessagesDividerRendering {
   public let text: Swift.String
   public let style: ZendeskSDKUIComponents.MessagesDividerStyle
@@ -226,15 +239,21 @@ public struct CardViewRendering : Swift.Sendable, Swift.Equatable {
   public let image: ZendeskSDKUIComponents.CardViewImage?
   public let actionButtons: [ZendeskSDKUIComponents.CustomButtonRendering]
   public let style: ZendeskSDKUIComponents.CardViewStyle
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(title: Swift.String, subtitle: Swift.String?, image: ZendeskSDKUIComponents.CardViewImage?, actionButtons: [ZendeskSDKUIComponents.CustomButtonRendering], style: ZendeskSDKUIComponents.CardViewStyle)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func update(title: Swift.String? = nil, subtitle: Swift.String? = nil, image: ZendeskSDKUIComponents.CardViewImage? = nil, actionButtons: [ZendeskSDKUIComponents.CustomButtonRendering]? = nil, style: ZendeskSDKUIComponents.CardViewStyle? = nil) -> ZendeskSDKUIComponents.CardViewRendering
+  #endif
   public static func == (a: ZendeskSDKUIComponents.CardViewRendering, b: ZendeskSDKUIComponents.CardViewRendering) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.CardViewRendering {
   public static let `default`: ZendeskSDKUIComponents.CardViewRendering
 }
 public struct CardViewImage : Swift.Sendable, Swift.Equatable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(image: UIKit.UIImage?)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.CardViewImage, b: ZendeskSDKUIComponents.CardViewImage) -> Swift.Bool
 }
 public struct ConversationHeaderRendering {
@@ -244,9 +263,15 @@ public struct ConversationHeaderRendering {
   public var verticalSizeClass: UIKit.UIUserInterfaceSizeClass
   public var isMultiConvoHeader: Swift.Bool
   public var isDefaultConversationHeader: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular, isMultiConvoHeader: Swift.Bool = false, isDefaultConversationHeader: Swift.Bool = true)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(title: Swift.String = "Zendesk", description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass = .regular)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func update(title: Swift.String? = nil, description: Swift.String? = nil, logo: UIKit.UIImage? = nil, verticalSizeClass: UIKit.UIUserInterfaceSizeClass? = nil, isMultiConvoHeader: Swift.Bool = false, isDefaultConversationHeader: Swift.Bool = true) -> ZendeskSDKUIComponents.ConversationHeaderRendering
+  #endif
 }
 public struct ArticleViewerRendering {
   public init(state: ZendeskSDKUIComponents.ArticleViewerState, articleViewerHeaderRendering: ZendeskSDKUIComponents.ConversationExtensionHeaderRendering = .default, errorViewRendering: ZendeskSDKUIComponents.ConversationErrorViewRendering = .default, articleFeedbackBannerRendering: ZendeskSDKUIComponents.ArticleFeedbackBannerRendering = .default)
@@ -258,13 +283,17 @@ public enum ArticleViewerState : Swift.Equatable {
   public static func == (a: ZendeskSDKUIComponents.ArticleViewerState, b: ZendeskSDKUIComponents.ArticleViewerState) -> Swift.Bool
 }
 public struct ArticleViewerContent : Swift.Equatable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(articleTitle: Swift.String?, articleBody: Swift.String, articleBaseUrl: Swift.String?, attachments: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewRendering?, displayFeedbackBanner: Swift.Bool? = false)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.ArticleViewerContent, b: ZendeskSDKUIComponents.ArticleViewerContent) -> Swift.Bool
 }
 public struct ReplyOptionCollectionViewCellRendering {
   public let text: Swift.String
   public let style: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(text: Swift.String = "", style: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle? = nil)
+  #endif
 }
 public struct ArticleFeedbackBannerStyle : Swift.Sendable, Swift.Equatable {
   public init(backgroundColor: UIKit.UIColor, labelColor: UIKit.UIColor, buttonStyle: ZendeskSDKUIComponents.CustomButtonStyle)
@@ -278,13 +307,15 @@ public struct WaitTimeBannerViewRendering : Swift.Equatable {
   public let subtitle: Swift.String?
   public let iconImage: UIKit.UIImage?
   public let style: ZendeskSDKUIComponents.WaitTimeBannerViewStyle
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(title: Swift.String = "", subtitle: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.WaitTimeBannerViewStyle)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.WaitTimeBannerViewRendering, b: ZendeskSDKUIComponents.WaitTimeBannerViewRendering) -> Swift.Bool
 }
 public protocol ArticleAttachmentProtocol : AnyObject {
   func itemSelected(_ item: ZendeskSDKUIComponents.ArticleAttachmentItemRendering)
 }
-@_hasMissingDesignatedInitializers @objc(ZDKArticleAttachmentCarouselView) @_Concurrency.MainActor @preconcurrency final public class ArticleAttachmentCarouselView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ArticleAttachmentCarouselView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency weak final public var delegate: (any ZendeskSDKUIComponents.ArticleAttachmentProtocol)?
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle)
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle, rendering: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewRendering)
@@ -308,18 +339,24 @@ extension ZendeskSDKUIComponents.ArticleAttachmentCarouselView : UIKit.UICollect
   @_Concurrency.MainActor @preconcurrency @objc final public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
 }
 public typealias UnreadBannerViewRenderingUpdate = (ZendeskSDKUIComponents.UnreadBannerViewRendering) -> ZendeskSDKUIComponents.UnreadBannerViewRendering
-@_hasMissingDesignatedInitializers @objc(ZDKUnreadBannerView) @_Concurrency.MainActor @preconcurrency final public class UnreadBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class UnreadBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.UnreadBannerViewStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.UnreadBannerViewStyle = .default, onBannerTap: (() -> Swift.Void)?, onButtonTap: (() -> Swift.Void)?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.UnreadBannerViewRendering) -> ZendeskSDKUIComponents.UnreadBannerViewRendering)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func hitTest(_ point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> UIKit.UIView?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  #endif
   public typealias Rendering = ZendeskSDKUIComponents.UnreadBannerViewRendering
   public typealias Style = ZendeskSDKUIComponents.UnreadBannerViewStyle
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(ZDKQuickReplyView) @_Concurrency.MainActor @preconcurrency final public class QuickReplyView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class QuickReplyView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var contentSize: CoreFoundation.CGSize {
     get
   }
@@ -345,7 +382,9 @@ public struct ArticleFeedbackBannerRendering {
   public init(text: Swift.String = "")
 }
 extension ZendeskSDKUIComponents.ArticleFeedbackBannerRendering {
-  public static var `default`: ZendeskSDKUIComponents.ArticleFeedbackBannerRendering
+  public static var `default`: ZendeskSDKUIComponents.ArticleFeedbackBannerRendering {
+    get
+  }
 }
 public struct FormViewStyle : Swift.Sendable {
   public let backgroundColor: UIKit.UIColor
@@ -390,7 +429,9 @@ public struct FormFieldResponseViewRendering : Swift.Equatable {
 public enum ConnectionBannerLifetime : Foundation.TimeInterval, Swift.Equatable {
   case permanent
   case temporary
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Foundation.TimeInterval)
+  #endif
   public typealias RawValue = Foundation.TimeInterval
   public var rawValue: Foundation.TimeInterval {
     get
@@ -410,7 +451,7 @@ public struct MessageReceiptViewStyle : Swift.Equatable {
 extension ZendeskSDKUIComponents.MessageReceiptViewStyle {
   public static let `default`: ZendeskSDKUIComponents.MessageReceiptViewStyle
 }
-@_hasMissingDesignatedInitializers @objc(ZDKMessageReceiptView) @_Concurrency.MainActor @preconcurrency final public class MessageReceiptView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class MessageReceiptView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var onTap: (() -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency final public var tailPropertyAnimator: UIKit.UIViewPropertyAnimator {
     get
@@ -431,7 +472,9 @@ public protocol ArticleViewerProtocol : AnyObject {
   func feedbackButtonTapped(value: ZendeskSDKUIComponents.FeedbackRatingValue)
   func backButtonPressed()
   func closeButtonPressed()
+  #if compiler(>=5.3) && $NonescapableTypes
   func shareButtonPressed(_ sender: UIKit.UIBarButtonItem?)
+  #endif
   func retryButtonPressed()
   func articleDidFinishLoading()
 }
@@ -444,7 +487,7 @@ public enum FeedbackRatingValue {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKArticleViewerView) @_Concurrency.MainActor @preconcurrency final public class ArticleViewerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ArticleViewerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency weak final public var delegate: (any ZendeskSDKUIComponents.ArticleViewerProtocol)?
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ArticleViewerStyle)
   @objc deinit
@@ -480,7 +523,9 @@ public struct MessageReceiptViewRendering {
   public let receiptStatus: ZendeskSDKUIComponents.MessageReceiptViewRendering.ReceiptStatus
   public let animate: Swift.Bool
   public let isAnimated: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(text: Swift.String = "", icon: UIKit.UIImage? = nil, iconPosition: ZendeskSDKUIComponents.MessageReceiptViewRendering.IconPosition = .right, style: ZendeskSDKUIComponents.MessageReceiptViewStyle? = nil, receiptStatus: ZendeskSDKUIComponents.MessageReceiptViewRendering.ReceiptStatus = .pending, animate: Swift.Bool = true, isAnimated: Swift.Bool = false)
+  #endif
 }
 public enum InputState : Swift.Equatable, Swift.Hashable {
   case valid
@@ -518,24 +563,34 @@ public struct ConversationErrorViewRendering : Swift.Sendable {
   public init(text: Swift.String = "", buttonText: Swift.String = "")
 }
 extension ZendeskSDKUIComponents.ConversationErrorViewRendering {
-  public static let `default`: ZendeskSDKUIComponents.ConversationErrorViewRendering
+  public static var `default`: ZendeskSDKUIComponents.ConversationErrorViewRendering {
+    get
+  }
 }
 public struct ArticleAttachmentItemRendering : Swift.Equatable {
   public let title: Swift.String
   public let type: Swift.String
   public let size: Swift.Int64?
   public let url: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(title: Swift.String, type: Swift.String, size: Swift.Int64?, url: Swift.String)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.ArticleAttachmentItemRendering, b: ZendeskSDKUIComponents.ArticleAttachmentItemRendering) -> Swift.Bool
 }
-@objc(ZDKMessageComposerView) @_Concurrency.MainActor @preconcurrency final public class MessageComposerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_Concurrency.MainActor @preconcurrency final public class MessageComposerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var actions: ZendeskSDKUIComponents.MessageComposerActions?
   @_Concurrency.MainActor @preconcurrency final public var onHeightChanged: (() -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency convenience public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.MessageComposerStyle = .default, actions: ZendeskSDKUIComponents.MessageComposerActions? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.MessageComposerRendering) -> ZendeskSDKUIComponents.MessageComposerRendering)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   @available(*, unavailable, message: "No longer needed on iOS 16+")
   @_Concurrency.MainActor @preconcurrency final public func userInterfaceStyleDidChange(style: UIKit.UIUserInterfaceStyle)
   @_Concurrency.MainActor @preconcurrency final public var composerHeight: CoreFoundation.CGFloat {
@@ -562,7 +617,9 @@ public struct MessagesDividerEdgeInsets {
   public static let timeDivider: UIKit.UIEdgeInsets
 }
 public struct ConversationExtensionStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(backgroundColor: UIKit.UIColor, headerStyle: ZendeskSDKUIComponents.ConversationExtensionHeaderStyle, errorStyle: ZendeskSDKUIComponents.ConversationErrorViewStyle, loadingSpinnerStyle: ZendeskSDKUIComponents.LoadingSpinnerViewStyle?)
+  #endif
 }
 public struct MessagesDividerStyle : Swift.Sendable, Swift.Equatable {
   public init(dividerColor: UIKit.UIColor, textColor: UIKit.UIColor, textFont: UIKit.UIFont)
@@ -570,11 +627,15 @@ public struct MessagesDividerStyle : Swift.Sendable, Swift.Equatable {
 }
 extension ZendeskSDKUIComponents.MessagesDividerStyle {
   public static let `default`: ZendeskSDKUIComponents.MessagesDividerStyle
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func newMessagesDivider(_ color: UIKit.UIColor? = nil) -> ZendeskSDKUIComponents.MessagesDividerStyle
+  #endif
   public static let timeDivider: ZendeskSDKUIComponents.MessagesDividerStyle
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func timeDivider(_ textColor: UIKit.UIColor? = nil) -> ZendeskSDKUIComponents.MessagesDividerStyle
+  #endif
 }
-@_hasMissingDesignatedInitializers @objc(ZDKIconCircleView) @_Concurrency.MainActor @preconcurrency final public class IconCircleView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class IconCircleView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.IconCircleStyle = .default)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.IconCircleRendering) -> ZendeskSDKUIComponents.IconCircleRendering)
@@ -582,20 +643,26 @@ extension ZendeskSDKUIComponents.MessagesDividerStyle {
   public typealias Style = ZendeskSDKUIComponents.IconCircleStyle
   @objc deinit
 }
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc(ZDKConversationExtensionWebView) @_Concurrency.MainActor @preconcurrency final public class ConversationExtensionWebView : UIKit.UIView {
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ConversationExtensionWebView : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @objc deinit
 }
 extension ZendeskSDKUIComponents.ConversationExtensionWebView : WebKit.WKNavigationDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc final public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
 }
 extension ZendeskSDKUIComponents.ConversationExtensionWebView : WebKit.WKScriptMessageHandler {
   @_Concurrency.MainActor @preconcurrency @objc final public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
 }
-@_hasMissingDesignatedInitializers @objc(ZDKCarouselView) @_Concurrency.MainActor @preconcurrency final public class CarouselView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class CarouselView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var onURLTap: ZendeskSDKUIComponents.CarouselOnURLTap?
   @_Concurrency.MainActor @preconcurrency final public var onMessageActionButtonSelect: ((Swift.String, Swift.String) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency final public var onOffsetDidChange: ((CoreFoundation.CGPoint) -> Swift.Void)? {
@@ -611,7 +678,9 @@ extension ZendeskSDKUIComponents.ConversationExtensionWebView : WebKit.WKScriptM
 extension ZendeskSDKUIComponents.CarouselView {
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.CarouselViewRendering) -> ZendeskSDKUIComponents.CarouselViewRendering)
   @_Concurrency.MainActor @preconcurrency final public func updateWidth(constant: CoreFoundation.CGFloat)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func point(inside point: CoreFoundation.CGPoint, with event: UIKit.UIEvent?) -> Swift.Bool
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func updateActionButton(to state: ZendeskSDKUIComponents.CustomButtonState, actionId: Swift.String)
 }
 extension ZendeskSDKUIComponents.CarouselView : UIKit.UIScrollViewDelegate {
@@ -623,12 +692,12 @@ public struct KeyboardInfo : Swift.Equatable {
     case willChangeFrame
     case willShow
     case didShow
-    public func hash(into hasher: inout Swift.Hasher)
     public static func == (a: ZendeskSDKUIComponents.KeyboardInfo.NotificationType, b: ZendeskSDKUIComponents.KeyboardInfo.NotificationType) -> Swift.Bool
     public typealias AllCases = [ZendeskSDKUIComponents.KeyboardInfo.NotificationType]
     nonisolated public static var allCases: [ZendeskSDKUIComponents.KeyboardInfo.NotificationType] {
       get
     }
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
@@ -641,16 +710,20 @@ public struct KeyboardInfo : Swift.Equatable {
   public let beginFrame: CoreFoundation.CGRect
   public let endFrame: CoreFoundation.CGRect
   public let isLocal: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public var notificationType: ZendeskSDKUIComponents.KeyboardInfo.NotificationType? {
     get
   }
+  #endif
   public let notification: Foundation.Notification
   public func keyboardEndFrame(for view: UIKit.UIView) -> CoreFoundation.CGRect
   public func keyboardHeight(for view: UIKit.UIView) -> CoreFoundation.CGFloat
   public static func == (a: ZendeskSDKUIComponents.KeyboardInfo, b: ZendeskSDKUIComponents.KeyboardInfo) -> Swift.Bool
 }
 public struct IconCircleRendering {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(icon: UIKit.UIImage, statusIndicatorColor: UIKit.UIColor? = nil)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ReplyOptionCollectionViewCell : UIKit.UICollectionViewCell {
   @_Concurrency.MainActor @preconcurrency @objc override final public var isSelected: Swift.Bool {
@@ -658,22 +731,24 @@ public struct IconCircleRendering {
     @objc set
   }
   @_Concurrency.MainActor @preconcurrency @objc override final public func preferredLayoutAttributesFitting(_ layoutAttributes: UIKit.UICollectionViewLayoutAttributes) -> UIKit.UICollectionViewLayoutAttributes
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ReplyOptionCollectionViewCellRendering) -> ZendeskSDKUIComponents.ReplyOptionCollectionViewCellRendering)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(ZDKConversationHeaderView) @_Concurrency.MainActor @preconcurrency final public class ConversationHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ConversationHeaderView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var rendering: ZendeskSDKUIComponents.ConversationHeaderRendering {
     get
   }
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConversationHeaderStyle = .default)
+  @objc deinit
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationHeaderRendering) -> ZendeskSDKUIComponents.ConversationHeaderRendering)
   @_Concurrency.MainActor @preconcurrency @objc override final public var intrinsicContentSize: CoreFoundation.CGSize {
     @objc get
   }
   public typealias Rendering = ZendeskSDKUIComponents.ConversationHeaderRendering
   public typealias Style = ZendeskSDKUIComponents.ConversationHeaderStyle
-  @objc deinit
 }
 public struct CustomButtonRendering : Swift.Sendable, Swift.Equatable, Swift.Hashable {
   public let state: ZendeskSDKUIComponents.CustomButtonState
@@ -683,8 +758,12 @@ public struct CustomButtonRendering : Swift.Sendable, Swift.Equatable, Swift.Has
   public let source: Swift.String?
   public let id: Swift.String?
   public let type: ZendeskSDKUIComponents.CustomButtonType?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(state: ZendeskSDKUIComponents.CustomButtonState = .normal, title: Swift.String, style: ZendeskSDKUIComponents.CustomButtonStyle = .default, uri: Swift.String? = nil, source: Swift.String? = nil, id: Swift.String? = nil, type: ZendeskSDKUIComponents.CustomButtonType? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func update(state: ZendeskSDKUIComponents.CustomButtonState? = .none, title: Swift.String? = nil, style: ZendeskSDKUIComponents.CustomButtonStyle? = nil, uri: Swift.String? = nil, source: Swift.String? = nil, type: ZendeskSDKUIComponents.CustomButtonType? = nil) -> ZendeskSDKUIComponents.CustomButtonRendering
+  #endif
   public static func == (a: ZendeskSDKUIComponents.CustomButtonRendering, b: ZendeskSDKUIComponents.CustomButtonRendering) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -695,9 +774,11 @@ extension ZendeskSDKUIComponents.CustomButtonRendering {
   public static let `default`: ZendeskSDKUIComponents.CustomButtonRendering
 }
 public typealias WaitTimeBannerRenderingUpdate = (ZendeskSDKUIComponents.WaitTimeBannerViewRendering) -> ZendeskSDKUIComponents.WaitTimeBannerViewRendering
-@_hasMissingDesignatedInitializers @objc(ZDKWaitTimeBannerView) @_Concurrency.MainActor @preconcurrency final public class WaitTimeBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class WaitTimeBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.WaitTimeBannerViewStyle)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public var bannerHeight: CoreFoundation.CGFloat {
     get
   }
@@ -720,15 +801,21 @@ public struct MessageComposerStyle {
   public let disabledBackgroundColor: UIKit.UIColor
   public let borderColor: UIKit.UIColor
   public let attachmentIconColor: UIKit.UIColor
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(placeholderText: Swift.String, textColor: UIKit.UIColor, color: UIKit.UIColor, inputMaxLength: Swift.Int?, placeholderTextColor: UIKit.UIColor, disabledPlaceholderTextColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, disabledBackgroundColor: UIKit.UIColor, borderColor: UIKit.UIColor, attachmentIconColor: UIKit.UIColor)
+  #endif
 }
 public struct ConversationExtensionHeaderStyle {
   public init(backgroundColor: UIKit.UIColor, onBackgroundColor: UIKit.UIColor, buttonBackgroundColor: UIKit.UIColor)
 }
-@_hasMissingDesignatedInitializers @objc(ZDKButtonBannerView) @_Concurrency.MainActor @preconcurrency final public class ButtonBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ButtonBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency convenience public init(style: ZendeskSDKUIComponents.ButtonBannerStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ButtonBannerStyle = .default, onButtonTap: (() -> Swift.Void)? = nil, onBannerTap: (() -> Swift.Void)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency convenience public init(style: ZendeskSDKUIComponents.ButtonBannerStyle = .default, onTap: (() -> Swift.Void)? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ButtonBannerRendering) -> ZendeskSDKUIComponents.ButtonBannerRendering)
   @_Concurrency.MainActor @preconcurrency final public func setAccessibility(textAccessbilityLabel: Swift.String, iconAccessibilityLabel: Swift.String)
@@ -738,7 +825,9 @@ public struct ConversationExtensionHeaderStyle {
   @objc deinit
 }
 public struct CarouselViewRendering {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func update(items: [ZendeskSDKUIComponents.CardViewRendering]? = nil, index: Swift.Int? = nil) -> ZendeskSDKUIComponents.CarouselViewRendering
+  #endif
 }
 public struct FileMessageStyle : Swift.Sendable, Swift.Equatable {
   public init(fillColor: UIKit.UIColor, textColor: UIKit.UIColor, iconColor: UIKit.UIColor)
@@ -747,7 +836,7 @@ public struct FileMessageStyle : Swift.Sendable, Swift.Equatable {
 extension ZendeskSDKUIComponents.FileMessageStyle {
   public static let `default`: ZendeskSDKUIComponents.FileMessageStyle
 }
-@_hasMissingDesignatedInitializers @objc(ZDKButtonsView) @_Concurrency.MainActor @preconcurrency final public class ButtonsView : UIKit.UIStackView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ButtonsView : UIKit.UIStackView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var rendering: ZendeskSDKUIComponents.ButtonsViewRendering {
     get
   }
@@ -759,7 +848,9 @@ extension ZendeskSDKUIComponents.FileMessageStyle {
   @objc deinit
 }
 public struct ArticleViewerStyle {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(backgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, headerStyle: ZendeskSDKUIComponents.ConversationExtensionHeaderStyle, errorStyle: ZendeskSDKUIComponents.ConversationErrorViewStyle, articleAttachmentStyle: ZendeskSDKUIComponents.ArticleAttachmentCarouselViewStyle?, feedbackBannerStyle: ZendeskSDKUIComponents.ArticleFeedbackBannerStyle?, loadingSpinnerStyle: ZendeskSDKUIComponents.LoadingSpinnerViewStyle?)
+  #endif
 }
 extension UIKit.UITableView {
   @_Concurrency.MainActor @preconcurrency public func dequeueReusableCell<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UITableViewCell
@@ -783,14 +874,16 @@ public struct ImageMessageViewRendering {
   public let style: ZendeskSDKUIComponents.ImageMessageViewStyle
   public let state: ZendeskSDKUIComponents.ImageMessageViewState
   public let customButtonRenderings: [ZendeskSDKUIComponents.CustomButtonRendering]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(animatableImage: ZendeskSDKUIComponents.AnimatableImage = .empty, messageText: Swift.String? = nil, richTextMessage: Swift.String? = nil, imagePlaceHolderText: Swift.String? = nil, corners: UIKit.UIRectCorner? = .allCorners, style: ZendeskSDKUIComponents.ImageMessageViewStyle = .default, state: ZendeskSDKUIComponents.ImageMessageViewState = .normal, customButtonRenderings: [ZendeskSDKUIComponents.CustomButtonRendering] = [])
+  #endif
 }
 public struct UnreadBannerViewRendering {
   public var text: Swift.String
   public var style: ZendeskSDKUIComponents.UnreadBannerViewStyle
   public init(text: Swift.String = "", style: ZendeskSDKUIComponents.UnreadBannerViewStyle = .default)
 }
-@_hasMissingDesignatedInitializers @objc(ZDKConversationListItemView) @_Concurrency.MainActor @preconcurrency final public class ConversationListItemView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ConversationListItemView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public let imageView: UIKit.UIImageView
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConversationListItemStyle = .default)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationListItemRendering) -> ZendeskSDKUIComponents.ConversationListItemRendering)
@@ -799,7 +892,7 @@ public struct UnreadBannerViewRendering {
   @objc deinit
 }
 public typealias LoadingSpinnerRenderingUpdate = (ZendeskSDKUIComponents.LoadingSpinnerViewRendering) -> ZendeskSDKUIComponents.LoadingSpinnerViewRendering
-@_hasMissingDesignatedInitializers @objc(ZDKLoadingSpinnerView) @_Concurrency.MainActor @preconcurrency final public class LoadingSpinnerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class LoadingSpinnerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   public typealias Style = ZendeskSDKUIComponents.LoadingSpinnerViewStyle
   public typealias Rendering = ZendeskSDKUIComponents.LoadingSpinnerViewRendering
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.LoadingSpinnerView.Style)
@@ -813,7 +906,9 @@ public struct ActionButtonRendering : Swift.Sendable, Swift.Equatable, Swift.Has
   public let enabled: Swift.Bool
   public let title: Swift.String
   public let url: Foundation.URL?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(enabled: Swift.Bool, title: Swift.String, url: Foundation.URL?)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.ActionButtonRendering, b: ZendeskSDKUIComponents.ActionButtonRendering) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -853,9 +948,13 @@ public struct TextMessageCodeBlocksStyle : Swift.Sendable, Swift.Equatable {
     get
   }
   @_Concurrency.MainActor @preconcurrency convenience public init(style: ZendeskSDKUIComponents.InputStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.InputStyle = .default, onFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onNextSelected: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onFieldFocused: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onSelectFieldFocused: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)? = nil, onFieldContentChanged: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? = nil, onSubmitForm: (() -> Swift.Void)? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.InputFieldRendering) -> ZendeskSDKUIComponents.InputFieldRendering)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency final public func updateFieldTypeSelect(with newValue: Swift.String?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.InputFieldRendering
   public typealias Style = ZendeskSDKUIComponents.InputStyle
@@ -884,9 +983,11 @@ extension UIKit.UICollectionView {
   @_Concurrency.MainActor @preconcurrency public var lastSection: Swift.Int {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public var lastIndexPath: Foundation.IndexPath? {
     get
   }
+  #endif
   @_Concurrency.MainActor @preconcurrency public func register<T>(_: T.Type) where T : UIKit.UICollectionViewCell
   @_Concurrency.MainActor @preconcurrency public func dequeueReusableCell<T>(for indexPath: Foundation.IndexPath) -> T where T : UIKit.UICollectionViewCell
   @_Concurrency.MainActor @preconcurrency public func registerFooter<T>(_: T.Type) where T : UIKit.UICollectionReusableView
@@ -897,7 +998,7 @@ extension UIKit.UICollectionView {
 public struct FormViewStrings : Swift.Sendable {
   public init(counter: Swift.String, send: Swift.String, next: Swift.String)
 }
-@_hasMissingDesignatedInitializers @objc(ZDKAvatarView) @_Concurrency.MainActor @preconcurrency final public class AvatarView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class AvatarView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.AvatarViewStyle = .default)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.AvatarViewRendering) -> ZendeskSDKUIComponents.AvatarViewRendering)
   @_Concurrency.MainActor @preconcurrency final public func cancelAnimation()
@@ -909,11 +1010,11 @@ public enum CustomButtonType : Swift.Sendable, Swift.Equatable, Swift.CaseIterab
   case link
   case webview
   public static func == (a: ZendeskSDKUIComponents.CustomButtonType, b: ZendeskSDKUIComponents.CustomButtonType) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public typealias AllCases = [ZendeskSDKUIComponents.CustomButtonType]
   nonisolated public static var allCases: [ZendeskSDKUIComponents.CustomButtonType] {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -923,11 +1024,11 @@ public enum CustomButtonState : Swift.Sendable, Swift.Equatable, Swift.CaseItera
   case loading
   case disabled
   public static func == (a: ZendeskSDKUIComponents.CustomButtonState, b: ZendeskSDKUIComponents.CustomButtonState) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public typealias AllCases = [ZendeskSDKUIComponents.CustomButtonState]
   nonisolated public static var allCases: [ZendeskSDKUIComponents.CustomButtonState] {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -938,7 +1039,9 @@ public struct CustomButtonStyle : Swift.Sendable, Swift.Equatable, Swift.Hashabl
   public let highlightedBackgroundColor: UIKit.UIColor?
   public let disabledBackgroundColor: UIKit.UIColor?
   public let disabledTextColor: UIKit.UIColor?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(backgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, highlightedBackgroundColor: UIKit.UIColor? = nil, disabledBackgroundColor: UIKit.UIColor? = nil, disabledTextColor: UIKit.UIColor? = nil)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.CustomButtonStyle, b: ZendeskSDKUIComponents.CustomButtonStyle) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -983,7 +1086,9 @@ public struct CardViewStyle : Swift.Sendable, Swift.Equatable, Swift.Hashable {
   public var buttonStyle: ZendeskSDKUIComponents.CustomButtonStyle {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(actionColor: UIKit.UIColor, backgroundColor: UIKit.UIColor, itemBackgroundColor: UIKit.UIColor, textColor: UIKit.UIColor, backgroundImageColor: UIKit.UIColor, borderColor: UIKit.UIColor, elevatedColor: UIKit.UIColor, iconColor: UIKit.UIColor, shimmerColor: UIKit.UIColor? = nil, onActionColor: UIKit.UIColor, disabledColor: UIKit.UIColor, onBackgroundColorWithAlpha: UIKit.UIColor)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.CardViewStyle, b: ZendeskSDKUIComponents.CardViewStyle) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -1006,19 +1111,23 @@ public struct AvatarViewRendering {
   public init(animatableImage: ZendeskSDKUIComponents.AnimatableImage = .empty, style: ZendeskSDKUIComponents.AvatarViewStyle = .default)
 }
 public typealias ConversationErrorRenderingUpdate = (ZendeskSDKUIComponents.ConversationErrorViewRendering) -> ZendeskSDKUIComponents.ConversationErrorViewRendering
-@_hasMissingDesignatedInitializers @objc(ZDKConversationErrorView) @_Concurrency.MainActor @preconcurrency final public class ConversationErrorView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ConversationErrorView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConversationErrorViewStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConversationErrorViewStyle = .default, onRetryTap: (() -> Swift.Void)?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConversationErrorViewRendering) -> ZendeskSDKUIComponents.ConversationErrorViewRendering)
   @_Concurrency.MainActor @preconcurrency final public func setAccessibility()
   public typealias Rendering = ZendeskSDKUIComponents.ConversationErrorViewRendering
   public typealias Style = ZendeskSDKUIComponents.ConversationErrorViewStyle
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc(ZDKCustomButton) @_Concurrency.MainActor @preconcurrency final public class CustomButton : UIKit.UIButton, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class CustomButton : UIKit.UIButton, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var onTap: ((Swift.Int?) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency convenience public init(style: ZendeskSDKUIComponents.CustomButtonStyle)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.CustomButtonStyle = .default, rendering: ZendeskSDKUIComponents.CustomButtonRendering = .default, index: Swift.Int? = nil, onTap: ((Swift.Int?) -> Swift.Void)? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.CustomButtonRendering) -> ZendeskSDKUIComponents.CustomButtonRendering)
   public typealias Rendering = ZendeskSDKUIComponents.CustomButtonRendering
   public typealias Style = ZendeskSDKUIComponents.CustomButtonStyle
@@ -1034,7 +1143,7 @@ extension ZendeskSDKUIComponents.CustomButton {
     @objc set
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKFormView) @_Concurrency.MainActor @preconcurrency final public class FormView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class FormView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency final public var onFieldFocusChange: ((ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Void)? {
     get
     set
@@ -1047,7 +1156,9 @@ extension ZendeskSDKUIComponents.CustomButton {
   @_Concurrency.MainActor @preconcurrency final public var onFieldSelectTapped: ((ZendeskSDKUIComponents.InputFieldView) -> Swift.Void)?
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.FormViewStyle = .default)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormViewRendering) -> ZendeskSDKUIComponents.FormViewRendering)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.FormViewRendering
   public typealias Style = ZendeskSDKUIComponents.FormViewStyle
@@ -1069,12 +1180,18 @@ public struct ConversationListItemRendering {
   public let authorName: Swift.String?
   public let message: Swift.String
   public var isDefaultConversationTitle: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(title: Swift.String = "", subtitle: Swift.String = "", timestamp: Swift.String? = "", unreadCount: Swift.String? = nil, icon: UIKit.UIImage? = nil, style: ZendeskSDKUIComponents.ConversationListItemStyle? = nil, isSentBySelf: Swift.Bool = true, authorName: Swift.String? = "", message: Swift.String = "", isDefaultConversationTitle: Swift.Bool = true)
+  #endif
 }
 public struct ColorFactory {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func hex(_ hexString: Swift.String, alpha: CoreFoundation.CGFloat = 1.0) -> UIKit.UIColor?
+  #endif
   public static func dynamic(light: UIKit.UIColor, dark: UIKit.UIColor) -> UIKit.UIColor
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func dynamic(light: UIKit.UIColor?, dark: UIKit.UIColor?, defaultValue: UIKit.UIColor) -> UIKit.UIColor
+  #endif
 }
 public struct FormViewRendering {
   public let id: Swift.String
@@ -1086,7 +1203,9 @@ public struct FormViewRendering {
 }
 extension ZendeskSDKUIComponents.FormViewRendering {
   public func updateField(with field: ZendeskSDKUIComponents.InputFieldRendering) -> ZendeskSDKUIComponents.FormViewRendering
+  #if compiler(>=5.3) && $NonescapableTypes
   public func update(fields: [ZendeskSDKUIComponents.InputFieldRendering]? = nil, buttonRendering: ZendeskSDKUIComponents.CustomButtonRendering? = nil, strings: ZendeskSDKUIComponents.FormViewStrings? = nil) -> ZendeskSDKUIComponents.FormViewRendering
+  #endif
 }
 public struct LoadingSpinnerViewRendering {
   public init(isAnimating: Swift.Bool)
@@ -1094,18 +1213,26 @@ public struct LoadingSpinnerViewRendering {
 public struct TypingIndicatorRendering {
   public let corners: UIKit.UIRectCorner?
   public let style: ZendeskSDKUIComponents.TypingIndicatorStyle
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(corners: UIKit.UIRectCorner? = nil, style: ZendeskSDKUIComponents.TypingIndicatorStyle = .default)
+  #endif
 }
 public struct MessageComposerActions {
   public let onAttachmentTap: (() -> Swift.Void)?
   public let onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?
   public let onSend: ((Swift.String) -> Swift.Void)?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(onAttachmentTap: (() -> Swift.Void)?, onTextDidChange: ((UIKit.UITextView) -> Swift.Void)?, onSend: ((Swift.String) -> Swift.Void)?)
+  #endif
 }
 public struct ButtonBannerRendering {
   public static let empty: ZendeskSDKUIComponents.ButtonBannerRendering
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(icon: UIKit.UIImage? = nil, text: Swift.String)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(icon: UIKit.UIImage? = nil, text: Foundation.NSAttributedString)
+  #endif
 }
 extension UIKit.UIView {
   public enum Constrainable {
@@ -1139,7 +1266,9 @@ extension UIKit.UIView {
       case width
       case height
       case firstBaseline
+      #if compiler(>=5.3) && $NonescapableTypes
       public init?(rawValue: Swift.String)
+      #endif
       @available(iOS 2.0, *)
       public typealias RawValue = Swift.String
       public var rawValue: Swift.String {
@@ -1179,16 +1308,22 @@ extension UIKit.UIView {
   }
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperview(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperviewSafeLayout(axis: UIKit.UIView.Constrainable.Axis, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint?]
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperViewSafeLayout(constant: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority = .required) -> [UIKit.NSLayoutConstraint?]
+  #endif
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperViewEdges(priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperviewSafeLayout(attributes: [UIKit.UIView.Constrainable.Attribute], isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> [UIKit.NSLayoutConstraint]
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperviewSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0) -> UIKit.NSLayoutConstraint?
+  #endif
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperviewSafeLayout(insets: UIKit.UIEdgeInsets, isActive: Swift.Bool = true, priority: UIKit.UILayoutPriority = .required) -> [UIKit.NSLayoutConstraint]
   @discardableResult
@@ -1197,16 +1332,20 @@ extension UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency public func constrainToSuperview(attribute: UIKit.UIView.Constrainable.Attribute, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0, multiplier: CoreFoundation.CGFloat = 1) -> UIKit.NSLayoutConstraint
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainCenterToView(view: UIKit.UIView) -> [UIKit.NSLayoutConstraint]
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrainSafeLayout(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView, priority: UIKit.UILayoutPriority = .required, constant: CoreFoundation.CGFloat = 0.0) -> UIKit.NSLayoutConstraint?
+  #endif
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrain(dimension: UIKit.UIView.Constrainable.Dimension, withConstant constant: CoreFoundation.CGFloat = 0, relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required) -> UIKit.NSLayoutConstraint
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrain(size: CoreFoundation.CGSize, relation: UIKit.NSLayoutConstraint.Relation = .equal) -> [UIKit.NSLayoutConstraint]
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toView view: UIKit.UIView, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, constant: CoreFoundation.CGFloat = 0) -> UIKit.NSLayoutConstraint
+  #if compiler(>=5.3) && $NonescapableTypes
   @discardableResult
   @_Concurrency.MainActor @preconcurrency public func constrain(attribute: UIKit.UIView.Constrainable.Attribute, toAttribute: UIKit.UIView.Constrainable.Attribute, ofView view: UIKit.UIView?, relatedBy relation: UIKit.NSLayoutConstraint.Relation = .equal, priority: UIKit.UILayoutPriority = .required, isActive: Swift.Bool = true, constant: CoreFoundation.CGFloat = 0, multiplier: CoreFoundation.CGFloat = 1) -> UIKit.NSLayoutConstraint
+  #endif
 }
 public struct IconCircleStyle {
   public let backgroundColor: UIKit.UIColor
@@ -1222,7 +1361,7 @@ public protocol ConversationExtensionProtocol : AnyObject {
   func retryButtonPressed()
   func didFinishLoading()
 }
-@_hasMissingDesignatedInitializers @objc(ZDKConversationExtensionView) @_Concurrency.MainActor @preconcurrency final public class ConversationExtensionView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ConversationExtensionView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency weak final public var delegate: (any ZendeskSDKUIComponents.ConversationExtensionProtocol)?
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConversationExtensionStyle)
   @objc deinit
@@ -1249,39 +1388,39 @@ extension ZendeskSDKUIComponents.ActionButtonStyle {
   public static let `default`: ZendeskSDKUIComponents.ActionButtonStyle
 }
 public typealias BannerRenderingUpdate = (ZendeskSDKUIComponents.ConnectionBannerViewRendering) -> ZendeskSDKUIComponents.ConnectionBannerViewRendering
-@_hasMissingDesignatedInitializers @objc(ZDKConnectionBannerView) @_Concurrency.MainActor @preconcurrency final public class ConnectionBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class ConnectionBannerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConnectionBannerViewStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.ConnectionBannerViewStyle = .default, onRetryTap: (() -> Swift.Void)?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.ConnectionBannerViewRendering) -> ZendeskSDKUIComponents.ConnectionBannerViewRendering)
   @_Concurrency.MainActor @preconcurrency final public var onRetryTap: (() -> Swift.Void)?
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency final public func display(in view: UIKit.UIView, withThrottle throttleTime: Foundation.TimeInterval = 1, rendering: ZendeskSDKUIComponents.ConnectionBannerViewRendering, onDisplay: (() -> Swift.Void)? = nil)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
   public typealias Rendering = ZendeskSDKUIComponents.ConnectionBannerViewRendering
   public typealias Style = ZendeskSDKUIComponents.ConnectionBannerViewStyle
   @objc deinit
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
 extension UIKit.UIEdgeInsets : @retroactive Swift.Sequence {
   public typealias Iterator = ZendeskSDKUIComponents.InsetsIterator
   public typealias Element = CoreFoundation.CGFloat
   public func makeIterator() -> UIKit.UIEdgeInsets.Iterator
 }
-#else
-extension UIKit.UIEdgeInsets : Swift.Sequence {
-  public typealias Iterator = ZendeskSDKUIComponents.InsetsIterator
-  public typealias Element = CoreFoundation.CGFloat
-  public func makeIterator() -> UIKit.UIEdgeInsets.Iterator
-}
-#endif
 public struct InsetsIterator : Swift.IteratorProtocol {
   public typealias Element = CoreFoundation.CGFloat
+  #if compiler(>=5.3) && $NonescapableTypes
   public mutating func next() -> CoreFoundation.CGFloat?
+  #endif
 }
-public typealias OnURLTap = ((Foundation.URL, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)
-public typealias CarouselOnURLTap = (((Swift.String, ZendeskSDKUIComponents.CustomButtonType?), @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void)
+public typealias OnURLTap = (Foundation.URL, @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void
+public typealias CarouselOnURLTap = ((Swift.String, ZendeskSDKUIComponents.CustomButtonType?), @escaping (Swift.Bool) -> Swift.Void) -> Swift.Void
 public func + (left: CoreFoundation.CGSize, right: CoreFoundation.CGSize) -> CoreFoundation.CGSize
 public struct LoadingSpinnerViewStyle : Swift.Sendable, Swift.Equatable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(color: UIKit.UIColor?, indicatorStyle: UIKit.UIActivityIndicatorView.Style)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.LoadingSpinnerViewStyle, b: ZendeskSDKUIComponents.LoadingSpinnerViewStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.LoadingSpinnerViewStyle {
@@ -1306,18 +1445,20 @@ public struct ArticleAttachmentCarouselViewRendering : Swift.Equatable {
 public enum ImageMessageViewState : Swift.Equatable, Swift.CaseIterable {
   case normal
   case loading
-  public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: ZendeskSDKUIComponents.ImageMessageViewState, b: ZendeskSDKUIComponents.ImageMessageViewState) -> Swift.Bool
   public typealias AllCases = [ZendeskSDKUIComponents.ImageMessageViewState]
   nonisolated public static var allCases: [ZendeskSDKUIComponents.ImageMessageViewState] {
     get
   }
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
 }
 public struct ImageMessageViewStyle : Swift.Sendable, Swift.Equatable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(backgroundColor: UIKit.UIColor = .clear, imagePlaceHolderTextColor: UIKit.UIColor = .systemGray, imageAlpha: CoreFoundation.CGFloat = 1.0, borderColor: UIKit.UIColor? = nil, textAndButtonStyle: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle, imageContentMode: UIKit.UIView.ContentMode = .scaleAspectFill, isFixedImageSize: Swift.Bool = true, shimmerColor: UIKit.UIColor? = nil)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.ImageMessageViewStyle, b: ZendeskSDKUIComponents.ImageMessageViewStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.ImageMessageViewStyle {
@@ -1335,7 +1476,7 @@ extension ZendeskSDKUIComponents.FormFieldResponseViewStyle {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKMessagesDividerView) @_Concurrency.MainActor @preconcurrency final public class MessagesDividerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class MessagesDividerView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   public enum MessageDividerType {
     case timestamp, newMessage
     public static func == (a: ZendeskSDKUIComponents.MessagesDividerView.MessageDividerType, b: ZendeskSDKUIComponents.MessagesDividerView.MessageDividerType) -> Swift.Bool
@@ -1368,10 +1509,12 @@ public enum ConversationExtensionState : Swift.Equatable {
   case loadUrl(url: Swift.String)
   public static func == (a: ZendeskSDKUIComponents.ConversationExtensionState, b: ZendeskSDKUIComponents.ConversationExtensionState) -> Swift.Bool
 }
-@_hasMissingDesignatedInitializers @objc(ZDKFormResponseView) @_Concurrency.MainActor @preconcurrency final public class FormResponseView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class FormResponseView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.FormResponseViewStyle = .default)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FormResponseViewRendering) -> ZendeskSDKUIComponents.FormResponseViewRendering)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   public typealias Rendering = ZendeskSDKUIComponents.FormResponseViewRendering
   public typealias Style = ZendeskSDKUIComponents.FormResponseViewStyle
   @objc deinit
@@ -1388,13 +1531,17 @@ extension ZendeskSDKUIComponents.AnimatableImage {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKFileMessageView) @_Concurrency.MainActor @preconcurrency final public class FileMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class FileMessageView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.FileMessageStyle = .default)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.FileMessageStyle = .default, onTap: (() -> Swift.Void)?)
+  #endif
   @_Concurrency.MainActor @preconcurrency final public var onURLTap: ZendeskSDKUIComponents.OnURLTap?
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.FileMessageRendering) -> ZendeskSDKUIComponents.FileMessageRendering)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc override final public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  #endif
   public typealias Rendering = ZendeskSDKUIComponents.FileMessageRendering
   public typealias Style = ZendeskSDKUIComponents.FileMessageStyle
   @objc deinit
@@ -1408,7 +1555,9 @@ public struct ConversationHeaderStyle {
   public init(fill: UIKit.UIColor, textColor: UIKit.UIColor)
 }
 public struct QuickReplyViewStyle : Swift.Equatable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(replyOptionStyle: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle? = nil)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.QuickReplyViewStyle, b: ZendeskSDKUIComponents.QuickReplyViewStyle) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.QuickReplyViewStyle {
@@ -1437,7 +1586,9 @@ public struct ButtonsViewRendering : Swift.Sendable, Swift.Equatable, Swift.Hash
   public let customButtonRenderings: [ZendeskSDKUIComponents.CustomButtonRendering]
   public let isTopPaddingEnabled: Swift.Bool
   public init(customButtonRenderings: [ZendeskSDKUIComponents.CustomButtonRendering], isTopPaddingEnabled: Swift.Bool = true)
+  #if compiler(>=5.3) && $NonescapableTypes
   public func update(customButtonRenderings: [ZendeskSDKUIComponents.CustomButtonRendering]? = nil, isTopPaddingEnabled: Swift.Bool? = nil) -> ZendeskSDKUIComponents.ButtonsViewRendering
+  #endif
   public static func == (a: ZendeskSDKUIComponents.ButtonsViewRendering, b: ZendeskSDKUIComponents.ButtonsViewRendering) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -1451,11 +1602,11 @@ public struct ReplyOptionCollectionViewCellStyle : Swift.Sendable, Swift.Equatab
 extension ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle {
   public static let `default`: ZendeskSDKUIComponents.ReplyOptionCollectionViewCellStyle
 }
-@objc @_inheritsConvenienceInitializers final public class KeyboardHelper : ObjectiveC.NSObject {
+final public class KeyboardHelper {
   final public var onKeyboardEvent: ((ZendeskSDKUIComponents.KeyboardInfo) -> Swift.Void)?
+  public init()
   final public func registerForKeyboardNotifications()
   final public func unregisterForKeyboardNotifications()
-  @objc override dynamic public init()
   @objc deinit
 }
 final public class BundleUtils {
@@ -1463,8 +1614,12 @@ final public class BundleUtils {
   final public func string(for key: Swift.String, defaultValue: Swift.String, comment: Swift.String = "") -> Swift.String
   final public func string(for key: Swift.String, number: Swift.Int, defaultValue: Swift.String, comment: Swift.String = "") -> Swift.String
   final public func string(for key: Swift.String, with arguments: [Swift.String], defaultValue: Swift.String, comment: Swift.String = "") -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func stringWithBoldedArgs(for key: Swift.String, with arguments: [Swift.String], attributes: [Foundation.NSAttributedString.Key : Any]? = nil, defaultValue: Swift.String) -> Foundation.NSAttributedString
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func image(named filename: Swift.String, tintColor: UIKit.UIColor? = nil, renderingMode: UIKit.UIImage.RenderingMode = .automatic) -> UIKit.UIImage?
+  #endif
   @objc deinit
 }
 public struct TextAndMessageButtonViewRendering : Swift.Sendable, Swift.Equatable {
@@ -1472,7 +1627,9 @@ public struct TextAndMessageButtonViewRendering : Swift.Sendable, Swift.Equatabl
   public let textMessageRendering: ZendeskSDKUIComponents.TextMessageRendering
   public let style: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle
   public let corners: UIKit.UIRectCorner?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(buttonsViewRendering: ZendeskSDKUIComponents.ButtonsViewRendering, textMessageRendering: ZendeskSDKUIComponents.TextMessageRendering, style: ZendeskSDKUIComponents.TextAndMessageButtonViewStyle, corners: UIKit.UIRectCorner?)
+  #endif
   public static func == (a: ZendeskSDKUIComponents.TextAndMessageButtonViewRendering, b: ZendeskSDKUIComponents.TextAndMessageButtonViewRendering) -> Swift.Bool
 }
 extension ZendeskSDKUIComponents.TextAndMessageButtonViewRendering {
@@ -1491,7 +1648,7 @@ public struct ConversationErrorViewStyle : Swift.Sendable, Swift.Equatable {
 extension ZendeskSDKUIComponents.ConversationErrorViewStyle {
   public static let `default`: ZendeskSDKUIComponents.ConversationErrorViewStyle
 }
-@_hasMissingDesignatedInitializers @objc(ZDKTypingIndicatorView) @_Concurrency.MainActor @preconcurrency final public class TypingIndicatorView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency final public class TypingIndicatorView : UIKit.UIView, ZendeskSDKUIComponents.Renderer {
   @_Concurrency.MainActor @preconcurrency public init(style: ZendeskSDKUIComponents.TypingIndicatorStyle = .default)
   @_Concurrency.MainActor @preconcurrency final public func render(_ renderingUpdate: (ZendeskSDKUIComponents.TypingIndicatorRendering) -> ZendeskSDKUIComponents.TypingIndicatorRendering)
   @_Concurrency.MainActor @preconcurrency @objc override final public func layoutSubviews()
@@ -1504,8 +1661,8 @@ public struct InputFieldRendering : Swift.Equatable {
     case text
     case email
     case select
-    public func hash(into hasher: inout Swift.Hasher)
     public static func == (a: ZendeskSDKUIComponents.InputFieldRendering.FieldType, b: ZendeskSDKUIComponents.InputFieldRendering.FieldType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
@@ -1528,14 +1685,22 @@ public struct InputFieldRendering : Swift.Equatable {
   public let keyboardType: UIKit.UIKeyboardType
   public let options: [ZendeskSDKUIComponents.InputFieldRendering.SelectOption]
   public let isDisplayed: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorText: Swift.String? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public var selectedOption: ZendeskSDKUIComponents.InputFieldRendering.SelectOption? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, name: Swift.String, title: Swift.String, placeholder: Swift.String, value: Swift.String? = nil, type: ZendeskSDKUIComponents.InputFieldRendering.FieldType, state: ZendeskSDKUIComponents.InputState = .valid, keyboardType: UIKit.UIKeyboardType = .default, options: [ZendeskSDKUIComponents.InputFieldRendering.SelectOption] = [], isDisplayed: Swift.Bool = false)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func update(value: Swift.String? = nil, state: ZendeskSDKUIComponents.InputState? = nil, isDisplayed: Swift.Bool? = nil) -> ZendeskSDKUIComponents.InputFieldRendering
+  #endif
   public static func == (a: ZendeskSDKUIComponents.InputFieldRendering, b: ZendeskSDKUIComponents.InputFieldRendering) -> Swift.Bool
 }
 public typealias UIResource = ZendeskSDKUIComponents.Resource

@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "Agent práve odpovedá";
 "zma_accessibility_loading_label" = "Načítavam";
 "zma_accessibility_message_author_replied" = "%@ odpovedal/-a";
 "zma_accessibility_message_dismiss" = "Zavrieť";
 "zma_accessibility_message_received" = "Správa prijatá od používateľa %@";
+"zma_accessibility_message_sending" = "Posiela sa";
+"zma_accessibility_message_sent_just_now" = "Správa bola práve odoslaná";
 "zma_accessibility_postback_error_message" = "Chyba, %@";
 "zma_action_label_cancel" = "Zrušiť";
 "zma_actions_attachments_label" = "Odoslať prílohu";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Ďalej";
 "zma_form_send_button" = "Odoslať";
 "zma_form_submission_error" = "Nie je možné odoslať podrobnosti. Skúste to znova.";
-"zma_generated_by_ai" = "Generované umelou inteligenciou";
 "zma_label_add_attachments" = "Pridať prílohy";
 "zma_label_send_message" = "Odoslať správu";
 "zma_message_action_option_not_supported_label" = "Možnosť nie je podporovaná";

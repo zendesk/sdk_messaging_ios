@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "O agente está a escrever";
 "zma_accessibility_loading_label" = "Carregando";
 "zma_accessibility_message_author_replied" = "%@ respondeu";
-"zma_accessibility_message_dismiss" = "Exonerar";
+"zma_accessibility_message_dismiss" = "Dispensar";
 "zma_accessibility_message_received" = "Mensagem recebida de %@";
+"zma_accessibility_message_sending" = "A enviar";
+"zma_accessibility_message_sent_just_now" = "Mensagem enviada agora";
 "zma_accessibility_postback_error_message" = "Erro, %@";
 "zma_action_label_cancel" = "Cancelar";
 "zma_actions_attachments_label" = "Enviar anexo";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Seguinte";
 "zma_form_send_button" = "Enviar";
 "zma_form_submission_error" = "Não foi possível enviar detalhes. Tente novamente.";
-"zma_generated_by_ai" = "Gerado por IA";
 "zma_label_add_attachments" = "Adicionar anexos";
 "zma_label_send_message" = "Enviar mensagem";
 "zma_message_action_option_not_supported_label" = "Opção não suportada";
