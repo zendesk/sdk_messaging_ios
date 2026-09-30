@@ -1,15 +1,14 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKCoreUtilities
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKCoreUtilities
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 import Swift
 import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-import os
-final public class FeatureFlagManager : Swift.Equatable {
+@objc(ZDKFeatureFlagManager) final public class FeatureFlagManager : ObjectiveC.NSObject {
   final public let hipaaAttachmentFlag: Swift.Bool
   final public let isMultiConvoEnabled: Swift.Bool
   final public let canUserCreateMoreConversations: Swift.Bool
@@ -17,35 +16,8 @@ final public class FeatureFlagManager : Swift.Equatable {
   final public let isMultiAttachmentsEnabled: Swift.Bool
   final public let endSessionEnabled: Swift.Bool
   final public let showAIDisclaimer: Swift.Bool
-  final public let brandFilteringEnabled: Swift.Bool
-  convenience public init(hipaaAttachmentFlag: Swift.Bool)
-  public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false, isMultiAttachmentsEnabled: Swift.Bool = false, endSessionEnabled: Swift.Bool = false, showAIDisclaimer: Swift.Bool = true, brandFilteringEnabled: Swift.Bool = false)
-  public static func == (lhs: ZendeskSDKCoreUtilities.FeatureFlagManager, rhs: ZendeskSDKCoreUtilities.FeatureFlagManager) -> Swift.Bool
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers final public class ZendeskLocale : Swift.Sendable {
-  public static let shared: ZendeskSDKCoreUtilities.ZendeskLocale
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public var overrideLocale: Swift.String? {
-    get
-  }
-  #endif
-  final public var effectiveLocale: Swift.String {
-    get
-  }
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func locale(preferring requested: Swift.String?) -> Swift.String
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func normalized(_ locale: Swift.String?) -> Swift.String?
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func setOverride(_ locale: Swift.String?)
-  #endif
-  final public func clear()
-  final public var formattingLocale: Foundation.Locale {
-    get
-  }
+  @objc convenience public init(hipaaAttachmentFlag: Swift.Bool)
+  @objc public init(hipaaAttachmentFlag: Swift.Bool, canUserSeeConversationList: Swift.Bool, isMultiConvoEnabled: Swift.Bool = false, canUserCreateMoreConversations: Swift.Bool = false, isMultiAttachmentsEnabled: Swift.Bool = false, endSessionEnabled: Swift.Bool = false, showAIDisclaimer: Swift.Bool = true)
   @objc deinit
 }
 open class ZendeskObservable<Observed> {
@@ -65,14 +37,10 @@ public struct JWT : Swift.Decodable {
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct JWTDecoder {
-  #if compiler(>=5.3) && $NonescapableTypes
   public static func decode<T>(jwt: Swift.String) -> T? where T : Swift.Decodable
-  #endif
 }
 extension Swift.String {
-  #if compiler(>=5.3) && $NonescapableTypes
   public func htmlToAttributedString(with font: UIKit.UIFont, textColor: UIKit.UIColor, codeBlocksFont: UIKit.UIFont, codeBlocksTextColor: UIKit.UIColor, codeBlocksBackgroundColor: UIKit.UIColor) -> Foundation.NSAttributedString?
-  #endif
 }
 public struct ObservableEntity : Swift.Hashable {
   public init(value: Swift.AnyObject)
@@ -83,11 +51,9 @@ public struct ObservableEntity : Swift.Hashable {
   }
 }
 extension Swift.String {
-  #if compiler(>=5.3) && $NonescapableTypes
   public var getBaseUrl: Swift.String? {
     get
   }
-  #endif
 }
 extension Foundation.URLSessionConfiguration {
   public static var defaultRespectingServerCache: Foundation.URLSessionConfiguration {
@@ -95,14 +61,10 @@ extension Foundation.URLSessionConfiguration {
   }
 }
 public protocol Pasteboard {
-  #if compiler(>=5.3) && $NonescapableTypes
   func setString(_ string: Swift.String?)
-  #endif
 }
 public protocol ApplicationStateObserver {
-  #if compiler(>=5.3) && $NonescapableTypes
   var onApplicationStateEvent: ((ZendeskSDKCoreUtilities.ApplicationState) -> Swift.Void)? { get set }
-  #endif
   func registerForApplicationStateNotifications()
   func unregisterForApplicationStateNotifications()
 }
@@ -113,14 +75,26 @@ final public class DefaultApplicationStateObserver : ZendeskSDKCoreUtilities.App
   final public func unregisterForApplicationStateNotifications()
   @objc deinit
 }
-#if compiler(>=5.3) && $NonescapableTypes
+#if compiler(>=5.3) && $NoncopyableGenerics
+extension Swift.Optional where Wrapped == Swift.Int {
+  public var toNSNumber: Foundation.NSNumber? {
+    get
+  }
+}
+#else
 extension Swift.Optional where Wrapped == Swift.Int {
   public var toNSNumber: Foundation.NSNumber? {
     get
   }
 }
 #endif
-#if compiler(>=5.3) && $NonescapableTypes
+#if compiler(>=5.3) && $NoncopyableGenerics
+extension Swift.Optional where Wrapped == Swift.Double {
+  public var toNSNumber: Foundation.NSNumber? {
+    get
+  }
+}
+#else
 extension Swift.Optional where Wrapped == Swift.Double {
   public var toNSNumber: Foundation.NSNumber? {
     get

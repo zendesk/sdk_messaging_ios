@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
-// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKAnalyticsKit
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKAnalyticsKit
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface
 import Foundation
 import Swift
 import UIKit
@@ -13,7 +13,7 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 public struct EventParameters {
-  public init(clientId: Swift.String, sdkVersion: Swift.String, isMultiConvoEnabled: Swift.Bool, isUserAuthenticated: Swift.Bool, suid: Swift.String, canUserSeeConversationList: Swift.Bool, canUserCreateMoreConversations: Swift.Bool, senderType: Swift.String)
+  public init(clientId: Swift.String, sdkVersion: Swift.String, isMultiConvoEnabled: Swift.Bool, isUserAuthenticated: Swift.Bool, suid: Swift.String, canUserSeeConversationList: Swift.Bool, canUserCreateMoreConversations: Swift.Bool)
 }
 public struct AnalyticsEvents : Swift.Codable, Swift.Equatable {
   public var events: [ZendeskSDKAnalyticsKit.AnalyticsEventDTO]
@@ -62,8 +62,6 @@ public enum EventType {
   case showMessagingAPI(showMessagingAction: Swift.String, showMessagingLabel: Swift.String, showMessagingExitAction: Swift.String)
   case conversationExtensionClicked(launchType: Swift.String, size: Swift.String)
   case conversationExtensionDisplayed(launchType: Swift.String, size: Swift.String)
-  case replySent
-  case guideArticleClicked
 }
 public enum AnalyticsSampling {
   public static func shouldTrackAnalyticEvents() -> Swift.Bool
@@ -86,8 +84,8 @@ public enum AnalyticsKitError : Foundation.LocalizedError, Foundation.CustomNSEr
   case networkError
   case invalidData
   case tooManyRequests
-  public static func == (a: ZendeskSDKAnalyticsKit.AnalyticsKitError, b: ZendeskSDKAnalyticsKit.AnalyticsKitError) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: ZendeskSDKAnalyticsKit.AnalyticsKitError, b: ZendeskSDKAnalyticsKit.AnalyticsKitError) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }

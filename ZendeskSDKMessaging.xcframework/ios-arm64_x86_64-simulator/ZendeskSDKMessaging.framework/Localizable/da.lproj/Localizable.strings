@@ -1,10 +1,7 @@
-"zma_accessibility_agent_is_typing" = "Agent skriver";
 "zma_accessibility_loading_label" = "Indlæser";
 "zma_accessibility_message_author_replied" = "%@ besvaret";
 "zma_accessibility_message_dismiss" = "Afvis";
 "zma_accessibility_message_received" = "Meddelelse modtaget fra %@";
-"zma_accessibility_message_sending" = "Sender";
-"zma_accessibility_message_sent_just_now" = "Meddelelsen blev lige sendt";
 "zma_accessibility_postback_error_message" = "Fejl, %@";
 "zma_action_label_cancel" = "Annuller";
 "zma_actions_attachments_label" = "Send en vedhæftet fil";
@@ -56,6 +53,7 @@
 "zma_form_next_button" = "Næste";
 "zma_form_send_button" = "Send";
 "zma_form_submission_error" = "Detaljerne kunne ikke sendes. Prøv igen.";
+"zma_generated_by_ai" = "Genereret af AI";
 "zma_label_add_attachments" = "Tilføj vedhæftede filer";
 "zma_label_send_message" = "Send besked";
 "zma_message_action_option_not_supported_label" = "Valg understøttes ikke";

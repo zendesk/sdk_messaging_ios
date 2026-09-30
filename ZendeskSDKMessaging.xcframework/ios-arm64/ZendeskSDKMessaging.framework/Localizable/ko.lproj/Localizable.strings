@@ -1,10 +1,7 @@
-"zma_accessibility_agent_is_typing" = "상담사가 입력 중입니다";
 "zma_accessibility_loading_label" = "로드 중";
 "zma_accessibility_message_author_replied" = "%@님이 답장함";
 "zma_accessibility_message_dismiss" = "해제";
 "zma_accessibility_message_received" = "%@님으로부터 받은 메시지";
-"zma_accessibility_message_sending" = "보내는 중";
-"zma_accessibility_message_sent_just_now" = "방금 메시지를 보냄";
 "zma_accessibility_postback_error_message" = "오류, %@";
 "zma_action_label_cancel" = "취소";
 "zma_actions_attachments_label" = "첨부 파일 보내기";
@@ -56,6 +53,7 @@
 "zma_form_next_button" = "다음";
 "zma_form_send_button" = "보내기";
 "zma_form_submission_error" = "세부 정보를 보낼 수 없습니다. 다시 시도하세요.";
+"zma_generated_by_ai" = "AI가 생성함";
 "zma_label_add_attachments" = "첨부 파일 추가";
 "zma_label_send_message" = "메시지 보내기";
 "zma_message_action_option_not_supported_label" = "옵션이 지원되지 않음";

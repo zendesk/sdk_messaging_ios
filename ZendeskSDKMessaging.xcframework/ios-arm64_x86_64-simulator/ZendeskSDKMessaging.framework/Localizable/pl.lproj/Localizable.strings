@@ -1,10 +1,7 @@
-"zma_accessibility_agent_is_typing" = "Agent pisze";
 "zma_accessibility_loading_label" = "Ładowanie";
 "zma_accessibility_message_author_replied" = "Odpowiedź od: %@";
 "zma_accessibility_message_dismiss" = "Odrzuć";
 "zma_accessibility_message_received" = "Wiadomość otrzymana od: %@";
-"zma_accessibility_message_sending" = "Wysyłanie";
-"zma_accessibility_message_sent_just_now" = "Wiadomość wysłana przed chwilą";
 "zma_accessibility_postback_error_message" = "Błąd, %@";
 "zma_action_label_cancel" = "Anuluj";
 "zma_actions_attachments_label" = "Wyślij załącznik";
@@ -56,6 +53,7 @@
 "zma_form_next_button" = "Dalej";
 "zma_form_send_button" = "Wyślij";
 "zma_form_submission_error" = "Nie udało się wysłać danych. Spróbuj ponownie.";
+"zma_generated_by_ai" = "Wygenerowane przez sztuczną inteligencję";
 "zma_label_add_attachments" = "Dodaj załączniki";
 "zma_label_send_message" = "Wyślij wiadomość";
 "zma_message_action_option_not_supported_label" = "Opcja nieobsługiwana";
