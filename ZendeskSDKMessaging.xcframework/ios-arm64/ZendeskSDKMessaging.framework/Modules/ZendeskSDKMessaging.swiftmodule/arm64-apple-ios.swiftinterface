@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKMessaging
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios16.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKMessaging
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import CommonCrypto
 import CoreImage
 import CoreServices
@@ -30,45 +30,56 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
-extension UIKit.UIImageView {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic open func nuke_display(image: UIKit.UIImage?)
+@_inheritsConvenienceInitializers @objc(ZDKDefaultMessagingFactory) final public class ZDKDefaultMessagingFactory : ObjectiveC.NSObject, ZendeskSDK.MessagingFactory {
+  @objc final public func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
+  @objc override dynamic public init()
+  @objc public init(userLightColors: ZendeskSDKMessaging.ZDKUserColors)
+  @objc public init(userLightColors: ZendeskSDKMessaging.ZDKUserColors, userDarkColors: ZendeskSDKMessaging.ZDKUserColors)
+  @objc deinit
 }
-@objc(ZDKPushResponsibility) public enum PushResponsibility : Swift.Int {
+extension UIKit.UIImageView {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public func nuke_display(image: UIKit.UIImage?)
+  #endif
+}
+public enum PushResponsibility {
   case messagingShouldDisplay
   case messagingShouldNotDisplay
   case notFromMessaging
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
+  public static func == (a: ZendeskSDKMessaging.PushResponsibility, b: ZendeskSDKMessaging.PushResponsibility) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKPushNotifications) final public class PushNotifications : ObjectiveC.NSObject {
-  @objc public static func updatePushNotificationToken(_ token: Foundation.Data)
-  @objc public static func shouldBeDisplayed(_ userInfo: [Swift.AnyHashable : Any]) -> ZendeskSDKMessaging.PushResponsibility
-  @objc public static func handleTap(_ userInfo: [Swift.AnyHashable : Any], completion: ((UIKit.UIViewController?) -> Swift.Void)?)
-  @objc deinit
-}
-@_inheritsConvenienceInitializers @objc(ZDKDefaultMessagingFactory) final public class DefaultMessagingFactory : ObjectiveC.NSObject, ZendeskSDK.MessagingFactory {
-  @objc final public func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
-  @objc override dynamic public init()
-  @objc public init(userLightColors: ZendeskSDKMessaging.UserColors)
-  @objc public init(userLightColors: ZendeskSDKMessaging.UserColors, userDarkColors: ZendeskSDKMessaging.UserColors)
-  @objc deinit
-}
-@objc(ZDKUserColors) final public class UserColors : ObjectiveC.NSObject {
+@objc(ZDKUserColors) final public class ZDKUserColors : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc public init(onPrimary: UIKit.UIColor?, onMessage: UIKit.UIColor?, onAction: UIKit.UIColor?)
+  #endif
   @objc deinit
 }
-#if compiler(>=5.3) && $RetroactiveAttribute
+@_hasMissingDesignatedInitializers final public class PushNotifications {
+  public static func updatePushNotificationToken(_ token: Foundation.Data)
+  public static func shouldBeDisplayed(_ userInfo: [Swift.AnyHashable : Any]) -> ZendeskSDKMessaging.PushResponsibility
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func handleTap(_ userInfo: [Swift.AnyHashable : Any], completion: ((UIKit.UIViewController?) -> Swift.Void)?)
+  #endif
+  @objc deinit
+}
+final public class DefaultMessagingFactory : ZendeskSDK.MessagingFactory {
+  @objc final public func createMessaging(with parameters: ZendeskSDK.MessagingFactoryParameters) -> ZendeskSDK.Messaging
+  public init()
+  public init(userLightColors: ZendeskSDKMessaging.UserColors)
+  public init(userLightColors: ZendeskSDKMessaging.UserColors, userDarkColors: ZendeskSDKMessaging.UserColors)
+  @objc deinit
+}
+public struct UserColors {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(onPrimary: UIKit.UIColor?, onMessage: UIKit.UIColor?, onAction: UIKit.UIColor?)
+  #endif
+}
 extension CoreFoundation.CGSize : @retroactive Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
 }
-#else
-extension CoreFoundation.CGSize : Swift.Hashable {
-  public func hash(into hasher: inout Swift.Hasher)
-}
-#endif
 extension ZendeskSDKMessaging.PushResponsibility : Swift.Equatable {}
 extension ZendeskSDKMessaging.PushResponsibility : Swift.Hashable {}
-extension ZendeskSDKMessaging.PushResponsibility : Swift.RawRepresentable {}

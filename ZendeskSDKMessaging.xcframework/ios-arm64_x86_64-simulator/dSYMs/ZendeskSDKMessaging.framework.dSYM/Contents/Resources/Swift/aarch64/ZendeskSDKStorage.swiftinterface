@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKStorage
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKStorage
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Foundation
 import Swift
 import ZendeskSDKLogger
@@ -15,16 +15,20 @@ public struct StorageBuilder {
 }
 @propertyWrapper public class StorableValue<T> where T : Swift.Decodable, T : Swift.Encodable {
   public init(namespace: Swift.String, type: ZendeskSDKStorage.StorageType, key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   public var wrappedValue: T? {
     get
     set
   }
+  #endif
   @objc deinit
 }
 public enum StorageType : Swift.String {
   case basic
   case complex
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -32,9 +36,11 @@ public enum StorageType : Swift.String {
 }
 public enum StorageError : Foundation.LocalizedError {
   case cannotInitialize
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
+  #endif
   public static func == (a: ZendeskSDKStorage.StorageError, b: ZendeskSDKStorage.StorageError) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
@@ -43,11 +49,15 @@ public enum StorageError : Foundation.LocalizedError {
 }
 public protocol Storage {
   var namespace: Swift.String { get set }
+  #if compiler(>=5.3) && $NonescapableTypes
   func get<D>(forKey key: Swift.String, ofType type: D.Type) -> D? where D : Swift.Decodable, D : Swift.Encodable
+  #endif
   func set<E>(_ object: E, forKey key: Swift.String) where E : Swift.Decodable, E : Swift.Encodable
   func remove(forKey key: Swift.String)
   func clear()
+  #if compiler(>=5.3) && $NonescapableTypes
   func clearTemporaryStorage(for item: Swift.String?)
+  #endif
 }
 extension ZendeskSDKStorage.StorageType : Swift.Equatable {}
 extension ZendeskSDKStorage.StorageType : Swift.Hashable {}

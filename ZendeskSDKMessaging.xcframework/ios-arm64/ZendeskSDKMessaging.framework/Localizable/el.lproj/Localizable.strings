@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "Ο εκπρόσωπος πληκτρολογεί";
 "zma_accessibility_loading_label" = "Γίνεται φόρτωση";
 "zma_accessibility_message_author_replied" = "Ο χρήστης %@ απάντησε";
 "zma_accessibility_message_dismiss" = "Απόρριψη";
 "zma_accessibility_message_received" = "Μήνυμα που ελήφθη από %@";
+"zma_accessibility_message_sending" = "Αποστολή";
+"zma_accessibility_message_sent_just_now" = "Το μήνυμα εστάλη μόλις τώρα";
 "zma_accessibility_postback_error_message" = "Σφάλμα, %@";
 "zma_action_label_cancel" = "Ακύρωση";
 "zma_actions_attachments_label" = "Αποστολή συνημμένου";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Επόμενο";
 "zma_form_send_button" = "Αποστολή";
 "zma_form_submission_error" = "Δεν ήταν δυνατή η αποστολή λεπτομερειών. Προσπαθήστε ξανά.";
-"zma_generated_by_ai" = "Δημιουργήθηκε από την Τεχνητή Νοημοσύνη";
 "zma_label_add_attachments" = "Προσθήκη συνημμένων";
 "zma_label_send_message" = "Αποστολή μηνύματος";
 "zma_message_action_option_not_supported_label" = "Η επιλογή δεν υποστηρίζεται";

@@ -1,7 +1,10 @@
+"zma_accessibility_agent_is_typing" = "Агент набирає текст";
 "zma_accessibility_loading_label" = "Завантаження";
 "zma_accessibility_message_author_replied" = "%@ Відповів";
 "zma_accessibility_message_dismiss" = "Відхилити";
 "zma_accessibility_message_received" = "Повідомлення отримано від %@";
+"zma_accessibility_message_sending" = "Надсилання";
+"zma_accessibility_message_sent_just_now" = "Повідомлення щойно надіслано";
 "zma_accessibility_postback_error_message" = "Помилка, %@";
 "zma_action_label_cancel" = "Скасувати";
 "zma_actions_attachments_label" = "Надішліть вкладення";
@@ -53,7 +56,6 @@
 "zma_form_next_button" = "Далі";
 "zma_form_send_button" = "Надіслати";
 "zma_form_submission_error" = "Не вдалося надіслати подробиці. Спробуйте ще раз.";
-"zma_generated_by_ai" = "Створено за допомогою ШІ";
 "zma_label_add_attachments" = "Додати вкладення";
 "zma_label_send_message" = "Надіслати повідомлення";
 "zma_message_action_option_not_supported_label" = "Опція не підтримується";

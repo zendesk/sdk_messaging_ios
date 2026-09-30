@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKLogger
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKLogger
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Foundation
 import Swift
 @_exported import ZendeskSDKLogger
@@ -18,7 +18,9 @@ public protocol LoggerFactory {
   case debug = 4
   case error = 5
   case fault = 6
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -27,14 +29,26 @@ public protocol LoggerFactory {
 public protocol Log {
   var namespace: Swift.String { get }
   var category: Swift.String { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   func logit(file: Swift.StaticString, line: Swift.Int, function: Swift.StaticString, level: ZendeskSDKLogger.LogLevel, error: (any Swift.Error)?, message: Swift.String, args: [any Swift.CVarArg])
+  #endif
 }
 extension ZendeskSDKLogger.Log {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func `default`(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: (any Swift.Error)? = nil, _ message: Swift.String, _ args: any Swift.CVarArg...)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func info(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: (any Swift.Error)? = nil, _ message: Swift.String, _ args: any Swift.CVarArg...)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func debug(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: (any Swift.Error)? = nil, _ message: Swift.String, _ args: any Swift.CVarArg...)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func error(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: (any Swift.Error)? = nil, _ message: Swift.String, _ args: any Swift.CVarArg...)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func fault(file: Swift.StaticString = #filePath, line: Swift.Int = #line, function: Swift.StaticString = #function, error: (any Swift.Error)? = nil, _ message: Swift.String, _ args: any Swift.CVarArg...)
+  #endif
 }
 @_inheritsConvenienceInitializers @objc(ZDKLogger) final public class Logger : ObjectiveC.NSObject {
   @objc public static var level: ZendeskSDKLogger.LogLevel

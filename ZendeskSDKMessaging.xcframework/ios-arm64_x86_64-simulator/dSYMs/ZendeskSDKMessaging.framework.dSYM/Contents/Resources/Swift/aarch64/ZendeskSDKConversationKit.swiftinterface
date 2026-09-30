@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.3 effective-5.10 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)
-// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name ZendeskSDKConversationKit
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios16.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name ZendeskSDKConversationKit
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Combine
 import CoreTelephony
 import Foundation
@@ -27,11 +27,15 @@ final public class FormResponseMessageContent : Swift.Codable, ZendeskSDKConvers
   final public var fields: [any ZendeskSDKConversationKit.Field] {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let formFields: [ZendeskSDKConversationKit.FormField]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(quotedMessageId: Swift.String, formFields: [ZendeskSDKConversationKit.FormField], metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -52,10 +56,14 @@ final public class FormResponseMessageContent : Swift.Codable, ZendeskSDKConvers
   final public let text: Swift.String
   final public let uri: Swift.String
   final public let `default`: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -78,9 +86,11 @@ final public class Conversation : Swift.Codable, Swift.Equatable {
   final public let business: [Swift.String]
   final public let businessLastRead: Foundation.Date?
   final public let lastUpdatedAt: Foundation.Date?
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let participants: [ZendeskSDKConversationKit.Participant]
   final public let messages: [ZendeskSDKConversationKit.Message]
   final public let hasPrevious: Swift.Bool
@@ -89,7 +99,9 @@ final public class Conversation : Swift.Codable, Swift.Equatable {
   final public let status: ZendeskSDKConversationKit.ConversationStatus
   final public let createdAt: Foundation.Date?
   final public let routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, type: ZendeskSDKConversationKit.ConversationType, isDefault: Swift.Bool, displayName: Swift.String? = nil, displayDescription: Swift.String? = nil, iconURL: Swift.String? = nil, business: [Swift.String] = [], businessLastRead: Foundation.Date? = nil, lastUpdatedAt: Foundation.Date? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, participants: [ZendeskSDKConversationKit.Participant] = [], messages: [ZendeskSDKConversationKit.Message] = [], hasPrevious: Swift.Bool = false, myself: ZendeskSDKConversationKit.Participant?, activity: ZendeskSDKConversationKit.Activity? = nil, status: ZendeskSDKConversationKit.ConversationStatus = .unknown, createdAt: Foundation.Date? = nil, routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus = .unknown)
+  #endif
   public static func == (lhs: ZendeskSDKConversationKit.Conversation, rhs: ZendeskSDKConversationKit.Conversation) -> Swift.Bool
   final public var description: Swift.String {
     get
@@ -99,7 +111,9 @@ final public class Conversation : Swift.Codable, Swift.Equatable {
   public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.Conversation {
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func copyAndUpdate(displayName: Swift.String? = nil, messages: [ZendeskSDKConversationKit.Message]? = nil, hasPrevious: Swift.Bool? = nil, participants: [ZendeskSDKConversationKit.Participant]? = nil, businessLastRead: Foundation.Date? = nil, myself: ZendeskSDKConversationKit.Participant? = nil, activity: ZendeskSDKConversationKit.Activity?? = nil, status: ZendeskSDKConversationKit.ConversationStatus? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, routingStatus: ZendeskSDKConversationKit.ConversationRoutingStatus? = nil) -> ZendeskSDKConversationKit.Conversation
+  #endif
 }
 extension ZendeskSDKConversationKit.Conversation {
   final public var mostRecentUpdateTime: Foundation.Date {
@@ -109,7 +123,9 @@ extension ZendeskSDKConversationKit.Conversation {
 public enum ConversationType : Swift.Int, Swift.Codable {
   case personal
   case group
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -148,10 +164,14 @@ final public class UnsupportedMessageContent : Swift.Codable, ZendeskSDKConversa
   final public var type: ZendeskSDKConversationKit.MessageType {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -171,10 +191,14 @@ final public class UnsupportedMessageContent : Swift.Codable, ZendeskSDKConversa
   }
   final public let text: Swift.String
   final public let payload: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, text: Swift.String, payload: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -192,11 +216,15 @@ final public class CarouselMessageContent : Swift.Codable, ZendeskSDKConversatio
     get
   }
   final public var messageItems: [ZendeskSDKConversationKit.MessageActionItem]
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let blockChatInput: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(messageItems: [ZendeskSDKConversationKit.MessageActionItem], metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -236,7 +264,9 @@ public enum Subrole : Swift.Int, Swift.Codable {
   public var rawValue: ZendeskSDKConversationKit.Subrole.RawValue {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: ZendeskSDKConversationKit.Subrole.RawValue)
+  #endif
 }
 @_hasMissingDesignatedInitializers final public class LocationRequestAction : Swift.Codable, ZendeskSDKConversationKit.MessageAction, Swift.Equatable, Swift.Hashable {
   final public let id: Swift.String
@@ -244,10 +274,14 @@ public enum Subrole : Swift.Int, Swift.Codable {
     get
   }
   final public let text: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, text: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -265,7 +299,9 @@ public enum ProactiveMessageStatus : Swift.Int {
   case notificationHasBeenDisplayed
   case notificationHasBeenClicked
   case conversationHasBeenRepliedTo
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -284,93 +320,167 @@ public protocol ConversationKit {
   var clientId: Swift.String { get }
   var config: ZendeskSDKConversationKit.Config { get }
   var featureFlagManager: ZendeskSDKCoreUtilities.FeatureFlagManager { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var currentUser: ZendeskSDKConversationKit.User? { get }
+  #endif
   var hasActiveConversationInLatestTen: Swift.Bool { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   static var authenticationDelegate: (any ZendeskSDKConversationKit.AuthenticationDelegate)? { get set }
+  #endif
   func addEventObserver(_ observer: Swift.AnyObject, _ closure: @escaping (ZendeskSDKConversationKit.ConversationKitEvent) -> Swift.Void)
   func removeEventObserver(_ observer: Swift.AnyObject)
   func pause()
   func resume()
   func updatePushNotificationToken(_ token: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
   func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String?) async throws -> ZendeskSDKConversationKit.User
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func getConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
+  #if compiler(>=5.3) && $NonescapableTypes
   func getConversations(offset: Swift.Int, fromCache: Swift.Bool, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func getConversations(offset: Swift.Int, fromCache: Swift.Bool) async throws -> ZendeskSDKConversationKit.ConversationList
+  #if compiler(>=5.3) && $NonescapableTypes
   func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func refreshConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
+  #if compiler(>=5.3) && $NonescapableTypes
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
+  #if compiler(>=5.3) && $NonescapableTypes
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Message
+  #if compiler(>=5.3) && $NonescapableTypes
   func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, conversationId: Swift.String) async throws
+  #if compiler(>=5.3) && $NonescapableTypes
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String) async throws
+  #if compiler(>=5.3) && $NonescapableTypes
   func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func loginUser(with jwt: Swift.String) async throws -> ZendeskSDKConversationKit.User
+  #if compiler(>=5.3) && $NonescapableTypes
   func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func logoutUser() async throws
+  #if compiler(>=5.3) && $NonescapableTypes
   func createConversation(proactiveMessageId: Swift.String?, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func createConversation(proactiveMessageId: Swift.String?) async throws -> ZendeskSDKConversationKit.Conversation
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   func getVisitType(result: ((Swift.Result<ZendeskSDKConversationKit.VisitType, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func getVisitType() async throws -> ZendeskSDKConversationKit.VisitType
+  #if compiler(>=5.3) && $NonescapableTypes
   func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
+  #if compiler(>=5.3) && $NonescapableTypes
   func proactiveMessageStatusChanged(_ status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage, jwt: Swift.String?)
+  #endif
   func setVisitType(_ visitType: ZendeskSDKConversationKit.VisitType)
   func clearProactiveMessages(proactiveMessageIds: [Swift.String])
   func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
   func setConversationTags(_ tags: [Swift.String])
   func clearConversationFields()
   func clearConversationTags()
+  #if compiler(>=5.3) && $NonescapableTypes
   func fetchWaitTimeForConversation(conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   func fetchWaitTimeForConversation(conversationId: Swift.String) -> Combine.AnyPublisher<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>
   func stopFetchingWaitTime()
   func updateUserConversations(_ conversations: [ZendeskSDKConversationKit.Conversation])
 }
 extension ZendeskSDKConversationKit.ConversationKit {
+  #if compiler(>=5.3) && $NonescapableTypes
   public func createAnonymousUser(with givenName: Swift.String? = nil, surname: Swift.String? = nil, proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func createAnonymousUser(with givenName: Swift.String?, surname: Swift.String?, proactiveMessageId: Swift.String? = nil) async throws -> ZendeskSDKConversationKit.User
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
   public func getConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getConversations(offset: Swift.Int, fromCache: Swift.Bool = false, result: ((Swift.Result<ZendeskSDKConversationKit.ConversationList, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   public func getConversations(offset: Swift.Int, fromCache: Swift.Bool = false) async throws -> ZendeskSDKConversationKit.ConversationList
+  #if compiler(>=5.3) && $NonescapableTypes
   public func refreshConversation(with identifier: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   public func refreshConversation(with identifier: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   public func getMessages(before timestamp: Foundation.Date, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
+  #if compiler(>=5.3) && $NonescapableTypes
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Message, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
   public func sendMessage(message: ZendeskSDKConversationKit.Message, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Message
+  #if compiler(>=5.3) && $NonescapableTypes
   public func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, conversationId: Swift.String, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   public func sendPostbackAction(actionId: ZendeskSDKConversationKit.PostbackActionID, actionTitle: ZendeskSDKConversationKit.MessageActionTitle, conversationId: Swift.String) async throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String, result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)?)
+  #endif
   public func sendConversationActivity(activity: ZendeskSDKConversationKit.ActivityType, conversationId: Swift.String) async throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public func loginUser(with jwt: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
   public func loginUser(with jwt: Swift.String) async throws -> ZendeskSDKConversationKit.User
+  #if compiler(>=5.3) && $NonescapableTypes
   public func logoutUser(result: ((Swift.Result<Swift.Void, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
   public func logoutUser() async throws
+  #if compiler(>=5.3) && $NonescapableTypes
   public func createConversation(proactiveMessageId: Swift.String? = nil, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func createConversation(proactiveMessageId: Swift.String? = nil) async throws -> ZendeskSDKConversationKit.Conversation
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public func proactiveMessageStatusChanged(_ status: ZendeskSDKConversationKit.ProactiveMessageStatus, proactiveMessage: ZendeskSDKConversationKit.ProactiveMessage, jwt: Swift.String? = nil)
+  #endif
   public func clearProactiveMessages(proactiveMessageIds: [Swift.String])
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getVisitType(result: ((Swift.Result<ZendeskSDKConversationKit.VisitType, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
   public func getVisitType() async throws -> ZendeskSDKConversationKit.VisitType
+  #if compiler(>=5.3) && $NonescapableTypes
   public func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.Conversation, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
   public func sendConversationReferral(proactiveMessageId: Swift.String, conversationId: Swift.String) async throws -> ZendeskSDKConversationKit.Conversation
   public func setConversationFields(_ fields: [Swift.String : Swift.AnyHashable])
   public func setConversationTags(_ tags: [Swift.String])
   public func clearConversationFields()
   public func clearConversationTags()
+  #if compiler(>=5.3) && $NonescapableTypes
   public func fetchWaitTimeForConversation(conversationId: Swift.String, result: ((Swift.Result<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>) -> Swift.Void)? = nil)
+  #endif
   public func fetchWaitTimeForConversation(conversationId: Swift.String) -> Combine.AnyPublisher<ZendeskSDKConversationKit.WaitTimeData, ZendeskSDKConversationKit.ConversationKitError>
   public func stopFetchingWaitTime()
 }
 public typealias MessageActionTitle = Swift.String
 public protocol Content {
   var type: ZendeskSDKConversationKit.MessageType { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var metadata: [Swift.String : Swift.AnyHashable]? { get }
+  #endif
 }
 public enum MessageContent : Swift.Equatable, Swift.Hashable {
   case text(ZendeskSDKConversationKit.TextMessageContent)
@@ -400,9 +510,11 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   public static var errorDomain: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public var errorDescription: Swift.String? {
     get
   }
+  #endif
   public var errorUserInfo: [Swift.String : Any] {
     get
   }
@@ -413,9 +525,11 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   final public let lowestQueuePositionNumber: Foundation.NSNumber?
   final public let responseTime: ZendeskSDKConversationKit.ResponseTime?
   final public let isInitialRouting: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var lowestQueuePosition: Swift.Int? {
     get
   }
+  #endif
   final public var queuePosition: Swift.Int {
     get
   }
@@ -446,7 +560,9 @@ public class ProactiveMessage : Swift.Equatable {
   }
   final public let size: ZendeskSDKConversationKit.ActionItemSize
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(title: Swift.String, itemDescription: Swift.String, mediaURL: Swift.String, attachmentId: Swift.String? = nil, size: ZendeskSDKConversationKit.ActionItemSize, mediaType: Swift.String, actions: [ZendeskSDKConversationKit.MessageActionModel])
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -464,8 +580,8 @@ public enum ActionItemSize : Swift.Codable {
   case compact
   case none
   public static func == (a: ZendeskSDKConversationKit.ActionItemSize, b: ZendeskSDKConversationKit.ActionItemSize) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
   public func encode(to encoder: any Swift.Encoder) throws
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
@@ -479,7 +595,9 @@ public struct SettingsParameters : Swift.Equatable {
 public enum AuthorType : Swift.Int, Swift.Codable, Swift.Equatable {
   case user
   case business
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -507,7 +625,9 @@ extension ZendeskSDKConversationKit.User {
   final public var isLatestConversationActive: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getJWT() -> Swift.String?
+  #endif
   final public func getAuthorizationHeaderValue() -> Swift.String
 }
 final public class ImageMessageContent : Swift.Codable, ZendeskSDKConversationKit.Content, Swift.Equatable, Swift.Hashable {
@@ -519,14 +639,20 @@ final public class ImageMessageContent : Swift.Codable, ZendeskSDKConversationKi
   final public let text: Swift.String
   final public let htmlText: Swift.String?
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let blockChatInput: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(mediaURL: Swift.String, attachmentId: Swift.String? = nil, text: Swift.String? = nil, htmlText: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -575,7 +701,9 @@ public enum ActivityType : Swift.Int, Swift.Codable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -590,16 +718,21 @@ final public class Config {
   final public let waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig
   final public let region: ZendeskSDKConversationKit.Config.Region
   final public let sdkVersion: Swift.String
+  final public let brandId: Swift.Int64?
   public enum Region : Swift.Int {
     case us
     case eu
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
     }
   }
-  public init(appId: Swift.String, baseURL: Swift.String, settingsBaseURL: Swift.String, integrationId: Swift.String, region: ZendeskSDKConversationKit.Config.Region = .us, restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy, waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig, sdkVersion: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(appId: Swift.String, baseURL: Swift.String, settingsBaseURL: Swift.String, integrationId: Swift.String, region: ZendeskSDKConversationKit.Config.Region = .us, restRetryPolicy: ZendeskSDKConversationKit.RestRetryPolicy, waitTimeConfig: ZendeskSDKConversationKit.WaitTimeConfig, sdkVersion: Swift.String, brandId: Swift.Int64? = nil)
+  #endif
   public static func == (lhs: ZendeskSDKConversationKit.Config, rhs: ZendeskSDKConversationKit.Config) -> Swift.Bool
   final public var description: Swift.String {
     get
@@ -610,8 +743,12 @@ public enum ConversationRoutingStatus : Swift.Int, Swift.Codable {
   case queued
   case assigned
   case unknown
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(stringValue: Swift.String)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -623,7 +760,9 @@ public class WaitTimeConfig : Swift.Equatable, Swift.Hashable {
   final public let onlyDecreasingQueue: Swift.Bool
   final public let waitTimeOverride: Foundation.NSNumber?
   final public let queuePollingInterval: Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(waitTimeEnabled: Swift.Bool, queuePositionEnabled: Swift.Bool, onlyDecreasingQueue: Swift.Bool, waitTimeOverride: Foundation.NSNumber?, queuePollingInterval: Swift.Int)
+  #endif
   public static func == (lhs: ZendeskSDKConversationKit.WaitTimeConfig, rhs: ZendeskSDKConversationKit.WaitTimeConfig) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   @objc deinit
@@ -644,12 +783,15 @@ public enum MessageType : Swift.Int, Swift.Codable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
+public typealias PostbackActionID = Swift.String
 public enum ConversationKitEvent {
   case connectionStatusChanged(ZendeskSDKConversationKit.ConnectionStatus)
   case userUpdated(ZendeskSDKConversationKit.User)
@@ -682,7 +824,9 @@ public enum FieldType : Swift.Int, Swift.Codable {
   public var description: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -718,7 +862,9 @@ public enum FieldType : Swift.Int, Swift.Codable {
   final public var value: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, name: Swift.String, label: Swift.String, placeholder: Swift.String?, select: [ZendeskSDKConversationKit.Option]?, selectSize: Swift.Int?, options: [ZendeskSDKConversationKit.Option])
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -744,7 +890,9 @@ final public class Author : Swift.Codable, Swift.Equatable, Swift.Hashable {
   final public let displayName: Swift.String?
   final public var avatarURL: Swift.String?
   final public var subroles: [Swift.String]?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, type: ZendeskSDKConversationKit.AuthorType, displayName: Swift.String? = nil, avatarURL: Swift.String? = nil, subroles: [Swift.String]? = nil)
+  #endif
   public static func == (lhs: ZendeskSDKConversationKit.Author, rhs: ZendeskSDKConversationKit.Author) -> Swift.Bool
   final public func hash(into hasher: inout Swift.Hasher)
   @objc deinit
@@ -775,7 +923,9 @@ final public class Activity : Swift.Codable, Swift.Equatable, Swift.Hashable {
   final public let lowestQueuePosition: Swift.Int?
   final public let responseTime: ZendeskSDKConversationKit.ResponseTime?
   final public let startAt: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String = UUID().uuidString, type: ZendeskSDKConversationKit.ActivityType, authorType: ZendeskSDKConversationKit.AuthorType, name: Swift.String?, avatarURL: Swift.String?, appUserId: Swift.String? = nil, lastRead: Foundation.Date? = nil, isInitialRouting: Swift.Bool = false, queuePosition: Swift.Int? = nil, lowestQueuePosition: Swift.Int? = nil, responseTime: ZendeskSDKConversationKit.ResponseTime? = nil, startAt: Swift.Int? = nil)
+  #endif
   public static func == (lhs: ZendeskSDKConversationKit.Activity, rhs: ZendeskSDKConversationKit.Activity) -> Swift.Bool
   final public func hash(into hasher: inout Swift.Hasher)
   @objc deinit
@@ -793,14 +943,18 @@ public enum ConnectionStatus : Swift.Int {
   public var description: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
   }
 }
 public protocol AuthenticationDelegate : AnyObject {
+  #if compiler(>=5.3) && $NonescapableTypes
   func onInvalidAuth(error: (any Swift.Error)?, completion: @escaping (Swift.String) -> Swift.Void)
+  #endif
 }
 final public class TextMessageContent : Swift.Codable, ZendeskSDKConversationKit.Content, Swift.Equatable, Swift.Hashable {
   final public var type: ZendeskSDKConversationKit.MessageType {
@@ -810,14 +964,20 @@ final public class TextMessageContent : Swift.Codable, ZendeskSDKConversationKit
   final public let htmlText: Swift.String?
   final public let payload: Swift.String?
   final public let actions: [ZendeskSDKConversationKit.MessageActionModel]?
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let blockChatInput: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(text: Swift.String, htmlText: Swift.String? = nil, payload: Swift.String? = nil, actions: [ZendeskSDKConversationKit.MessageActionModel]? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -839,15 +999,19 @@ final public class TextMessageContent : Swift.Codable, ZendeskSDKConversationKit
   final public let uri: Swift.String
   final public let `default`: Swift.Bool
   final public let fallback: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let openOnReceive: Swift.Bool
   final public let size: ZendeskSDKConversationKit.WebViewActionSize
   final public var isSurvey: Swift.Bool {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, fallback: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil, openOnReceive: Swift.Bool, size: ZendeskSDKConversationKit.WebViewActionSize, isSurvey: Swift.Bool = false)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -864,7 +1028,9 @@ public enum WebViewActionSize : Swift.Int, Swift.Codable, Swift.Equatable {
   case full
   case tall
   case compact
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -895,7 +1061,9 @@ public enum VisitType : Swift.Int, Swift.Codable {
   public var stringValue: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -922,16 +1090,26 @@ final public class Message : Swift.Codable, Swift.Equatable, Swift.Hashable {
   final public var timestamp: Foundation.Date {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var actions: [ZendeskSDKConversationKit.MessageActionModel]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var messageActions: [any ZendeskSDKConversationKit.MessageAction]? {
     get
   }
+  #endif
   final public let blockChatInput: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String = UUID().uuidString, content: ZendeskSDKConversationKit.MessageContent, createdAt: Foundation.Date? = Date(), receivedAt: Foundation.Date? = nil, status: ZendeskSDKConversationKit.MessageStatus = .pending, author: ZendeskSDKConversationKit.Author = .init(id: UUID().uuidString, type: .user), sourceId: Swift.String? = nil, localId: Swift.String? = nil, blockChatInput: Swift.Bool = false)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init(text: Swift.String, payload: Swift.String? = nil, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   convenience public init?(mediaURL: Foundation.URL, text: Swift.String?, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
+  #endif
   public static func == (lhs: ZendeskSDKConversationKit.Message, rhs: ZendeskSDKConversationKit.Message) -> Swift.Bool
   final public func hash(into hasher: inout Swift.Hasher)
   final public var description: Swift.String {
@@ -945,7 +1123,9 @@ final public class Message : Swift.Codable, Swift.Equatable, Swift.Hashable {
   public init(from decoder: any Swift.Decoder) throws
 }
 extension ZendeskSDKConversationKit.Message {
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func isAuthoredBy(_ participant: ZendeskSDKConversationKit.Participant?) -> Swift.Bool
+  #endif
 }
 final public class FormMessageContent : Swift.Codable, ZendeskSDKConversationKit.Content, Swift.Equatable, Swift.Hashable {
   final public let id: Swift.String
@@ -956,11 +1136,15 @@ final public class FormMessageContent : Swift.Codable, ZendeskSDKConversationKit
     get
   }
   final public let blockChatInput: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let formFields: [ZendeskSDKConversationKit.FormField]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, formFields: [ZendeskSDKConversationKit.FormField], blockChatInput: Swift.Bool = false, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -974,15 +1158,20 @@ final public class FormMessageContent : Swift.Codable, ZendeskSDKConversationKit
   public init(from decoder: any Swift.Decoder) throws
 }
 public struct DefaultRESTClientBuilder {
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func resolveAuthorizationHeader(authentication: ZendeskSDKConversationKit.Authentication, userId: Swift.String) -> Swift.String?
+  #endif
 }
-public typealias PostbackActionID = Swift.String
 public enum ConversationStatus : Swift.Int, Swift.Codable {
   case active
   case idle
   case unknown
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -991,7 +1180,9 @@ public enum ConversationStatus : Swift.Int, Swift.Codable {
 public protocol MessageAction {
   var id: Swift.String { get }
   var type: ZendeskSDKConversationKit.ActionType { get }
+  #if compiler(>=5.3) && $NonescapableTypes
   var metadata: [Swift.String : Swift.AnyHashable]? { get }
+  #endif
 }
 public enum ActionType : Swift.Int, Swift.Codable {
   case buy
@@ -1001,7 +1192,9 @@ public enum ActionType : Swift.Int, Swift.Codable {
   case reply
   case share
   case webview
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1041,10 +1234,14 @@ extension ZendeskSDKConversationKit.MessageActionModel {
   final public let text: Swift.String
   final public let payload: Swift.String
   final public let iconUrl: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, text: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil, payload: Swift.String, iconUrl: Swift.String?)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -1069,7 +1266,9 @@ final public class EmailFormField : Swift.Codable, ZendeskSDKConversationKit.Fie
   final public var value: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, email: Swift.String, name: Swift.String, label: Swift.String, placeholder: Swift.String?)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -1092,11 +1291,15 @@ final public class FileMessageContent : Swift.Codable, ZendeskSDKConversationKit
   final public let attachmentId: Swift.String?
   final public let mediaType: Swift.String
   final public let mediaSize: Swift.Int64
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
   final public let blockChatInput: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(text: Swift.String, altText: Swift.String, mediaURL: Swift.String, attachmentId: Swift.String? = nil, mediaType: Swift.String, mediaSize: Swift.Int64, metadata: [Swift.String : Swift.AnyHashable]? = nil, blockChatInput: Swift.Bool = false)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -1121,7 +1324,9 @@ public enum MessageStatus : Swift.Int, Swift.Codable {
   public var description: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1132,10 +1337,14 @@ public enum MessageStatus : Swift.Int, Swift.Codable {
   final public var type: ZendeskSDKConversationKit.ActionType {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -1159,10 +1368,14 @@ public enum MessageStatus : Swift.Int, Swift.Codable {
   final public let amount: Swift.Double
   final public let currency: Swift.String
   final public let state: ZendeskSDKConversationKit.MessageActionBuyState
+  #if compiler(>=5.3) && $NonescapableTypes
   final public var metadata: [Swift.String : Swift.AnyHashable]? {
     get
   }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, text: Swift.String, uri: Swift.String, default: Swift.Bool, amount: Swift.Double, currency: Swift.String, state: ZendeskSDKConversationKit.MessageActionBuyState, metadata: [Swift.String : Swift.AnyHashable]? = nil)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -1178,7 +1391,9 @@ public enum MessageStatus : Swift.Int, Swift.Codable {
 public enum MessageActionBuyState : Swift.Int, Swift.Codable {
   case offered
   case paid
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -1198,7 +1413,9 @@ final public class TextFormField : Swift.Codable, ZendeskSDKConversationKit.Fiel
   final public var value: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, text: Swift.String, name: Swift.String, label: Swift.String, placeholder: Swift.String?, minSize: Swift.Int?, maxSize: Swift.Int?)
+  #endif
   final public var description: Swift.String {
     get
   }
@@ -1226,7 +1443,9 @@ public enum AuthenticationType : Swift.Int, Swift.Codable {
   case sessionToken
   case jwt
   case unauthenticated
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
