@@ -507,6 +507,7 @@ public enum ConversationKitError : Foundation.LocalizedError, Foundation.CustomN
   case userExists
   case failedToDecodeJWT
   case expiredJWT
+  case sessionInvalidated
   public static var errorDomain: Swift.String {
     get
   }
@@ -805,6 +806,7 @@ public enum ConversationKitEvent {
   case pushTokenUpdateResult(token: Swift.String, error: ZendeskSDKConversationKit.ConversationKitError?)
   case loginResult(result: Swift.Result<ZendeskSDKConversationKit.User, ZendeskSDKConversationKit.ConversationKitError>)
   case logoutResult(error: ZendeskSDKConversationKit.ConversationKitError?)
+  case userSessionReset
   case persistedUserRetrieved(ZendeskSDKConversationKit.User)
   case conversationStarted(conversation: ZendeskSDKConversationKit.Conversation)
   case conversationAdded(conversation: ZendeskSDKConversationKit.Conversation)

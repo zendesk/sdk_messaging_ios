@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "Zastopnik tipka";
 "zma_accessibility_loading_label" = "Nalaganje";
 "zma_accessibility_message_author_replied" = "Zastopnik %@ je odgovoril";
 "zma_accessibility_message_dismiss" = "Prekliči";
 "zma_accessibility_message_received" = "Pošiljatelj sporočila: %@";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "Pošiljanje";
+"zma_accessibility_message_sent_just_now" = "Sporočilo je bilo pravkar poslano";
 "zma_accessibility_postback_error_message" = "Napaka, %@";
 "zma_action_label_cancel" = "Prekliči";
 "zma_actions_attachments_label" = "Pošlji prilogo";

@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "Aģents raksta";
 "zma_accessibility_loading_label" = "Ielādē";
 "zma_accessibility_message_author_replied" = "%@ atbildēja";
 "zma_accessibility_message_dismiss" = "Nerādīt";
 "zma_accessibility_message_received" = "Ziņojums saņemts no %@";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "Sūta";
+"zma_accessibility_message_sent_just_now" = "Ziņojums tikko nosūtīts";
 "zma_accessibility_postback_error_message" = "Kļūda, %@";
 "zma_action_label_cancel" = "Atcelt";
 "zma_actions_attachments_label" = "Nosūtīt pielikumu";

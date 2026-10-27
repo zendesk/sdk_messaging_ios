@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "Klienditoe esindaja kirjutab";
 "zma_accessibility_loading_label" = "Laadib";
 "zma_accessibility_message_author_replied" = "%@ vastas";
 "zma_accessibility_message_dismiss" = "Loobu";
 "zma_accessibility_message_received" = "Sõnum saadud kasutajalt %@";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "Saatmine";
+"zma_accessibility_message_sent_just_now" = "Sõnum saadetud just praegu";
 "zma_accessibility_postback_error_message" = "Viga, %@";
 "zma_action_label_cancel" = "Loobu";
 "zma_actions_attachments_label" = "Saada manus";

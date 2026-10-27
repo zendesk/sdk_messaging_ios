@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "Nagta-type ang agent";
 "zma_accessibility_loading_label" = "Naglo-load";
 "zma_accessibility_message_author_replied" = "Sumagot si %@";
 "zma_accessibility_message_dismiss" = "I-dismiss";
 "zma_accessibility_message_received" = "Mensahe na natanggap mula kay %@";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "Ipinapadala";
+"zma_accessibility_message_sent_just_now" = "Naipadala ang mensahe ngayon lang";
 "zma_accessibility_postback_error_message" = "Error, %@";
 "zma_action_label_cancel" = "Kanselahin";
 "zma_actions_attachments_label" = "Magpadala ng attachment";

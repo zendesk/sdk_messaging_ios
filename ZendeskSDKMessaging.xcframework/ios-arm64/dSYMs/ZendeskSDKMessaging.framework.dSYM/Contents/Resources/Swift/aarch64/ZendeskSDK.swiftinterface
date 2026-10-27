@@ -114,38 +114,44 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc public init(conversationId: Swift.String)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKNotificationOpened : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKNotificationOpened : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.NotificationOpenedDetails
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationOpened : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKConversationOpened : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let conversationId: Swift.String?
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationStarted : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKConversationStarted : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let conversationId: Swift.String
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKMessagesShown : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKMessagesShown : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let conversationId: Swift.String
   @objc final public let messages: [ZendeskSDK.ZDKZendeskMessage]
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationWithAgentRequested : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKConversationWithAgentRequested : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ConversationWithAgentRequestedDetails
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageDisplayed : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKProactiveMessageDisplayed : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ProactiveMessageDisplayedDetails
@@ -180,7 +186,8 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc final public class NewConversationButtonClicked : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class NewConversationButtonClicked : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.NewConversationButtonClickedDetails
@@ -204,25 +211,29 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc public init(actionName: Swift.String, conversationId: Swift.String)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKProactiveMessageClicked : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKProactiveMessageClicked : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ProactiveMessageClickedDetails
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKNotificationDisplayed : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKNotificationDisplayed : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.NotificationDisplayedDetails
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKPostbackButtonClicked : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKPostbackButtonClicked : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.PostbackButtonClickedDetails
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationAgentAssigned : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKConversationAgentAssigned : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ConversationAgentAssignedDetails
@@ -255,12 +266,14 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKMessagingOpened : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKMessagingOpened : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKMessagingClosed : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKMessagingClosed : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc deinit
@@ -271,13 +284,15 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   @objc public init(conversationId: Swift.String, url: Swift.String)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationExtensionDisplayed : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKConversationExtensionDisplayed : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ConversationExtensionDisplayedDetails
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKConversationExtensionOpened : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKConversationExtensionOpened : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ConversationExtensionOpenedDetails
@@ -289,7 +304,8 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public init(conversationId: Swift.String, url: Swift.String)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKArticleClicked : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKArticleClicked : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ArticleClickedDetails
@@ -303,7 +319,8 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   #endif
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKArticleBrowserClicked : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKArticleBrowserClicked : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.ArticleBrowserClickedDetails
@@ -314,7 +331,8 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public init(url: Swift.String)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKMetadataSuccess : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKMetadataSuccess : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.MetadataSuccessDetails
@@ -325,7 +343,8 @@ extension ZendeskSDK.ZendeskEvent : Swift.Equatable {
   public init(conversationId: Swift.String)
   @objc deinit
 }
-@_hasMissingDesignatedInitializers @objc final public class ZDKMetadataFailure : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only bridging type is deprecated. Swift callers should use addEventObserver(_:_:) instead. This type will be removed in a future SDK version.")
+@objc final public class ZDKMetadataFailure : ObjectiveC.NSObject {
   @objc final public let id: Foundation.UUID
   @objc final public let timestamp: Foundation.Date
   @objc final public let data: ZendeskSDK.MetadataFailureDetails
@@ -391,6 +410,7 @@ extension ZendeskSDK.MessagingDelegate {
   @objc deinit
 }
 extension ZendeskSDK.MessagingFactoryParameters {
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use `messagingSettings` instead. This property will be removed in a future SDK version.")
   @objc(messagingSettings) final public var messagingSettingsForObjectiveC: ZendeskSDK.ZDKMessagingSettings {
     @objc get
   }
@@ -418,7 +438,8 @@ extension ZendeskSDK.MessagingSettings {
     get
   }
 }
-@_hasMissingDesignatedInitializers @objc(ZDKMessagingSettings) final public class ZDKMessagingSettings : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use `MessagingSettings` instead. This type will be removed in a future SDK version.")
+@objc(ZDKMessagingSettings) final public class ZDKMessagingSettings : ObjectiveC.NSObject {
   final public let identifier: Swift.String
   final public let integrationId: Swift.String
   final public let enabled: Swift.Bool
@@ -444,7 +465,8 @@ public struct ZendeskMessage : Swift.Codable, Swift.Equatable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-@_hasMissingDesignatedInitializers @objc(ZDKZendeskMessage) final public class ZDKZendeskMessage : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use `ZendeskMessage` instead. This type will be removed in a future SDK version.")
+@objc(ZDKZendeskMessage) final public class ZDKZendeskMessage : ObjectiveC.NSObject {
   @objc final public let id: Swift.String
   @objc final public let role: ZendeskSDK.ZendeskRole
   @objc final public let timestamp: Foundation.Date
@@ -486,10 +508,11 @@ extension ZendeskSDK.MessagingSwiftUIDelegate {
   #if compiler(>=5.3) && $NonescapableTypes
   final public func sendPageViewEvent(_ pageView: ZendeskSDK.PageView, completionHandler: @escaping (Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)
   #endif
-  @available(*, deprecated, message: "Use invalidate(_ :) instead. This function will be removed in a future Zendesk version.")
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use invalidate(_:) instead. This method will be removed in a future SDK version.")
   @available(swift, obsoleted: 1.0)
   @objc public static func invalidate()
   public static func invalidate(_ clearStorage: Swift.Bool = false)
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use invalidate(_:) instead. This method will be removed in a future SDK version.")
   @available(swift, obsoleted: 1.0)
   @objc public static func invalidate(clearStorage: Swift.Bool)
   final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: @escaping (ZendeskSDK.ZendeskEvent) -> Swift.Void)
@@ -507,24 +530,29 @@ extension ZendeskSDK.Zendesk {
   final public func logoutUser(completionHandler: ((Swift.Result<Swift.Void, any Swift.Error>) -> Swift.Void)? = nil)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use loginUser(with:completionHandler:) instead. This method will be removed in a future SDK version.")
   @available(swift, obsoleted: 1.0)
   @objc final public func loginUser(with jwt: Swift.String, completionHandler: ((ZendeskSDK.ZDKZendeskUser?, (any Swift.Error)?) -> Swift.Void)? = nil)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use logoutUser(completionHandler:) instead. This method will be removed in a future SDK version.")
   @available(swift, obsoleted: 1.0)
   @objc final public func logoutUser(completionHandler: (((any Swift.Error)?) -> Swift.Void)? = nil)
   #endif
 }
 extension ZendeskSDK.Zendesk {
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use initialize(withChannelKey:messagingFactory:locale:completionHandler:) instead. This method will be removed in a future SDK version.")
   @available(swift, obsoleted: 1.0)
   @objc public static func initialize(channelKey: Swift.String, messagingFactory: (any ZendeskSDK.MessagingFactory)?, completionHandler: ((ZendeskSDK.Zendesk?, (any Swift.Error)?) -> Swift.Void)?)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use addEventObserver(_:_:) instead. This method will be removed in a future SDK version.")
   @available(swift, obsoleted: 1.0)
   @objc final public func addEventObserver(_ observer: Swift.AnyObject, _ completionHandler: ((ZendeskSDK.ZDKZendeskEvent, Swift.AnyObject?) -> Swift.Void)?)
   #endif
   #if compiler(>=5.3) && $NonescapableTypes
+  @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use sendPageViewEvent(_:completionHandler:) instead. This method will be removed in a future SDK version.")
   @available(swift, obsoleted: 1.0)
   @objc final public func sendPageViewEvent(_ pageView: ZendeskSDK.ZDKPageView, completionHandler: (((any Swift.Error)?) -> Swift.Void)?)
   #endif
@@ -555,7 +583,8 @@ public struct ZendeskUser : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-@_hasMissingDesignatedInitializers @objc(ZDKZendeskUser) final public class ZDKZendeskUser : ObjectiveC.NSObject {
+@_hasMissingDesignatedInitializers @available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use `ZendeskUser` instead. This type will be removed in a future SDK version.")
+@objc(ZDKZendeskUser) final public class ZDKZendeskUser : ObjectiveC.NSObject {
   @objc final public let id: Swift.String
   @objc final public let externalId: Swift.String
   final public let authenticationType: ZendeskSDKConversationKit.AuthenticationType
@@ -639,6 +668,7 @@ public struct PageView : Swift.Hashable {
     get
   }
 }
+@available(*, deprecated, message: "This Objective-C-only API is deprecated. Swift callers should use `PageView` instead. This type will be removed in a future SDK version.")
 @objc(ZDKPageView) final public class ZDKPageView : ObjectiveC.NSObject {
   @objc public init(pageTitle: Swift.String, url: Swift.String)
   #if compiler(>=5.3) && $NonescapableTypes

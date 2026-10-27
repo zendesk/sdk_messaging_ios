@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		PSbORPZiATOkWEL8Mh9pTw6XoPk=
+		M/5is9JXkHtgpGqBcEW4XNtZbcA=
 		</data>
 		<key>Headers/ZendeskSDKMessaging-Swift.h</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		R3aSRPAezIXh+k3Dq1Ay0N72JYc=
+		65QpcexZkm1xTdbRm7aaavTkH5k=
 		</data>
 		<key>Localizable/Info.plist</key>
 		<data>
@@ -118,7 +118,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			UJLaJ0GZOjZdQINpt5rgvDfhPnA=
+			pYNt/+0owsoTCey8gKWpGTrTcQM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -136,7 +136,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oVmZ6MXlpP9xGuG+ogJGkSuBs6A=
+			xVU568ozJemK34OjT3T6MNBA4ck=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -145,7 +145,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YrQBlXzVegt9w+YWoVAI2JxXdhk=
+			qED15uheKMmJV4HSBKXixgXXWnQ=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -181,7 +181,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QlL3mN/Zou7n9pez3BXQmTcBKSA=
+			7Uy+EElYdgfp7FcUELs2VYLO9hU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -208,7 +208,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			wdkg5nSX5D1vcNf1D1a239m8FGA=
+			X7w0kwwGFfc73jXbm39OJLxkmGA=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -244,7 +244,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WhSDaeXOaZJKFMOFeqyjtsEaSjg=
+			Ae32PjowENMgQ6o8KdmLUDUfzH8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -253,7 +253,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			kqKscOJzsB4wICPxebcJJCbTNGk=
+			t24BHYVDNugnjzdKdj+iJevuql4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -262,7 +262,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yusEltSDXqRTNsVM7ipG8HzwifM=
+			A2tBIAU2CT2z8yFRybR38Gmdbeg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -271,7 +271,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			AD9i4hJAprC1q0MKJARb1lAGcig=
+			DghcWA55HPp1F/g93w0pJ+dL5I4=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -352,7 +352,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rqEYhaZER9JNq/eGo/xbKLcmS9U=
+			tNMn/SS9ZI6ZKkG99c8lgL1hqFc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -361,7 +361,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			0788b8n2YJFGXQda7hI/XNZ0OOc=
+			p4wW/45UQERSP/0CLdKmL0Zi/9Q=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -370,7 +370,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uLW8elOlgrM9+7O4y3/3zuHFBVc=
+			0GMVI9QyeeIrTrAzzY1dLZBXl8A=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -415,7 +415,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xIxQB77UWZlFQKmTHL8MbLL0Z10=
+			NB+t+FzRaXnMPn+FGzMTvDxQ2WY=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -449,7 +449,7 @@
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		KkXezWb9DehPQnWGzuY4DJJAmUs=
+		B2N5dKguMtsDCXs6d2r3jlVa2V0=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -465,11 +465,11 @@
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		DlQufskeSXTDOzC4N+EKFIlbwjw=
+		qJ/s3lub5zHQiB12INYm5wuP1AM=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		KkXezWb9DehPQnWGzuY4DJJAmUs=
+		B2N5dKguMtsDCXs6d2r3jlVa2V0=
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -485,7 +485,7 @@
 		</data>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		RBoDbokbMGygvAKDQv8xwhZgkvo=
+		0L1qTReFFWuAo0uYtWWBnbwSLXE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -506,7 +506,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			gsca/QTMPR/HKI1Qw0+B8eaWD57179ICLw4uny+ToTE=
+			F0KiSqtGCk/7rH9E0YlcYbXYQVDgprxvscx6j5Zqr4E=
 			</data>
 		</dict>
 		<key>Headers/ZendeskSDKMessaging-Swift.h</key>
@@ -624,7 +624,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			ZYpBzaCXnytpkFoXfAzQSe2+vYkUSdYvZ1gs7g/CQbY=
+			st5RtLv+2QIQqQShCCVX14PZeVPC2ibOw29RUJFYM4w=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -642,7 +642,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kUb/R4oVo38GDLjCBUwwwGcdy3LJqAeEX66h4x6KXP4=
+			+IAwvu1cH7SIvRjm06BXhOfzK4eogPHOUW/pwNE6Jik=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -651,7 +651,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PV5ddltKKv9fhkL6B28v4d3j+YE4nZ5UBFtRRrtarIs=
+			RvK6roxOJT8+Om6SssSngoFs4kGqwNxfGm46c5JeG3k=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -687,7 +687,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			PteJTEhn97IPCMaLxyM3yuIMEOFyneiTqUTB+1LH6IY=
+			Qv1kglZ1Qp3KywbQnlul7thIwjblKKKlb/7GMikTmis=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -714,7 +714,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			0pdvJtOW5DQmqiUh+H22XwwFC9cUx+I2SCkv4o+NEgM=
+			0uYRnKZQmgpzgrjIm+kySlaTJh+WdEshzL7mEPED3Hg=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -750,7 +750,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			YEyjP5QahURwFq1r35ciZx78DjdjDgdUoUWvoFtlGxk=
+			zqTaF3BBqKnLcmQA2HiRrvGC4jSKPljykCZAxlPHAp0=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -759,7 +759,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aoUxhq02nQOSwJ7AkMaJxXA+uwi4QvSqaTG2dWdjK+4=
+			GJH7joKsU6Lbuy5IQowmMqO/61/JVsIf3ByEu8jJk74=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -768,7 +768,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			4tu06T/Eq4ej/Hpz7i9N4QH/KuPAO3KAzNs3ptg493o=
+			trsl0WyLJup10nTCMqrO1dGVwRXmnIRMziKBatoc4wE=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -777,7 +777,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Rz6/lQ6EyUzHEQNLeBOAcQtI5CTotlu2VzQP9PqQYF4=
+			SikHRgdSIk72Y6t69T80W9F59iPKCdcQlcd4ukpgk8E=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -858,7 +858,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			kDJPKxiMY34RLpIT2lujUedX1xCV+BEcvEU044F4y8Q=
+			zxwkTasqn+gxAdChJyKlVxyo6YWt1y+z6TZlM0RG3hc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -867,7 +867,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			eU3huhJQkOy9Hv4k30/XKZGMSf5WaDnEAFMYwOg3DEw=
+			+l55F+lJNMXVwzAk4YM5hilMslbI5FzdXHtI1sDSUwc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -876,7 +876,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			e6N4mufg0yq1VIEtMObVt9xzBmk+ePZqdOh5ejTvURQ=
+			+WCOxzms2k6X1bZlRbHV8Beu0AAuYYYx5oMEB0GozxM=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -921,7 +921,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			EGuIQ04MQgUDJq4XMHuUX9McAIG4+px27hUcIsq2J6A=
+			KJtzBUnCqT7iTykdHj40KbUV4UNq/l0eP8XaMrarIRc=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -957,7 +957,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Lpr1N+KWPxI6jltjPVqEHGVWMmzTzWCYDffe/x3bSpA=
+			MljGWwj/xBNC819nPfuzINNFeAlkOEOJQP5mxFF7MkA=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -985,14 +985,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			z6+/TS6mwWryw5JV61TXKoeiwo4ou7gnPlaXUFC0FV4=
+			L0LoiuzSEibldr0+e+EpRfI8KSqmqbMpeY1LgkTYNow=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Lpr1N+KWPxI6jltjPVqEHGVWMmzTzWCYDffe/x3bSpA=
+			MljGWwj/xBNC819nPfuzINNFeAlkOEOJQP5mxFF7MkA=
 			</data>
 		</dict>
 		<key>Modules/ZendeskSDKMessaging.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -1020,7 +1020,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6BaufgWTl/eoHyHT1iZr4XUVCRqGm2E6RwRECZmnyw4=
+			E0X50dndGJiu/RuLbTKOJ7lGdJX8dtcy0rmgtvpkPcw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

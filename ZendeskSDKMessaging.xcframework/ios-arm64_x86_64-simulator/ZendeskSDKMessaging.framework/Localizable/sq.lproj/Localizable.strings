@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "Agjenti po shkruan";
 "zma_accessibility_loading_label" = "Duke u ngarkuar";
 "zma_accessibility_message_author_replied" = "%@ u përgjigj";
 "zma_accessibility_message_dismiss" = "Hiq";
 "zma_accessibility_message_received" = "Mesazhi i marrë nga %@";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "Duke dërguar";
+"zma_accessibility_message_sent_just_now" = "Mesazhi sapo u dërgua";
 "zma_accessibility_postback_error_message" = "Gabim, %@";
 "zma_action_label_cancel" = "Anulo";
 "zma_actions_attachments_label" = "Dërgo një bashkëngjitje";

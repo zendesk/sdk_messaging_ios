@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "Fulltrúi er að skrifa";
 "zma_accessibility_loading_label" = "Hleður";
 "zma_accessibility_message_author_replied" = "%@ svaraði";
 "zma_accessibility_message_dismiss" = "Hunsa";
 "zma_accessibility_message_received" = "Skilaboð móttekin frá %@";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "Sendir";
+"zma_accessibility_message_sent_just_now" = "Skilaboð send rétt í þessu";
 "zma_accessibility_postback_error_message" = "Villa, %@";
 "zma_action_label_cancel" = "Hætta við";
 "zma_actions_attachments_label" = "Senda viðhengi";

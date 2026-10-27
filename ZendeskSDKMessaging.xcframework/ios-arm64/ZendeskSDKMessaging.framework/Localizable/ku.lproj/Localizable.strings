@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "Nûner dinivîse";
 "zma_accessibility_loading_label" = "Barkirin";
 "zma_accessibility_message_author_replied" = "%@ bersiv da";
 "zma_accessibility_message_dismiss" = "Betalkirin";
 "zma_accessibility_message_received" = "Peyam ji %@ hat wergirtin";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "Şandin";
+"zma_accessibility_message_sent_just_now" = "Peyam vê gavê hat şandin";
 "zma_accessibility_postback_error_message" = "Çewtî, %@";
 "zma_action_label_cancel" = "betalkirin";
 "zma_actions_attachments_label" = "Pêvekek bişîne";

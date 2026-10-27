@@ -1,10 +1,10 @@
-"zma_accessibility_agent_is_typing" = "Agent is typing";
+"zma_accessibility_agent_is_typing" = "ایجنٹ ٹائپ کر رہا ہے";
 "zma_accessibility_loading_label" = "لوڈ کیا جا رہا ہے";
 "zma_accessibility_message_author_replied" = "%@ نے جواب دیا";
 "zma_accessibility_message_dismiss" = "مسترد کریں";
 "zma_accessibility_message_received" = "%@ سے پیغام موصول ہوا";
-"zma_accessibility_message_sending" = "Sending";
-"zma_accessibility_message_sent_just_now" = "Message sent just now";
+"zma_accessibility_message_sending" = "بھیجا جا رہا ہے";
+"zma_accessibility_message_sent_just_now" = "پیغام ابھی بھیج دیا گیا";
 "zma_accessibility_postback_error_message" = "نقص، %@";
 "zma_action_label_cancel" = "منسوخ کریں";
 "zma_actions_attachments_label" = "ایک منسلکہ بھیجیں";
